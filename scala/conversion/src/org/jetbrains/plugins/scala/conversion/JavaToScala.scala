@@ -198,7 +198,7 @@ object JavaToScala {
         else
           Option(s.getCaseLabelElementList)
             .map(it => it.getElements.iterator.map(convertPsiToIntermediate(_, externalProperties)).toSeq)
-            .getOrElse(Seq.empty)
+              .getOrElse(Seq.empty)
         val body : Option[PsiStatement] = s match {
           case rs: PsiSwitchLabeledRuleStatement => Option(rs.getBody)
           case _ => None

@@ -2,7 +2,6 @@ package org.jetbrains.sbt
 package project
 
 import java.io.File
-
 import com.intellij.diagnostic.PluginException
 import com.intellij.execution.configurations.SimpleJavaParameters
 import com.intellij.openapi.application.{ApplicationManager, PathManager}
@@ -20,6 +19,7 @@ import com.intellij.util.net.HttpConfigurable
 import org.jetbrains.android.sdk.AndroidSdkType
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.jps.model.java.JdkVersionDetector
+import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.sbt.project.settings._
 import org.jetbrains.sbt.settings.{SbtExternalSystemConfigurable, SbtSettings}
 
@@ -75,7 +75,7 @@ object SbtExternalSystemManager {
     val linkedProjectSettings = settings.getLinkedProjectSettings(path)
     val projectSettings = Option(linkedProjectSettings).getOrElse(SbtProjectSettings.default)
 
-    val customLauncher = settingsState.customLauncherEnabled.option(settingsState.getCustomLauncherPath).map(_.toFile)
+    val customLauncher = settingsState.customLauncherEnabled.option(settingsState.customLauncherPath).map(_.toFile)
     val customSbtStructureFile = settingsState.customSbtStructurePath.nonEmpty.option(settingsState.customSbtStructurePath.toFile)
 
     val realProjectPath = Option(projectSettings.getExternalProjectPath).getOrElse(path)
@@ -120,7 +120,7 @@ object SbtExternalSystemManager {
     // automatically detect JDK if none is defined
     ApplicationManager.getApplication.invokeAndWait(() => jdkTable.preconfigure())
 
-    val customPath = settings.getCustomVMPath
+    val customPath = settings.customVMPath
     val customVmExecutable =
       if (settings.customVMEnabled && JdkUtil.checkForJre(customPath)) {
         @NonNls val javaExe = if (SystemInfo.isWindows) "java.exe" else "java"
@@ -166,7 +166,7 @@ object SbtExternalSystemManager {
       .flatMap(name => Option(ProjectJdkTable.getInstance().findJdk(name)))
       .flatMap { sdk =>
         try {
-          sdk.getSdkType.isInstanceOf[AndroidSdkType].option(Map("ANDROID_HOME" -> sdk.getSdkModificator.getHomePath))
+          sdk.getSdkType.is[AndroidSdkType].option(Map("ANDROID_HOME" -> sdk.getSdkModificator.getHomePath))
         } catch {
           case _ : PluginException => None
           case _ : NoClassDefFoundError => None
@@ -174,9 +174,9 @@ object SbtExternalSystemManager {
       }.getOrElse(Map.empty)
 
   private def getVmOptions(settings: SbtSettings.State, jreHome: Option[File]): Seq[String] = {
-    @NonNls val userOptions = settings.getVmParameters.split("\\s+").toSeq.filter(_.nonEmpty)
+    @NonNls val userOptions = settings.vmParameters.split("\\s+").toSeq.filter(_.nonEmpty)
 
-    @NonNls val maxHeapSizeString = settings.getMaximumHeapSize.trim
+    @NonNls val maxHeapSizeString = settings.maximumHeapSize.trim
     @NonNls val maxHeapOptions =
       if (maxHeapSizeString.nonEmpty) {
         val maxHeapSize =

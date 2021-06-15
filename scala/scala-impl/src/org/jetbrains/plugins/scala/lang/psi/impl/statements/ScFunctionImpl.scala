@@ -375,9 +375,9 @@ abstract class ScFunctionImpl[F <: ScFunction](stub: ScFunctionStub[F],
       }
     }
     buf match {
-      case List() => this
-      case List(one) => one
-      case head +: _ =>
+      case Nil => this
+      case one :: Nil => one
+      case head :: _ =>
         buf.iterator
           .filter(isSimilarMemberForNavigation(_, strictCheck = true))
           .headOption

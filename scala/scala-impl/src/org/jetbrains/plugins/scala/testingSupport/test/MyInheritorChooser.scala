@@ -11,8 +11,10 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.psi._
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.ui.components.JBList
+
 import javax.swing.ListCellRenderer
 import org.jetbrains.plugins.scala.ScalaBundle
+import org.jetbrains.plugins.scala.extensions.PsiClassExt
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.testingSupport.test.testdata._
 
@@ -94,9 +96,9 @@ private class MyInheritorChooser(
     context: ConfigurationContext,
     performRunnable: Runnable
   ): Unit = {
-    testData.setTestClassPath(aClass.getQualifiedName)
-    config.setName(StringUtil.getShortName(aClass.getQualifiedName) + (testData match {
-      case single: SingleTestData => "." + single.getTestName
+    testData.setTestClassPath(aClass.qualifiedName)
+    config.setName(StringUtil.getShortName(aClass.qualifiedName) + (testData match {
+      case single: SingleTestData => "." + single.testName
       case _ => ""
     }))
     Option(ScalaPsiUtil.getModule(aClass)).foreach(config.setModule)

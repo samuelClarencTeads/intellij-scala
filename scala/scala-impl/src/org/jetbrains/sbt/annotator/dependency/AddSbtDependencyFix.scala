@@ -25,7 +25,6 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
 import org.jetbrains.plugins.scala.project._
-import org.jetbrains.sbt.SbtBundle
 import org.jetbrains.sbt.project.SbtProjectSystem
 import org.jetbrains.sbt.resolvers.{ArtifactInfo, SbtResolver}
 import org.jetbrains.sbt.settings.SbtSettings
@@ -64,7 +63,8 @@ private class AddSbtDependencyFix(refElement: SmartPsiElementPointer[ScReference
       languageLevel <- module.scalaLanguageLevel
 
       filtered = artifacts.filter {
-        case ArtifactInfo(_, artifactId, _) if artifactId != null =>
+        case ArtifactInfo(_, artifactId, _) =>
+          assert(artifactId != null)
           artifactId.endsWith(languageLevel.getVersion)
       }
       if filtered.nonEmpty
