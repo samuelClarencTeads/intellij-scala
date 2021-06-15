@@ -38,7 +38,7 @@ class ReachingDefsTest extends LightJavaCodeInsightFixtureTestCase {
     val builder: ScalaControlFlowBuilder = new ScalaControlFlowBuilder(null, null)
     val instructions = builder.buildControlflow(owner)
 
-    import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs.ReachingDefinitions._
+    import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs.ReachingDefinitions.*
 
     val engine = new DfaEngine(instructions, ReachingDefinitionsInstance, ReachingDefinitionsLattice)
     val markup: mutable.Map[Instruction, Set[Instruction]] = engine.performDFA

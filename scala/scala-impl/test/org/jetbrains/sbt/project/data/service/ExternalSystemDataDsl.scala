@@ -5,7 +5,7 @@ import java.net.URI
 
 import com.intellij.openapi.externalSystem.model.project.LibraryLevel
 import com.intellij.openapi.module.StdModuleTypes
-import org.jetbrains.sbt.project.data._
+import org.jetbrains.sbt.project.data.*
 
 import scala.language.implicitConversions
 
@@ -42,7 +42,7 @@ import scala.language.implicitConversions
  */
 object ExternalSystemDataDsl {
 
-  import DslUtils._
+  import DslUtils.*
 
   trait ProjectAttribute
   trait ModuleAttribute
@@ -72,7 +72,7 @@ object ExternalSystemDataDsl {
     new Attribute[Seq[library]]("libraryDependencies") with ModuleAttribute
 
   val arbitraryNodes =
-    new Attribute[Seq[Node[_]]]("arbitraryNodes") with ProjectAttribute with ModuleAttribute with LibraryAttribute
+    new Attribute[Seq[Node[?]]]("arbitraryNodes") with ProjectAttribute with ModuleAttribute with LibraryAttribute
 
   class project {
 
@@ -120,9 +120,9 @@ object ExternalSystemDataDsl {
 
     private val attributes = new AttributeMap
 
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with ProjectAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & ProjectAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with ProjectAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & ProjectAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 
@@ -156,9 +156,9 @@ object ExternalSystemDataDsl {
 
     private val attributes = new AttributeMap
 
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with ModuleAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & ModuleAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with ModuleAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & ModuleAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 
@@ -175,9 +175,9 @@ object ExternalSystemDataDsl {
 
     private val attributes = new AttributeMap
 
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with LibraryAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & LibraryAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with LibraryAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & LibraryAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 }

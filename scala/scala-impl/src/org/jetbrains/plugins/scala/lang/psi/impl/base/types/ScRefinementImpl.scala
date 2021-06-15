@@ -8,7 +8,7 @@ package types
 import com.intellij.lang.ASTNode
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.{PsiElement, ResolveState}
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 
 /** 
 * @author Alexander Podkhalyuzin

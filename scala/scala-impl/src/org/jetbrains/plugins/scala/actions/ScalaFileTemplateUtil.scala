@@ -4,7 +4,7 @@ import java.util.Properties
 
 import com.intellij.ide.fileTemplates.FileTemplate
 import com.intellij.psi.{PsiClass, PsiMethod}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 /**
  * @author Alefas

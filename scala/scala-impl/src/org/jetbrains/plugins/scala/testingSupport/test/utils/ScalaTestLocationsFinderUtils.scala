@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.testingSupport.test.utils
 
 import com.intellij.openapi.progress.ProgressManager
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 
 private[testingSupport]

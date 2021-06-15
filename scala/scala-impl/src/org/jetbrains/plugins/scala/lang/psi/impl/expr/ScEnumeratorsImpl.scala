@@ -5,11 +5,11 @@ package impl
 package expr
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
-import com.intellij.psi.scope._
+import com.intellij.psi.*
+import com.intellij.psi.scope.*
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScPattern
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.BaseProcessor
 
 import scala.collection.immutable.ArraySeq

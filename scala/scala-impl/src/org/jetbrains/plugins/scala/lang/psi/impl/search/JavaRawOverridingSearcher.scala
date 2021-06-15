@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.psi.impl.search
 
 import com.intellij.openapi.util.Pair
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.{LightMethod, LightParameter, LightParameterListBuilder}
 import com.intellij.psi.impl.search.JavaOverridingMethodsSearcher
 import com.intellij.psi.impl.source.PsiMethodImpl
@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.ScalaLanguage
 import org.jetbrains.plugins.scala.extensions.{PsiElementExt, PsiMemberExt, PsiTypeExt, inReadAction}
 import org.jetbrains.plugins.scala.finder.ScalaFilterScope
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
-import org.jetbrains.plugins.scala.lang.psi.impl.search.JavaRawOverridingSearcher._
+import org.jetbrains.plugins.scala.lang.psi.impl.search.JavaRawOverridingSearcher.*
 import org.jetbrains.plugins.scala.lang.psi.light.ScFunctionWrapper
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
 * Raw types from java are viewed as existential types by scalac, but java overrider search doesn't know about that.
 * */
 class JavaRawOverridingSearcher extends QueryExecutor[PsiMethod, OverridingMethodsSearch.SearchParameters] {
-  override def execute(qParams: OverridingMethodsSearch.SearchParameters, consumer: Processor[_ >: PsiMethod]): Boolean = {
+  override def execute(qParams: OverridingMethodsSearch.SearchParameters, consumer: Processor[? >: PsiMethod]): Boolean = {
     val method = qParams.getMethod
     method match {
       case m: PsiMethodImpl if hasRawTypeParam(m) =>
@@ -52,7 +52,7 @@ class JavaRawOverridingSearcher extends QueryExecutor[PsiMethod, OverridingMetho
 
 class JavaRawAllOverridingSearcher extends QueryExecutor[Pair[PsiMethod, PsiMethod], AllOverridingMethodsSearch.SearchParameters] {
   override def execute(qParams: AllOverridingMethodsSearch.SearchParameters,
-                       consumer: Processor[_ >: Pair[PsiMethod, PsiMethod]]): Boolean = {
+                       consumer: Processor[? >: Pair[PsiMethod, PsiMethod]]): Boolean = {
 
     val clazz = qParams.getPsiClass
     val potentials = inReadAction {

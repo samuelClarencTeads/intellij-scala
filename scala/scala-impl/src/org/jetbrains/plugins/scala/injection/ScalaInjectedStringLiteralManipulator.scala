@@ -5,8 +5,8 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.psi.AbstractElementManipulator
 import com.intellij.util.IncorrectOperationException
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.impl._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.impl.*
 
 /**
   * User: Dmitry.Naydanov

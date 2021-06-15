@@ -10,7 +10,7 @@ import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.AnnotatedElementsSearch
 import com.intellij.psi.{PsiField, PsiMember, PsiModifier}
 import com.intellij.util.{Processor, QueryExecutor}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotation, ScAnnotations}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScValueOrVariable
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -50,11 +50,11 @@ class ScalaAnnotatedMembersSearcher extends QueryExecutor[PsiMember, AnnotatedEl
         anchor.name,
         anchor.`type`().getOrAny,
         containingTypeDef,
-        javaModifiers.toSeq: _*
+        javaModifiers.toSeq*
       )
     }
 
-  override def execute(p: AnnotatedElementsSearch.Parameters, consumer: Processor[_ >: PsiMember]): Boolean = {
+  override def execute(p: AnnotatedElementsSearch.Parameters, consumer: Processor[? >: PsiMember]): Boolean = {
     val annClass = p.getAnnotationClass
     assert(annClass.isAnnotationType, "Annotation type should be passed to annotated members search")
     val annotationFQN = annClass.qualifiedName
@@ -67,7 +67,7 @@ class ScalaAnnotatedMembersSearcher extends QueryExecutor[PsiMember, AnnotatedEl
           case _ => return true
         }
 
-        import ScalaIndexKeys._
+        import ScalaIndexKeys.*
         val iter = ANNOTATED_MEMBER_KEY.elements(annClass.name, scope)(annClass.getProject)
             .iterator
         while (iter.hasNext) {

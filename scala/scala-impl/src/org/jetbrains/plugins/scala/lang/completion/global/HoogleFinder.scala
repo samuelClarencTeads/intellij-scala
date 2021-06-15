@@ -5,7 +5,7 @@ package global
 
 import com.intellij.codeInsight.completion.{InsertHandler, InsertionContext}
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder, LookupElementPresentation, LookupElementRenderer}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScMethodCall, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
@@ -19,7 +19,7 @@ private final class HoogleFinder(originalType: ScType,
                                  accessAll: Boolean)
   extends ByTypeGlobalMembersFinder(originalType, place, accessAll) {
 
-  import HoogleFinder._
+  import HoogleFinder.*
 
   private val valueType = toValueType(originalType)
 

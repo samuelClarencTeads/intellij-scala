@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.openapi.project.Project
 import com.intellij.patterns.PlatformPatterns.psiElement
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.getContextOfType
 import com.intellij.util.{Consumer, ProcessingContext}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.{tMULTILINE_STRING, tSTRING}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.withCompanionModule
@@ -25,7 +25,7 @@ import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 
 class ScalaClassNameCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaClassNameCompletionContributor._
+  import ScalaClassNameCompletionContributor.*
 
   extend(
     CompletionType.BASIC,
@@ -60,8 +60,8 @@ class ScalaClassNameCompletionContributor extends ScalaCompletionContributor {
 
 object ScalaClassNameCompletionContributor {
 
-  import ScalaAfterNewCompletionContributor._
-  import ScalaCompletionUtil._
+  import ScalaAfterNewCompletionContributor.*
+  import ScalaCompletionUtil.*
 
   private[this] final case class CompletionState(place: PsiElement,
                                                  invocationCount: Int,
@@ -172,7 +172,7 @@ object ScalaClassNameCompletionContributor {
     implicit val state: CompletionState = CompletionState(position, invocationCount, isInSimpleString)(context)
     val maybeConstructor = expectedTypeAfterNew(dummyPosition, context)
 
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
 
     val QualNameToType = StdTypes.instance.QualNameToType
     val syntheticLookupElements = for {
@@ -218,7 +218,7 @@ object ScalaClassNameCompletionContributor {
     }
 
     val lookupElements = for {
-      (element, name) <- state.renamesMap.values
+      case (element, name) <- state.renamesMap.values
       if prefixMatcher.prefixMatches(name)
       if !prefixMatcher.prefixMatches(element.name)
 

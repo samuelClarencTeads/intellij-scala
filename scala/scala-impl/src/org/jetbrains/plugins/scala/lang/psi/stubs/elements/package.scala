@@ -4,7 +4,7 @@ package psi
 package stubs
 
 import com.intellij.psi.PsiElement
-import com.intellij.psi.stubs._
+import com.intellij.psi.stubs.*
 import com.intellij.util.{ArrayFactory, ArrayUtil}
 import org.jetbrains.plugins.scala.extensions.{ArrayExt, IterableExt}
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil

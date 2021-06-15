@@ -11,13 +11,13 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScConstructorInvocation
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateParents
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.{createConstructorFromText, createTypeElementFromText}
-import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScTemplateParentsStubImpl._
+import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScTemplateParentsStubImpl.*
 
 /**
   * User: Alexander Podkhalyuzin
   */
-final class ScTemplateParentsStubImpl(parent: StubElement[_ <: PsiElement],
-                                      elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+final class ScTemplateParentsStubImpl(parent: StubElement[? <: PsiElement],
+                                      elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                                       override val parentTypesTexts: Array[String],
                                       override val constructorText: Option[String])
   extends StubBase[ScTemplateParents](parent, elementType) with ScTemplateParentsStub with PsiOwner[ScTemplateParents] {

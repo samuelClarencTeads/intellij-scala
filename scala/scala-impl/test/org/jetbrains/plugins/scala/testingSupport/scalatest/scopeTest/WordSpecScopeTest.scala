@@ -13,7 +13,7 @@ trait WordSpecScopeTest extends WordSpecGenerator {
 
     val path1 = TestNodePath("[root]", wordSpecClassName, "WordSpecTest", "Run single test")
     val path2 = TestNodePath("[root]", wordSpecClassName, "WordSpecTest", "ignore other tests")
-    runTestByLocation(loc(wordSpecFileName, 3, 10), assertConfigAndSettings(_, wordSpecClassName, testNames:_*),
+    runTestByLocation(loc(wordSpecFileName, 3, 10), assertConfigAndSettings(_, wordSpecClassName, testNames*),
       root => {
         assertResultTreeHasExactNamedPaths(root)(Seq(path1, path2))
         assertResultTreeDoesNotHaveNodes(root, "outer")

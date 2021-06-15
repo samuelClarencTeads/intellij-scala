@@ -11,13 +11,13 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createTy
 import org.jetbrains.plugins.scala.lang.psi.impl.base.patterns.ScInterpolationPatternImpl
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScMethodCallImpl
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.nowarn
 import scala.meta.{Dialect, ScalaMetaBundle}
-import scala.meta._
+import scala.meta.*
 import scala.meta.inputs.Input
 import scala.meta.parsers.{ParseException, Parsed}
 
@@ -27,7 +27,7 @@ import scala.meta.parsers.{ParseException, Parsed}
   */
 object QuasiquoteInferUtil {
 
-  import scala.{meta => m}
+  import scala.{meta as m}
 
   def isMetaQQ(ref: ScReference): Boolean = {
     ref.bind() match {
@@ -160,7 +160,7 @@ object QuasiquoteInferUtil {
       str.replaceAll("^\"", "").replaceAll("\"$", "")
   }
 
-  private def classToScTypeString(c: Class[_]): String = {
+  private def classToScTypeString(c: Class[?]): String = {
     if (c.isArray) {
       s"scala.collection.immutable.Seq[${classToScTypeString(c.getComponentType)}]"
     } else {

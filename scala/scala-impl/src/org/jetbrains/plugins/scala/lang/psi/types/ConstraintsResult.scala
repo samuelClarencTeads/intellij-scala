@@ -6,7 +6,7 @@ package types
 import com.intellij.openapi.util.Ref
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, IteratorExt}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.TypeParamId
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate.{ProcessSubtypes, ReplaceWith, Stop}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -100,8 +100,8 @@ private final case class ConstraintSystemImpl(upperMap: LongMap[Set[ScType]],
                                               additionalIds: Set[Long])
   extends ConstraintSystem {
 
-  import ConstraintSystem._
-  import ConstraintSystemImpl._
+  import ConstraintSystem.*
+  import ConstraintSystemImpl.*
 
   private[this] var substWithBounds: Option[SubstitutionBounds] = _
 
@@ -223,7 +223,7 @@ private final case class ConstraintSystemImpl(upperMap: LongMap[Set[ScType]],
       }
     }
 
-    for ((id, _) <- upperMap.iterator ++ lowerMap.iterator) {
+    for (case (id, _) <- upperMap.iterator ++ lowerMap.iterator) {
       if (!solve(Set.empty)(id) && canThrowSCE) return None
     }
 

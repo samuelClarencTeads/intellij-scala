@@ -12,7 +12,7 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.progress.{ProgressIndicator, ProgressManager}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.EmptyRunnable
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
@@ -20,9 +20,9 @@ import com.intellij.util.containers.ContainerUtil
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.editor.ScalaEditorBundle
 import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
-import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings._
+import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScReference, ScStableCodeReference}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScFor, ScMethodCall}
@@ -42,11 +42,11 @@ import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 import scala.annotation.{nowarn, tailrec}
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaImportOptimizer extends ImportOptimizer {
 
-  import org.jetbrains.plugins.scala.editor.importOptimizer.ScalaImportOptimizer._
+  import org.jetbrains.plugins.scala.editor.importOptimizer.ScalaImportOptimizer.*
 
   protected def settings(file: PsiFile): OptimizeImportSettings = OptimizeImportSettings(file)
 
@@ -155,7 +155,7 @@ class ScalaImportOptimizer extends ImportOptimizer {
             sameInfosWithUpdatedRanges()
           else optimized
 
-        for ((range, importInfos) <- ranges.reverseIterator) {
+        for (case (range, importInfos) <- ranges.reverseIterator) {
           replaceWithNewImportInfos(range, importInfos, importsSettings, scalaFile)
         }
         documentManager.commitDocument(document)
@@ -189,7 +189,7 @@ class ScalaImportOptimizer extends ImportOptimizer {
 
     val textCreator = getImportTextCreator
     val fileText = file.getText
-    import settings._
+    import settings.*
 
     @tailrec
     def indentForOffset(index: Int, res: String = ""): String = {
@@ -365,7 +365,7 @@ object ScalaImportOptimizer {
                                   spacesInImports: Boolean,
                                   isScala3OrSource3: Boolean,
                                   nameOrdering: Option[Ordering[String]]): ImportTextData = {
-      import importInfo._
+      import importInfo.*
 
       val groupStrings = new ArrayBuffer[String]
 
@@ -418,15 +418,15 @@ object ScalaImportOptimizer {
   }
 
   def optimizedImportInfos(rangeInfo: RangeInfo, settings: OptimizeImportSettings): Seq[ImportInfo] = {
-    import settings._
+    import settings.*
     val RangeInfo(firstPsi, _, importInfos, usedImportedNames, isLocalRange) = rangeInfo
 
-    val buffer = ArrayBuffer(importInfos: _*)
+    val buffer = ArrayBuffer(importInfos*)
 
     val needReplaceWithFqnImports = addFullQualifiedImports && !(isLocalRange && isLocalImportsCanBeRelative)
 
     if (needReplaceWithFqnImports) {
-      for ((info, i) <- importInfos.zipWithIndex) {
+      for (case (info, i) <- importInfos.zipWithIndex) {
         buffer(i) = basePackage match {
           case Some(base) if (info.prefixQualifier + ".").startsWith(base + ".") =>
             info.copy(relative = Some(info.prefixQualifier.substring(base.length + 1)))
@@ -549,7 +549,7 @@ object ScalaImportOptimizer {
     }
 
     def updateWithWildcardNames(buffer: mutable.Buffer[ImportInfo]): Unit = {
-      for ((info, idx) <- buffer.zipWithIndex) {
+      for (case (info, idx) <- buffer.zipWithIndex) {
         val withWildcardNames = info.withAllNamesForWildcard(rangeStartPsi)
         if (info != withWildcardNames) {
           buffer.update(idx, withWildcardNames)
@@ -589,7 +589,7 @@ object ScalaImportOptimizer {
       else info
     }
 
-    for ((info, i) <- infos.zipWithIndex) {
+    for (case (info, i) <- infos.zipWithIndex) {
       val newInfo = possiblyWithWildcard(info)
       if (info != newInfo)
         infos.update(i, newInfo)
@@ -597,7 +597,7 @@ object ScalaImportOptimizer {
   }
 
   def insertImportInfos(infosToAdd: collection.Seq[ImportInfo], infos: collection.Seq[ImportInfo], rangeStart: PsiAnchor, settings: OptimizeImportSettings): collection.Seq[ImportInfo] = {
-    import settings._
+    import settings.*
 
     def addLastAndMoveUpwards(newInfo: ImportInfo, buffer: mutable.Buffer[ImportInfo]): Unit = {
       var i = buffer.size
@@ -625,7 +625,7 @@ object ScalaImportOptimizer {
       for {
         oldInfo <- infos
         renamerPrefix = oldInfo.prefixQualifier
-        (name, newName) <- oldInfo.renames
+        case (name, newName) <- oldInfo.renames
       } {
         val oldPrefix = s"$renamerPrefix.$name"
         if (info.prefixQualifier.startsWith(oldPrefix)) {

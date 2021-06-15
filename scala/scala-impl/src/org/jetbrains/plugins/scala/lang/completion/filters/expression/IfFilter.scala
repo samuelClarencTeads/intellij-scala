@@ -3,12 +3,12 @@ package lang
 package completion
 package filters.expression
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.parser._
+import org.jetbrains.plugins.scala.lang.parser.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
 
 /** 
@@ -24,7 +24,7 @@ class IfFilter extends ElementFilter {
       var parent = leaf.getParent
       while (parent != null) {
         if (parent.getNode.getElementType == ScalaElementType.FOR_STMT) {
-          import org.jetbrains.plugins.scala.extensions._
+          import org.jetbrains.plugins.scala.extensions.*
           if (leaf.getParent != null && //reference
               leaf.getParent.getParent != null &&  //pattern
               leaf.getParent.getParent.getPrevSiblingNotWhitespace != null && //case keyword
@@ -50,7 +50,7 @@ class IfFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = {
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = {
     true
   }
 

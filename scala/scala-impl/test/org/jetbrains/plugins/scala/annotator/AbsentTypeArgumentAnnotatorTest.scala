@@ -42,7 +42,7 @@ class AbsentTypeArgumentAnnotatorTest extends AnnotatorSimpleTestCase {
       case Nil =>
     }
 
-    assertMatches(messages("val x: A1[_] = null")){
+    assertMatches(messages("val x: A1[?] = null")){
       case Nil =>
     }
   }
@@ -92,7 +92,7 @@ class AbsentTypeArgumentAnnotatorTest extends AnnotatorSimpleTestCase {
       case List(Error(_, "Type A1 takes type parameters")) =>
     }
 
-    assertMatches(messages("val x: A2[A0, A1[_]] = null")){
+    assertMatches(messages("val x: A2[A0, A1[?]] = null")){
       case Nil =>
     }
   }
@@ -110,7 +110,7 @@ class AbsentTypeArgumentAnnotatorTest extends AnnotatorSimpleTestCase {
       case List(Error(_, "Type A1 takes type parameters")) =>
     }
 
-    assertMatches(messages("val x: Any = null; x match { case _: A1[_] => }")) {
+    assertMatches(messages("val x: Any = null; x match { case _: A1[?] => }")) {
       case Nil =>
     }
 

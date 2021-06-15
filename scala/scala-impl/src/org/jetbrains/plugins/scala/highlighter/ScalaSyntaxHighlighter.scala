@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.scala
 package highlighter
 
-import java.{util => ju}
+import java.{util as ju}
 import org.jetbrains.plugins.scala.lang.TokenSets.TokenSetExt
-import com.intellij.lexer._
+import com.intellij.lexer.*
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.{SyntaxHighlighter, SyntaxHighlighterBase}
 import com.intellij.psi.tree.{IElementType, TokenSet}
@@ -31,7 +31,7 @@ final class ScalaSyntaxHighlighter(
   htmlHighlighter: SyntaxHighlighter
 ) extends SyntaxHighlighterBase {
 
-  import ScalaSyntaxHighlighter._
+  import ScalaSyntaxHighlighter.*
 
   override def getHighlightingLexer: LayeredLexer =
     new CompoundLexer(
@@ -50,9 +50,9 @@ final class ScalaSyntaxHighlighter(
 object ScalaSyntaxHighlighter {
 
   import ScalaDocElementTypes.SCALA_DOC_COMMENT
-  import ScalaDocTokenType._
-  import ScalaTokenTypes._
-  import ScalaXmlTokenTypes._
+  import ScalaDocTokenType.*
+  import ScalaTokenTypes.*
+  import ScalaXmlTokenTypes.*
 
   // Comments
   private val tLINE_COMMENTS = TokenSet.create(tLINE_COMMENT)
@@ -164,7 +164,7 @@ object ScalaSyntaxHighlighter {
   )
 
   private val Attributes0: Map[IElementType, TextAttributesKey] = {
-    import DefaultHighlighter._
+    import DefaultHighlighter.*
     attributesMap(
       tXML_TAG -> XML_TAG,
       tXML_TAG_NAME -> XML_TAG,
@@ -174,7 +174,7 @@ object ScalaSyntaxHighlighter {
   }
 
   private val Attributes: Map[IElementType, TextAttributesKey] = {
-    import DefaultHighlighter._
+    import DefaultHighlighter.*
     attributesMap(
       tLINE_COMMENTS -> LINE_COMMENT,
       tBLOCK_COMMENTS -> BLOCK_COMMENT,
@@ -223,7 +223,7 @@ object ScalaSyntaxHighlighter {
 
   private def attributesMap(attributes: (TokenSet, TextAttributesKey)*): Map[IElementType, TextAttributesKey] = {
     val elementTypesAttributes: Seq[(IElementType, TextAttributesKey)] = for {
-      (tokenSet, key) <- attributes
+      case (tokenSet, key) <- attributes
       typ  <- tokenSet.getTypes
     } yield typ -> key
 
@@ -416,7 +416,7 @@ object ScalaSyntaxHighlighter {
 
   private class ScalaDocLexerHighlightingWrapper(delegate: Lexer) extends DelegateLexer(delegate) {
 
-    import ScalaDocLexerHighlightingWrapper._
+    import ScalaDocLexerHighlightingWrapper.*
 
     private val elements = new ju.Stack[IElementType]
 

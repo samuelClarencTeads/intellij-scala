@@ -8,7 +8,7 @@ package typedef
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.impl.light.LightIdentifier
 import com.intellij.psi.{PsiElement, PsiFile, PsiIdentifier}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameters, ScTypeParamClause}

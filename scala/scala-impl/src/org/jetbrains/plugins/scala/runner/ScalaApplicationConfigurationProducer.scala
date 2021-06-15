@@ -3,14 +3,14 @@ package runner
 
 import java.lang.Boolean.TRUE
 
-import com.intellij.execution._
+import com.intellij.execution.*
 import com.intellij.execution.actions.{ConfigurationContext, ConfigurationFromContext, RunConfigurationProducer}
 import com.intellij.execution.application.{ApplicationConfiguration, ApplicationConfigurationProducer, ApplicationConfigurationType}
 import com.intellij.execution.impl.RunManagerImpl
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.util.{Key, Ref}
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.macroAnnotations.Measure
@@ -91,13 +91,13 @@ abstract class BaseScalaApplicationConfigurationProducer[T <: ApplicationConfigu
     else false
   }
 
-  private def sameModule(configuration: T, location: Location[_ <: PsiElement]): Boolean = {
+  private def sameModule(configuration: T, location: Location[? <: PsiElement]): Boolean = {
     val module = configuration.getConfigurationModule.getModule
     val predefinedModule = getPredefinedModule(location)
     location.getModule == module || predefinedModule == module
   }
 
-  private def getPredefinedModule(location: Location[_ <: PsiElement]): Module = {
+  private def getPredefinedModule(location: Location[? <: PsiElement]): Module = {
     val manager = RunManagerEx.getInstanceEx(location.getProject).asInstanceOf[RunManagerImpl]
     val template = manager.getConfigurationTemplate(getConfigurationFactory)
     template.getConfiguration.asInstanceOf[T].getConfigurationModule.getModule
@@ -136,7 +136,7 @@ abstract class BaseScalaApplicationConfigurationProducer[T <: ApplicationConfigu
     mainClassName: String,
     element: PsiElement,
     context: ConfigurationContext,
-    location: Location[_ <: PsiElement],
+    location: Location[? <: PsiElement],
     configuration: T
   ): Unit = {
     configuration.setMainClassName(mainClassName)

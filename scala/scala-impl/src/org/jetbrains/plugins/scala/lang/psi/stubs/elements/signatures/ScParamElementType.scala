@@ -31,7 +31,7 @@ abstract class ScParamElementType[P <: ScParameter](debugName: String) extends S
     dataStream.writeNames(stub.implicitClassNames)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScParameterStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScParameterStub =
     new ScParameterStubImpl(parentStub, this,
       name = dataStream.readNameString,
       typeText = dataStream.readOptionName,
@@ -45,7 +45,7 @@ abstract class ScParamElementType[P <: ScParameter](debugName: String) extends S
       deprecatedName = dataStream.readOptionName,
       implicitClassNames = dataStream.readNames)
 
-  override def createStubImpl(parameter: ScParameter, parentStub: StubElement[_ <: PsiElement]): ScParameterStub = {
+  override def createStubImpl(parameter: ScParameter, parentStub: StubElement[? <: PsiElement]): ScParameterStub = {
     val typeText = parameter.typeElement.map {
       _.getText
     }

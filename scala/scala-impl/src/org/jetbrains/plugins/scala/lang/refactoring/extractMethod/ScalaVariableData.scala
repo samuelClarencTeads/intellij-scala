@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiParameter
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.refactoring.ScTypePresentationExt
-import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ScalaVariableData._
+import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ScalaVariableData.*
 
 /**
  * Nikolay.Tropin

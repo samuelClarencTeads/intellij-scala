@@ -20,7 +20,7 @@ private final class LocallyImportableMembersFinder(place: ScReferenceExpression,
                                                    accessAll: Boolean)
   extends ByPlaceGlobalMembersFinder(place, accessAll) {
 
-  import LocallyImportableMembersFinder._
+  import LocallyImportableMembersFinder.*
 
   override protected[global] def candidates: Iterable[GlobalMemberResult] =
     importableCandidates(LocallyImportableMemberResult) ++
@@ -57,7 +57,7 @@ private final class LocallyImportableMembersFinder(place: ScReferenceExpression,
                                                          override val classToImport: PsiClass)
     extends GlobalMemberResult(elementToImport, classToImport)(NameAvailability) {
 
-    import NameAvailabilityState._
+    import NameAvailabilityState.*
 
     private[global] override def isApplicable: Boolean =
       super.isApplicable &&

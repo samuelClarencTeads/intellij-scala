@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
 import org.jetbrains.plugins.scala.lang.psi.TypeAdjuster
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScVariableDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.{createDefinitionWithContext, createNewLine}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
   * Nikolay.Tropin
@@ -26,7 +26,7 @@ object ScalaGeneratePropertyAction {
 
   private[generation] final class Handler extends ScalaCodeInsightActionHandler {
 
-    import Handler._
+    import Handler.*
 
     override def isValidFor(editor: Editor, file: PsiFile): Boolean =
       super.isValidFor(editor, file) && findValidVariableDefinition(editor, file).isDefined

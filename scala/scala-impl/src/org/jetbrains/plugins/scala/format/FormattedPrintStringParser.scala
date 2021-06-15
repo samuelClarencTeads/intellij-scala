@@ -19,13 +19,13 @@ object FormattedPrintStringParser extends StringParser {
   def extractPrintCall(element: PsiElement): Option[(ScStringLiteral, Seq[ScExpression])] = Some(element) collect {
     // printf("%d", 1)
     case MethodInvocation(PsiReferenceEx.resolve((f: ScFunction) &&
-      ContainingClass(owner: ScObject)), Seq(literal: ScStringLiteral, args @  _*))
+      ContainingClass(owner: ScObject)), Seq(literal: ScStringLiteral, args*))
       if isPrintfMethod(owner.qualifiedName, f.name) =>
       (literal, args)
 
     // System.out.printf("%d", 1)
     case MethodInvocation(PsiReferenceEx.resolve((f: PsiMethod) &&
-      ContainingClass(owner: PsiClass)), Seq(literal: ScStringLiteral, args @  _*))
+      ContainingClass(owner: PsiClass)), Seq(literal: ScStringLiteral, args*))
       if isPrintStreamPrintfMethod(owner.qualifiedName, f.getName) =>
       (literal, args)
   }

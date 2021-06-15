@@ -1,10 +1,10 @@
 package scala.meta.intellij
 
-import java.io._
+import java.io.*
 import java.lang.reflect.InvocationTargetException
 import java.net.URL
 
-import com.intellij.openapi.compiler._
+import com.intellij.openapi.compiler.*
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.progress.{ProcessCanceledException, ProgressManager}
 import com.intellij.openapi.project.Project
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTyp
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 import org.jetbrains.plugins.scala.project.ScalaLanguageLevel.Scala_2_12
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.meta.parsers.Parse
 import scala.meta.trees.{AbortException, ScalaMetaException, TreeConverter}
 import scala.meta.{Dialect, ScalaMetaBundle, Tree}
@@ -31,7 +31,7 @@ import scala.reflect.internal.util.ScalaClassLoader.URLClassLoader
   * @since 20.09.16
   */
 class MetaExpansionsManager {
-  import org.jetbrains.plugins.scala.project._
+  import org.jetbrains.plugins.scala.project.*
 
   import MetaExpansionsManager.META_MAJOR_VERSION
 
@@ -43,7 +43,7 @@ class MetaExpansionsManager {
     module.libraries.filter(_.getName.contains("org.scalameta")).toSeq
   }
 
-  def getCompiledMetaAnnotClass(annot: ScAnnotation): Option[Class[_]] = {
+  def getCompiledMetaAnnotClass(annot: ScAnnotation): Option[Class[?]] = {
 
     def toUrl(f: VirtualFile) = new File(f.getPath.replaceAll("!", "")).toURI.toURL
     def pluginCP = new URL(getClass.getResource(".").toString
@@ -115,11 +115,11 @@ object MetaExpansionsManager {
 
   def getInstance(project: Project): MetaExpansionsManager = project.getService(classOf[MetaExpansionsManager])
 
-  def getCompiledMetaAnnotClass(annot: ScAnnotation): Option[Class[_]] = getInstance(annot.getProject).getCompiledMetaAnnotClass(annot)
+  def getCompiledMetaAnnotClass(annot: ScAnnotation): Option[Class[?]] = getInstance(annot.getProject).getCompiledMetaAnnotClass(annot)
 
   def isUpToDate(annot: ScAnnotation): Boolean = getCompiledMetaAnnotClass(annot).exists(c => isUpToDate(annot, c))
 
-  def isUpToDate(annot: ScAnnotation, clazz: Class[_]): Boolean = {
+  def isUpToDate(annot: ScAnnotation, clazz: Class[?]): Boolean = {
     try {
       val classFile = new File(clazz.getProtectionDomain.getCodeSource.getLocation.getPath, s"${clazz.getName.replaceAll("\\.", "/")}.class")
       val sourceFile = new File(annot.constructorInvocation.reference.get.resolve().getContainingFile.getVirtualFile.getPath)
@@ -178,9 +178,9 @@ object MetaExpansionsManager {
   // annotations runs inside a separate classloader to avoid conflicts of different meta versions on classpath
   // same Scala version allows use of java serialization which is faster than parsing trees from strings
   @deprecated("Seems to cause issues in 1.7.0", "1.7.0")
-  private def runAdapterBinary(clazz: Class[_], args: Seq[AnyRef]): Tree = {
+  private def runAdapterBinary(clazz: Class[?], args: Seq[AnyRef]): Tree = {
     val runner = clazz.getClassLoader.loadClass(classOf[MetaAnnotationRunner].getName)
-    val method = runner.getDeclaredMethod("run", classOf[Class[_]], Integer.TYPE, classOf[Array[Byte]])
+    val method = runner.getDeclaredMethod("run", classOf[Class[?]], Integer.TYPE, classOf[Array[Byte]])
     val arrayOutputStream = new ByteArrayOutputStream(2048)
     var objectOutputStream: ObjectOutputStream = null
     try {
@@ -203,9 +203,9 @@ object MetaExpansionsManager {
 
   // use if major Scala versions are different - binary serializations is unavaliable, using String parsing insead
   // parsing trees is very expensive - so this the most performance costly method and should be disableable
-  private def runAdapterString(clazz: Class[_], args: Seq[AnyRef]): Tree = {
+  private def runAdapterString(clazz: Class[?], args: Seq[AnyRef]): Tree = {
     val runner = clazz.getClassLoader.loadClass(classOf[MetaAnnotationRunner].getName)
-    val method = runner.getDeclaredMethod("runString", classOf[Class[_]], classOf[Array[String]])
+    val method = runner.getDeclaredMethod("runString", classOf[Class[?]], classOf[Array[String]])
     val convertedArgs = args.map(_.toString).toArray
     val result = try {
       method.invoke(null, clazz, convertedArgs).toString
@@ -217,7 +217,7 @@ object MetaExpansionsManager {
   }
 
   // if both scala.meta and Scala major versions are compatible, we can invoke the annotation directly
-  private def runDirect(clazz: Class[_], args: Seq[AnyRef]): Tree = {
+  private def runDirect(clazz: Class[?], args: Seq[AnyRef]): Tree = {
     val ctor = clazz.getDeclaredConstructors.head
     ctor.setAccessible(true)
     val inst = ctor.newInstance()
@@ -227,7 +227,7 @@ object MetaExpansionsManager {
       )
     method.setAccessible(true)
     try {
-      method.invoke(inst, args: _*).asInstanceOf[Tree]
+      method.invoke(inst, args*).asInstanceOf[Tree]
     } catch {
       case e: InvocationTargetException => throw new MetaWrappedException(e.getTargetException)
     }
@@ -235,7 +235,7 @@ object MetaExpansionsManager {
 
   // TODO: undo other paradise compatibility hacks
   def fixTree(tree: Tree): Tree = {
-    import scala.meta._
+    import scala.meta.*
     def fixParents(parents: List[Init]): List[Init] = parents.map {
       case Term.Apply(ctor: Init, Nil) => ctor;
       case x => x

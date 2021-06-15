@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.codeInsight.implicits
 
 class ImplicitArgumentHintsTest extends ImplicitHintsTestBase {
-  import Hint.{End => E, Start => S}
+  import Hint.{End as E, Start as S}
 
   def testSimpleImplicitArgument(): Unit = doTest(
     s"""

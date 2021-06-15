@@ -5,8 +5,8 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScInfixElement, ScParenthesizedElement}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScParenthesisedExpr, ScSugarCallExpr}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterType

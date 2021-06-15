@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.extensions
 
 import junit.framework.TestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class IteratorExtTest extends TestCase {
 

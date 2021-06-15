@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.externalLibraries.estaticoNewtype
 
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter._
+import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter.*
 import org.jetbrains.plugins.scala.base.libraryLoaders.{IvyManagedLoader, LibraryLoader}
-import org.jetbrains.plugins.scala.lang.macros.SynteticInjectorsTestUtils._
+import org.jetbrains.plugins.scala.lang.macros.SynteticInjectorsTestUtils.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 
 class NewTypeTest extends ScalaLightCodeInsightFixtureTestAdapter {

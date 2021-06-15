@@ -6,14 +6,14 @@ import com.intellij.psi.PsiFile
 import org.jetbrains.plugins.scala.base.SharedTestProjectToken
 import org.jetbrains.plugins.scala.{LatestScalaVersions, ScalaVersion}
 import org.jetbrains.plugins.scala.codeInspection.feature.{LanguageFeatureInspection, LanguageFeatureInspectionTestBase}
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.settings.{ScalaCompilerConfiguration, ScalaCompilerSettingsProfile}
 import org.jetbrains.plugins.scala.worksheet.settings.persistent.WorksheetFilePersistentSettings
 
 abstract class WorksheetLanguageFeatureInspectionBaseTest extends LanguageFeatureInspectionTestBase {
 
   override protected val fileType: LanguageFileType = WorksheetFileType
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] = classOf[LanguageFeatureInspection]
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] = classOf[LanguageFeatureInspection]
   override protected val description = "Advanced language feature: higher-kinded type "
 }
 

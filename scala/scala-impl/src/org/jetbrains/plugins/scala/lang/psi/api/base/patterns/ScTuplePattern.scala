@@ -6,7 +6,7 @@ package base
 package patterns
 
 import org.jetbrains.plugins.scala.lang.psi.types.api.TupleType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /** 
 * @author Alexander Podkhalyuzin

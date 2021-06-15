@@ -3,7 +3,7 @@ package lang
 package psi
 package impl
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.extapi.psi.PsiFileBase
 import com.intellij.lang.Language
 import com.intellij.openapi.diagnostic.Logger
@@ -12,7 +12,7 @@ import com.intellij.openapi.fileTypes.LanguageFileType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.{PostprocessReformattingAspect, codeStyle}
 import com.intellij.psi.impl.{DebugUtil, ResolveScopeManager}
 import com.intellij.psi.scope.PsiScopeProcessor
@@ -20,12 +20,12 @@ import com.intellij.psi.search.{GlobalSearchScope, SearchScope}
 import com.intellij.psi.util.PsiUtilCore
 import com.intellij.util.indexing.FileBasedIndex
 import org.jetbrains.plugins.scala.caches.ModTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.finder.{ResolveFilterScope, WorksheetResolveFilterScope}
-import org.jetbrains.plugins.scala.lang.TokenSets._
+import org.jetbrains.plugins.scala.lang.TokenSets.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.parser.ScalaElementType._
-import org.jetbrains.plugins.scala.lang.psi.api._
+import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.*
+import org.jetbrains.plugins.scala.lang.psi.api.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
@@ -37,7 +37,7 @@ import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 import scala.annotation.{nowarn, tailrec}
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaFileImpl(
   viewProvider: FileViewProvider,
@@ -53,7 +53,7 @@ class ScalaFileImpl(
   def this(viewProvider: FileViewProvider, fileType: LanguageFileType = ScalaFileType.INSTANCE) =
     this(viewProvider, fileType, fileType.getLanguage)
 
-  import ScalaFileImpl._
+  import ScalaFileImpl.*
   import psi.stubs.ScFileStub
   import settings.ScalaProjectSettings
 
@@ -187,7 +187,7 @@ class ScalaFileImpl(
 
     block
 
-    for ((aClass, oldClass) <- this.typeDefinitions.zip(data)) {
+    for (case (aClass, oldClass) <- this.typeDefinitions.zip(data)) {
       codeStyle.CodeEditUtil.setNodeGenerated(oldClass.getNode, true)
       PostprocessReformattingAspect.getInstance(getProject).disablePostprocessFormattingInside {
         new Runnable {

@@ -3,7 +3,7 @@ package project.structure
 
 import java.io.File
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import com.intellij.openapi.util.io.FileUtil
 import org.jetbrains.annotations.NonNls
 

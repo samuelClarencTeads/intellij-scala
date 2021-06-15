@@ -14,7 +14,7 @@ abstract class TraceLoggerTestBase extends TestCase {
     try {
       TraceLogger.runWithTraceLogger("run-test", _ => logger)(body)
     } catch {
-      case e: NonLocalReturnControl[_] =>
+      case e: NonLocalReturnControl[?] =>
         throw new AssertionError("Test used return to jump out of testing method!", e)
       case _: TestException =>
         // catch and continue as if nothing had happened

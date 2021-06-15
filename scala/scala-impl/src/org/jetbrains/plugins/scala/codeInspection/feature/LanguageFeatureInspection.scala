@@ -7,7 +7,7 @@ import com.intellij.compiler.server.BuildManager
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions.{ClassQualifiedName, ReferenceTarget, _}
+import org.jetbrains.plugins.scala.extensions.{ClassQualifiedName, ReferenceTarget, *}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScImportsHolder
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParamCla
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScMacroDefinition, ScTypeAlias, ScTypeAliasDeclaration}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateParents
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerSettings.scalaVersionSinceWhichHigherKindsAreAlwaysEnabled
 import org.jetbrains.plugins.scala.project.settings.{ScalaCompilerSettings, ScalaCompilerSettingsProfile}
 

@@ -5,7 +5,7 @@ package element
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.{PsiComment, PsiNamedElement, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.annotator.quickfix.ReportHighlightingErrorQuickFix
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScParameterizedTypeElement, ScTypeArgs, ScTypeElement}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypeParametersOwner
@@ -32,7 +32,7 @@ object ScParameterizedTypeElementAnnotator extends ElementAnnotator[ScParameteri
     typeParamOwner.foreach(annotateTypeArgs(_, element.typeArgList, projSubstitutor))
   }
 
-  def annotateTypeArgs(typeParamOwner: PsiNamedElement with ScTypeParametersOwner,
+  def annotateTypeArgs(typeParamOwner: PsiNamedElement & ScTypeParametersOwner,
                        typeArgList: ScTypeArgs,
                        contextSubstitutor: ScSubstitutor)
                       (implicit holder: ScalaAnnotationHolder): Unit = {
@@ -62,7 +62,7 @@ object ScParameterizedTypeElementAnnotator extends ElementAnnotator[ScParameteri
     val substitute: ScSubstitutor = {
       val (ps, as) = (
         for {
-          (param, arg) <- params zip args
+          case (param, arg) <- params zip args
           argTy <- arg.`type`().toOption
         } yield (param, argTy)
       ).unzip
@@ -72,7 +72,7 @@ object ScParameterizedTypeElementAnnotator extends ElementAnnotator[ScParameteri
     implicit val tcp: TypePresentationContext = typeArgList
     for {
       // the zip will cut away missing or excessive arguments
-      (arg, param) <- args zip params
+      case (arg, param) <- args zip params
       argTy <- arg.`type`().toOption
       if !argTy.is[ScExistentialArgument, ScExistentialType]
     } {
@@ -124,7 +124,7 @@ object ScParameterizedTypeElementAnnotator extends ElementAnnotator[ScParameteri
     }
   }
 
-  private def signatureOf(typeParamOwner: PsiNamedElement with ScTypeParametersOwner): String = {
+  private def signatureOf(typeParamOwner: PsiNamedElement & ScTypeParametersOwner): String = {
     val name = typeParamOwner.name
     val params = typeParamOwner.typeParameters.map(_.name).mkString(", ")
     s"$name[$params]"

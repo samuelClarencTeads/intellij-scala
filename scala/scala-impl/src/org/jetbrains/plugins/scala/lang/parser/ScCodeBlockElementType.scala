@@ -15,8 +15,8 @@ abstract class ScCodeBlockElementType extends IErrorCounterReparseableElementTyp
   ScalaLanguage.INSTANCE
 ) with ICompositeElementType {
 
-  import IErrorCounterReparseableElementType._
-  import lexer.ScalaTokenTypes.{tLBRACE => LeftBrace, tRBRACE => RightBrace}
+  import IErrorCounterReparseableElementType.*
+  import lexer.ScalaTokenTypes.{tLBRACE as LeftBrace, tRBRACE as RightBrace}
 
   override final def createCompositeNode: ASTNode = createNode(null)
 

@@ -6,18 +6,18 @@ package expr
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
-import com.intellij.psi.scope._
+import com.intellij.psi.*
+import com.intellij.psi.scope.*
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
 import org.jetbrains.plugins.scala.extensions.{Model, ObjectExt, PsiElementExt, StringsExt}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaPsiElement, ScalaRecursiveElementVisitor}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
-import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScForImpl._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
+import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScForImpl.*
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.StdKinds
 import org.jetbrains.plugins.scala.lang.resolve.processor.CompletionProcessor
 import org.jetbrains.plugins.scala.macroAnnotations.Cached
@@ -124,12 +124,12 @@ class ScForImpl(node: ASTNode) extends ScExpressionImplBase(node) with ScFor {
     generateDesugaredExprTextWithMappings(forDisplay).map {
       case (expression, patternToPosition, enumToPosition) =>
         val patternMapping = for {
-          (original, element) <- patternToPosition
+          case (original, element) <- patternToPosition
           pattern <- findPatternElement(element, original)
         } yield original -> pattern
 
         val enumMapping = for {
-          (original, element) <- enumToPosition
+          case (original, element) <- enumToPosition
           methodCall <- element.parentOfType(classOf[ScMethodCall])
         } yield original -> new ScEnumeratorImpl.DesugaredEnumeratorImpl(methodCall, original)
 
@@ -170,7 +170,7 @@ class ScForImpl(node: ASTNode) extends ScExpressionImplBase(node) with ScFor {
             case underscoreIndices =>
               val copyOfExpr = expr.copy().asInstanceOf[ScExpression]
               for {
-                (underscore, Some(index)) <- allUnderscores(copyOfExpr) zip underscoreIndices
+                case (underscore, Some(index)) <- allUnderscores(copyOfExpr) zip underscoreIndices
                 name = underscoreName(index)
                 referenceExpression = ScalaPsiElementFactory.createReferenceExpressionFromText(name)
               } {
@@ -223,7 +223,7 @@ class ScForImpl(node: ASTNode) extends ScExpressionImplBase(node) with ScFor {
       if (args.isEmpty) {
         resultText ++= "_"
       }
-      for (((p, text), idx) <- args.zipWithIndex) {
+      for (case ((p, text), idx) <- args.zipWithIndex) {
         if (idx != 0) {
           resultText ++= ", "
         }
@@ -480,7 +480,7 @@ class ScForImpl(node: ASTNode) extends ScExpressionImplBase(node) with ScFor {
       val shiftOffset = lambdaPrefix.length + prefix.length
 
       def withElements[T](mappings: mutable.Map[T, Int]) = for {
-        (original, offset) <- if (forDisplay) Iterator.empty else mappings.iterator
+        case (original, offset) <- if (forDisplay) Iterator.empty else mappings.iterator
 
         element = expression.findElementAt(offset + shiftOffset)
         if element != null

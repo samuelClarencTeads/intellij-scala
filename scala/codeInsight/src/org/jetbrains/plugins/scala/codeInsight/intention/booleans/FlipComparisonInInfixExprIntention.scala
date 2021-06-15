@@ -9,8 +9,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
 
 /**
@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createEx
   */
 final class FlipComparisonInInfixExprIntention extends PsiElementBaseIntentionAction {
 
-  import FlipComparisonInInfixExprIntention._
+  import FlipComparisonInInfixExprIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean = {
     val infixExpr = PsiTreeUtil.getParentOfType(element, classOf[ScInfixExpr], false)

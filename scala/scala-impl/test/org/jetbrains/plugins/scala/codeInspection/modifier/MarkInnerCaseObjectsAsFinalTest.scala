@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaI
 
 class MarkInnerCaseObjectsAsFinalTest extends ScalaInspectionTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[MarkInnerCaseObjectsAsFinal]
 
   override protected val description: String =

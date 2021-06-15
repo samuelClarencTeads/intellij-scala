@@ -7,14 +7,14 @@ import com.intellij.util.io.{DataExternalizer, EnumeratorStringDescriptor, Persi
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings.Ivy2IndexingMode
-import org.jetbrains.sbt._
-import org.jetbrains.sbt.resolvers._
+import org.jetbrains.sbt.*
+import org.jetbrains.sbt.resolvers.*
 
-import java.io._
+import java.io.*
 import java.util.Properties
 import java.util.jar.JarFile
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Using
 import scala.xml.XML
 
@@ -23,7 +23,7 @@ import scala.xml.XML
   * @since 26.07.16
   */
 class IvyIndex(val root: String, val name: String, implicit val project: ProjectContext) extends ResolverIndex {
-  import ResolverIndex._
+  import ResolverIndex.*
 
   private val log = Logger.getInstance(getClass)
   private val indexDir: File = getIndexDirectory(root)
@@ -75,7 +75,7 @@ class IvyIndex(val root: String, val name: String, implicit val project: Project
     }
   }
 
-  private def processMap[K,V](map: PersistentHashMap[K,_]): Set[K] = {
+  private def processMap[K,V](map: PersistentHashMap[K,?]): Set[K] = {
     val result = new java.util.HashSet[K]
     val processor = new CommonProcessors.CollectProcessor(result)
     map.processKeysWithExistingMapping(processor)
@@ -290,7 +290,7 @@ class IvyIndex(val root: String, val name: String, implicit val project: Project
       if (artifactsHere.nonEmpty && enableFQNameIndex) {
         val artifactToFqNames = listFqNames(dir, artifactsHere)
         for {
-          (artifact, fqNames) <- artifactToFqNames
+          case (artifact, fqNames) <- artifactToFqNames
           fqName <- fqNames
         } {
           fqNameToArtifacts.getOrElseUpdate(fqName, mutable.Set.empty) += artifact

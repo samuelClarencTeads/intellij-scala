@@ -5,14 +5,14 @@ package impl
 package toplevel
 package typedef
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.execution.junit.JUnitUtil
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.DumbService
-import com.intellij.openapi.util.{Key, Pair => JBPair}
-import com.intellij.psi._
+import com.intellij.openapi.util.{Key, Pair as JBPair}
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.impl.{PsiClassImplUtil, PsiSuperMethodImplUtil}
 import com.intellij.psi.scope.PsiScopeProcessor
@@ -20,7 +20,7 @@ import com.intellij.psi.scope.processor.MethodsProcessor
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.{PsiTreeUtil, PsiUtil}
 import org.jetbrains.plugins.scala.caches.{ModTracker, ScalaShortNamesCacheManager}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.isLineTerminator
@@ -29,7 +29,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSelfTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScValue, ScVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScExtendsBlock
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScTypeParametersOwner, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.{createBodyFromMember, createNewLineNode, createWhitespace}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticClass
@@ -44,7 +44,7 @@ import org.jetbrains.plugins.scala.macroAnnotations.{Cached, CachedInUserData}
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class ScTemplateDefinitionImpl[T <: ScTemplateDefinition] private[impl] (
   stub:      ScTemplateDefinitionStub[T],
@@ -57,8 +57,8 @@ abstract class ScTemplateDefinitionImpl[T <: ScTemplateDefinition] private[impl]
     with ScTemplateDefinition {
 
   import PsiTreeUtil.isContextAncestor
-  import ScTemplateDefinitionImpl._
-  import TypeDefinitionMembers._
+  import ScTemplateDefinitionImpl.*
+  import TypeDefinitionMembers.*
 
   override def originalElement: Option[ScTemplateDefinition] = Option(getUserData(originalElemKey))
 
@@ -92,7 +92,7 @@ abstract class ScTemplateDefinitionImpl[T <: ScTemplateDefinition] private[impl]
 
   override def getAllMethods: Array[PsiMethod] = {
     val names = mutable.HashSet.empty[String]
-    val result = mutable.ArrayBuffer(getConstructors.toSeq: _*)
+    val result = mutable.ArrayBuffer(getConstructors.toSeq*)
 
     allSignatures.foreach { signature =>
       this.processWrappersForSignature(
@@ -482,7 +482,7 @@ object ScTemplateDefinitionImpl {
     )
 
     def apply(clazz: PsiClass): Path = {
-      import Kind._
+      import Kind.*
       val kind = clazz match {
         case _: ScTrait => Trait
         case _: ScClass => Class

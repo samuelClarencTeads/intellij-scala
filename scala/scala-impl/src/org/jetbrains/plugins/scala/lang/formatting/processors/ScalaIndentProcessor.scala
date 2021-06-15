@@ -9,21 +9,21 @@ import com.intellij.psi.PsiComment
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings.{NEXT_LINE_SHIFTED, NEXT_LINE_SHIFTED2}
 import com.intellij.psi.impl.source.tree.{LeafPsiElement, PsiWhiteSpaceImpl}
 import com.intellij.psi.tree.TokenSet
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
 import org.jetbrains.plugins.scala.lang.formatting.ScalaBlock.isConstructorArgOrMemberFunctionParameter
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.ScCodeBlockElementType.BlockExpression
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportSelectors
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, ScPackaging}
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScBlockImpl
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType

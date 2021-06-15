@@ -7,13 +7,13 @@ import com.intellij.execution.testframework.TestIconMapper
 import com.intellij.execution.testframework.sm.runner.states.TestStateInfo.Magnitude
 import com.intellij.icons.AllIcons.RunConfigurations.TestState
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.testIntegration.TestRunLineMarkerProvider
 import javax.swing.Icon
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -149,11 +149,11 @@ class ScalaTestRunLineMarkerProvider extends TestRunLineMarkerProvider {
   protected def buildLineInfo(url: String, project: Project, isClass: Boolean): RunLineMarkerContributor.Info = {
     val icon = iconFor(url, project, isClass)
     val actions = ExecutorAction.getActions(1)
-    new RunLineMarkerContributor.Info(icon, (_: PsiElement) => ScalaBundle.message("scalatest.gutter.run.test"), actions: _*)
+    new RunLineMarkerContributor.Info(icon, (_: PsiElement) => ScalaBundle.message("scalatest.gutter.run.test"), actions*)
   }
 
   private def iconFor(url: String, project: Project, isClass: Boolean): Icon = {
-    import Magnitude._
+    import Magnitude.*
 
     def defaultIcon =
       if (isClass) TestState.Run_run

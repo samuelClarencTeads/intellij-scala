@@ -10,7 +10,7 @@ import com.intellij.openapi.editor.colors.{EditorColorsManager, EditorFontType}
 import com.intellij.openapi.editor.event.{DocumentEvent, DocumentListener}
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.ui.EditorTextField
-import com.intellij.util.ui.table.JBTableRowEditor._
+import com.intellij.util.ui.table.JBTableRowEditor.*
 import com.intellij.util.ui.table.{JBTableRow, JBTableRowEditor}
 import org.jetbrains.plugins.scala.ScalaBundle
 

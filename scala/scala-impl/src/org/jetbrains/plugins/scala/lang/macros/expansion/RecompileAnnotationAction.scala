@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotation
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 class RecompileAnnotationAction(elt: ScAnnotation) extends ScalaMetaIntentionAction {
 

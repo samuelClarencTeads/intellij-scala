@@ -6,7 +6,7 @@ package actions
 import com.intellij.codeInsight.generation.actions.BaseGenerateAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition

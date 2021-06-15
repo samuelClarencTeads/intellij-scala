@@ -3,7 +3,7 @@ package org.jetbrains.bsp.project.importing
 import java.io.File
 import org.jetbrains.plugins.scala.build.BuildMessages
 import scala.io.Source
-import scala.sys.process._
+import scala.sys.process.*
 import scala.util.{Failure, Try, Using}
 
 object MillProjectImportProvider {

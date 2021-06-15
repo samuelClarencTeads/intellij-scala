@@ -6,7 +6,7 @@ package elements
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
-import com.intellij.psi.stubs._
+import com.intellij.psi.stubs.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPatternList
 import org.jetbrains.plugins.scala.lang.psi.impl.base.ScPatternListImpl
 import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScPatternListStubImpl
@@ -20,11 +20,11 @@ class ScPatternListElementType extends ScStubElementType[ScPatternListStub, ScPa
     dataStream.writeBoolean(stub.simplePatterns)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScPatternListStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScPatternListStub =
     new ScPatternListStubImpl(parentStub, this,
       simplePatterns = dataStream.readBoolean)
 
-  override def createStubImpl(patterns: ScPatternList, parentStub: StubElement[_ <: PsiElement]): ScPatternListStub =
+  override def createStubImpl(patterns: ScPatternList, parentStub: StubElement[? <: PsiElement]): ScPatternListStub =
     new ScPatternListStubImpl(parentStub, this,
       simplePatterns = patterns.simplePatterns)
 

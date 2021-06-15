@@ -8,8 +8,8 @@ import com.intellij.codeInsight.lookup.LookupElement
 class ScalaClausesCompletionTest extends ScalaCodeInsightTestBase {
   override protected def supportedIn(version: ScalaVersion): Boolean = version  >= LatestScalaVersions.Scala_2_12
 
-  import ScalaClausesCompletionTest._
-  import ScalaCodeInsightTestBase._
+  import ScalaClausesCompletionTest.*
+  import ScalaCodeInsightTestBase.*
   import completion.ScalaKeyword.{CASE, MATCH}
   import completion.clauses.DirectInheritors.FqnBlockList
 

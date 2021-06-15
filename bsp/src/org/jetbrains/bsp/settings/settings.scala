@@ -1,11 +1,11 @@
 package org.jetbrains.bsp.settings
 
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.externalSystem.model.settings.ExternalSystemExecutionSettings
 import com.intellij.openapi.externalSystem.service.settings.AbstractExternalProjectSettingsControl
-import com.intellij.openapi.externalSystem.settings._
-import com.intellij.openapi.externalSystem.util.ExternalSystemUiUtil._
+import com.intellij.openapi.externalSystem.settings.*
+import com.intellij.openapi.externalSystem.util.ExternalSystemUiUtil.*
 import com.intellij.openapi.externalSystem.util.{ExternalSystemApiUtil, ExternalSystemSettingsControl, ExternalSystemUiUtil, PaintAwarePanel}
 import com.intellij.openapi.project.Project
 import com.intellij.util.messages.Topic
@@ -17,7 +17,7 @@ import java.nio.file.{Path, Paths}
 import java.util
 import javax.swing.JCheckBox
 import org.jetbrains.bsp.settings.BspProjectSettings.{AutoConfig, AutoPreImport, BspServerConfig, BspServerConfigConverter, PreImportConfig, PreImportConfigConverter}
-import org.jetbrains.bsp.{BspBundle, _}
+import org.jetbrains.bsp.{BspBundle, *}
 import org.jetbrains.plugins.scala.project.ProjectExt
 
 import scala.beans.BeanProperty

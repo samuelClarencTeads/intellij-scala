@@ -4,13 +4,13 @@ package project.settings
 import java.awt.FlowLayout
 
 import com.intellij.openapi.externalSystem.service.settings.AbstractExternalProjectSettingsControl
-import com.intellij.openapi.externalSystem.util.ExternalSystemUiUtil._
+import com.intellij.openapi.externalSystem.util.ExternalSystemUiUtil.*
 import com.intellij.openapi.externalSystem.util.PaintAwarePanel
 import com.intellij.openapi.projectRoots.{JavaSdk, ProjectJdkTable, SdkTypeId}
 import com.intellij.openapi.roots.ui.configuration.JdkComboBox
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel
 import com.intellij.openapi.util.{Condition, Disposer}
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.annotations.NotNull
 
 /**

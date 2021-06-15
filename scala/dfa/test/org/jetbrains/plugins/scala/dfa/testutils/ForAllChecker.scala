@@ -17,18 +17,18 @@ object ForAllGenerator {
 }
 
 trait ForAllChecker {
-  import ForAllChecker._
+  import ForAllChecker.*
 
   def forAll[T1: ForAllGenerator, ASS](f: T1 => ASS)(implicit asserting : org.scalatest.enablers.TableAsserting[ASS], prettifier : Prettifier, pos : Position) : asserting.Result =
     TableDrivenPropertyChecks.forAll(
-      Table("x", gen[T1]: _*)
+      Table("x", gen[T1]*)
     )(f)(asserting, prettifier, pos)
 
   def forAll[T1: ForAllGenerator, T2: ForAllGenerator, ASS](f: (T1, T2) => ASS)(implicit asserting : org.scalatest.enablers.TableAsserting[ASS], prettifier : Prettifier, pos : Position) : asserting.Result =
     TableDrivenPropertyChecks.forAll(
       Table(
         ("x", "y"),
-        gen[(T1, T2)]: _*
+        gen[(T1, T2)]*
       )
     )(f)(asserting, prettifier, pos)
 
@@ -36,7 +36,7 @@ trait ForAllChecker {
     TableDrivenPropertyChecks.forAll(
       Table(
         ("x", "y", "z"),
-        gen[(T1, T2, T3)]: _*
+        gen[(T1, T2, T3)]*
       )
     )(f)(asserting, prettifier, pos)
 }

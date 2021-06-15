@@ -4,14 +4,14 @@ package template
 package macros
 
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.AnnotatedMembersSearch
 import com.intellij.psi.{PsiClass, PsiMember}
 import com.intellij.util.{EmptyQuery, Query}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Roman.Shein

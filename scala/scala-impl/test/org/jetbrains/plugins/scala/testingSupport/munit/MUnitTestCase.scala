@@ -15,7 +15,7 @@ abstract class MUnitTestCase extends ScalaTestingTestCase {
   override protected def supportedIn(version: ScalaVersion): Boolean =
     version >= ScalaVersion.Latest.Scala_2_13
 
-  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[_] =
+  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[?] =
     RunConfigurationProducer.getInstance(classOf[MUnitConfigurationProducer])
 
   override protected def additionalLibraries: Seq[LibraryLoader] =

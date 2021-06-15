@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testingSupport.scalatest.fileStructureView
 
-import org.jetbrains.plugins.scala.lang.structureView.element.Test._
+import org.jetbrains.plugins.scala.lang.structureView.element.Test.*
 import org.jetbrains.plugins.scala.testingSupport.scalatest.ScalaTestTestCase
 import org.jetbrains.plugins.scala.testingSupport.test.structureView.TestNodeProvider
 
@@ -12,7 +12,7 @@ trait FeatureSpecFileStructureViewTest extends ScalaTestTestCase {
   protected def scenario = "scenario"
 
   private def runTest(status: Int, names: String*): Unit = {
-    runFileStructureViewTest(className, status, names: _*)
+    runFileStructureViewTest(className, status, names*)
   }
 
   private def runTest(testName: String, parent: Option[String] = None): Unit = {

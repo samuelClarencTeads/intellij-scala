@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
   * User: Alexander Podkhalyuzin
   * Date: 17.07.2009
   */
-class ScBindingPatternStubImpl[P <: ScBindingPattern](parent: StubElement[_ <: PsiElement],
-                                                      elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScBindingPatternStubImpl[P <: ScBindingPattern](parent: StubElement[? <: PsiElement],
+                                                      elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                                                       name: String)
   extends ScNamedStubBase[P](parent, elementType, name) with ScBindingPatternStub[P]

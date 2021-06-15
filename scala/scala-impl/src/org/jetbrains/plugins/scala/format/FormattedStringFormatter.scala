@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package format
 
 import com.intellij.openapi.util.text.StringUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
@@ -56,7 +56,7 @@ object FormattedStringFormatter extends StringFormatter {
 
   private def letterFor(aType: ScType): Char = {
     val stdTypes = aType.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     aType match {
       case Boolean => 'b'

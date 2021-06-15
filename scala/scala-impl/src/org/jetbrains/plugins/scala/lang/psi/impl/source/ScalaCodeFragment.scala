@@ -8,7 +8,7 @@ import com.intellij.openapi.command.undo.{BasicUndoableAction, UndoManager}
 import com.intellij.openapi.project.Project
 import com.intellij.psi.IntentionFilterOwner.IntentionActionsFilter
 import com.intellij.psi.JavaCodeFragment.{ExceptionHandler, VisibilityChecker}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.PsiManagerEx
 import com.intellij.psi.impl.source.PsiFileImpl
 import com.intellij.psi.impl.source.tree.FileElement
@@ -29,7 +29,7 @@ final class ScalaCodeFragment private(private var viewProvider: SingleRootFileVi
     with IntentionFilterOwner
     with ScDeclarationSequenceHolder {
 
-  import ScalaPsiElementFactory._
+  import ScalaPsiElementFactory.*
 
   getViewProvider.forceCachedPsi(this)
 

@@ -4,7 +4,7 @@ package psi
 package stubs
 package index
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement

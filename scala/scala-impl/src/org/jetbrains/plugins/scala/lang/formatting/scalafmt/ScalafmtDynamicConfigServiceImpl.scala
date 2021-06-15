@@ -11,14 +11,14 @@ import com.intellij.openapi.fileEditor.{FileDocumentManager, FileEditorManager}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.{LocalFileSystem, VirtualFile}
 import com.intellij.psi.PsiFile
-import com.typesafe.config._
+import com.typesafe.config.*
 import org.apache.commons.io.FileUtils
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions.{inWriteAction, _}
+import org.jetbrains.plugins.scala.extensions.{inWriteAction, *}
 import org.jetbrains.plugins.scala.lang.formatting.OpenFileNotificationActon
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService.ConfigResolveError.ConfigCyclicDependencyException
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService._
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigServiceImpl._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService.*
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigServiceImpl.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicService.{DefaultVersion, ScalafmtVersion}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtNotifications.FmtVerbosity
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions.ScalafmtConfigException
@@ -29,7 +29,7 @@ import org.jetbrains.plugins.scala.settings.ShowSettingsUtilImplExt
 import org.jetbrains.plugins.scala.util.ScalaCollectionsUtil
 import org.jetbrains.sbt.language.SbtFileImpl
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.util.Try
 
@@ -224,7 +224,7 @@ final class ScalafmtDynamicConfigServiceImpl(private val project: Project)
   }
 
   private def reportConfigResolveError(configFile: VirtualFile, configError: ConfigResolveError): Unit = {
-    import ConfigResolveError._
+    import ConfigResolveError.*
 
     val details = configError match {
       case ConfigFileNotFound(path) =>

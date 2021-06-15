@@ -8,7 +8,7 @@ import com.intellij.pom.java.LanguageLevel
 import com.intellij.serialization.PropertyMapping
 import org.jetbrains.plugins.scala.extensions.inReadAction
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.implicitConversions
 
 

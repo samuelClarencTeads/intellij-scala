@@ -1,22 +1,22 @@
 package org.jetbrains.plugins.scala.debugger.evaluation
 
 import com.intellij.debugger.SourcePosition
-import com.intellij.debugger.engine.evaluation._
-import com.intellij.debugger.engine.evaluation.expression._
+import com.intellij.debugger.engine.evaluation.*
+import com.intellij.debugger.engine.evaluation.expression.*
 import com.intellij.lang.java.JavaLanguage
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.{NlsString, ScalaBundle}
-import org.jetbrains.plugins.scala.debugger.evaluation.evaluator._
+import org.jetbrains.plugins.scala.debugger.evaluation.evaluator.*
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 import org.jetbrains.plugins.scala.extensions.{&&, LazyVal, PsiElementExt, ResolvesTo}
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.ScXmlExpr
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionWithContextFromText
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectContextOwner}
@@ -81,7 +81,7 @@ private[evaluation] class ScalaEvaluatorBuilder(val codeFragment: ScalaCodeFragm
                                                 val position: SourcePosition)
         extends ScalaEvaluatorBuilderUtil with SyntheticVariablesHelper with ProjectContextOwner {
 
-  import org.jetbrains.plugins.scala.debugger.evaluation.ScalaEvaluatorBuilderUtil._
+  import org.jetbrains.plugins.scala.debugger.evaluation.ScalaEvaluatorBuilderUtil.*
 
   override implicit def projectContext: ProjectContext = codeFragment.projectContext
 

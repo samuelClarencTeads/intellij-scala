@@ -3,7 +3,7 @@ package codeInsight.unwrap
 
 import com.intellij.codeInsight.unwrap.AbstractUnwrapper
 import com.intellij.psi.{PsiElement, PsiWhiteSpace}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createNewLine
 

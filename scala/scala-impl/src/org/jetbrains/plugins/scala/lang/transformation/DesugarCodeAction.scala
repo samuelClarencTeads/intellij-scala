@@ -4,7 +4,7 @@ import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent, CommonDataKey
 import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.actions.ScalaActionUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 

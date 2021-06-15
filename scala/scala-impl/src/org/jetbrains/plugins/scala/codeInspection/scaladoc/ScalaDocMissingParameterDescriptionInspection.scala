@@ -6,11 +6,11 @@ import org.jetbrains.plugins.scala.lang.TokenSets.TokenSetExt
 import com.intellij.codeInspection.{LocalInspectionTool, ProblemHighlightType, ProblemsHolder}
 import com.intellij.psi.PsiElementVisitor
 import com.intellij.psi.tree.TokenSet
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocTag
-import ScalaDocMissingParameterDescriptionInspection._
+import ScalaDocMissingParameterDescriptionInspection.*
 
 
 class ScalaDocMissingParameterDescriptionInspection extends LocalInspectionTool {
@@ -42,7 +42,7 @@ class ScalaDocMissingParameterDescriptionInspection extends LocalInspectionTool 
 
 
 object ScalaDocMissingParameterDescriptionInspection {
-  import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing._
+  import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing.*
 
   private val TagsWithValueElement = Set(PARAM_TAG, THROWS_TAG, TYPE_PARAM_TAG)
   private val NonDataTokens = TokenSet.create(ScalaDocTokenType.DOC_WHITESPACE, ScalaDocTokenType.DOC_COMMENT_LEADING_ASTERISKS)

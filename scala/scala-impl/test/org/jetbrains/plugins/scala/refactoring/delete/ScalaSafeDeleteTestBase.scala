@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter.normalize
 import org.jetbrains.plugins.scala.util.Markers
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 abstract class ScalaSafeDeleteTestBase extends ScalaLightCodeInsightFixtureTestAdapter with Markers with AssertionMatchers {

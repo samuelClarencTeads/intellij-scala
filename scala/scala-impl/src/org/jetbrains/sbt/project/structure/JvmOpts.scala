@@ -3,7 +3,7 @@ package project.structure
 
 import java.io.File
 import com.intellij.openapi.util.io.FileUtil
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Support for the .jvmopts file loaded by the sbt launcher script as alternative to command line options.

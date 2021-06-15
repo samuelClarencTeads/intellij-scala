@@ -7,7 +7,7 @@ import org.hamcrest.CoreMatchers.hasItems
 
 import scala.collection.immutable.StringOps
 import scala.reflect.ClassTag
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.Test
 
 class ClassfileParserTest {
@@ -41,7 +41,7 @@ class ClassfileParserTest {
     val classInfo = parsed.classInfo
 
     assertEquals(
-      Set(fqn[Simple], fqn[Serializable], fqn[Comparable[_]]),
+      Set(fqn[Simple], fqn[Serializable], fqn[Comparable[?]]),
       classInfo.superClasses
     )
   }
@@ -66,8 +66,8 @@ class ClassfileParserTest {
     )
 
     assertThat(
-      java.util.Arrays.asList(parsed.refs: _*),
-      hasItems(expectedRefs: _*)
+      java.util.Arrays.asList(parsed.refs*),
+      hasItems(expectedRefs*)
     )
   }
 

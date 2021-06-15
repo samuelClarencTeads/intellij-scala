@@ -13,8 +13,8 @@ import com.intellij.psi.{PsiElement, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.extensions.{PsiElementExt, StringExt}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.project.ProjectContext
 
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.project.ProjectContext
   */
 abstract class ScalaExpressionSurrounder extends Surrounder {
 
-  import ScalaTokenTypes.{COMMENTS_TOKEN_SET, tSEMICOLON => Semicolon}
+  import ScalaTokenTypes.{COMMENTS_TOKEN_SET, tSEMICOLON as Semicolon}
 
   def isApplicable(element: PsiElement): Boolean = element match {
     case _: ScExpression |

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package project
 package template
 
-import java.lang.{Boolean => JBoolean}
+import java.lang.{Boolean as JBoolean}
 
 import com.intellij.util.ui.{ColumnInfo, ListTableModel}
 import org.jetbrains.annotations.Nls
@@ -19,7 +19,7 @@ final class SdkTableModel extends ListTableModel[SdkChoice](
   },
   new ColumnInfo[SdkChoice, String](ScalaBundle.message("sdk.table.model.version")) {
 
-    import Version._
+    import Version.*
 
     override def valueOf(item: SdkChoice): String = item.sdk.version.fold(Default)(abbreviate)
 

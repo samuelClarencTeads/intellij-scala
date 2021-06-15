@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package annotator
 
 import org.intellij.lang.annotations.Language
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReturn
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition

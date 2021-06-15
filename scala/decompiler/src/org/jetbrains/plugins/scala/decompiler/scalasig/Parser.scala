@@ -4,12 +4,12 @@ import java.io.IOException
 import java.lang.Double.longBitsToDouble
 import java.lang.Float.intBitsToFloat
 
-import org.jetbrains.plugins.scala.decompiler.scalasig.TagGroups._
+import org.jetbrains.plugins.scala.decompiler.scalasig.TagGroups.*
 
 import scala.annotation.switch
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
-import scala.reflect.internal.pickling.PickleFormat._
+import scala.reflect.internal.pickling.PickleFormat.*
 
 /**
   * Nikolay.Tropin

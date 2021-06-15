@@ -9,10 +9,10 @@ import com.intellij.concurrency.JobScheduler
 import com.intellij.diagnostic.PerformanceWatcher
 import com.intellij.ide.IdeEventQueue
 import com.intellij.openapi.application.{ApplicationManager, ModalityState, TransactionGuard}
-import com.intellij.openapi.progress._
+import com.intellij.openapi.progress.*
 import org.jetbrains.plugins.scala.components.RunOnceStartupActivity
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.util.UIFreezingGuard._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.util.UIFreezingGuard.*
 
 import scala.annotation.nowarn
 import scala.util.control.NoStackTrace
@@ -23,7 +23,7 @@ import scala.util.control.NoStackTrace
 class UIFreezingGuard extends RunOnceStartupActivity {
 
   private val periodMs = 10
-  private var periodicTask: ScheduledFuture[_] = _
+  private var periodicTask: ScheduledFuture[?] = _
 
   override def doRunActivity(): Unit = {
     if (pceEnabled) {

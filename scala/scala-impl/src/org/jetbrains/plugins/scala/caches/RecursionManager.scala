@@ -6,11 +6,11 @@ import java.util.concurrent.ConcurrentMap
 
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.RecursionGuard.StackStamp
-import com.intellij.openapi.util.{RecursionManager => PlatformRM}
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import com.intellij.openapi.util.{RecursionManager as PlatformRM}
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 import org.jetbrains.plugins.scala.util.UnloadableThreadLocal
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Nikolay.Tropin
@@ -26,7 +26,7 @@ import scala.jdk.CollectionConverters._
   * */
 object RecursionManager {
   private val LOG: Logger = Logger.getInstance("#org.jetbrains.plugins.scala.caches.RecursionManager")
-  private type LocalCacheMap = Map[MyKey[_], (Any, Int)]
+  private type LocalCacheMap = Map[MyKey[?], (Any, Int)]
 
   private val ourStack: UnloadableThreadLocal[CalculationStack] = UnloadableThreadLocal(new CalculationStack)
 
@@ -108,8 +108,8 @@ object RecursionManager {
   }
 
   object RecursionGuard {
-    private val guards: ConcurrentMap[String, RecursionGuard[_, _]] =
-      new ConcurrentHashMap[String, RecursionGuard[_, _]]()
+    private val guards: ConcurrentMap[String, RecursionGuard[?, ?]] =
+      new ConcurrentHashMap[String, RecursionGuard[?, ?]]()
 
     def apply[Data >: Null <: AnyRef, LocalCacheValue](id: String): RecursionGuard[Data, LocalCacheValue] =
       guards.computeIfAbsent(id, new RecursionGuard[Data, LocalCacheValue](_))
@@ -151,9 +151,9 @@ object RecursionManager {
     // So instead we cache them here for as long as we are in that recursive call and
     // prevent calculating them incorrectly again.
     private[RecursionManager] var localCache: LocalCacheMap = Map.empty
-    private[RecursionManager] val progressMap = new util.LinkedHashMap[MyKey[_], Integer]
+    private[RecursionManager] val progressMap = new util.LinkedHashMap[MyKey[?], Integer]
 
-    private[RecursionManager] def checkReentrancy(realKey: MyKey[_]): Boolean = {
+    private[RecursionManager] def checkReentrancy(realKey: MyKey[?]): Boolean = {
       Option(progressMap.get(realKey)) match {
         case Some(stackDepthOfPrevEnter) =>
           minStackDepthInRecursion = math.min(minStackDepthInRecursion, stackDepthOfPrevEnter)
@@ -176,7 +176,7 @@ object RecursionManager {
       }
     }
 
-    private[RecursionManager] def beforeComputation(realKey: MyKey[_]): Int = {
+    private[RecursionManager] def beforeComputation(realKey: MyKey[?]): Int = {
       enters += 1
       if (progressMap.isEmpty) {
         assert(minStackDepthInRecursion == Int.MaxValue,
@@ -196,7 +196,7 @@ object RecursionManager {
       minDepthBefore
     }
 
-    private[RecursionManager] def afterComputation(realKey: MyKey[_],
+    private[RecursionManager] def afterComputation(realKey: MyKey[?],
                                                    sizeBefore: Int,
                                                    sizeAfter: Int,
                                                    minDepthBefore: Int,

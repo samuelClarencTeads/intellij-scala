@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
   * 07-Nov-17
   */
 class OptionWithLiteralToSomeIntention extends PsiElementBaseIntentionAction  {
-  import OptionWithLiteralToSomeIntention._
+  import OptionWithLiteralToSomeIntention.*
 
   override def getFamilyName: String = familyName
 

@@ -18,14 +18,14 @@ import org.jetbrains.plugins.scala.extensions.{HighlightInfoExt, executeWriteAct
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 import org.jetbrains.plugins.scala.util.MarkersUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class ScalaHighlightsTestBase extends ScalaLightCodeInsightFixtureTestAdapter {
   self: ScalaLightCodeInsightFixtureTestAdapter =>
 
-  import ScalaHighlightsTestBase._
+  import ScalaHighlightsTestBase.*
 
   protected val description: String
 
@@ -231,7 +231,7 @@ object ScalaAnnotatorQuickFixTestBase {
 abstract class ScalaInspectionTestBase extends ScalaAnnotatorQuickFixTestBase {
   override protected def defaultVersionOverride: Option[ScalaVersion] = Some(ScalaSdkOwner.preferableSdkVersion)
 
-  protected val classOfInspection: Class[_ <: LocalInspectionTool]
+  protected val classOfInspection: Class[? <: LocalInspectionTool]
 
   protected override def setUp(): Unit = {
     super.setUp()

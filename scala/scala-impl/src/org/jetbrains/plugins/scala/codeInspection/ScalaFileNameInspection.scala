@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.scala
 package codeInspection
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.lang.injection.InjectedLanguageManager
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiFile, PsiNamedElement}
 import com.intellij.refactoring.RefactoringFactory
 import com.intellij.refactoring.rename.RenameProcessor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker
 final class ScalaFileNameInspection extends LocalInspectionTool {
 
   import ProblemDescriptor.EMPTY_ARRAY
-  import ScalaFileNameInspection._
+  import ScalaFileNameInspection.*
 
   override def checkFile(file: PsiFile,
                          manager: InspectionManager,

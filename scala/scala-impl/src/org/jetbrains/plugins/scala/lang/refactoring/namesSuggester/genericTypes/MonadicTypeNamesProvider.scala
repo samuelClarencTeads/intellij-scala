@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.{ScParameterizedType, ScType}
 class MonadicTypeNamesProvider extends GenericTypeNamesProviderBase {
 
   import GenericTypeNamesProviderBase.argumentNames
-  import MonadicTypeNamesProvider._
+  import MonadicTypeNamesProvider.*
 
   override protected def isValid(`type`: ScParameterizedType): Boolean =
     `type`.typeArguments.length == 1 &&

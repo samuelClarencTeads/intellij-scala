@@ -17,7 +17,7 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.testFramework.LightVirtualFile
 import com.intellij.ui.SideBorder
 import org.jetbrains.plugins.scala.ScalaLanguage
-import org.jetbrains.plugins.scala.console.ScalaLanguageConsole._
+import org.jetbrains.plugins.scala.console.ScalaLanguageConsole.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias, ScValue, ScVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait}
@@ -63,9 +63,9 @@ class ScalaLanguageConsole(module: Module)
     state = stateFor(text, contentType)
 
   private def stateFor(text: String, contentType: ConsoleViewContentType): ConsoleState = {
-    import ConsoleState._
-    import ConsoleViewContentType._
-    import ScalaLanguageConsole._
+    import ConsoleState.*
+    import ConsoleViewContentType.*
+    import ScalaLanguageConsole.*
 
     // expecting only first process output line to be args
     // welcome text is considered to be everything between first line and first prompt occurrence

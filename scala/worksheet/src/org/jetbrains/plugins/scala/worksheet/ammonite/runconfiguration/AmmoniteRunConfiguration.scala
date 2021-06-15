@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.worksheet.ammonite.runconfiguration
 import java.io.{File, IOException}
 
 import com.intellij.execution.Executor
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.filters.TextConsoleBuilderImpl
 import com.intellij.execution.impl.EditConfigurationsDialog
 import com.intellij.execution.process.{ProcessHandler, ProcessNotCreatedException}
@@ -53,7 +53,7 @@ class AmmoniteRunConfiguration(project: Project, factory: ConfigurationFactory) 
 
   def getIOFile: Option[File] = fileName.map(new File(_)).filter(_.exists())
 
-  override def getConfigurationEditor: SettingsEditor[_ <: RunConfiguration] = new MyEditor
+  override def getConfigurationEditor: SettingsEditor[? <: RunConfiguration] = new MyEditor
 
   override def getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState = {
     def patchSdkVersion(cmd: GeneralCommandLine): Unit = {

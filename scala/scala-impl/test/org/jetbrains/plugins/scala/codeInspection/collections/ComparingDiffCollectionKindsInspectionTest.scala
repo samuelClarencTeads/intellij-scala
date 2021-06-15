@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package collections
 
-import org.jetbrains.plugins.scala.codeInspection.collections.ComparingDiffCollectionKinds._
+import org.jetbrains.plugins.scala.codeInspection.collections.ComparingDiffCollectionKinds.*
 
 /**
   * @author Nikolay.Tropin
   */
 abstract class ComparingDiffCollectionKindsInspectionTest extends OperationsOnCollectionInspectionTest {
 
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[ComparingDiffCollectionKindsInspection]
 
   protected val side: Side

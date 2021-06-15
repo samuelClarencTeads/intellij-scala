@@ -1,27 +1,27 @@
 package org.jetbrains.plugins.scala.lang.completion
 
-import com.intellij.codeInsight.completion._
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.util.Iconable
-import com.intellij.psi._
-import com.intellij.psi.filters._
+import com.intellij.psi.*
+import com.intellij.psi.filters.*
 import com.intellij.psi.filters.position.{FilterPattern, LeftNeighbour}
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.extensions.PsiModifierListOwnerExt
 import org.jetbrains.plugins.scala.lang.completion.filters.modifiers.ModifiersFilter
 import org.jetbrains.plugins.scala.lang.psi.TypeAdjuster
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import org.jetbrains.plugins.scala.overrideImplement._
+import org.jetbrains.plugins.scala.overrideImplement.*
 import org.jetbrains.plugins.scala.util.TypeAnnotationUtil
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by kate
@@ -34,7 +34,7 @@ import scala.jdk.CollectionConverters._
 // TODO: support kind of sorter
 class ScalaOverrideContributor extends ScalaCompletionContributor {
 
-  import ScalaOverrideContributor._
+  import ScalaOverrideContributor.*
 
   extend(CompletionType.BASIC,
     identifierPattern.and(new FilterPattern(new AndFilter(new NotFilter(new LeftNeighbour(new TextContainFilter("override"))), new AndFilter(new NotFilter(new LeftNeighbour(new TextFilter("."))), new ModifiersFilter)))): @nowarn("cat=deprecation"),
@@ -125,8 +125,8 @@ class ScalaOverrideContributor extends ScalaCompletionContributor {
   })
 
   private def createText(classMember: ClassMember, clazz: ScTemplateDefinition, full: Boolean = false, withBody: Boolean = true): String = {
-    import ScalaPsiElementFactory._
-    import TypeAnnotationUtil._
+    import ScalaPsiElementFactory.*
+    import TypeAnnotationUtil.*
     import clazz.projectContext
 
     val text: String = classMember match {
@@ -167,12 +167,12 @@ object ScalaOverrideContributor {
   private def membersOf(element: PsiElement) = getParentOfType(element, classOf[ScTemplateDefinition]) match {
     case null => (null, Seq.empty)
     case clazz =>
-      import ScalaOIUtil._
+      import ScalaOIUtil.*
       (clazz, getMembersToOverride(clazz) ++ getMembersToImplement(clazz, withSelfType = true))
   }
 
   private def createLookupElement(member: ClassMember, lookupString: String, hasOverride: Boolean) = {
-    import Iconable._
+    import Iconable.*
 
     val lookupObject = member.getElement
     val lookupItem = LookupElementBuilder.create(lookupObject, lookupString)
@@ -195,7 +195,7 @@ object ScalaOverrideContributor {
       }
     }
 
-    private def onMember(member: ScModifierListOwner with PsiMember): Unit = {
+    private def onMember(member: ScModifierListOwner & PsiMember): Unit = {
       TypeAdjuster.markToAdjust(member)
       if (!hasOverride && !member.hasModifierProperty("override")) {
         member.setModifierProperty("override")

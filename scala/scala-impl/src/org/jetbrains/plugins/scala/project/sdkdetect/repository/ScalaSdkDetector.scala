@@ -5,10 +5,10 @@ import com.intellij.openapi.vfs.VirtualFile
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.project.sdkdetect.repository.ScalaSdkDetector.ExtraCompilerPathResolveFailure
 import org.jetbrains.plugins.scala.project.sdkdetect.repository.ScalaSdkDetector.ExtraCompilerPathResolveFailure.NotSupportedForScalaVersion
-import org.jetbrains.plugins.scala.project.template._
+import org.jetbrains.plugins.scala.project.template.*
 
 import java.nio.file.{Files, Path}
-import java.util.stream.{Stream => JStream}
+import java.util.stream.{Stream as JStream}
 
 trait ScalaSdkDetector {
   def buildJarStream(implicit indicator: ProgressIndicator): JStream[Path]

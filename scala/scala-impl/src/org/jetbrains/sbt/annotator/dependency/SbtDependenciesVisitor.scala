@@ -3,11 +3,11 @@ package org.jetbrains.sbt.annotator.dependency
 import com.intellij.psi.{PsiElement, PsiFile}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.types.ScParameterizedType
-import org.jetbrains.sbt.annotator.dependency.AddSbtDependencyUtils._
+import org.jetbrains.sbt.annotator.dependency.AddSbtDependencyUtils.*
 
 /**
   * Created by afonichkin on 8/28/17.

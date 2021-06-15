@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package collections
 
-import org.jetbrains.plugins.scala.codeInspection.collections.UnzipSingleElementInspection._
+import org.jetbrains.plugins.scala.codeInspection.collections.UnzipSingleElementInspection.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
 

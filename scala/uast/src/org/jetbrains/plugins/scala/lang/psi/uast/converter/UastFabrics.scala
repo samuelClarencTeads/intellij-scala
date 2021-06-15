@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.psi.uast.converter
 
 import com.intellij.psi.{PsiComment, PsiElement, PsiType}
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
 /**
   * Common UAST element fabrics

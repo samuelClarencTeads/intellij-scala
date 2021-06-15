@@ -8,13 +8,13 @@ import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.{Getter, Setter}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightSettings.{getInstance => ScalaCodeInsightSettings}
+import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightSettings.{getInstance as ScalaCodeInsightSettings}
 import org.jetbrains.plugins.scala.codeInsight.implicits.ImplicitHints
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 object ScalaTypeHintsConfigurable {
 
-  import java.lang.{Boolean => JBoolean}
+  import java.lang.{Boolean as JBoolean}
 
   private def forceHintsUpdateOnNextPass(): Unit = {
     ImplicitHints.updateInAllEditors()

@@ -11,9 +11,9 @@ import org.jetbrains.plugins.scala.lang.structureView.ScalaStructureViewModel
 import org.jetbrains.plugins.scala.lang.structureView.element.Test
 import org.jetbrains.plugins.scala.testingSupport.test.structureView.TestNodeProvider
 import org.jetbrains.plugins.scala.util.assertions.CollectionsAssertions.assertCollectionEquals
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.matching.Regex
 
 trait FileStructureTest {
@@ -94,7 +94,7 @@ trait FileStructureTest {
       val ioFile = new java.io.File(srcDir, fileName)
       val file = PsiManager.getInstance(getProject).findFile(getVirtualFile(ioFile))
       val treeViewModel = new ScalaStructureViewModel(file.asInstanceOf[ScalaFile]) {
-        override def isEnabled(provider: NodeProvider[_ <: TreeElement]): Boolean = provider.isInstanceOf[TestNodeProvider]
+        override def isEnabled(provider: NodeProvider[? <: TreeElement]): Boolean = provider.isInstanceOf[TestNodeProvider]
       }
       val wrapper = StructureViewComponent.createWrapper(getProject, treeViewModel.getRoot, treeViewModel)
 
@@ -131,7 +131,7 @@ trait FileStructureTest {
     expectedStatus: Int
   ): Unit = {
 
-    def containsNodeWithName(currentNode: AbstractTreeNode[_], currentParentName: String): Boolean = {
+    def containsNodeWithName(currentNode: AbstractTreeNode[?], currentParentName: String): Boolean = {
       val treeElement = currentNode.getValue.asInstanceOf[TreeElement]
       val nodeName = treeElement.getPresentation.getPresentableText
       val matches = treeElement match {
@@ -161,8 +161,8 @@ trait FileStructureTest {
     }
   }
 
-  private def allAvailablePaths(root: AbstractTreeNode[_]): Seq[FileStructurePath] = inReadAction {
-    def inner(node: AbstractTreeNode[_], curPath: List[FileStructureNode]): Seq[Seq[FileStructureNode]] = {
+  private def allAvailablePaths(root: AbstractTreeNode[?]): Seq[FileStructurePath] = inReadAction {
+    def inner(node: AbstractTreeNode[?], curPath: List[FileStructureNode]): Seq[Seq[FileStructureNode]] = {
       val children = node.getChildren
       val path = nodeInfo(node.getValue.asInstanceOf[TreeElement]) :: curPath
       if (children.isEmpty)

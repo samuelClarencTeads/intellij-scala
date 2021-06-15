@@ -3,16 +3,16 @@ package org.jetbrains.plugins.scala.build
 import java.io.File
 
 import com.intellij.build.events.MessageEvent.Kind
-import com.intellij.build.events._
+import com.intellij.build.events.*
 import com.intellij.build.{FilePosition, SyncViewManager}
-import com.intellij.openapi.externalSystem.model.task.event.{FailureResult => _, SkippedResult => _, SuccessResult => _, _}
+import com.intellij.openapi.externalSystem.model.task.event.{FailureResult as _, SkippedResult as _, SuccessResult as _, *}
 import com.intellij.openapi.externalSystem.model.task.{ExternalSystemTaskId, ExternalSystemTaskNotificationListener}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.build.BuildMessages.EventId
-import org.jetbrains.plugins.scala.build.ExternalSystemNotificationReporter._
+import org.jetbrains.plugins.scala.build.ExternalSystemNotificationReporter.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.util.Random
 

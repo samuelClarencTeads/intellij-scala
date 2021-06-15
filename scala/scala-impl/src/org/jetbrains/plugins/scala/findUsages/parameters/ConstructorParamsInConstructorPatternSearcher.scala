@@ -3,7 +3,7 @@ package findUsages
 package parameters
 
 import com.intellij.find.findUsages.{CustomUsageSearcher, FindUsagesOptions}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.usageView.UsageInfo
 import com.intellij.usages.{Usage, UsageInfoToUsageConverter}
@@ -25,7 +25,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
  * User: Jason Zaugg
  */
 class ConstructorParamsInConstructorPatternSearcher extends CustomUsageSearcher {
-  override def processElementUsages(element: PsiElement, processor0: Processor[_ >: Usage], options: FindUsagesOptions): Unit = {
+  override def processElementUsages(element: PsiElement, processor0: Processor[? >: Usage], options: FindUsagesOptions): Unit = {
     element match {
       case parameterOfClassWithIndex(cls, index) =>
         val scope = inReadAction(element.getUseScope)

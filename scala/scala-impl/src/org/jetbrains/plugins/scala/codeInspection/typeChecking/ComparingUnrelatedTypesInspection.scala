@@ -6,15 +6,15 @@ import com.intellij.psi.{PsiElement, PsiMethod}
 import com.siyeh.ig.psiutils.MethodUtils
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.codeInspection.collections.MethodRepr
-import org.jetbrains.plugins.scala.codeInspection.typeChecking.ComparingUnrelatedTypesInspection._
+import org.jetbrains.plugins.scala.codeInspection.typeChecking.ComparingUnrelatedTypesInspection.*
 import org.jetbrains.plugins.scala.codeInspection.{AbstractInspection, ScalaInspectionBundle}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 
 import scala.annotation.{nowarn, tailrec}
@@ -47,7 +47,7 @@ object ComparingUnrelatedTypesInspection {
   // see this check in scalac: https://github.com/scala/scala/blob/8c86b7d7136839538cca0ff8fca50f59437564c0/src/compiler/scala/tools/nsc/typechecker/RefChecks.scala#L968
   private def checkComparability(type1: ScType, type2: ScType, isBuiltinOperation: => Boolean): Comparability = {
     val stdTypes = type1.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     val types = Seq(type1, type2)
     // a comparison with AnyRef is always ok, because of autoboxing
@@ -95,7 +95,7 @@ object ComparingUnrelatedTypesInspection {
 
   private def isNumericType(`type`: ScType): Boolean = {
     val stdTypes = `type`.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     `type` match {
       case Byte | Char | Short | Int | Long | Float | Double => true
@@ -150,7 +150,7 @@ class ComparingUnrelatedTypesInspection extends AbstractInspection(inspectionNam
     case MethodRepr(_, Some(baseExpr), Some(ResolvesTo(fun: ScFunction)), Seq(arg, _*)) if mayNeedHighlighting(fun) =>
       // Seq("blub").contains(3)
       for {
-        ParameterizedType(_, Seq(elemType)) <- baseExpr.`type`().toOption.map(_.tryExtractDesignatorSingleton)
+        case ParameterizedType(_, Seq(elemType)) <- baseExpr.`type`().toOption.map(_.tryExtractDesignatorSingleton)
         argType <- arg.`type`().toOption
         comparability = checkComparability(elemType, argType, isBuiltinOperation = !hasNonDefaultEquals(elemType))
         if comparability.shouldNotBeCompared

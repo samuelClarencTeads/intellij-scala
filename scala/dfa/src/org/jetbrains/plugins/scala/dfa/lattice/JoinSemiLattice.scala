@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.dfa.lattice
 
 import org.jetbrains.plugins.scala.dfa.lattice.JoinSemiLatticeOps.JoinSemiLatticeExt
-import org.jetbrains.plugins.scala.dfa.latticeBottom
+import org.jetbrains.plugins.scala.dfa.DfaOps.latticeBottom
 
 import scala.language.implicitConversions
 

@@ -6,8 +6,8 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.util.ThrowableRunnable
 import junit.framework.TestSuite
 import org.intellij.lang.regexp.RegExpLanguage
-import org.jetbrains.plugins.scala.injection.RegexpLanguageInjectionTest._
-import org.junit.Assert._
+import org.jetbrains.plugins.scala.injection.RegexpLanguageInjectionTest.*
+import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.AllTests
 

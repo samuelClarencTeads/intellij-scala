@@ -13,7 +13,7 @@ import scala.reflect.ClassTag
   */
 sealed trait FunctionTypeFactory[D <: ScTypeDefinition, T] {
 
-  import FunctionTypeFactory._
+  import FunctionTypeFactory.*
 
   val TypeName: String
 

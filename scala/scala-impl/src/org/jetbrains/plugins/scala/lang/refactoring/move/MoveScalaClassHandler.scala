@@ -3,7 +3,7 @@ package lang
 package refactoring
 package move
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiClass, PsiDirectory, PsiDocumentManager, PsiElement, PsiFile}
@@ -11,14 +11,14 @@ import com.intellij.refactoring.move.moveClassesOrPackages.MoveClassHandler
 import com.intellij.usageView.UsageInfo
 import org.jetbrains.plugins.scala.editor.importOptimizer.ScalaImportOptimizer
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class MoveScalaClassHandler extends MoveClassHandler {
 
-  import MoveScalaClassHandler._
+  import MoveScalaClassHandler.*
 
   override def prepareMove(clazz: PsiClass): Unit = clazz.getContainingFile match {
     case scalaFile: ScalaFile =>
@@ -56,7 +56,7 @@ final class MoveScalaClassHandler extends MoveClassHandler {
               fileWithClassName.add _
             case _ =>
               //create new file with template
-              import actions.ScalaFileTemplateUtil._
+              import actions.ScalaFileTemplateUtil.*
               val template: String = definition match {
                 case _: ScClass => SCALA_CLASS
                 case _: ScTrait => SCALA_TRAIT

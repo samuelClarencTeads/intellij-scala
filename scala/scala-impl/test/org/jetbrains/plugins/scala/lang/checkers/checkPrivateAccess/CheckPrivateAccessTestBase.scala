@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
 

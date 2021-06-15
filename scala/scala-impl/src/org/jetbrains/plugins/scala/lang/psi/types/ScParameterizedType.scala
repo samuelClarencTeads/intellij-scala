@@ -7,16 +7,16 @@ package types
  * @author ilyas
  */
 
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScTypeAlias, ScTypeAliasDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypeParametersOwner
 import org.jetbrains.plugins.scala.lang.psi.types.ScalaConformance.Bound
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScProjectionType}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.ScTypePolymorphicType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 final class ScParameterizedType private(override val designator: ScType, override val typeArguments: Seq[ScType]) extends ParameterizedType with ScalaType {
 

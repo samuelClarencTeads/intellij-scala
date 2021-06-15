@@ -5,22 +5,22 @@ package api
 package statements
 
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScMethodLike
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockStatement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonNames.{Apply, Unapply, UnapplySeq}
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiTypeParameterList
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ObjectWithCaseClassCompanion
 import org.jetbrains.plugins.scala.lang.psi.light.ScFunctionWrapper
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 import scala.collection.immutable.Set
 
@@ -146,7 +146,7 @@ object ScFunction {
 
   implicit class Ext(private val function: ScFunction) extends AnyVal {
 
-    import CommonNames._
+    import CommonNames.*
 
     private implicit def project: Project = function.getProject
 

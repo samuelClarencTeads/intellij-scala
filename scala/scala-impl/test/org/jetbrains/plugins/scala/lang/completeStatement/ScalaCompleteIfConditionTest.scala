@@ -10,7 +10,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class ScalaCompleteIfConditionTest extends ScalaCompleteStatementTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   def testIfCondition1(): Unit = doCompletionTest(
     fileText =

@@ -1,7 +1,7 @@
 import com.intellij.openapi.progress.EmptyProgressIndicator
 import com.intellij.openapi.roots.CompilerModuleExtension
 import com.intellij.openapi.util.io.FileUtilRt
-import com.intellij.platform.templates.github.{DownloadUtil, ZipUtil => GithubZipUtil}
+import com.intellij.platform.templates.github.{DownloadUtil, ZipUtil as GithubZipUtil}
 import com.intellij.pom.java.LanguageLevel
 import junit.framework.{TestCase, TestFailure, TestResult, TestSuite}
 import org.jetbrains.plugins.scala.debugger.ScalaCompilerTestBase
@@ -29,7 +29,7 @@ import scala.util.Using
 class AfterUpdateDottyVersionScript
   extends TestCase {
 
-  import AfterUpdateDottyVersionScript._
+  import AfterUpdateDottyVersionScript.*
 
   def testRunAllScripts(): Unit = {
     val tests =
@@ -260,7 +260,7 @@ object AfterUpdateDottyVersionScript {
 
   sealed trait Script
   object Script {
-    final case class FromTestCase(clazz: Class[_ <: TestCase]) extends Script
+    final case class FromTestCase(clazz: Class[? <: TestCase]) extends Script
     final case class FromTestSuite(suite: TestSuite) extends Script
   }
 

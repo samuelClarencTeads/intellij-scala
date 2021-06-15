@@ -28,7 +28,7 @@ import org.jetbrains.sbt.project.settings.SbtProjectSettings
 import org.junit.experimental.categories.Category
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Alefas
@@ -103,7 +103,7 @@ class AllProjectHighlightingTest extends ExternalSystemImportingTestCase {
     var errorCount = 0
     val size: Int = files.size()
 
-    for ((file, index) <- files.asScala.zipWithIndex) {
+    for (case (file, index) <- files.asScala.zipWithIndex) {
 
       if ((index + 1) * 100 >= (percent + 1) * size) {
         while ((index + 1) * 100 >= (percent + 1) * size) percent += 1

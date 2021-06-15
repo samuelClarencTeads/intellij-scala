@@ -3,14 +3,14 @@ package org.jetbrains.plugins.scala.debugger.evaluation
 import java.util.concurrent.atomic.AtomicReference
 
 import com.intellij.debugger.DebuggerManagerEx
-import com.intellij.debugger.engine.evaluation._
+import com.intellij.debugger.engine.evaluation.*
 import com.intellij.debugger.engine.evaluation.expression.EvaluatorBuilder
 import com.intellij.debugger.impl.DebuggerContextImpl
 import com.intellij.openapi.fileTypes.LanguageFileType
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.concurrency.Semaphore
 import com.intellij.xdebugger.impl.XDebugSessionImpl
 import com.intellij.xdebugger.impl.frame.XValueMarkers
@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaType}
 import org.jetbrains.plugins.scala.{ScalaFileType, ScalaLanguage}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 /**

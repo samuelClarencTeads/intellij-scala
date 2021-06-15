@@ -17,8 +17,8 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.top.ClassParents
  */
 object EnumCase extends ParsingRule {
 
-  import ScalaElementType.{EnumCase => SingleCase, _}
-  import lexer.ScalaTokenTypes._
+  import ScalaElementType.{EnumCase as SingleCase, *}
+  import lexer.ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     val marker = builder.mark()

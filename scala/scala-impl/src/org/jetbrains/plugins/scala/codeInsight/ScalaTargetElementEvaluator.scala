@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInsight
 
 import com.intellij.codeInsight.{TargetElementEvaluatorEx, TargetElementEvaluatorEx2}
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.nameContext
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScReferencePattern}

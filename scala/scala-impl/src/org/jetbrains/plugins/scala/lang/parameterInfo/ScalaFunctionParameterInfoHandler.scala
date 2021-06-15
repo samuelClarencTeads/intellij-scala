@@ -9,27 +9,27 @@ import com.intellij.codeInsight.completion.JavaCompletionUtil.getAllPsiElements
 import com.intellij.codeInsight.hint.ShowParameterInfoHandler
 import com.intellij.codeInsight.lookup.{LookupElement, LookupItem}
 import com.intellij.codeInsight.{CodeInsightBundle, TargetElementUtil}
-import com.intellij.lang.parameterInfo._
-import com.intellij.psi._
+import com.intellij.lang.parameterInfo.*
+import com.intellij.psi.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parameterInfo.ScalaFunctionParameterInfoHandler.AnnotationParameters
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScParameterizedTypeElement, ScTypeElementExt}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScPrimaryConstructor}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameterClause}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScTypeParametersOwner, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.TypeAnnotationRenderer.ParameterTypeDecorateOptions
 import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.{ModifiersRenderer, ParameterRenderer, TypeAnnotationRenderer, TypeRenderer}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.lang.resolve.processor.CompletionProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveUtils, ScalaResolveResult, StdKinds}
@@ -45,7 +45,7 @@ import scala.collection.immutable.ArraySeq
 
 class ScalaFunctionParameterInfoHandler extends ScalaParameterInfoHandler[PsiElement, Any, ScExpression] {
 
-  override def getArgListStopSearchClasses: util.Set[_ <: Class[_]] =
+  override def getArgListStopSearchClasses: util.Set[? <: Class[?]] =
     util.Collections.singleton(classOf[PsiMethod])
 
   override def couldShowInLookup: Boolean = true
@@ -68,8 +68,8 @@ class ScalaFunctionParameterInfoHandler extends ScalaParameterInfoHandler[PsiEle
 
   override def getActualParametersRBraceType: IElementType = ScalaTokenTypes.tRBRACE
 
-  override def getArgumentListAllowedParentClasses: util.Set[Class[_]] = {
-    val set = new util.HashSet[Class[_]]()
+  override def getArgumentListAllowedParentClasses: util.Set[Class[?]] = {
+    val set = new util.HashSet[Class[?]]()
     set.add(classOf[ScMethodCall])
     set.add(classOf[ScConstructorInvocation])
     set.add(classOf[ScSelfInvocation])

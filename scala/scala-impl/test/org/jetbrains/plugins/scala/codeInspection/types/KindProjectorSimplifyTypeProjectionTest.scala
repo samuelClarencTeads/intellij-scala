@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
  */
 class KindProjectorSimplifyTypeProjectionTest extends ScalaQuickFixTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[KindProjectorSimplifyTypeProjectionInspection]
 
   override protected val description: String =

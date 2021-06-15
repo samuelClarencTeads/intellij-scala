@@ -5,7 +5,7 @@ package parsing
 package types
 
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
-import org.jetbrains.plugins.scala.lang.parser.parsing.expressions._
+import org.jetbrains.plugins.scala.lang.parser.parsing.expressions.*
 
 /** 
 * @author Alexander Podkhalyuzin

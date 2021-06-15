@@ -24,7 +24,7 @@ import org.jetbrains.bsp.protocol.{BspCommunication, BspCommunicationService}
 import org.jetbrains.bsp.settings.BspProjectSettings.BspServerConfig
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @nowarn("msg=StatusBarWidgetProvider")
 class BspServerWidgetProvider extends StatusBarWidgetProvider {

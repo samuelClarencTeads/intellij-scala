@@ -5,7 +5,7 @@ package impl
 package base
 package literals
 
-import java.lang.{Boolean => JBoolean}
+import java.lang.{Boolean as JBoolean}
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project
@@ -21,7 +21,7 @@ final class ScBooleanLiteralImpl(node: ASTNode,
     ScBooleanLiteralImpl.Value(value)
 
   override def getValue: JBoolean = {
-    import lang.lexer.ScalaTokenTypes._
+    import lang.lexer.ScalaTokenTypes.*
     getNode.getFirstChildNode.getElementType match {
       case `kTRUE` => JBoolean.TRUE
       case `kFALSE` => JBoolean.FALSE

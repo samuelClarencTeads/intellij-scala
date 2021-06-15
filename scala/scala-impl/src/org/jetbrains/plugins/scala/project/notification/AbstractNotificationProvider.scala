@@ -18,7 +18,7 @@ abstract class AbstractNotificationProvider(@Nls kitTitle: String,
                                             project: Project)
   extends EditorNotifications.Provider[EditorNotificationPanel] {
 
-  import AbstractNotificationProvider._
+  import AbstractNotificationProvider.*
 
   override final val getKey: Key[EditorNotificationPanel] = Key.create(kitTitle)
 

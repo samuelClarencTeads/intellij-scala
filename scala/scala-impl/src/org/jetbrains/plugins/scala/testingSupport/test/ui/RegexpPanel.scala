@@ -6,7 +6,7 @@ import com.intellij.ui.{AnActionButton, AnActionButtonRunnable, ToolbarDecorator
 import javax.swing.JPanel
 import javax.swing.table.DefaultTableModel
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.testingSupport.test.ui.RegexpPanel._
+import org.jetbrains.plugins.scala.testingSupport.test.ui.RegexpPanel.*
 
 final class RegexpPanel extends JPanel {
 

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors
 
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.ASTNode
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Document
@@ -11,7 +11,7 @@ import com.intellij.openapi.progress.ProgressIndicatorProvider
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.{Key, TextRange}
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.codeStyle.PreFormatProcessor
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.javadoc.PsiDocComment
@@ -20,11 +20,11 @@ import com.intellij.psi.util.PsiTreeUtil
 import javax.swing.event.HyperlinkEvent
 import org.apache.commons.lang3.StringUtils
 import org.jetbrains.annotations.{NonNls, TestOnly}
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions.{PositionExceptionImpl, ReflectionException}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.{ScalafmtReflect, ScalafmtReflectConfig}
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.PsiChange._
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.PsiChange.*
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.{ScalafmtDynamicConfigService, ScalafmtDynamicConfigServiceImpl, ScalafmtNotifications}
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
@@ -835,7 +835,7 @@ object ScalaFmtPreFormatProcessor {
                                     additionalIndent: Int, changes: mutable.Growable[PsiChange])
                                    (implicit project: Project): Unit = {
     for {
-      (original, formatted) <- elementsToTraverse.headOption
+      case (original, formatted) <- elementsToTraverse.headOption
       prevWsOriginal <- prevSiblingAsWhitespace(original)
       prevWsFormatted <- prevSiblingAsWhitespace(formatted)
     } {

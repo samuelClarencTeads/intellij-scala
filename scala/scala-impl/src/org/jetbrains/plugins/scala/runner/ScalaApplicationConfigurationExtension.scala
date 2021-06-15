@@ -14,10 +14,10 @@ import scala.jdk.CollectionConverters.ListHasAsScala
 
 final class ScalaApplicationConfigurationExtension extends RunConfigurationExtension {
 
-  import ValidateCommand._
+  import ValidateCommand.*
 
   override def isApplicableFor(
-    configuration: RunConfigurationBase[_]
+    configuration: RunConfigurationBase[?]
   ): Boolean =
     configuration.isInstanceOf[ApplicationConfiguration]
 
@@ -30,12 +30,12 @@ final class ScalaApplicationConfigurationExtension extends RunConfigurationExten
    * @see [[com.intellij.execution.impl.RunnerAndConfigurationSettingsImpl.checkSettings]]
    */
   override def validateConfiguration(
-    configurationBase: RunConfigurationBase[_],
+    configurationBase: RunConfigurationBase[?],
     isExecution: Boolean
   ): Unit = {}
 
   @throws[ExecutionException]
-  override def updateJavaParameters[T <: RunConfigurationBase[_]](
+  override def updateJavaParameters[T <: RunConfigurationBase[?]](
     configurationBase: T,
     javaParams: JavaParameters,
     runnerSettings: RunnerSettings
@@ -73,7 +73,7 @@ final class ScalaApplicationConfigurationExtension extends RunConfigurationExten
         throw new ExecutionException(ScalaBundle.message("execution.cancelled"))
       case UpdateParameters(newParameters) =>
         programParametersList.clearAll()
-        programParametersList.addAll(newParameters: _*)
+        programParametersList.addAll(newParameters*)
 
         configuration.setProgramParameters(programParametersList.getParametersString)
     }

@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.traceLogger
 package protocol
 
-import SerializationApi.{ReadWriter => RW, _}
+import SerializationApi.{ReadWriter as RW, *}
 import upickle.implicits.key
 /*
 final case class TraceLoggerMsg(msg: String,

@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package codeInspection
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.psi.{PsiElement, PsiElementVisitor}
 import org.jetbrains.annotations.Nls
 

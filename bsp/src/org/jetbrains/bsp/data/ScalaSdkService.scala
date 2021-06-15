@@ -10,18 +10,18 @@ import com.intellij.openapi.externalSystem.service.project.manage.AbstractProjec
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.libraries.Library
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.external.AbstractImporter
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 
 class ScalaSdkService extends AbstractProjectDataService[ScalaSdkData, Library] {
   override def getTargetDataKey: Key[ScalaSdkData] = ScalaSdkData.Key
 
-  import scala.jdk.CollectionConverters._
+  import scala.jdk.CollectionConverters.*
 
-  override final def importData(toImport: java.util.Collection[_ <: DataNode[ScalaSdkData]],
+  override final def importData(toImport: java.util.Collection[? <: DataNode[ScalaSdkData]],
                                 projectData: ProjectData,
                                 project: Project,
                                 modelsProvider: IdeModifiableModelsProvider): Unit = {

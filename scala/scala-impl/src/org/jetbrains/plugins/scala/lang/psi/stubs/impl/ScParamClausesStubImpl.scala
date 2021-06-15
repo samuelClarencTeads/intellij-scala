@@ -12,6 +12,6 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameters
   * User: Alexander Podkhalyuzin
   * Date: 19.10.2008
   */
-class ScParamClausesStubImpl(parent: StubElement[_ <: PsiElement],
-                             elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement])
+class ScParamClausesStubImpl(parent: StubElement[? <: PsiElement],
+                             elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement])
   extends StubBase[ScParameters](parent, elementType) with ScParamClausesStub

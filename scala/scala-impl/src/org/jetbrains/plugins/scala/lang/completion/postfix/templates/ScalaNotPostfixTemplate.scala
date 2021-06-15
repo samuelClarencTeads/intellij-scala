@@ -4,7 +4,7 @@ package postfix
 package templates
 
 import com.intellij.codeInsight.template.postfix.templates.NotPostfixTemplate
-import org.jetbrains.plugins.scala.lang.completion.postfix.templates.selector.AncestorSelector._
+import org.jetbrains.plugins.scala.lang.completion.postfix.templates.selector.AncestorSelector.*
 import org.jetbrains.plugins.scala.lang.completion.postfix.templates.selector.ScalaPostfixTemplatePsiInfo
 
 /**

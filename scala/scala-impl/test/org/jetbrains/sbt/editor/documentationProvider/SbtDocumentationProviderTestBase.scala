@@ -4,7 +4,7 @@ import com.intellij.psi.PsiFile
 import org.jetbrains.plugins.scala.editor.documentationProvider.{DocumentationProviderTestBase, ScalaDocumentationsSectionsTesting}
 import org.jetbrains.plugins.scala.extensions.StringExt
 import org.jetbrains.sbt.language.SbtFileType
-import org.junit.Assert._
+import org.junit.Assert.*
 
 // TODO: it takes too long to setup project, we should reuse project in each test case
 abstract class SbtDocumentationProviderTestBase extends DocumentationProviderTestBase

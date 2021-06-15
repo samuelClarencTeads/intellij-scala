@@ -196,7 +196,7 @@ object ScalaBlankLinesTest_MembersExhaustive {
   )
 
   private val combinations: Seq[(String, String, String)] = for {
-    (first, second) <- pairs
+    case (first, second) <- pairs
     container <- containers
   } yield (first, second, container)
 

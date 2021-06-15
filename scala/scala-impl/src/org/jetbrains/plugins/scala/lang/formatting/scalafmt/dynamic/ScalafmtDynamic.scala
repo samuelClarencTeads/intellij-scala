@@ -5,7 +5,7 @@ import java.nio.file.{Files, Path}
 import com.typesafe.config.{ConfigException, ConfigFactory}
 import org.jetbrains.plugins.scala.DependencyManagerBase.Resolver
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamic.{FormatResult, _}
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamic.{FormatResult, *}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader.{DownloadProgressListener, DownloadSuccess}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions.{ReflectionException, ScalafmtConfigException, ScalafmtException}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.{BuildInfo, ConsoleScalafmtReporter}

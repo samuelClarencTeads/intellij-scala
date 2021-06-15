@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3
 
 import com.intellij.testFramework.EditorTestUtil
-import com.intellij.testFramework.EditorTestUtil.{CARET_TAG => Caret}
+import com.intellij.testFramework.EditorTestUtil.{CARET_TAG as Caret}
 import junit.framework.TestCase
 import org.jetbrains.plugins.scala.extensions.StringExt
 import org.junit.Assert.{assertEquals, fail}

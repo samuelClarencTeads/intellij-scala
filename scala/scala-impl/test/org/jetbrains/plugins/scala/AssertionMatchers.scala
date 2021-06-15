@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala
 
-import org.junit.Assert._
+import org.junit.Assert.*
 
 // TODO: move to util.assertions package
 trait AssertionMatchers {

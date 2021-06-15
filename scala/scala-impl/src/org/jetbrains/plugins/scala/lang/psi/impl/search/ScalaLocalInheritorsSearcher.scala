@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.psi.impl.search
 
 import com.intellij.openapi.application.QueryExecutorBase
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.psi.search.searches.ClassInheritorsSearch.SearchParameters
 import com.intellij.psi.search.{LocalSearchScope, PsiSearchScopeUtil, SearchScope}
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScTemplateDefi
   */
 class ScalaLocalInheritorsSearcher extends QueryExecutorBase[PsiClass, ClassInheritorsSearch.SearchParameters] {
 
-  override def processQuery(params: SearchParameters, consumer: Processor[_ >: PsiClass]): Unit = {
+  override def processQuery(params: SearchParameters, consumer: Processor[? >: PsiClass]): Unit = {
     val clazz = params.getClassToProcess
 
     val (_, virtualFiles) = params.getScope match {

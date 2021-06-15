@@ -3,7 +3,7 @@ package settings
 
 import java.util
 
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.externalSystem.settings.{AbstractExternalSystemSettings, ExternalSystemSettingsListener}
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.module.Module

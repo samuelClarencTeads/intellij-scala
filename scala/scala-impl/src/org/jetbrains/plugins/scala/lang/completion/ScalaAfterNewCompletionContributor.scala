@@ -2,32 +2,32 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import com.intellij.codeInsight.completion._
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.psi.search.{GlobalSearchScope, LocalSearchScope}
 import com.intellij.psi.util.PsiTreeUtil.getContextOfType
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.handlers.ScalaConstructorInsertHandler
 import org.jetbrains.plugins.scala.lang.completion.lookups.{PresentationExt, ScalaLookupItem}
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class ScalaAfterNewCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaAfterNewCompletionContributor._
+  import ScalaAfterNewCompletionContributor.*
 
   extend(
     CompletionType.SMART,
@@ -120,7 +120,7 @@ object ScalaAfterNewCompletionContributor {
 
     def createLookupElement(renamesMap: RenamesMap): LookupElement = {
       val isRenamed = for {
-        (`class`, name) <- renamesMap.get(`class`.name)
+        case (`class`, name) <- renamesMap.get(`class`.name)
       } yield name
       createLookupElement(isRenamed)
     }
@@ -162,7 +162,7 @@ object ScalaAfterNewCompletionContributor {
       )
 
       val policy = {
-        import AutoCompletionPolicy._
+        import AutoCompletionPolicy.*
         if (isUnitTestMode) ALWAYS_AUTOCOMPLETE
         else if (isInterface) NEVER_AUTOCOMPLETE
         else SETTINGS_DEPENDENT
@@ -191,13 +191,13 @@ object ScalaAfterNewCompletionContributor {
     val substitutedInheritors = for {
       clazz <- inheritors
       (designatorType, parameters) = classComponents(clazz)
-      (actualType, hasSubstitutionProblem) <- findAppropriateType(Seq(`type`), designatorType, parameters)
+      case (actualType, hasSubstitutionProblem) <- findAppropriateType(Seq(`type`), designatorType, parameters)
     } yield (actualType, hasSubstitutionProblem)
 
     val addedClasses = mutable.HashSet.empty[String]
     for {
-      (actualType, hasSubstitutionProblem) <- (`type`, false) +: substitutedInheritors
-      (extractedClass, extractedSubstitutor) <- extractValidClass(actualType)
+      case (actualType, hasSubstitutionProblem) <- (`type`, false) +: substitutedInheritors
+      case (extractedClass, extractedSubstitutor) <- extractValidClass(actualType)
       if addedClasses.add(extractedClass.qualifiedName) && isAccessible(extractedClass)
     } yield LookupElementProps(actualType, hasSubstitutionProblem, extractedClass, extractedSubstitutor)
   }

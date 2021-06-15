@@ -14,7 +14,7 @@ import scala.util.Success
 @nowarn("msg=ScalaLightPlatformCodeInsightTestCaseAdapter")
 class AmmoniteVersionDownloaderTest extends base.ScalaLightPlatformCodeInsightTestCaseAdapter {
 
-  import ammonite.ImportAmmoniteDependenciesFix._
+  import ammonite.ImportAmmoniteDependenciesFix.*
 
   private def downloadAndTestScalaVersionImpl(forScala: MyScalaVersion): Unit =
     loadScalaVersions(forScala) match {

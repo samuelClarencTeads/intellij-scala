@@ -5,11 +5,11 @@ package element
 import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.{annotationWithoutHighlighting, shouldIgnoreTypeMismatchIn, smartCheckConformance}
 import org.jetbrains.plugins.scala.annotator.quickfix.{AddBreakoutQuickFix, ChangeTypeFix, WrapInOptionQuickFix}
 import org.jetbrains.plugins.scala.annotator.usageTracker.UsageTracker.registerUsedImports
-import org.jetbrains.plugins.scala.extensions.{&&, _}
+import org.jetbrains.plugins.scala.extensions.{&&, *}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression.ExpressionTypeResult
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition

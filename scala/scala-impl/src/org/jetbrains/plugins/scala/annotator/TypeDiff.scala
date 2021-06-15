@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.annotator
 
 import com.intellij.psi.PsiClass
 import org.jetbrains.plugins.scala.annotator.Tree.{Leaf, Node}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.types.api.{FunctionType, ParameterizedType, TypePresentation, TupleType, Variance}
 import org.jetbrains.plugins.scala.lang.psi.types.{ScCompoundType, ScExistentialArgument, ScExistentialType, ScParameterizedType, ScType, TypePresentationContext}
@@ -48,12 +48,12 @@ object TypeDiff {
     (forExpected(expected, actual), forActual(expected, actual))
 
   def lengthOf(nodeLength: Int)(diff: Tree[TypeDiff]): Int = diff match {
-    case Node(_ @_*) => nodeLength
+    case Node(_*) => nodeLength
     case Leaf(element) => element.text.length
   }
 
   def asString(diff: Tree[TypeDiff]): String = diff match {
-    case Node(elements @_*) => elements.map(asString).mkString
+    case Node(elements*) => elements.map(asString).mkString
     case Leaf(element) => element.text
   }
 
@@ -71,26 +71,26 @@ object TypeDiff {
       // TODO Comparison (now, it's just "parsing" for the type annotation hints)
       case (_: ScCompoundType, ScCompoundType(cs2, tms2, tps2)) if tpe1 == tpe2 =>
         val components = (cs2 lazyZip cs2).map(diff).intersperse(aMatch(context.compoundTypeSeparatorText))
-        if (tms2.isEmpty && tps2.isEmpty) Node(components: _*) else {
+        if (tms2.isEmpty && tps2.isEmpty) Node(components*) else {
           val declarations = {
             val members = (tms2.keys.map(_.namedElement) ++ tps2.values.map(_.typeAlias)).toSeq
             members.map(_.getText.takeWhile(_ != '=').trim).sorted.map(s => Node(aMatch(s)))
           }
-          Node(components :+ aMatch("{") :+ Node(declarations.intersperse(aMatch("; ")): _*) :+ aMatch("}"): _*)
+          Node(components :+ aMatch("{") :+ Node(declarations.intersperse(aMatch("; "))*) :+ aMatch("}"): _*)
         }
 
       // TODO More flexible comparison, unify with the clause above
       case (ScCompoundType(cs1, EmptyMap(), EmptyMap()), ScCompoundType(cs2, EmptyMap(), EmptyMap())) if cs1.length == cs2.length =>
-        Node((cs1 lazyZip cs2).map(diff).intersperse(aMatch(context.compoundTypeSeparatorText)): _*)
+        Node((cs1 lazyZip cs2).map(diff).intersperse(aMatch(context.compoundTypeSeparatorText))*)
 
       // TODO Comparison (now, it's just "parsing" for the type annotation hints)
       case (_: ScExistentialType, ScExistentialType(q2: ScParameterizedType, ws2)) if tpe1 == tpe2 =>
         val wildcards = ws2.map { case ScExistentialArgument(_, _, lower, upper) =>
           Node(aMatch("_") +:
-            ((if (lower.isNothing) Seq.empty else Seq(aMatch(" >: "), diff(lower, lower)(reversed(conformance), context))) ++
-              (if (upper.isAny) Seq.empty else Seq(aMatch(" <: "), diff(upper, upper)))): _*)
+                      ((if (lower.isNothing) Seq.empty else Seq(aMatch(" >: "), diff(lower, lower)(reversed(conformance), context))) ++
+                        (if (upper.isAny) Seq.empty else Seq(aMatch(" <: "), diff(upper, upper)))): _*)
         }
-        Node(diff(q2.designator, q2.designator), aMatch("["), Node(wildcards.intersperse(aMatch(", ")): _*), aMatch("]"))
+        Node(diff(q2.designator, q2.designator), aMatch("["), Node(wildcards.intersperse(aMatch(", "))*), aMatch("]"))
 
       case (InfixType(l1, d1, r1), InfixType(l2, d2, r2)) =>
         val (v1, v2) = d1.extractDesignated(expandAliases = false) match {
@@ -112,7 +112,7 @@ object TypeDiff {
           if (p1.length == p2.length) {
             val parameters = (p1 lazyZip p2).map(diff(_, _)(reversed, context)).intersperse(aMatch(", "))
             if (p2.isEmpty) Seq(aMatch("()"))
-            else if (p2.length > 1) Seq(aMatch("("), Node(parameters: _*), aMatch(")"))
+            else if (p2.length > 1) Seq(aMatch("("), Node(parameters*), aMatch(")"))
             else if (p2.exists(needsParens)) Seq(aMatch("("), parameters.head, aMatch(")"))
             else if (p1.exists(needsParens)) Seq(aMatch(""), parameters.head, aMatch(""))
             else parameters
@@ -133,7 +133,7 @@ object TypeDiff {
         else
           Seq(aMismatch(args2.map(_.presentableText).mkString(", ")))
 
-        Node(diff(d1, d2), aMatch("["), Node(inner: _*), aMatch("]"))
+        Node(diff(d1, d2), aMatch("["), Node(inner*), aMatch("]"))
 
       case (t1, t2) =>
         val text2 = if (t1.equiv(t2)) t2.presentableText else TypePresentation.different(t1, t2)._2
@@ -163,6 +163,6 @@ object TypeDiff {
   }
 
   private object EmptyMap {
-    def unapply(map: Map[_, _]): Boolean = map.isEmpty
+    def unapply(map: Map[?, ?]): Boolean = map.isEmpty
   }
 }

@@ -22,13 +22,13 @@ class ScParamClauseElementType extends ScStubElementType[ScParamClauseStub, ScPa
     dataStream.writeBoolean(stub.isUsing)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScParamClauseStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScParamClauseStub =
     new ScParamClauseStubImpl(parentStub, this,
       isImplicit = dataStream.readBoolean,
       isUsing = dataStream.readBoolean,
     )
 
-  override def createStubImpl(parameterClause: ScParameterClause, parentStub: StubElement[_ <: PsiElement]): ScParamClauseStub =
+  override def createStubImpl(parameterClause: ScParameterClause, parentStub: StubElement[? <: PsiElement]): ScParamClauseStub =
     new ScParamClauseStubImpl(parentStub, this,
       isImplicit = parameterClause.isImplicit,
       isUsing = parameterClause.isUsing,

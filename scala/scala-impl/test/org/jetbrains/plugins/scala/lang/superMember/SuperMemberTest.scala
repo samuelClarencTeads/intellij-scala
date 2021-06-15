@@ -7,7 +7,7 @@ import com.intellij.openapi.vfs.{LocalFileSystem, VfsUtilCore}
 import com.intellij.testFramework.{LightPlatformCodeInsightTestCase, LightPlatformTestCase}
 import org.jetbrains.plugins.scala.base.ScalaLightPlatformCodeInsightTestCaseAdapter
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
 

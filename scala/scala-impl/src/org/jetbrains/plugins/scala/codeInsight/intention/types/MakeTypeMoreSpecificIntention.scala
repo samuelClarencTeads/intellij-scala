@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.{BaseTypes, ScType, ScTypeExt,
   */
 class MakeTypeMoreSpecificIntention extends AbstractTypeAnnotationIntention {
 
-  import MakeTypeMoreSpecificIntention._
+  import MakeTypeMoreSpecificIntention.*
 
   override def getFamilyName: String = FamilyName
 

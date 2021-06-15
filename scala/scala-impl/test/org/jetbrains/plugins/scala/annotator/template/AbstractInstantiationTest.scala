@@ -60,5 +60,5 @@ class AbstractInstantiationTest extends AnnotatorTestBase[ScNewTemplateDefinitio
     ScNewTemplateDefinitionAnnotator.annotateAbstractInstantiation(element)
 
   private def message(params: String*) =
-    ScalaBundle.message("illegal.instantiation", params: _*)
+    ScalaBundle.message("illegal.instantiation", params*)
 }

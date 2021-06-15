@@ -1,12 +1,12 @@
 package org.jetbrains.plugins.scala.lang
 
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAliasDefinition
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScThisType}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
@@ -41,7 +41,7 @@ package object transformation {
     @tailrec
     def bindTo0(r1: ScReference, paths: Seq[String]): Unit = {
       paths match {
-        case Seq(path, alternatives @ _*)  =>
+        case Seq(path, alternatives*)  =>
           implicit val projectContext: ProjectContext = r1.projectContext
           val r2 = r1.replace(createReferenceElement(path)).asInstanceOf[ScReference]
           if (!isResolvedTo(r2, target)) {

@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package lang
 package resolve
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ArrayFactory
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
@@ -18,13 +18,13 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTy
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScNamedElement, ScPackaging}
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod
 import org.jetbrains.plugins.scala.lang.psi.implicits.ImplicitCollector.{ImplicitResult, ImplicitState, NoResult}
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypeParameter
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.lang.resolve.processor.precedence.PrecedenceTypes
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectContextOwner}
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 /**
  * @param parentElement class for constructor or object/val of `apply/unapply` methods
@@ -198,7 +198,7 @@ class ScalaResolveResult(
     placePackageName: =>String,
     precedenceTypes:  PrecedenceTypes
   ): Int = {
-    import precedenceTypes._
+    import precedenceTypes.*
 
     def getPackagePrecedence(packageFqn: String): Int =
       defaultImportPrecedence(qualifier(packageFqn)).getOrElse(PACKAGE_LOCAL_PACKAGE)
@@ -321,7 +321,7 @@ object ScalaResolveResult {
                             isInInterpolatedString: Boolean = false): ScalaLookupItem = {
       val ScalaResolveResult(element, substitutor) = resolveResult
       if (!element.isValid) {
-        throw new IllegalArgumentException(s"`$element` is supposed to be valid (please consider using ${classOf[com.intellij.openapi.application.ReadAction[_]].getName})")
+        throw new IllegalArgumentException(s"`$element` is supposed to be valid (please consider using ${classOf[com.intellij.openapi.application.ReadAction[?]].getName})")
       }
 
       val isCurrentClassMember: Boolean = {

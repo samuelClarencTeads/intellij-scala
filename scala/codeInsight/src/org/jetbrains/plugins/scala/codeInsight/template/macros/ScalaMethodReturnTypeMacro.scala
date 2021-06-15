@@ -3,11 +3,11 @@ package codeInsight
 package template
 package macros
 
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.types.api.FunctionType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 /**

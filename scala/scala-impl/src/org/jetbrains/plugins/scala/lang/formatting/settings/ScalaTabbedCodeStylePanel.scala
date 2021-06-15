@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.formatting.settings
 
-import com.intellij.application.options._
+import com.intellij.application.options.*
 import com.intellij.application.options.codeStyle.CodeStyleSchemesModel
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
@@ -12,9 +12,9 @@ import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.lang.rearranger.ScalaArrangementPanel
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaLanguage}
 
-import java.awt._
+import java.awt.*
 import java.awt.event.ItemEvent
-import javax.swing._
+import javax.swing.*
 import scala.annotation.nowarn
 
 /**
@@ -24,7 +24,7 @@ import scala.annotation.nowarn
 class ScalaTabbedCodeStylePanel(currentSettings: CodeStyleSettings, settings: CodeStyleSettings)
   extends TabbedLanguageCodeStylePanel(ScalaLanguage.INSTANCE, currentSettings, settings) {
 
-  import ScalaTabbedCodeStylePanel._
+  import ScalaTabbedCodeStylePanel.*
 
   private var formatterSelectorComboBox: JComboBox[String] = _
   private var outerPanel: JPanel = _
@@ -109,7 +109,7 @@ class ScalaTabbedCodeStylePanel(currentSettings: CodeStyleSettings, settings: Co
       }
     })
 
-    import GridConstraints._
+    import GridConstraints.*
     val CAN_SHRINK_AND_GROW = SIZEPOLICY_CAN_SHRINK | SIZEPOLICY_CAN_GROW
 
     def constraint(row: Int, col: Int, fill: Int, HSizePolicy: Int, VSizePolicy: Int) =

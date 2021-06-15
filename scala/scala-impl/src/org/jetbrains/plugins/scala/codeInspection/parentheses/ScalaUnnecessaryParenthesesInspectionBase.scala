@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScParenthesizedElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScFunctionalTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlockExpr, _}
+import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlockExpr, *}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterClause
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil.getShortText
 import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker.checkInspection
@@ -82,7 +82,7 @@ abstract class ScalaUnnecessaryParenthesesInspectionBase
           case other => other
         }
 
-        import codeInsight.intention.RemoveBracesIntention._
+        import codeInsight.intention.RemoveBracesIntention.*
         element.innerElement
           .map(collectComments(_))
           .foreach(addComments(_, replaced.getParent, replaced))

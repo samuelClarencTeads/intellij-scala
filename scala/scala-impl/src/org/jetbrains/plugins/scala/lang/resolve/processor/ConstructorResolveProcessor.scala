@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala
 package lang.resolve.processor
 
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScTypeAliasDeclaration, ScTypeAliasDefinition}
 import org.jetbrains.plugins.scala.lang.psi.types.Compatibility.Expression

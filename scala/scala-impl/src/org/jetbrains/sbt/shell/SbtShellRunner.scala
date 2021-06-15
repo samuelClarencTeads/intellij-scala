@@ -5,11 +5,11 @@ import java.util
 
 import com.intellij.execution.Executor
 import com.intellij.execution.configurations.RemoteConnection
-import com.intellij.execution.console._
+import com.intellij.execution.console.*
 import com.intellij.execution.process.{ColoredProcessHandler, OSProcessHandler, ProcessHandler}
 import com.intellij.execution.runners.AbstractConsoleRunnerWithHistory
 import com.intellij.execution.ui.RunContentDescriptor
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.ex.util.EditorUtil
@@ -23,9 +23,9 @@ import org.jetbrains.plugins.scala.macroAnnotations.TraceWithLogger
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 import org.jetbrains.sbt.SbtBundle
-import org.jetbrains.sbt.shell.SbtShellRunner._
+import org.jetbrains.sbt.shell.SbtShellRunner.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class SbtShellRunner(project: Project, consoleTitle: String, debugConnection: Option[RemoteConnection])
   extends AbstractConsoleRunnerWithHistory[SbtShellConsoleView](project, consoleTitle, project.baseDir.getCanonicalPath) {

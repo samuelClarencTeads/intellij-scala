@@ -15,7 +15,7 @@ object DslUtils {
    * Type-safe storage for attributes
    */
   class AttributeMap {
-    private var attributes = Map.empty[(Attribute[_], String), Any]
+    private var attributes = Map.empty[(Attribute[?], String), Any]
 
     def get[T](attribute: Attribute[T])(implicit m: Manifest[T]): Option[T] =
       attributes.get((attribute, m.toString)).map(_.asInstanceOf[T])

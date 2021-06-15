@@ -6,12 +6,12 @@ package statements
 package params
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.scope.PsiScopeProcessor
 import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createClauseFromText
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScParamClausesStub
 import org.jetbrains.plugins.scala.macroAnnotations.Cached

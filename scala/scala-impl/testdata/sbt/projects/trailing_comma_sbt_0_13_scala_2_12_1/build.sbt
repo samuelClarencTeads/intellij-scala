@@ -1,5 +1,5 @@
-import BuildSourcesClass._
-import java.lang._
+import BuildSourcesClass.*
+import java.lang.*
 
 name := "trailing-comma-test-project-4"
 

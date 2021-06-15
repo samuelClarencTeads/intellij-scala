@@ -77,7 +77,7 @@ private class MyTranslatingClient(
   }
 
   private def toCompilerMessageCategory(kind: Kind): CompilerMessageCategory = {
-    import BuildMessage.Kind._
+    import BuildMessage.Kind.*
     kind match {
       case INFO | JPS_INFO | OTHER        => CompilerMessageCategory.INFORMATION
       case ERROR | INTERNAL_BUILDER_ERROR => CompilerMessageCategory.ERROR

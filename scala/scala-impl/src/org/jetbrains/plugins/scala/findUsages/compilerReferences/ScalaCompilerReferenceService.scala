@@ -19,20 +19,20 @@ import com.intellij.util.containers.ContainerUtil
 import org.jetbrains.jps.backwardRefs.CompilerRef
 import org.jetbrains.jps.backwardRefs.index.CompilerReferenceIndex
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexerFailure._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexingStage._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexerFailure.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexingStage.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.CompilerIndicesSettings
 import org.jetbrains.plugins.scala.indices.protocol.CompilationInfo
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.project.ProjectExt
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final private[findUsages] class ScalaCompilerReferenceService(project: Project) extends ModificationTracker {
-  import ScalaCompilerReferenceService._
+  import ScalaCompilerReferenceService.*
 
   private[this] val compilationCount = new LongAdder
   private[this] val projectFileIndex = ProjectRootManager.getInstance(project).getFileIndex

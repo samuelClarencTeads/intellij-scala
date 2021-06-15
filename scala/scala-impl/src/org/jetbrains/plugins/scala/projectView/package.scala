@@ -10,14 +10,14 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
  */
 package object projectView {
 
-  private[projectView] type Node = AbstractTreeNode[_]
+  private[projectView] type Node = AbstractTreeNode[?]
 
   private[projectView] object Node {
 
-    import FileNode._
+    import FileNode.*
 
     def apply(file: ScalaFile)
-             (implicit project: Project, settings: ViewSettings): Node with IconableNode = {
+             (implicit project: Project, settings: ViewSettings): Node & IconableNode = {
       val fileType = file.getFileType
       fileType match {
         case ScalaFileType.INSTANCE =>

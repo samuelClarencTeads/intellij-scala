@@ -39,5 +39,5 @@ class NeedsToBeTraitTest extends AnnotatorTestBase[ScTemplateDefinition] {
     ScTemplateDefinitionAnnotator.annotateNeedsToBeTrait(element)
 
   private def message(params: String*) =
-    ScalaBundle.message("illegal.mixin", params: _*)
+    ScalaBundle.message("illegal.mixin", params*)
 }

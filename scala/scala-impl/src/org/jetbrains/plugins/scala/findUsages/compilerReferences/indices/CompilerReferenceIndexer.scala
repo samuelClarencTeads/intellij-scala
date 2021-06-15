@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences
 package indices
 
 import java.io.File
-import java.util.concurrent._
+import java.util.concurrent.*
 import java.util.concurrent.atomic.AtomicReference
 
 import com.intellij.openapi.diagnostic.Logger
@@ -10,18 +10,18 @@ import com.intellij.openapi.progress.{ProgressIndicator, Task}
 import com.intellij.openapi.project.Project
 import com.intellij.util.containers.ContainerUtil
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.bytecode.{ClassfileParser, CompiledScalaFile}
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexerFailure._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexingStage._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexerFailure.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.IndexingStage.*
 import org.jetbrains.plugins.scala.indices.protocol.{CompilationInfo, CompiledClass}
 import org.jetbrains.plugins.scala.project.ProjectExt
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.control.NonFatal
 
 private class CompilerReferenceIndexer(project: Project, expectedIndexVersion: Int) {
-  import CompilerReferenceIndexer._
+  import CompilerReferenceIndexer.*
 
   private[this] val indexerJobQueue = new ConcurrentLinkedQueue[IndexerJob]()
   private[this] val nThreads        = Runtime.getRuntime.availableProcessors()

@@ -15,7 +15,7 @@ import com.intellij.openapi.roots.ModifiableRootModel
 import com.intellij.openapi.util.io.FileUtilRt
 import com.intellij.openapi.vfs.{LocalFileSystem, VirtualFile}
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.sbt.project.SbtProjectSystem
 import org.jetbrains.sbt.project.settings.SbtProjectSettings
 
@@ -56,7 +56,7 @@ object SbtModuleBuilderUtil {
       val project = module.getProject
       val settings =
         ExternalSystemApiUtil.getSettings(project, SbtProjectSystem.Id)
-          .asInstanceOf[AbstractExternalSystemSettings[_, SbtProjectSettings, _]]
+          .asInstanceOf[AbstractExternalSystemSettings[?, SbtProjectSettings, ?]]
 
       externalProjectSettings.setExternalProjectPath(contentRootDir.getAbsolutePath)
       settings.linkProject(externalProjectSettings)

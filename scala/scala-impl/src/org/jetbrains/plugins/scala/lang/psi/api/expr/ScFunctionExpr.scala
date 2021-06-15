@@ -5,7 +5,7 @@ package api
 package expr
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 
 /**
   * @author Alexander Podkhalyuzin, ilyas

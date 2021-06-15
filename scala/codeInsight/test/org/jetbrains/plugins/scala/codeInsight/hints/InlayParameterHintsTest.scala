@@ -6,8 +6,8 @@ import com.intellij.codeInsight.hints.Option
 
 class InlayParameterHintsTest extends InlayHintsTestBase {
 
-  import Hint.{End => E, Start => S}
-  import ScalaInlayParameterHintsProvider._
+  import Hint.{End as E, Start as S}
+  import ScalaInlayParameterHintsProvider.*
 
   def testNoDefaultPackageHint(): Unit = doTest(
     s"""  println(42)

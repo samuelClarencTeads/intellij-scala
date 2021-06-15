@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.editor.documentationProvider
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.util.assertions.StringAssertions._
+import org.jetbrains.plugins.scala.util.assertions.StringAssertions.*
 
 class ScalaDocumentationProviderQuickInfoTest extends ScalaDocumentationProviderTestBase {
 

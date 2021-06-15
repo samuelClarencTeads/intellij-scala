@@ -7,7 +7,7 @@ package xml
 
 import com.intellij.lang.ASTNode
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
 
 /**
 * @author Alexander Podkhalyuzin

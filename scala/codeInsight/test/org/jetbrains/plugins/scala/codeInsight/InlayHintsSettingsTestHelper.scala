@@ -20,7 +20,7 @@ trait InlayHintsSettingsTestHelper {
       value => new Setting(getter, setter, value)
   }
 
-  import ScalaCodeInsightSettings.{getInstance => codeInsightSettings}
+  import ScalaCodeInsightSettings.{getInstance as codeInsightSettings}
   val showMethodChainInlayHintsSetting: lang.Boolean => Setting[lang.Boolean] =
     Setting(codeInsightSettings.showMethodChainInlayHintsGetter(), codeInsightSettings.showMethodChainInlayHintsSetter())
   val showObviousTypeSetting: lang.Boolean => Setting[lang.Boolean] =
@@ -30,7 +30,7 @@ trait InlayHintsSettingsTestHelper {
   val uniqueTypesToShowMethodChains: lang.Integer => Setting[lang.Integer] =
     Setting(codeInsightSettings.uniqueTypesToShowMethodChainsGetter(), codeInsightSettings.uniqueTypesToShowMethodChainsSetter())
 
-  final def withSettings(settings: Seq[Setting[_]])(body: => Unit): Unit = settings match {
+  final def withSettings(settings: Seq[Setting[?]])(body: => Unit): Unit = settings match {
     case head +: rest =>
       head.apply()
       try withSettings(rest)(body)

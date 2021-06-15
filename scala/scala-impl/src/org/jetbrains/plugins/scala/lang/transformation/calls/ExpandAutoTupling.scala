@@ -4,7 +4,7 @@ package calls
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.extensions.Resolved
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScInfixExpr, ScMethodCall}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 /**

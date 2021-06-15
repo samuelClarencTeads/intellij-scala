@@ -1,12 +1,12 @@
 package org.jetbrains.plugins.scala.worksheet.settings.ui
 
-import java.awt._
+import java.awt.*
 
 import com.intellij.psi.PsiFile
 import com.intellij.ui.components.JBTabbedPane
 import com.intellij.uiDesigner.core.{GridConstraints, GridLayoutManager}
 import com.intellij.util.ui.JBUI
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.worksheet.WorksheetBundle
 import org.jetbrains.plugins.scala.worksheet.settings.ui.WorksheetSettingsPanel.TabTypeData
 

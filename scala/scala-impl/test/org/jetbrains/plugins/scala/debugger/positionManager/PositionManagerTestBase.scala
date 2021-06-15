@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.debugger.{Loc, ScalaDebuggerTestCase, ScalaPo
 import org.jetbrains.plugins.scala.extensions.inReadAction
 import org.junit.Assert
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -24,7 +24,7 @@ abstract class PositionManagerTestBase extends ScalaDebuggerTestCase {
 
     runDebugger(mainClass) {
       waitForBreakpoint()
-      for ((position, className) <- sourcePositions.zip(expectedClassNames)) {
+      for (case (position, className) <- sourcePositions.zip(expectedClassNames)) {
         val classes = managed {
           positionManager.getAllClasses(position)
         }
@@ -38,13 +38,13 @@ abstract class PositionManagerTestBase extends ScalaDebuggerTestCase {
   }
 
   protected def checkGetAllClassesRunning(mainClass: String)(expectedClassNames: String*): Unit =
-    checkGetAllClassesInFile(mainFileName, mainClass)(expectedClassNames: _*)
+    checkGetAllClassesInFile(mainFileName, mainClass)(expectedClassNames*)
 
   protected def checkGetAllClasses(expectedClassNames: String*): Unit =
-    checkGetAllClassesRunning(mainClassName)(expectedClassNames: _*)
+    checkGetAllClassesRunning(mainClassName)(expectedClassNames*)
 
   protected def checkLocationsOfLine(expectedLocations: Set[Loc]*): Unit =
-    checkLocationsOfLine(mainClassName, expectedLocations: _*)
+    checkLocationsOfLine(mainClassName, expectedLocations*)
 
   protected def checkLocationsOfLine(mainClass: String, expectedLocations: Set[Loc]*): Unit = {
     val sourcePositions = sourcePositionsInFile(mainFileName)
@@ -61,7 +61,7 @@ abstract class PositionManagerTestBase extends ScalaDebuggerTestCase {
         }
       }
 
-      for ((position, locationSet) <- sourcePositions.zip(expectedLocations)) {
+      for (case (position, locationSet) <- sourcePositions.zip(expectedLocations)) {
         val foundLocations: Set[Loc] = managed {
           val classes = positionManager.getAllClasses(position)
           val locations = classes.asScala.flatMap(refType => positionManager.locationsOfLine(refType, position).asScala)

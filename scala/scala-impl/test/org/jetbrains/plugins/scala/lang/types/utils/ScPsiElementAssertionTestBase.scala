@@ -10,10 +10,10 @@ import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.base.ScalaLightPlatformCodeInsightTestCaseAdapter
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
-import scala.reflect._
+import scala.reflect.*
 
 @nowarn("msg=ScalaLightPlatformCodeInsightTestCaseAdapter")
 abstract class ScPsiElementAssertionTestBase[T <: PsiElement : ClassTag]

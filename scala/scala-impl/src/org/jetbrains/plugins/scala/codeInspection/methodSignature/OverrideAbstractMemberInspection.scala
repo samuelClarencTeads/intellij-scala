@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.types.TermSignature
 
 class OverrideAbstractMemberInspection extends AbstractRegisteredInspection {
-  import lang.psi.ScalaPsiUtil._
+  import lang.psi.ScalaPsiUtil.*
 
   override protected def problemDescriptor(element: PsiElement,
                                            maybeQuickFix: Option[LocalQuickFix],

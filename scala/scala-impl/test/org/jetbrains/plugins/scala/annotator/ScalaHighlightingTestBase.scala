@@ -27,7 +27,7 @@ abstract class ScalaHighlightingTestBase extends ScalaFixtureTestCase with Match
   }
 
   def assertNoErrors(code: String): Unit =
-    assertErrors(code, Nil: _*)
+    assertErrors(code, Nil*)
 
   def assertErrors(code: String, messages: Message*): Unit =
     assertEqualsFailable(messages.mkString("\n"), errorsFromScalaCode(code).mkString("\n"))

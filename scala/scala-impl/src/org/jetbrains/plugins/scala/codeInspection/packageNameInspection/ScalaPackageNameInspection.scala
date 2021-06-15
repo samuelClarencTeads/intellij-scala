@@ -2,11 +2,11 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package packageNameInspection
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.roots.{ProjectFileIndex, ProjectRootManager}
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.isKeyword
@@ -52,7 +52,7 @@ class ScalaPackageNameInspection extends LocalInspectionTool {
             message += "\n\n" + ScalaInspectionBundle.message("package.names.does.not.correspond.to.directory.structure.package.prefix", sourceFolder.getFile.getName, packagePrefix)
           }
 
-          manager.createProblemDescriptor(file, range, message, ProblemHighlightType.GENERIC_ERROR_OR_WARNING, isOnTheFly, buffer: _*)
+          manager.createProblemDescriptor(file, range, message, ProblemHighlightType.GENERIC_ERROR_OR_WARNING, isOnTheFly, buffer*)
         }
 
         val expectedPackageName = file.typeDefinitions.head match {

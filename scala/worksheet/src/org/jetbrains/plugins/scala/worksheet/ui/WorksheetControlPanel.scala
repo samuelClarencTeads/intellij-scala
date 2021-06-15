@@ -2,13 +2,13 @@ package org.jetbrains.plugins.scala.worksheet.ui
 
 import java.awt.Dimension
 
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.extensions.inReadAction
 import org.jetbrains.plugins.scala.worksheet.WorksheetCompilerExtension
 import org.jetbrains.plugins.scala.worksheet.actions.InteractiveStatusDisplay
 import org.jetbrains.plugins.scala.worksheet.actions.topmenu.StopWorksheetAction.StoppableProcess
-import org.jetbrains.plugins.scala.worksheet.actions.topmenu._
-import org.jetbrains.plugins.scala.worksheet.ui.WorksheetControlPanel._
+import org.jetbrains.plugins.scala.worksheet.actions.topmenu.*
+import org.jetbrains.plugins.scala.worksheet.ui.WorksheetControlPanel.*
 
 // TODO: check if Scala Plugin is unloadable if there are some worksheets with initialized top panel UI
 final class WorksheetControlPanel extends JPanel {

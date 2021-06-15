@@ -7,10 +7,10 @@ import com.intellij.psi.impl.DebugUtil.psiToString
 import com.intellij.psi.{PsiElement, PsiErrorElement, PsiFile}
 import org.jetbrains.plugins.scala.Scala3Language
 import org.jetbrains.plugins.scala.base.ScalaFileSetTestCase
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.scala3.imported.Scala3ImportedParserTest.rangesDirectory
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.AllTests
 

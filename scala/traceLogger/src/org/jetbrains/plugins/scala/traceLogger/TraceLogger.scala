@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.traceLogger
 
 import org.jetbrains.plugins.scala.traceLogger.macros.LoggingMacros
-import org.jetbrains.plugins.scala.traceLogger.protocol._
+import org.jetbrains.plugins.scala.traceLogger.protocol.*
 
 import java.io.FileWriter
 import java.nio.file.{Files, Path, Paths}

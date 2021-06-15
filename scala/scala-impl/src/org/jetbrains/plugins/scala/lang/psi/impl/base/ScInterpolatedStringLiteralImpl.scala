@@ -9,16 +9,16 @@ import com.intellij.util.IncorrectOperationException
 import com.intellij.psi.LiteralTextEscaper
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInterpolatedStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScMethodCall, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.escapers.{ScLiteralEscaper, ScLiteralRawEscaper}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 import org.jetbrains.plugins.scala.util.CommonQualifiedNames.StringContextCanonical
 
-import scala.meta.intellij.QuasiquoteInferUtil._
+import scala.meta.intellij.QuasiquoteInferUtil.*
 
 // todo: move to "literals" subpackage, but check usages
 final class ScInterpolatedStringLiteralImpl(node: ASTNode,
@@ -26,8 +26,8 @@ final class ScInterpolatedStringLiteralImpl(node: ASTNode,
   extends ScStringLiteralImpl(node, toString)
     with ScInterpolatedStringLiteral {
 
-  import ScInterpolatedStringLiteral._
-  import lang.lexer.ScalaTokenTypes._
+  import ScInterpolatedStringLiteral.*
+  import lang.lexer.ScalaTokenTypes.*
 
   override def kind: Kind = referenceText match {
     case "s" => Standard

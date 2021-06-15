@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testingSupport.scalatest
 
-import org.jetbrains.plugins.scala.lang.structureView.element.Test._
+import org.jetbrains.plugins.scala.lang.structureView.element.Test.*
 import org.jetbrains.plugins.scala.testingSupport.ScalaTestingTestCase
 import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer
 import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestConfigurationProducer
@@ -9,7 +9,7 @@ import org.junit.Assert.fail
 
 abstract class ScalaTestTestCase extends ScalaTestingTestCase {
 
-  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[_] =
+  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[?] =
     ScalaTestConfigurationProducer()
 
   override protected def runFileStructureViewTest(testClassName: String, status: Int, tests: String*): Unit = {
@@ -19,6 +19,6 @@ abstract class ScalaTestTestCase extends ScalaTestingTestCase {
       case PendingStatusId => tests.map(_ + TestNodeProvider.PendingSuffix)
       case unknownStatus   => fail(s"unknown status code: $unknownStatus").asInstanceOf[Nothing]
     }
-    super.runFileStructureViewTest(testClassName, status, testsModified: _*)
+    super.runFileStructureViewTest(testClassName, status, testsModified*)
   }
 }

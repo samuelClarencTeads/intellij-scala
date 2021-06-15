@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
   */
 final class ApparentResultTypeRefinementInspection extends AbstractMethodSignatureInspection {
 
-  import ApparentResultTypeRefinementInspection._
+  import ApparentResultTypeRefinementInspection.*
 
   override protected def isApplicable(function: ScFunction): Boolean =
     function.isInstanceOf[ScFunctionDeclaration] && typeComponents(function).isDefined
@@ -28,7 +28,7 @@ final class ApparentResultTypeRefinementInspection extends AbstractMethodSignatu
       function
     ) {
       override protected def doApplyFix(function: ScFunction)(implicit project: Project): Unit = for {
-        (lastType, refinement) <- typeComponents(function)
+        case (lastType, refinement) <- typeComponents(function)
         endIndex = lastType.getTextRange.getEndOffset - function.getTextRange.getStartOffset
 
         text = s"${function.getText.substring(0, endIndex)} = ${refinement.getText}"
@@ -43,7 +43,7 @@ final class ApparentResultTypeRefinementInspection extends AbstractMethodSignatu
 object ApparentResultTypeRefinementInspection {
 
   private def typeComponents(function: ScFunction) = for {
-    ScCompoundTypeElement(types, Some(refinement)) <- function.returnTypeElement
+    case ScCompoundTypeElement(types, Some(refinement)) <- function.returnTypeElement
     lastType <- types.lastOption
   } yield (lastType, refinement)
 }

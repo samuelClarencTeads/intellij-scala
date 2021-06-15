@@ -4,11 +4,11 @@ package completion
 package filters
 package expression
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 /**
  * @author Alexander Podkhalyuzin
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr._
  */
 class ElseFilter extends ElementFilter {
 
-  import ScalaCompletionUtil._
+  import ScalaCompletionUtil.*
 
   override def isAcceptable(element: Object, context: PsiElement): Boolean = {
     if (context.isInstanceOf[PsiComment]) return false
@@ -49,7 +49,7 @@ class ElseFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = true
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = true
 
   @NonNls
   override def toString: String = "statements keyword filter"

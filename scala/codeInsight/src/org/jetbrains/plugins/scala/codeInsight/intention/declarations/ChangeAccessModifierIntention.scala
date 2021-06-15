@@ -17,7 +17,7 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.popup.{JBPopupFactory, JBPopupListener, LightweightWindowEvent}
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.PsiTreeUtil
@@ -27,8 +27,8 @@ import com.intellij.refactoring.util.RefactoringUIUtil
 import com.intellij.util.containers.MultiMap
 import javax.swing.ListSelectionModel
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.codeInsight.intention.declarations.ChangeAccessModifierIntention._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInsight.intention.declarations.ChangeAccessModifierIntention.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScMethodLike
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
@@ -40,7 +40,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.changeInfo.S
 import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.{ScalaChangeSignatureProcessor, ScalaParameterInfo}
 import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ChangeAccessModifierIntention extends BaseElementAtCaretIntentionAction {
   private def getMemberDescription(member: ScMember): Option[String] = member match {

@@ -6,9 +6,9 @@ package base
 package patterns
 
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
 * @author Alexander Podkhalyuzin

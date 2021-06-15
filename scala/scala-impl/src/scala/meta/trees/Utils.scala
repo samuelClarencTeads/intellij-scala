@@ -10,13 +10,13 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createTy
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
-import org.jetbrains.plugins.scala.lang.psi.{types => ptype}
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
+import org.jetbrains.plugins.scala.lang.psi.{types as ptype}
 
 import scala.collection.immutable.LongMap
 import scala.meta.{ScalaMetaBundle, Term, Type}
-import scala.meta.trees.error._
-import scala.{meta => m, Seq => _}
+import scala.meta.trees.error.*
+import scala.{meta as m, Seq as _}
 
 trait Utils {
   self: TreeConverter =>

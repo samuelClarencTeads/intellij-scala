@@ -7,10 +7,10 @@ import com.intellij.openapi.application.ApplicationBundle
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable.OptionAnchor
 import com.intellij.psi.codeStyle.LanguageCodeStyleSettingsProvider.SettingsType
-import com.intellij.psi.codeStyle._
+import com.intellij.psi.codeStyle.*
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaLanguageCodeStyleSettingsProvider._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaLanguageCodeStyleSettingsProvider.*
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaLanguage}
 
 import scala.collection.mutable.ArrayBuffer
@@ -214,12 +214,12 @@ class ScalaLanguageCodeStyleSettingsProvider extends LanguageCodeStyleSettingsPr
       )
     }
 
-    consumer.showStandardOptions(settingsToEnable.toArray: _*)
+    consumer.showStandardOptions(settingsToEnable.toArray*)
 
     def opt(@NonNls fieldName: String, title: String, groupName: String,
             keysAndValues: (Array[String], Array[Int]) = null): Unit = {
       val options = if (keysAndValues != null) Array(keysAndValues._1, keysAndValues._2) else Array()
-      consumer.showCustomOption(classOf[ScalaCodeStyleSettings], fieldName, title, groupName, options: _*)
+      consumer.showCustomOption(classOf[ScalaCodeStyleSettings], fieldName, title, groupName, options*)
     }
 
     //noinspection SpellCheckingInspection
@@ -231,17 +231,17 @@ class ScalaLanguageCodeStyleSettingsProvider extends LanguageCodeStyleSettingsPr
       } else {
         Array()
       }
-      consumer.showCustomOption(classOf[ScalaCodeStyleSettings], fieldName, title, groupName, anchor, anchorField, options: _*)
+      consumer.showCustomOption(classOf[ScalaCodeStyleSettings], fieldName, title, groupName, anchor, anchorField, options*)
     }
 
-    import ApplicationBundle.{message => appMessage}
+    import ApplicationBundle.{message as appMessage}
 //    import com.intellij.psi.codeStyle.{CodeStyleSettingsCustomizable => options}
 
     val options = CodeStyleSettingsCustomizableOptions.getInstance
     //Custom options
     if (settingsType == SettingsType.WRAPPING_AND_BRACES_SETTINGS) {
 
-      import WrappingAndBracesCustomGroupNames._
+      import WrappingAndBracesCustomGroupNames.*
       val ExtendsWithList = appMessage("wrapping.extends.implements.list")
       opt("ALIGN_EXTENDS_WITH", appMessage("wrapping.align.when.multiline"), ExtendsWithList,
         (ScalaCodeStyleSettings.EXTENDS_ALIGN_STRING, ScalaCodeStyleSettings.EXTENDS_ALIGN_VALUES))
@@ -275,7 +275,7 @@ class ScalaLanguageCodeStyleSettingsProvider extends LanguageCodeStyleSettingsPr
       opt("INDENT_YIELD_AFTER_ONE_LINE_ENUMERATORS", ScalaBundle.message("wrapping.and.braces.panel.for.indent.yield.after.one.line.enumerators"), options.WRAPPING_FOR_STATEMENT)
 
       val newLinesOptions: Array[(String, Int)] = {
-        import ScalaCodeStyleSettings._
+        import ScalaCodeStyleSettings.*
         Array(
           ScalaBundle.message("wrapping.and.braces.panel.new.line.options.no.new.line") -> NO_NEW_LINE,
           ScalaBundle.message("wrapping.and.braces.panel.new.line.options.new.line.always") -> NEW_LINE_ALWAYS,

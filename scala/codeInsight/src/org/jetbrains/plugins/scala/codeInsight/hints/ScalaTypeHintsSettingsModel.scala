@@ -9,13 +9,13 @@ import com.intellij.openapi.progress.DumbProgressIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import javax.swing.JComponent
-import kotlin.Unit.{INSTANCE => kUnit}
+import kotlin.Unit.{INSTANCE as kUnit}
 import org.jetbrains.plugins.scala.codeInsight.implicits.{ImplicitHints, ImplicitHintsPass}
 import org.jetbrains.plugins.scala.codeInsight.{ScalaCodeInsightBundle, ScalaCodeInsightSettings, hints}
 import org.jetbrains.plugins.scala.extensions.StringExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaTypeHintsSettingsModel(project: Project) extends InlayProviderSettingsModel(true, "Scala.ScalaTypeHintsSettingsModel") {
   // have a temporary version of the settings, so apply/cancel mechanism works

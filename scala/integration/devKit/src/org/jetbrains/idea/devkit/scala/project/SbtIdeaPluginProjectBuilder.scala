@@ -140,8 +140,8 @@ object SbtIdeaPluginProjectBuilder {
   }
 
   def fetchLatestSbtIdeaVersion: String = {
-    import spray.json._
-    import DefaultJsonProtocol._
+    import spray.json.*
+    import DefaultJsonProtocol.*
     val versionURL = "https://api.github.com/repos/JetBrains/sbt-idea-plugin/tags?per_page=1"
     val defaultVersion = "3.8.4"
     extensions

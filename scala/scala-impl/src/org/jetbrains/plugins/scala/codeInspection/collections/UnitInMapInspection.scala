@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.codeInspection.collections
 import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.codeInspection._
+import org.jetbrains.plugins.scala.codeInspection.*
 import org.jetbrains.plugins.scala.codeInspection.{AbstractFixOnPsiElement, ScalaInspectionBundle}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScExpression, ScF
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScExpressionExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScEarlyDefinitions
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, api}
 import org.jetbrains.plugins.scala.project.ProjectContext
 
@@ -22,7 +22,7 @@ import scala.collection.immutable.ArraySeq
   */
 final class UnitInMapInspection extends OperationOnCollectionInspection {
 
-  import UnitInMapInspection._
+  import UnitInMapInspection.*
 
   override protected def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Any] = {
     case MethodRepr(call, _, Some(ref), Seq(arg@lambdaWithBody(body))) if ref.refName == "map" &&
@@ -40,7 +40,7 @@ final class UnitInMapInspection extends OperationOnCollectionInspection {
         expression,
         ScalaInspectionBundle.message("expression.unit.return.in.map"),
         highlightType,
-        quickFixes: _*
+        quickFixes*
       )
   }
 

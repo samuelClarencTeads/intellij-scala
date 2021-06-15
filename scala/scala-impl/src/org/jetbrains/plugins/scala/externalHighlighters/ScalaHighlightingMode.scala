@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.extensions.PsiFileExt
 import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
 import org.jetbrains.plugins.scala.settings.{CompilerHighlightingListener, ScalaProjectSettings}
 
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 object ScalaHighlightingMode {
 

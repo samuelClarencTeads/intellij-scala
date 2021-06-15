@@ -22,7 +22,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.util.TestUtils
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -59,7 +59,7 @@ abstract class ScalaRenameTestBase extends ScalaLightPlatformCodeInsightTestCase
     myEditors = createEditors(filesBefore)
 
     for {
-      CaretPosition(vFile, offset) <- caretPositions
+      case CaretPosition(vFile, offset) <- caretPositions
     } {
       val file = getPsiManagerAdapter.findFile(vFile)
       val editor = myEditors(vFile)

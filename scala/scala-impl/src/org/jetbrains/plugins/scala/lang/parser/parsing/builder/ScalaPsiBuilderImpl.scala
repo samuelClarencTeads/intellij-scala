@@ -16,9 +16,9 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType
 class ScalaPsiBuilderImpl(delegate: PsiBuilder, override val isScala3: Boolean) extends PsiBuilderAdapter(delegate)
   with ScalaPsiBuilder {
 
-  import lexer.ScalaTokenType._
-  import lexer.ScalaTokenTypes._
-  import project._
+  import lexer.ScalaTokenType.*
+  import lexer.ScalaTokenTypes.*
+  import project.*
 
   private var newlinesEnabled = List.empty[Boolean]
 

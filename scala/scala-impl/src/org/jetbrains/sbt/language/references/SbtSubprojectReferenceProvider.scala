@@ -6,7 +6,7 @@ import java.io.File
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.io.FileUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{FilenameIndex, GlobalSearchScope}
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor

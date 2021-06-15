@@ -19,7 +19,7 @@ class BuildFileChangeBrowser(val project: Project,
                              val fileChangesMap: mutable.Map[VirtualFile, (BuildFileModifiedStatus, Long)])
   extends SimpleChangesBrowser(project, changes) {
 
-  override def setChangesToDisplay(changes: util.Collection[_ <: Change]): Unit = {
+  override def setChangesToDisplay(changes: util.Collection[? <: Change]): Unit = {
     val updatedChanges = new java.util.ArrayList[Change]
     updatedChanges.addAll(
       getSelectedChanges.asScala.map {

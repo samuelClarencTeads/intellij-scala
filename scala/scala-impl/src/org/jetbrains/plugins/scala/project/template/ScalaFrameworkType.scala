@@ -26,7 +26,7 @@ final class ScalaFrameworkType extends FrameworkTypeEx(ScalaLanguage.INSTANCE.ge
 
     override def getIcon = getFrameworkType.getIcon
 
-    override def isEnabledForModuleType(moduleType: ModuleType[_ <: ModuleBuilder]): Boolean =
+    override def isEnabledForModuleType(moduleType: ModuleType[? <: ModuleBuilder]): Boolean =
       moduleType.getId match {
         case ModuleTypeId.JAVA_MODULE |
              "PLUGIN_MODULE" => true // PluginModuleType.getInstance.getId

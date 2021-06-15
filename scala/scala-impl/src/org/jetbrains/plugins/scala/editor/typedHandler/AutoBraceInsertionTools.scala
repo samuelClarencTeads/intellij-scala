@@ -10,14 +10,14 @@ import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.editor.AutoBraceUtils.{continuesConstructAfterIndentationContext, isBeforeIndentationContext, nextExpressionInIndentationContext}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScPostfixExpr}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.jetbrains.plugins.scala.util.IndentUtil.calcIndent
 
-import java.{util => ju}
+import java.{util as ju}
 import scala.annotation.tailrec
 
 object AutoBraceInsertionTools {
@@ -34,7 +34,7 @@ object AutoBraceInsertionTools {
 
   def findAutoBraceInsertionOpportunity(c: Option[Char], caretOffset: Int, element: PsiElement)
                                        (implicit project: Project, file: PsiFile, editor: Editor): Option[AutoBraceInsertionInfo] = {
-    import AutoBraceUtils._
+    import AutoBraceUtils.*
 
     if (useIndentationBasedSyntax(file))
       return None
@@ -220,8 +220,8 @@ object AutoBraceInsertionTools {
   }
 
   private val startsStatement = {
-    import ScalaTokenType._
-    import ScalaTokenTypes._
+    import ScalaTokenType.*
+    import ScalaTokenTypes.*
     Set(
       // modifier
       kABSTRACT,

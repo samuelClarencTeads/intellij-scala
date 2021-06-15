@@ -6,13 +6,13 @@ import com.intellij.codeInsight.completion.CompletionConfidence
 import com.intellij.psi.{PsiElement, PsiFile}
 import com.intellij.util.ThreeState
 import org.jetbrains.plugins.scala.extensions.PsiFileExt
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionConfidence._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionConfidence.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScInterpolatedExpressionPrefix
 
 final class ScalaCompletionConfidence extends CompletionConfidence {
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   override def shouldSkipAutopopup(contextElement: PsiElement, psiFile: PsiFile, offset: Int): ThreeState = {
     def typedChar(c: Char): Boolean = psiFile.charSequence.charAt(offset - 1) == c

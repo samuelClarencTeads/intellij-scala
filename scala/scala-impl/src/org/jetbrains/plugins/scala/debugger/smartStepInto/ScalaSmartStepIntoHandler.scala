@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.debugger.smartStepInto
 
-import java.util.{Collections, List => JList}
+import java.util.{Collections, List as JList}
 
 import com.intellij.debugger.SourcePosition
 import com.intellij.debugger.actions.{JvmSmartStepIntoHandler, MethodSmartStepTarget, SmartStepTarget}
@@ -8,7 +8,7 @@ import com.intellij.debugger.engine.MethodFilter
 import com.intellij.debugger.impl.DebuggerSession
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.Range
 import com.intellij.util.text.CharArrayUtil
@@ -16,19 +16,19 @@ import org.jetbrains.concurrency.{Promise, Promises}
 import org.jetbrains.plugins.scala.codeInspection.collections.{MethodRepr, stripped}
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 import org.jetbrains.plugins.scala.debugger.filters.ScalaDebuggerSettings
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScParameterizedTypeElement, ScSimpleTypeElement, ScTypeElement}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScMethodLike}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaRecursiveElementVisitor}
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable.ArrayBuffer
 
 /**
@@ -57,7 +57,7 @@ class ScalaSmartStepIntoHandler extends JvmSmartStepIntoHandler {
 
     val (element, doc) =
       (for {
-        sf @ (_sf: ScalaFile) <- position.getFile.toOption
+        case sf@(_sf: ScalaFile) <- position.getFile.toOption
         if !sf.isCompiled
         vFile <- sf.getVirtualFile.toOption
         doc <- FileDocumentManager.getInstance().getDocument(vFile).toOption
@@ -161,7 +161,7 @@ class ScalaSmartStepIntoHandler extends JvmSmartStepIntoHandler {
             extBl.templateBody match {
               case Some(tb) =>
                 for {
-                  fun @ (_f: ScFunctionDefinition) <- tb.functions
+                  case fun@(_f: ScFunctionDefinition) <- tb.functions
                   body <- fun.body
                 } {
                   result += new MethodSmartStepTarget(fun, label, body, true, noStopAtLines)

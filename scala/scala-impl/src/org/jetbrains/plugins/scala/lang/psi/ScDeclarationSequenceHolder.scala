@@ -3,8 +3,8 @@ package lang
 package psi
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
-import com.intellij.psi.scope._
+import com.intellij.psi.*
+import com.intellij.psi.scope.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScDeclaredElementsHolder

@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.scala
 package testingSupport.test.specs2
 
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject}
 import org.jetbrains.plugins.scala.testingSupport.test.CustomTestRunnerBasedStateProvider.TestFrameworkRunnerInfo
-import org.jetbrains.plugins.scala.testingSupport.test._
+import org.jetbrains.plugins.scala.testingSupport.test.*
 
 class Specs2RunConfiguration(
   project: Project,

@@ -2,21 +2,21 @@ package org.jetbrains.plugins.scala
 package overrideImplement
 
 import com.intellij.ide.util.MemberChooser
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.ui.{HyperlinkLabel, NonFocusableCheckBox}
 import com.intellij.util.ui.ThreeStateCheckBox
 import com.intellij.util.ui.ThreeStateCheckBox.State
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.jetbrains.plugins.scala.settings.annotations.{Declaration, Location, ScalaTypeAnnotationSettings}
-import org.jetbrains.plugins.scala.util.TypeAnnotationUtil._
+import org.jetbrains.plugins.scala.util.TypeAnnotationUtil.*
 
 import java.awt.FlowLayout
 import javax.swing.event.{HyperlinkEvent, TreeSelectionEvent, TreeSelectionListener}
 import javax.swing.{JCheckBox, JComponent, JPanel}
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaMemberChooser[T <: ClassMember : scala.reflect.ClassTag](elements: ArraySeq[T],
                                                                     allowEmptySelection: Boolean,

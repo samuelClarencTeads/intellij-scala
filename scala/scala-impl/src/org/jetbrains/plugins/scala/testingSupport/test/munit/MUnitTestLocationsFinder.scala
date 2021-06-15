@@ -14,7 +14,7 @@ object MUnitTestLocationsFinder {
   @CachedInUserData(definition, CachesUtil.fileModTracker(definition.getContainingFile))
   def calculateTestLocations(definition: ScTypeDefinition): Option[Seq[PsiElement]] = {
     import ScalaTestLocationsFinderUtils.collectTestLocations
-    import SuiteMethodNames._
+    import SuiteMethodNames.*
 
     val templateBodyOpt = definition.extendsBlock.templateBody
     val result = templateBodyOpt.map { body =>

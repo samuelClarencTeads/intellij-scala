@@ -6,7 +6,7 @@ import java.io.File
 import com.intellij.openapi.roots.libraries.LibraryProperties
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.vfs.VfsUtilCore
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 /**
  * @author Pavel Fatin
@@ -15,7 +15,7 @@ final class ScalaLibraryProperties private(private[this] var _languageLevel: Sca
                                            private[this] var _compilerClasspath: Seq[File])
   extends LibraryProperties[ScalaLibraryPropertiesState] {
 
-  import ScalaLibraryProperties._
+  import ScalaLibraryProperties.*
 
   def languageLevel: ScalaLanguageLevel = _languageLevel
 
@@ -55,8 +55,8 @@ final class ScalaLibraryProperties private(private[this] var _languageLevel: Sca
 
 object ScalaLibraryProperties {
 
-  import ScalaLanguageLevel._
-  import VfsUtilCore._
+  import ScalaLanguageLevel.*
+  import VfsUtilCore.*
 
   def apply(version: Option[String] = None,
             compilerClasspath: Seq[File] = Seq.empty): ScalaLibraryProperties = {

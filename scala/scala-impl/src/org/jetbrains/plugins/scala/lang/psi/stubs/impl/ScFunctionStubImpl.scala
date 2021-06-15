@@ -13,8 +13,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
   * Date: 14.10.2008
   */
 final class ScFunctionStubImpl[F <: ScFunction](
-  parent:                                        StubElement[_ <: PsiElement],
-  elementType:                                   IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+  parent:                                        StubElement[? <: PsiElement],
+  elementType:                                   IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
   name:                                          String,
   override val isDeclaration:                    Boolean,
   override val annotations:                      Array[String],

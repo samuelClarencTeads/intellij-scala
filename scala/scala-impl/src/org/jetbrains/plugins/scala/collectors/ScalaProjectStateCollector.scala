@@ -2,13 +2,13 @@ package org.jetbrains.plugins.scala.collectors
 
 import com.intellij.internal.statistic.beans.MetricEvent
 import com.intellij.internal.statistic.eventLog.EventLogGroup
-import com.intellij.internal.statistic.eventLog.events.EventFields.{StringValidatedByRegexp, String => FString}
+import com.intellij.internal.statistic.eventLog.events.EventFields.{StringValidatedByRegexp, String as FString}
 import com.intellij.internal.statistic.service.fus.collectors.ProjectUsagesCollector
 import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.project.{ModuleExt, ProjectExt}
 import org.jetbrains.sbt.settings.SbtSettings
-import org.jetbrains.plugins.scala.collectors.ScalaProjectStateCollector._
+import org.jetbrains.plugins.scala.collectors.ScalaProjectStateCollector.*
 
 import java.io.File
 import java.util

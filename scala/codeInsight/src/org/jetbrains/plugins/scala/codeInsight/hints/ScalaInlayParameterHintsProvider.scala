@@ -2,27 +2,27 @@ package org.jetbrains.plugins.scala
 package codeInsight
 package hints
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.hints
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.psi.{PsiElement, PsiMethod}
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonNames
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class ScalaInlayParameterHintsProvider extends hints.InlayParameterHintsProvider {
 
   import CommonNames.GetSet
-  import ScalaInlayParameterHintsProvider._
+  import ScalaInlayParameterHintsProvider.*
 
   override def getParameterHints(element: PsiElement): ju.List[hints.InlayInfo] = {
     val matchedParameters = (element match {

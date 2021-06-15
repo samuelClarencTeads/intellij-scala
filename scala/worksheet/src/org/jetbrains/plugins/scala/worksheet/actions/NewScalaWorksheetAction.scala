@@ -8,8 +8,8 @@ import com.intellij.openapi.module.Module
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{PsiDirectory, PsiFile}
 import org.jetbrains.plugins.scala.actions.LazyFileTemplateAction
-import org.jetbrains.plugins.scala.project._
-import org.jetbrains.plugins.scala.worksheet.actions.NewScalaWorksheetAction._
+import org.jetbrains.plugins.scala.project.*
+import org.jetbrains.plugins.scala.worksheet.actions.NewScalaWorksheetAction.*
 
 /**
  * @author Ksenia.Sautina

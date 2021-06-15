@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.annotator
 
 import org.jetbrains.plugins.scala.annotator.Tree.{Leaf, Node}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypeParameter
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
@@ -100,11 +100,11 @@ object TypeConstructorDiff {
 
     Node(
       diff(subjectParam.name, subjectParam.typeParameters, otherParam.typeParameters, substitute) ::
-        lowerBoundLeaf(" >: ") :::
-        lowerBoundLeaf(subjectLowerType.presentableText) :::
-        upperBoundLeaf(" <: ") :::
-        upperBoundLeaf(subjectUpperType.presentableText) :::
-        Nil: _*
+              lowerBoundLeaf(" >: ") :::
+              lowerBoundLeaf(subjectLowerType.presentableText) :::
+              upperBoundLeaf(" <: ") :::
+              upperBoundLeaf(subjectUpperType.presentableText) :::
+              Nil: _*
     )
   }
 }

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.project.settings
 
-import java.awt._
+import java.awt.*
 import java.awt.event.MouseEvent
 import java.util
 import java.util.Objects
@@ -13,19 +13,19 @@ import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.{InputValidatorEx, Messages, Splitter}
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.util.{Comparing, Key}
-import com.intellij.ui._
+import com.intellij.ui.*
 import com.intellij.ui.awt.RelativePoint
 import com.intellij.ui.treeStructure.Tree
 import com.intellij.util.ui.tree.TreeUtil
 import com.intellij.util.ui.{EditableTreeModel, JBUI}
-import javax.swing._
+import javax.swing.*
 import javax.swing.event.TreeSelectionEvent
 import javax.swing.tree.{DefaultMutableTreeNode, DefaultTreeModel, TreePath}
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.OptionExt
-import org.jetbrains.plugins.scala.project.settings.ScalaCompilerProfilesPanel._
+import org.jetbrains.plugins.scala.project.settings.ScalaCompilerProfilesPanel.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * NOTE: This was initially almost the exact clone of [[com.intellij.compiler.options.AnnotationProcessorsPanel]]
@@ -194,7 +194,7 @@ class ScalaCompilerProfilesPanel(val myProject: Project) extends JPanel(new Bord
       }
     }
 
-    override def removeNodes(path: util.Collection[_ <: TreePath]): Unit = ()
+    override def removeNodes(path: util.Collection[? <: TreePath]): Unit = ()
 
     override def moveNodeTo(parentOrNeighbour: TreePath): Unit = ()
   }

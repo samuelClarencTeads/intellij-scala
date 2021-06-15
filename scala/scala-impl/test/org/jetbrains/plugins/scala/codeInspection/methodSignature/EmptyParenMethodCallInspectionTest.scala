@@ -4,7 +4,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQuickFixTestBase}
 
 class EmptyParenMethodCallInspectionTest extends ScalaQuickFixTestBase {
-  protected override val classOfInspection: Class[_ <: LocalInspectionTool] =
+  protected override val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ParameterlessAccessInspection.EmptyParenMethod]
 
   protected override val description: String =

@@ -3,9 +3,9 @@ package internal
 package bundle
 
 import junit.framework.TestCase
-import org.jetbrains.plugins.scala.internal.bundle.ScalaBundleSorting._
+import org.jetbrains.plugins.scala.internal.bundle.ScalaBundleSorting.*
 import org.jetbrains.plugins.scala.util.internal.I18nBundleContent
-import org.jetbrains.plugins.scala.util.internal.I18nBundleContent._
+import org.jetbrains.plugins.scala.util.internal.I18nBundleContent.*
 
 /**
  * If this fails maybe run the main method in [[ScalaBundleSorting]]

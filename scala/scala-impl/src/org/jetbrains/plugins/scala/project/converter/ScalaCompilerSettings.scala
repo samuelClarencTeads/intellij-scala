@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package project.converter
 
 import org.jdom.Element
-import org.jetbrains.plugins.scala.project.converter.ScalaCompilerSettings._
+import org.jetbrains.plugins.scala.project.converter.ScalaCompilerSettings.*
 
 import scala.xml.Node
 

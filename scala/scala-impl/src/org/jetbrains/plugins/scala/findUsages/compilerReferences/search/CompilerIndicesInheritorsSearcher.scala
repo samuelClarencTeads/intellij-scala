@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences.search
 
 import com.intellij.psi.{PsiClass, PsiElement}
 import com.intellij.util.Processor
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.{ScalaCompilerReferenceService, UsagesInFile}
 import org.jetbrains.plugins.scala.util.SAMUtil.SAMTypeImplementation
 import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
@@ -19,7 +19,7 @@ class CompilerIndicesInheritorsSearcher
 
   override def processQuery(
     params:    CompilerIndicesInheritorsSearch.SearchParameters,
-    processor: Processor[_ >: PsiElement]
+    processor: Processor[? >: PsiElement]
   ): Unit = {
     val cls     = params.cls
     val project = cls.getProject
@@ -33,7 +33,7 @@ class CompilerIndicesInheritorsSearcher
     usage:              UsagesInFile,
     isPossiblyOutdated: Boolean,
     candidates:         ElementsInContext,
-    processor:          Processor[_ >: PsiElement]
+    processor:          Processor[? >: PsiElement]
   ): Boolean = {
     val matched: Seq[(PsiElement, Int)] = candidates.elements.collect {
       case (e @ SAMTypeImplementation(sam), line) if ScEquivalenceUtil.areClassesEquivalent(sam, target) =>

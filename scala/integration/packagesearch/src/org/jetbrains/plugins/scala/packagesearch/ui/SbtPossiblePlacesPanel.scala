@@ -126,7 +126,7 @@ private class SbtPossiblePlacesPanel(project: Project, wizard: AddDependencyOrRe
   private class PlacesCellRenderer extends ColoredListCellRenderer[DependencyOrRepositoryPlaceInfo] {
 
     //noinspection ReferencePassedToNls,ScalaExtractStringToBundle
-    override def customizeCellRenderer(list: JList[_ <: DependencyOrRepositoryPlaceInfo],
+    override def customizeCellRenderer(list: JList[? <: DependencyOrRepositoryPlaceInfo],
                                        info: DependencyOrRepositoryPlaceInfo,
                                        index: Int,
                                        selected: Boolean,

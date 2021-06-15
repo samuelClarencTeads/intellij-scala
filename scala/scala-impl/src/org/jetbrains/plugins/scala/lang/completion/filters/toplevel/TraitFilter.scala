@@ -3,10 +3,10 @@ package lang
 package completion
 package filters.toplevel
 
-import com.intellij.psi.{PsiElement, _}
+import com.intellij.psi.{PsiElement, *}
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
 
 /** 
 * User: Alexander Podkhalyuzin
@@ -26,7 +26,7 @@ class TraitFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = true
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = true
 
   @NonNls
   override def toString = "template definitions keyword filter"

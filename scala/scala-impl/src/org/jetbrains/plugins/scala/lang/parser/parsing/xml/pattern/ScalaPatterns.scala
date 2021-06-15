@@ -6,7 +6,7 @@ package xml.pattern
 
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenTypes, ScalaTokenTypesEx}
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
-import org.jetbrains.plugins.scala.lang.parser.parsing.patterns._
+import org.jetbrains.plugins.scala.lang.parser.parsing.patterns.*
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
 
 /**

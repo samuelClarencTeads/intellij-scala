@@ -27,7 +27,7 @@ class MetaSupportInjector extends SyntheticMembersInjector {
     }
   }
 
-  import intellij.psi._
+  import intellij.psi.*
   /**
     * Use this method to mark class or trait, that it requires companion object.
     * Note that object as source is not possible.

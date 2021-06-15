@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package codeInsight.template.util
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.BaseProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveTargets, ScalaResolveResult}
 import org.jetbrains.plugins.scala.project.ProjectContext

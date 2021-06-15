@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.editor.importOptimizer
 
 import com.intellij.util.diff.Diff
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.reflect.ClassTag
 
 object BufferUpdate {

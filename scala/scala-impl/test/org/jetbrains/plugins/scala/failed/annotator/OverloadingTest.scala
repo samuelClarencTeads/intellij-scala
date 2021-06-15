@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypeExt
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypePresentation
 import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
   * User: Dmitry.Naydanov
@@ -23,7 +23,7 @@ abstract class OverloadingTestBase extends ScalaLightCodeInsightFixtureTestAdapt
 
   //TODO this class contains a fair amount of a copy-paste code, however refactoring isn't practical here as the class is to be removed soon 
 
-  import org.jetbrains.plugins.scala.extensions._
+  import org.jetbrains.plugins.scala.extensions.*
 
   protected def collectMessages(fileText: String): Option[List[Message]] = {
     myFixture.configureByText("dummy.scala", fileText)

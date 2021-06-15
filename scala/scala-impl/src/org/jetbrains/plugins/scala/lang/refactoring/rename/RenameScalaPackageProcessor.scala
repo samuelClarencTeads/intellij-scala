@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package lang.refactoring.rename
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.psi.search.SearchScope
 import com.intellij.psi.{PsiElement, PsiPackage, PsiReference}

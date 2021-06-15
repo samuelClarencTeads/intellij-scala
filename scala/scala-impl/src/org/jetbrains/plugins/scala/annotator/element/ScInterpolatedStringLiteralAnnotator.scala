@@ -6,7 +6,7 @@ import com.intellij.codeInspection.ProblemHighlightType
 import com.intellij.lang.annotation.AnnotationSession
 import com.intellij.openapi.util.TextRange
 import org.jetbrains.plugins.scala.autoImport.quickFix.ImportImplicitConversionFixes
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolated, ScInterpolatedStringLiteral}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScInterpolatedExpressionPrefix
@@ -23,7 +23,7 @@ object ScInterpolatedStringLiteralAnnotator extends ElementAnnotator[ScInterpola
             .registerUsedImports(partReference, resolveResult)
 
           for {
-            (reference, call) <- literal.desugaredExpression
+            case (reference, call) <- literal.desugaredExpression
 
             offsetToRange = createOffsetToRangeMap(literal.getInjections.iterator)
               .withDefaultValue(partReference.getTextRange)

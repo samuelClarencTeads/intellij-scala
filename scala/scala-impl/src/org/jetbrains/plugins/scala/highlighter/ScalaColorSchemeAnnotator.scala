@@ -3,16 +3,16 @@ package highlighter
 
 import com.intellij.lang.annotation.{AnnotationHolder, Annotator}
 import com.intellij.openapi.editor.colors.TextAttributesKey
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.annotator.ScalaAnnotationHolder
 import org.jetbrains.plugins.scala.annotator.annotationHolder.ScalaAnnotationHolderAdapter
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
@@ -32,7 +32,7 @@ import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
   * Date: 17.07.2008
   */
 class ScalaColorSchemeAnnotator extends Annotator {
-  import ScalaColorSchemeAnnotator._
+  import ScalaColorSchemeAnnotator.*
 
   override def annotate(element: PsiElement, holder: AnnotationHolder): Unit = {
     highlightElement(element, new ScalaAnnotationHolderAdapter(holder))
@@ -51,7 +51,7 @@ object ScalaColorSchemeAnnotator {
 
   private def getParentByStub(x: PsiElement): PsiElement = {
     x match {
-      case el: ScalaStubBasedElementImpl[_, _] => el.getParent
+      case el: ScalaStubBasedElementImpl[?, ?] => el.getParent
       case _ => x.getContext
     }
   }

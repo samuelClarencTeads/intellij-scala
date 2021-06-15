@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.structureView.element
 import com.intellij.ide.util.treeView.smartTree.TreeElement
 import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 // TODO make private (after decoupling Test)
 abstract class AbstractTreeElement[T <: PsiElement](override val element: T, override val inherited: Boolean = false)

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.uast.expressions
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.Nullable
@@ -8,12 +8,12 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScCaseClause, ScCaseClauses}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScMatch}
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.{ScUAnnotated, ScUElement, ScUExpression}
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 import org.jetbrains.plugins.scala.lang.psi.uast.kinds.ScalaSpecialExpressionKinds
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * [[ScMatch]] adapter for the [[USwitchExpression]]
@@ -61,7 +61,7 @@ final class ScUCaseClausesList(override protected val scElement: ScCaseClauses,
     with ScUElement
     with ScUAnnotated {
 
-  import RenderUtils._
+  import RenderUtils.*
 
   override type PsiFacade = PsiElement
 
@@ -112,7 +112,7 @@ final class ScUCaseClauseBodyList(override protected val scElement: ScBlock,
     with ScUElement
     with ScUAnnotated {
 
-  import RenderUtils._
+  import RenderUtils.*
 
   override type PsiFacade = PsiElement
 

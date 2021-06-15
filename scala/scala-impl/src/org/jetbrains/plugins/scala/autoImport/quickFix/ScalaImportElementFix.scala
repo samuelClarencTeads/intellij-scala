@@ -12,7 +12,7 @@ import com.intellij.openapi.util.{ModificationTracker, TextRange}
 import com.intellij.psi.{PsiElement, PsiFile}
 import com.intellij.util.concurrency.AppExecutorUtil
 import org.jetbrains.plugins.scala.autoImport.quickFix.Presentation.htmlWithBody
-import org.jetbrains.plugins.scala.autoImport.quickFix.ScalaImportElementFix._
+import org.jetbrains.plugins.scala.autoImport.quickFix.ScalaImportElementFix.*
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
 import org.jetbrains.plugins.scala.extensions.{PsiElementExt, PsiFileExt, executeUndoTransparentAction, invokeLater, scheduleOnPooledThread}
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
@@ -40,7 +40,7 @@ abstract class ScalaImportElementFix[Element <: ElementToImport](val place: PsiE
 
   protected def findElementsToImport(): Seq[Element]
 
-  def createAddImportAction(editor: Editor): ScalaAddImportAction[_, _]
+  def createAddImportAction(editor: Editor): ScalaAddImportAction[?, ?]
 
   def shouldShowHint(): Boolean =
     !isShowErrorsFromCompilerEnabled(place.getContainingFile)

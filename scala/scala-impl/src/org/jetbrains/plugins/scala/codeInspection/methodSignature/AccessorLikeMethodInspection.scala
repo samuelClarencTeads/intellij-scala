@@ -4,7 +4,7 @@ package methodSignature
 
 import com.intellij.codeInspection.LocalQuickFix
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTrait
 

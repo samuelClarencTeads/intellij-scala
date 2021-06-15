@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.parser.util
 
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
 
 object InScala3 {

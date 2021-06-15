@@ -2,8 +2,8 @@ package scala.meta.converter
 
 import scala.meta.TreeConverterTestBaseWithLibrary
 import scala.meta.Type.Placeholder
-import scala.meta._
-import scala.{Seq => _}
+import scala.meta.*
+import scala.{Seq as _}
 
 class TreeConverterMatchTest extends TreeConverterTestBaseWithLibrary {
 

@@ -12,7 +12,7 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.testFramework.fixtures.JavaCodeInsightFixtureTestCase
 import com.intellij.testFramework.{CompilerTester, PsiTestUtil}
 import org.jetbrains.plugins.scala.{DependencyManager, NlsString}
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.debugger.{CompilationCache, ScalaCompilerTestBase}
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
@@ -20,9 +20,9 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotationsHolder, ScRef
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.meta.intellij.MetaExpansionsManager.{META_MINOR_VERSION, PARADISE_VERSION}
 
 abstract class MetaAnnotationTestBase extends JavaCodeInsightFixtureTestCase with ScalaMetaTestBase {
@@ -84,7 +84,7 @@ abstract class MetaAnnotationTestBase extends JavaCodeInsightFixtureTestCase wit
       fail(prefix + suffix)
   }
 
-  import intellij.psi._
+  import intellij.psi.*
 
   protected def checkExpansionEquals(code: String, expectedExpansion: String): Unit = {
     myFixture.configureByText(s"Usage${getTestName(false)}.scala", code)

@@ -8,10 +8,10 @@ import com.intellij.refactoring.changeSignature.MethodDescriptor
 import com.intellij.refactoring.changeSignature.MethodDescriptor.ReadWriteOption
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScMethodLike, ScalaConstructor}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
-import org.jetbrains.plugins.scala.lang.psi.types.result._
-import org.jetbrains.plugins.scala.lang.refactoring._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
+import org.jetbrains.plugins.scala.lang.refactoring.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Nikolay.Tropin

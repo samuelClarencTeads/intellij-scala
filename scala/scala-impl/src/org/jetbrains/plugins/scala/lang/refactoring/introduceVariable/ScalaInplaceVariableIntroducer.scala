@@ -3,7 +3,7 @@ package lang
 package refactoring
 package introduceVariable
 
-import java.awt._
+import java.awt.*
 import java.awt.event.ActionEvent
 
 import com.intellij.codeInsight.template.impl.{TemplateManagerImpl, TemplateState}
@@ -19,12 +19,12 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.VerticalFlowLayout
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{LocalSearchScope, SearchScope}
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.refactoring.introduce.inplace.InplaceVariableIntroducer
 import com.intellij.ui.NonFocusableCheckBox
-import javax.swing._
+import javax.swing.*
 import javax.swing.event.HyperlinkEvent
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
@@ -32,15 +32,15 @@ import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScTypedPattern
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScForBinding}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.refactoring.util.{BalloonConflictsReporter, ScalaNamesUtil, ScalaVariableValidator, ValidationReporter}
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
-import org.jetbrains.plugins.scala.settings.annotations._
-import org.jetbrains.plugins.scala.util._
+import org.jetbrains.plugins.scala.settings.annotations.*
+import org.jetbrains.plugins.scala.util.*
 
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
@@ -55,7 +55,7 @@ class ScalaInplaceVariableIntroducer(expr: ScExpression,
 
   implicit def projectContext: ProjectContext = project
 
-  import ScalaInplaceVariableIntroducer._
+  import ScalaInplaceVariableIntroducer.*
 
   private var myVarCheckbox: JCheckBox = _
   private var mySpecifyTypeChb: JCheckBox = _
@@ -358,7 +358,7 @@ class ScalaInplaceVariableIntroducer(expr: ScExpression,
   protected override def checkLocalScope(): PsiElement = {
     val scope = new LocalSearchScope(myElementToRename.getContainingFile)
     val elements: Array[PsiElement] = scope.getScope
-    PsiTreeUtil.findCommonParent(elements: _*)
+    PsiTreeUtil.findCommonParent(elements*)
   }
 
   protected override def startRename: StartMarkAction = {

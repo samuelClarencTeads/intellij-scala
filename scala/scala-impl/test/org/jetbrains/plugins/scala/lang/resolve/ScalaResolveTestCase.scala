@@ -23,7 +23,7 @@ import com.intellij.psi.PsiReference
 import org.jetbrains.plugins.scala.TypecheckerTests
 import org.jetbrains.plugins.scala.base.{ScalaLightPlatformCodeInsightTestCaseAdapter, SharedTestProjectToken}
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
 import java.io.File

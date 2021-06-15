@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 
 import org.jetbrains.plugins.scala.project.ScalaLanguageLevel
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 class ScalaVersion(
   val languageLevel: ScalaLanguageLevel,

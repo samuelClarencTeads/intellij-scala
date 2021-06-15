@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettin
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.junit.Assert.{assertEquals, assertNotNull, fail}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * User: Dmitry Naydanov
@@ -35,8 +35,8 @@ abstract class ScalaLightCodeInsightFixtureTestAdapter
     with TestFixtureProvider
     with FailableTest {
 
-  import ScalaLightCodeInsightFixtureTestAdapter._
-  import libraryLoaders._
+  import ScalaLightCodeInsightFixtureTestAdapter.*
+  import libraryLoaders.*
 
   val CARET = EditorTestUtil.CARET_TAG
   val START = EditorTestUtil.SELECTION_START_TAG

@@ -13,7 +13,7 @@ import com.intellij.serialization.PropertyMapping
 import org.jetbrains.annotations.{NotNull, Nullable}
 import org.jetbrains.bsp.{BSP, BspBundle}
 import org.jetbrains.plugins.scala.project.external.SdkReference
-import org.jetbrains.bsp.data.BspEntityData._
+import org.jetbrains.bsp.data.BspEntityData.*
 
 abstract class BspEntityData extends AbstractExternalEntityData(BSP.ProjectSystemId) with Product {
 
@@ -79,7 +79,7 @@ case class BspMetadata @PropertyMapping(Array("targetIds", "javaHome", "javaVers
 
 object BspMetadata {
   val Key: Key[BspMetadata] = datakey(classOf[BspMetadata])
-  import com.intellij.openapi.externalSystem.util.{ExternalSystemApiUtil => ES}
+  import com.intellij.openapi.externalSystem.util.{ExternalSystemApiUtil as ES}
 
   def get(project: Project, module: Module): Either[BspMetadataError, BspMetadata] = {
     val dataManager = ProjectDataManager.getInstance()

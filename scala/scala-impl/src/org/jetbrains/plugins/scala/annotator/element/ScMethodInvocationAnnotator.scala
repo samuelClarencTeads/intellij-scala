@@ -7,15 +7,15 @@ import com.intellij.psi.{PsiComment, PsiElement, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.registerTypeMismatchError
 import org.jetbrains.plugins.scala.annotator.createFromUsage.{CreateApplyQuickFix, InstanceOfClass}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.FunctionType
 import org.jetbrains.plugins.scala.project.ProjectContext
 
@@ -56,7 +56,7 @@ object ScMethodInvocationAnnotator extends ElementAnnotator[MethodInvocation] {
     }
 
     val problems = call.applyOrUpdateElement.map(_.problems).getOrElse(call.applicationProblems)
-    val missed = for (MissedValueParameter(p) <- problems) yield p.name + ": " + p.paramType.presentableText
+    val missed = for (case MissedValueParameter(p) <- problems) yield p.name + ": " + p.paramType.presentableText
 
     if(missed.nonEmpty) {
       val range = call.argumentExpressions.lastOption
@@ -174,7 +174,7 @@ object ScMethodInvocationAnnotator extends ElementAnnotator[MethodInvocation] {
         fun <- resolveResult.element.asOptionOf[ScFunction]
         numArgumentClauses = countArgumentClauses(call)
         problems = Compatibility.missedParameterClauseProblemsFor(fun.effectiveParameterClauses, numArgumentClauses)
-        MissedParametersClause(missedClause) <- problems
+        case MissedParametersClause(missedClause) <- problems
       } {
         val endOffset = call.getTextRange.getEndOffset
         val markRange = call

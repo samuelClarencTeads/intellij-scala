@@ -93,7 +93,7 @@ object TastyReader {
                    rightHandSide: Boolean): Option[TastyFile] =
     api.read(classpath, tastyFile, rightHandSide)
 
-  private def tastyDirectoryFor(aClass: Class[_]): File = {
+  private def tastyDirectoryFor(aClass: Class[?]): File = {
     val libDirectory = {
       val jarPath = PathUtil.getJarPathForClass(aClass)
       if (jarPath.endsWith(".jar")) new File(jarPath).getParentFile

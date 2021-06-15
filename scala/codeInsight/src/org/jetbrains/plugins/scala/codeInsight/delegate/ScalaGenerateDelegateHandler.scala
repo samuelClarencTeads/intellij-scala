@@ -3,25 +3,25 @@ package codeInsight
 package delegate
 
 import com.intellij.codeInsight.CodeInsightBundle
-import com.intellij.codeInsight.generation._
+import com.intellij.codeInsight.generation.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.{Editor, ScrollType}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.LocalSearchScope
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.annotations.{NotNull, Nullable}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.TypeAdjuster
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameterClause, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.types.PhysicalMethodSignature
 import org.jetbrains.plugins.scala.lang.resolve.processor.CompletionProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveUtils, ScalaResolveResult, StdKinds}
@@ -30,7 +30,7 @@ import org.jetbrains.plugins.scala.util.TypeAnnotationUtil
 
 import scala.annotation.nowarn
 import scala.collection.immutable.ArraySeq
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
 * Nikolay.Tropin
@@ -38,7 +38,7 @@ import scala.jdk.CollectionConverters._
 */
 final class ScalaGenerateDelegateHandler extends GenerateDelegateHandler {
 
-  import overrideImplement._
+  import overrideImplement.*
 
   type ClassMember = overrideImplement.ClassMember
 

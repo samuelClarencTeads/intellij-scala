@@ -30,7 +30,7 @@ abstract class JavaHighlightingTestBase extends ScalaFixtureTestCase with Matche
 
     filesCreated = true
 
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
     allInfo.asScala.toList.collect {
       case highlightInfo if highlightInfo.`type`.getSeverity(null) == HighlightSeverity.ERROR =>
         Error(highlightInfo.getText, highlightInfo.getDescription)

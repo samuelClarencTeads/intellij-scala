@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
   */
 class TypePluralNamesProvider extends GenericTypeNamesProvider {
 
-  import TypePluralNamesProvider._
+  import TypePluralNamesProvider.*
 
   override def names(`type`: ScParameterizedType): Seq[String] = `type` match {
     case IsTraversable(designator, argument) =>

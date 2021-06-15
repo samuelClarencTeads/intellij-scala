@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.editor.importOptimizer
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.editor.importOptimizer.ScalaImportOptimizer._root_prefix
 import org.jetbrains.plugins.scala.extensions.implementation.iterator.ContextsIterator
 import org.jetbrains.plugins.scala.extensions.{PsiClassExt, PsiMemberExt, PsiModifierListOwnerExt, PsiNamedElementExt}

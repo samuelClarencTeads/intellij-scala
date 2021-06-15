@@ -2,8 +2,8 @@ package org.jetbrains.plugins.scala.console.configuration
 
 import java.io.File
 
-import com.intellij.execution._
-import com.intellij.execution.configurations.{ConfigurationFactory, JavaParameters, _}
+import com.intellij.execution.*
+import com.intellij.execution.configurations.{ConfigurationFactory, JavaParameters, *}
 import com.intellij.execution.runners.{ExecutionEnvironment, ProgramRunner}
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.options.SettingsEditor
@@ -18,12 +18,12 @@ import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.console.ScalaLanguageConsole
 import org.jetbrains.plugins.scala.console.ScalaLanguageConsoleView.ScalaConsole
 import org.jetbrains.plugins.scala.console.configuration.ScalaSdkJLineFixer.{JlineResolveResult, showJLineMissingNotification}
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.util.JdomExternalizerMigrationHelper
 import org.jetbrains.sbt.RichOption
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Run configuration with a single purpose: run Scala REPL instance in a internal IDEA console.
@@ -69,7 +69,7 @@ class ScalaConsoleRunConfiguration(
     setModule(params.getModule)
   }
 
-  override def getConfigurationEditor: SettingsEditor[_ <: RunConfiguration] =
+  override def getConfigurationEditor: SettingsEditor[? <: RunConfiguration] =
     new ScalaConsoleRunConfigurationEditor(project, this)
 
   override def writeExternal(element: Element): Unit = {
@@ -109,7 +109,7 @@ class ScalaConsoleRunConfiguration(
       params
     }
 
-    override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+    override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
       val params: JavaParameters = getJavaParameters
       val classPath = params.getClassPath
 

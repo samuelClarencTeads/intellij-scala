@@ -5,12 +5,12 @@ package references
 import com.intellij.openapi.util.TextRange
 import com.intellij.patterns.PsiJavaPatterns.psiElement
 import com.intellij.patterns.{PlatformPatterns, PsiJavaElementPattern}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.resolve.reference.impl.providers.FilePathReferenceProvider
 import com.intellij.psi.impl.source.resolve.reference.{ArbitraryPlaceUrlReferenceProvider, CommentsReferenceContributor}
 import com.intellij.psi.tree.TokenSet
 import com.intellij.util.{IncorrectOperationException, ProcessingContext}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScInterpolationPattern
@@ -88,7 +88,7 @@ private class InterpolatedStringPsiReference(ref: ScReferenceExpression, literal
 }
 
 private class ScalaFilePathReferenceProvider(private val myEndingSlashNotAllowed: Boolean) extends FilePathReferenceProvider {
-  import ScalaFilePathReferenceProvider._
+  import ScalaFilePathReferenceProvider.*
 
   override def getReferencesByElement(element: PsiElement, context: ProcessingContext): Array[PsiReference] =
     element match {

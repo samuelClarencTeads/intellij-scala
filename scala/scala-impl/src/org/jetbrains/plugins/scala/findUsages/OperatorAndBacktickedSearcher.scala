@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package findUsages
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.application.ReadActionProcessor
 import com.intellij.openapi.project.{IndexNotReadyException, Project}
@@ -27,7 +27,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
   */
 class OperatorAndBacktickedSearcher extends QueryExecutor[PsiReference, ReferencesSearch.SearchParameters] {
 
-  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[_ >: PsiReference]): Boolean = {
+  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[? >: PsiReference]): Boolean = {
     val elementToSearch = queryParameters.getElementToSearch
 
     val namesToProcess = inReadAction {
@@ -84,7 +84,7 @@ class OperatorAndBacktickedSearcher extends QueryExecutor[PsiReference, Referenc
                                               searchContext: Short,
                                               caseSensitively: Boolean,
                                               text: String,
-                                              processor: Processor[_ >: VirtualFile]): Boolean = {
+                                              processor: Processor[? >: VirtualFile]): Boolean = {
       if (!ScalaNamesValidator.isIdentifier(text)) return true
 
       val entries = ju.Collections.singletonList(new IdIndexEntry(text, caseSensitively))

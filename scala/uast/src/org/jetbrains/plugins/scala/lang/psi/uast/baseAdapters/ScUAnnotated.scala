@@ -4,13 +4,13 @@ package psi
 package uast
 package baseAdapters
 
-import java.{util => ju}
+import java.{util as ju}
 
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotationsHolder
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.uast.{UAnnotated, UAnnotation}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Scala adapter of the [[UAnnotated]].

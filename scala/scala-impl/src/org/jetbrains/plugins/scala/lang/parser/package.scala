@@ -36,7 +36,7 @@ package object parser {
     }
 
     def lookAhead(elementTypes: IElementType*): Boolean =
-      lookAhead(0, elementTypes: _*)
+      lookAhead(0, elementTypes*)
 
     def lookAhead(offset: Int, elementTypes: IElementType*): Boolean = {
       val types = elementTypes.iterator

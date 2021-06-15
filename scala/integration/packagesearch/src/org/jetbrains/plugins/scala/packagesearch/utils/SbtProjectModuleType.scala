@@ -7,7 +7,7 @@ import org.jetbrains.plugins.scala.icons.Icons
 import java.util
 import javax.swing.Icon
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 object SbtProjectModuleType extends ProjectModuleType{
   override def getIcon: Icon = Icons.SBT

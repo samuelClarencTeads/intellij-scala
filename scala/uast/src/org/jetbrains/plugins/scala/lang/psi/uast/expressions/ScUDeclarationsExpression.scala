@@ -5,11 +5,11 @@ import java.util
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScValueOrVariable
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.ScUElement
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 import org.jetbrains.uast.{UAnnotation, UDeclaration, UDeclarationsExpression, UDeclarationsExpressionAdapter}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * [[ScValueOrVariable]] adapter for the [[UDeclarationsExpression]]

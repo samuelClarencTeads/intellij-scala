@@ -27,14 +27,14 @@ private final class ExtensionMethodsFinder(originalType: ScType,
     if (accessAll) extensionMethodCandidates else Iterable.empty
 
   private def extensionMethodCandidates = for {
-    (GlobalImplicitConversion(classToImport: ScObject, _, elementToImport), application) <- ImplicitConversionData.getPossibleConversions(place)
+    case (GlobalImplicitConversion(classToImport: ScObject, _, elementToImport), application) <- ImplicitConversionData.getPossibleConversions(place)
     resolveResult <- candidatesForType(application.resultType)
   } yield ExtensionMethodCandidate(resolveResult, classToImport, elementToImport)
 
   private def candidatesForType(`type`: ScType) =
     CompletionProcessor.variants(`type`, place)
 
-  import NameAvailabilityState._
+  import NameAvailabilityState.*
 
   private object NameAvailability extends global.NameAvailability {
 

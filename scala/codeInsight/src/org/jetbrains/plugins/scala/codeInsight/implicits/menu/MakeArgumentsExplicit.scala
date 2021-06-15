@@ -4,7 +4,7 @@ import com.intellij.codeInsight.daemon.impl.HintRenderer
 import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent, CommonDataKeys}
 import org.jetbrains.plugins.scala.codeInsight.implicits.{ImplicitHint, MouseHandler}
 import org.jetbrains.plugins.scala.extensions.inWriteCommandAction
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 class MakeArgumentsExplicit extends AnAction {

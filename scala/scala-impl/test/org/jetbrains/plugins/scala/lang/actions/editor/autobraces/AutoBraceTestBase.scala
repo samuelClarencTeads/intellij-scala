@@ -104,7 +104,7 @@ abstract class AutoBraceTestBase extends EditorActionTestBase {
 
     val settings = ScalaApplicationSettings.getInstance()
 
-    for ((context, contextContinuation) <- contexts) {
+    for (case (context, contextContinuation) <- contexts) {
       def buildBody(body: (String, ContinuationNewlineSeparator)): String = {
         val (text, sep) = body
 

@@ -5,13 +5,13 @@ import com.intellij.patterns.compiler.PatternCompilerImpl.LazyPresentablePattern
 import com.intellij.testFramework.EditorTestUtil
 import org.intellij.plugins.intelliLang.inject.config.{BaseInjection, InjectionPlace}
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaLanguageInjectorTest extends AbstractLanguageInjectionTestCase {
 
-  import EditorTestUtil.{CARET_TAG => Caret}
+  import EditorTestUtil.{CARET_TAG as Caret}
 
   private val Quotes = "\"\"\""
   private val JsonLangId = "JSON"
@@ -382,12 +382,12 @@ class ScalaLanguageInjectorTest extends AbstractLanguageInjectionTestCase {
     val injections: Seq[BaseInjection] = intelliLangConfig.getInjections("scala").asScala.toSeq
     for {
       injection <- injections
-      place: InjectionPlace <- injection.getInjectionPlaces
+      case place: InjectionPlace <- injection.getInjectionPlaces
     } {
       // for now if pattern compilation fails IntelliJ only generates warning in logs but continue to work properly
       // we would like to detect compilation failure in tests
       val pattern = place.getElementPattern match {
-        case laz: LazyPresentablePattern[_] =>
+        case laz: LazyPresentablePattern[?] =>
           // in case of failure `PatternCompilerImpl.onCompilationFailed` will be called and test will fail
           laz.getCompiledPattern
         case p => p

@@ -7,11 +7,11 @@ import org.jetbrains.plugins.scala.DependencyManagerBase.{DependencyDescription,
 import org.jetbrains.plugins.scala.extensions.LoggerExt
 import org.jetbrains.plugins.scala.project.sdkdetect.repository.ScalaSdkDetector.ExtraCompilerPathResolveFailure
 import org.jetbrains.plugins.scala.project.sdkdetect.repository.ScalaSdkDetector.ExtraCompilerPathResolveFailure.{UnknownException, UnknownResolveProblem, UnresolvedArtifact}
-import org.jetbrains.plugins.scala.project.template.{PathExt, ScalaSdkDescriptor, _}
+import org.jetbrains.plugins.scala.project.template.{PathExt, ScalaSdkDescriptor, *}
 import org.jetbrains.plugins.scala.{DependencyManagerBase, ScalaBundle}
 
 import java.nio.file.{Path, Paths}
-import java.util.stream.{Stream => JStream}
+import java.util.stream.{Stream as JStream}
 
 private[repository] object IvyDetector extends ScalaSdkDetector {
 

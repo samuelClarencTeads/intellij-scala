@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.extensions.inReadAction
 import org.junit.Assert
 import org.junit.experimental.categories.Category
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class ExactBreakpointTestBase extends ScalaDebuggerTestCase {
   case class Breakpoint(line: Int, ordinal: Integer, fileName: String = null) {
@@ -29,7 +29,7 @@ abstract class ExactBreakpointTestBase extends ScalaDebuggerTestCase {
   }
 
   protected def checkStoppedAtBreakpointAt(breakpoints: Breakpoint*)(sourcePositionText: String): Unit = {
-    checkStopResumeSeveralTimes(breakpoints: _*)(sourcePositionText)
+    checkStopResumeSeveralTimes(breakpoints*)(sourcePositionText)
   }
 
   protected def checkStopResumeSeveralTimes(breakpoints: Breakpoint*)(sourcePositions: String*): Unit = {

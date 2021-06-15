@@ -7,7 +7,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.util.PsiUtilBase
 import com.intellij.psi.{PsiElement, PsiFile}
 import org.jetbrains.plugins.scala.actions.ScalaActionUtil
-import org.jetbrains.plugins.scala.actions.internal.RunActionOnPsiElementWithTraceLoggerAction._
+import org.jetbrains.plugins.scala.actions.internal.RunActionOnPsiElementWithTraceLoggerAction.*
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, PsiElementExt, StringExt}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil
 import org.jetbrains.plugins.scala.lang.resolve.ReferenceExpressionResolver
 import org.jetbrains.plugins.scala.lang.resolve.processor.CompletionProcessor
 import org.jetbrains.plugins.scala.project.ProjectContext
-import org.jetbrains.plugins.scala.traceLogger.ToData.{Raw => RawData}
+import org.jetbrains.plugins.scala.traceLogger.ToData.{Raw as RawData}
 import org.jetbrains.plugins.scala.traceLogger.{ToData, TraceLogger}
 
 import scala.collection.immutable.ArraySeq

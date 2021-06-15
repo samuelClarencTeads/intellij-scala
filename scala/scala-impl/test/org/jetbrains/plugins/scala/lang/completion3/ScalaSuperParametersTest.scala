@@ -13,7 +13,7 @@ import javax.swing.Icon
  */
 class ScalaSuperParametersTest extends ScalaCodeInsightTestBase {
 
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
   import icons.Icons.{PARAMETER, PATTERN_VAL}
 
   def testConstructorCall(): Unit = doCompletionTest(

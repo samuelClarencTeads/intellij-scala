@@ -5,7 +5,7 @@ import com.intellij.openapi.externalSystem.service.settings.AbstractImportFromEx
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.NotNullFactory
-import org.jetbrains.sbt.project.settings._
+import org.jetbrains.sbt.project.settings.*
 import org.jetbrains.sbt.settings.{SbtSettings, SbtSettingsControl}
 
 /**

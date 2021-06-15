@@ -6,10 +6,10 @@ import com.intellij.openapi.module.ModuleUtilCore
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.{PsiComment, PsiElement, PsiFileFactory, PsiWhiteSpace}
 import com.intellij.testFramework.{LightProjectDescriptor, UsefulTestCase}
-import com.intellij.testFramework.fixtures._
-import org.intellij.lang.annotations.{Language => InputLanguage}
+import com.intellij.testFramework.fixtures.*
+import org.intellij.lang.annotations.{Language as InputLanguage}
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions

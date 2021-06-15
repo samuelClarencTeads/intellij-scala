@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package javaHighlighting
 
 import com.intellij.codeInsight.daemon.JavaErrorBundle
-import org.jetbrains.plugins.scala.annotator._
+import org.jetbrains.plugins.scala.annotator.*
 
 
 /**

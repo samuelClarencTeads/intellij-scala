@@ -8,8 +8,8 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.stubs.{IndexSink, StubElement, StubInputStream, StubOutputStream}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.impl.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.impl.statements.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScPropertyStubImpl
 
 /**
@@ -31,7 +31,7 @@ sealed abstract class ScPropertyElementType[P <: ScValueOrVariable](debugName: S
     dataStream.writeOptionName(stub.topLevelQualifier)
   }
 
-  override final def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]) =
+  override final def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]) =
     new ScPropertyStubImpl(
       parentStub,
       this,
@@ -46,7 +46,7 @@ sealed abstract class ScPropertyElementType[P <: ScValueOrVariable](debugName: S
       topLevelQualifier = dataStream.readOptionName
     )
 
-  override protected final def createStubImpl(property: P, parentStub: StubElement[_ <: PsiElement]) =
+  override protected final def createStubImpl(property: P, parentStub: StubElement[? <: PsiElement]) =
     new ScPropertyStubImpl(
       parentStub,
       this,
@@ -62,9 +62,9 @@ sealed abstract class ScPropertyElementType[P <: ScValueOrVariable](debugName: S
     )
 
   override final def indexStub(stub: ScPropertyStub[P], sink: IndexSink): Unit = {
-    import index.ScalaIndexKeys._
-    sink.occurrences(PROPERTY_NAME_KEY, stub.names.toSeq: _*)
-    sink.occurrences(PROPERTY_CLASS_NAME_KEY, stub.classNames.toSeq: _*)
+    import index.ScalaIndexKeys.*
+    sink.occurrences(PROPERTY_NAME_KEY, stub.names.toSeq*)
+    sink.occurrences(PROPERTY_CLASS_NAME_KEY, stub.classNames.toSeq*)
 
     if (stub.isTopLevel){
       stub.topLevelQualifier.foreach(

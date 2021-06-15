@@ -24,9 +24,9 @@ import scala.annotation.tailrec
  */
 object TopStat {
 
-  import ParserState._
-  import lexer.ScalaTokenType._
-  import lexer.ScalaTokenTypes._
+  import ParserState.*
+  import lexer.ScalaTokenType.*
+  import lexer.ScalaTokenTypes.*
 
   @tailrec
   final def parse(state: ParserState)

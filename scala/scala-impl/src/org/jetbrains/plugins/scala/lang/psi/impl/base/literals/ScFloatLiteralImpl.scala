@@ -6,7 +6,7 @@ package base
 package literals
 
 import java.lang
-import java.lang.{Float => JFloat}
+import java.lang.{Float as JFloat}
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project

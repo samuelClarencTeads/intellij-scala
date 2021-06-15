@@ -4,7 +4,7 @@ import com.intellij.openapi.compiler.CompilerMessage
 import com.intellij.openapi.editor.{Editor, FoldRegion}
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDocumentManager
-import org.jetbrains.plugins.scala.AssertionMatchers._
+import org.jetbrains.plugins.scala.AssertionMatchers.*
 import org.jetbrains.plugins.scala.compilation.CompilerTestUtil
 import org.jetbrains.plugins.scala.compilation.CompilerTestUtil.{NoOpRevertableChange, RevertableChange}
 import org.jetbrains.plugins.scala.compiler.CompileServerLauncher
@@ -13,14 +13,14 @@ import org.jetbrains.plugins.scala.extensions.{StringExt, TextRangeExt}
 import org.jetbrains.plugins.scala.project.settings.{ScalaCompilerConfiguration, ScalaCompilerSettingsProfile}
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 import org.jetbrains.plugins.scala.util.MarkersUtils
-import org.jetbrains.plugins.scala.util.runners._
+import org.jetbrains.plugins.scala.util.runners.*
 import org.jetbrains.plugins.scala.worksheet.actions.topmenu.RunWorksheetAction.RunWorksheetActionResult
-import org.jetbrains.plugins.scala.worksheet.integration.WorksheetIntegrationBaseTest._
+import org.jetbrains.plugins.scala.worksheet.integration.WorksheetIntegrationBaseTest.*
 import org.jetbrains.plugins.scala.worksheet.runconfiguration.WorksheetCache
 import org.jetbrains.plugins.scala.worksheet.settings.persistent.WorksheetFilePersistentSettings
 import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinterFactory
 import org.jetbrains.plugins.scala.{LatestScalaVersions, ScalaVersion, WorksheetEvaluationTests}
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.ComparisonFailure
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith

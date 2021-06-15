@@ -3,9 +3,9 @@ package lang
 package refactoring
 package move
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.{FileTypeUtils, PsiTreeUtil}
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay.Tropin
@@ -120,7 +120,7 @@ class ScalaMoveDirectoryWithClassesHelper extends MoveDirectoryWithClassesHelper
     }
   }
 
-  override def postProcessUsages(usages: Array[UsageInfo], newDirMapper: Function[_ >: PsiDirectory, _ <: PsiDirectory]): Unit = {
+  override def postProcessUsages(usages: Array[UsageInfo], newDirMapper: Function[? >: PsiDirectory, ? <: PsiDirectory]): Unit = {
     usages.foreach {
       case ImportStatementToRemoveUsage(impStmt) => impStmt.delete()
       case _ =>

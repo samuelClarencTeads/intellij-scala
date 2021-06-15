@@ -6,10 +6,10 @@ import com.intellij.codeInsight.editorActions.moveUpDown.{LineMover, LineRange}
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiComment, PsiElement, PsiFile, PsiWhiteSpace}
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
 
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
  */
 
 class ScalaStatementMover extends LineMover {
-  private type ElementClass = Class[_ <: PsiElement]
+  private type ElementClass = Class[? <: PsiElement]
 
   override def checkAvailable(editor: Editor, file: PsiFile, info: MoveInfo, down: Boolean): Boolean = {
     if(!super.checkAvailable(editor, file, info, down)) return false

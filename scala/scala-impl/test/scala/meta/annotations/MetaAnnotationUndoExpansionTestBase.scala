@@ -2,7 +2,7 @@ package scala.meta.annotations
 
 import com.intellij.testFramework.TestActionEvent
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter.normalize
-import org.junit.Assert._
+import org.junit.Assert.*
 
 abstract class MetaAnnotationUndoExpansionTestBase extends MetaAnnotationTestBase {
 

@@ -10,10 +10,10 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.extensions.PsiMemberExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScExtendsBlock
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTypeDefinition}
-import org.jetbrains.plugins.scala.lang.psi.stubs.index.ScalaIndexKeys._
+import org.jetbrains.plugins.scala.lang.psi.stubs.index.ScalaIndexKeys.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.index.{ImplicitConversionIndex, ImplicitInstanceIndex}
 import org.jetbrains.plugins.scala.util.CommonQualifiedNames.AnyFqn
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.language.implicitConversions
 import scala.reflect.ClassTag

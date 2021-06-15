@@ -3,7 +3,7 @@ package codeInsight
 package hints
 
 import junit.framework.TestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
 // SCL-14339
 class TypeIsObviousTest extends TestCase {

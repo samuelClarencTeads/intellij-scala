@@ -16,7 +16,7 @@ object Diagrams {
                 metricsState: CompileServerMemoryState): Diagrams = {
     val progressRowCount = getParallelism
     val result = for {
-      (minTimestamp, maxTimestamp) <- getMinMaxTimestamps(progressState, metricsState)
+      case (minTimestamp, maxTimestamp) <- getMinMaxTimestamps(progressState, metricsState)
       progressDiagram = calculateProgressDiagram(progressState, progressRowCount, minTimestamp, maxTimestamp)
       progressTime <- progressDiagram.segmentGroups.flatten.map(_.to).maxOption
       memoryDiagram = calculateMemoryDiagram(metricsState, minTimestamp, minTimestamp + progressTime.toNanos)
@@ -58,14 +58,14 @@ object Diagrams {
       def rec(groups: Seq[Seq[Segment]],
               segments: Seq[Segment]): Seq[Seq[Segment]] = segments match {
         case Seq() => groups
-        case Seq(interval, remainIntervals@_*) => rec(insert(groups, interval), remainIntervals)
+        case Seq(interval, remainIntervals*) => rec(insert(groups, interval), remainIntervals)
       }
 
       def insert(groups: Seq[Seq[Segment]],
                  segment: Segment): Seq[Seq[Segment]] = groups match {
         case Seq() =>
           Seq(Seq(segment))
-        case Seq(group, remainGroups@_*) =>
+        case Seq(group, remainGroups*) =>
           if (group.last.to < segment.from)
             (group :+ segment) +: remainGroups
           else

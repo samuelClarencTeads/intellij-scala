@@ -8,13 +8,13 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import javax.swing.JComponent
-import kotlin.Unit.{INSTANCE => kUnit}
+import kotlin.Unit.{INSTANCE as kUnit}
 import org.jetbrains.plugins.scala.codeInsight.hints.ScalaHintsSettings
 import org.jetbrains.plugins.scala.codeInsight.implicits.ImplicitHints
 import org.jetbrains.plugins.scala.codeInsight.{ScalaCodeInsightBundle, ScalaCodeInsightSettings, hints}
 import org.jetbrains.plugins.scala.extensions.StringExt
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaMethodChainInlayHintsSettingsModel(project: Project) extends InlayProviderSettingsModel(true, "Scala.ScalaMethodChainInlayHintsSettingsModel") {
   // have a temporary version of the settings, so apply/cancel mechanism works

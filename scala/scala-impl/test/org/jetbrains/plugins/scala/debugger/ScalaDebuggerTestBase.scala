@@ -1,14 +1,14 @@
 package org.jetbrains.plugins.scala
 package debugger
 
-import java.io._
+import java.io.*
 import java.security.MessageDigest
 import java.util
 import com.intellij.execution.application.{ApplicationConfiguration, ApplicationConfigurationType}
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.vfs.{LocalFileSystem, VfsUtil, VirtualFile}
-import com.intellij.testFramework._
+import com.intellij.testFramework.*
 import org.jetbrains.plugins.scala.base.FailableTest
 import org.jetbrains.plugins.scala.extensions.inWriteAction
 import org.jetbrains.plugins.scala.util.TestUtils
@@ -132,7 +132,7 @@ abstract class ScalaDebuggerTestBase extends ScalaCompilerTestBase with Failable
   def getVirtualFile(file: File) = LocalFileSystem.getInstance.refreshAndFindFileByIoFile(file)
 
   def md5(file: File): Array[Byte] = {
-    import extensions._
+    import extensions.*
     val md = MessageDigest.getInstance("MD5")
     val isSource = file.getName.endsWith(".java") || file.getName.endsWith(".scala")
     if (isSource) {

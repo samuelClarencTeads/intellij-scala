@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.sbt.resolvers.ArtifactInfo
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Mikhail Mutcianko

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.{PsiMethodExt, PsiParameterExt, PsiTypeExt}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{AuxiliaryConstructor, ScMethodLike, ScPrimaryConstructor}

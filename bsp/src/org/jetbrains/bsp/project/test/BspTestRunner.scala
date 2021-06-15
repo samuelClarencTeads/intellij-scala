@@ -5,9 +5,9 @@ import java.net.URI
 import java.util.UUID
 import java.util.concurrent.CompletableFuture
 
-import ch.epfl.scala.bsp4j.TaskDataKind._
-import ch.epfl.scala.bsp4j.TestStatus._
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.TaskDataKind.*
+import ch.epfl.scala.bsp4j.TestStatus.*
+import ch.epfl.scala.bsp4j.*
 import com.google.gson.{Gson, JsonObject}
 import com.intellij.execution.configurations.RunProfileState
 import com.intellij.execution.process.{ProcessHandler, ProcessOutputType}
@@ -17,7 +17,7 @@ import com.intellij.execution.testframework.sm.runner.SMTRunnerConsoleProperties
 import com.intellij.execution.{DefaultExecutionResult, ExecutionResult, Executor}
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
-import jetbrains.buildServer.messages.serviceMessages._
+import jetbrains.buildServer.messages.serviceMessages.*
 import org.jetbrains.bsp.{BspBundle, BspErrorMessage}
 import org.jetbrains.bsp.data.BspMetadata
 import org.jetbrains.bsp.protocol.BspCommunication
@@ -27,9 +27,9 @@ import org.jetbrains.bsp.settings.BspProjectSettings.AutoConfig
 import org.jetbrains.plugins.scala.build.BuildToolWindowReporter.CancelBuildAction
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildReporter, BuildToolWindowReporter}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
-import scala.concurrent.ExecutionContext.Implicits._
+import scala.concurrent.ExecutionContext.Implicits.*
 import scala.concurrent.Promise
 import scala.util.{Failure, Success}
 
@@ -162,7 +162,7 @@ class BspTestRunner(
   }
 
 
-  override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+  override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
     val procHandler = new MProcHandler
     val console = SMTestRunnerConnectionUtil.createAndAttachConsole("BSP", procHandler, new SMTRunnerConsoleProperties(
       project, rc, "BSP", ex))

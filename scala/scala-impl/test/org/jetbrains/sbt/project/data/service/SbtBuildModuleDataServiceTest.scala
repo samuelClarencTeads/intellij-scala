@@ -10,7 +10,7 @@ import com.intellij.openapi.externalSystem.model.DataNode
 import com.intellij.openapi.externalSystem.model.project.ProjectData
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.util.io.FileUtil
-import org.jetbrains.sbt.resolvers._
+import org.jetbrains.sbt.resolvers.*
 import org.junit.Assert
 
 /**
@@ -19,7 +19,7 @@ import org.junit.Assert
   */
 class SbtBuildModuleDataServiceTest extends ProjectDataServiceTestCase {
 
-  import ExternalSystemDataDsl._
+  import ExternalSystemDataDsl.*
 
   private def generateProject(imports: Seq[String], resolvers: Set[SbtResolver]): DataNode[ProjectData] =
     new project {
@@ -41,7 +41,7 @@ class SbtBuildModuleDataServiceTest extends ProjectDataServiceTestCase {
 
 
   def doTest(imports: Seq[String], resolvers: Set[SbtResolver]): Unit = {
-    import module.SbtModule._
+    import module.SbtModule.*
 
     FileUtil.delete(indexes.ResolverIndex.DEFAULT_INDEXES_DIR)
     importProjectData(generateProject(imports, resolvers))

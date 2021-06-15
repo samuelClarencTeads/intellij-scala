@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang.refactoring.changeSignature.changeInfo
 
 import com.intellij.lang.Language
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.util.CanonicalTypes
 import com.intellij.refactoring.util.CanonicalTypes.Type
 import org.jetbrains.plugins.scala.lang.psi.ElementScope

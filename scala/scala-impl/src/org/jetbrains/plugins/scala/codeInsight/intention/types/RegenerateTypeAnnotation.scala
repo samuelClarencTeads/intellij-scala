@@ -8,14 +8,14 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.ScalaBundle.message
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 
 /**
   * Markus.Hauck, 18.05.2016
   */
 class RegenerateTypeAnnotation extends AbstractTypeAnnotationIntention {
 
-  import RegenerateTypeAnnotation._
+  import RegenerateTypeAnnotation.*
 
   override def getFamilyName: String = FamilyName
 
@@ -82,7 +82,7 @@ object RegenerateTypeAnnotation {
     message("intention.type.annotation.regen.family")
 
   private def getTypeAnnotation(element: PsiElement): Boolean = {
-    import AbstractTypeAnnotationIntention._
+    import AbstractTypeAnnotationIntention.*
 
     def parents = functionParent(element).flatMap(_.returnTypeElement) ++
       (valueParent(element) ++ variableParent(element)).flatMap(_.typeElement)

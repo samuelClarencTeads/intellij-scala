@@ -11,7 +11,7 @@ import org.junit.Assert.assertTrue
   */
 class ScalaConversionCompletionTest extends AbstractConversionCompletionTest {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   def testJavaConverters(): Unit = doCompletionTest(
     fileText =

@@ -7,7 +7,7 @@ import com.intellij.codeInsight.highlighting.{HighlightUsagesHandlerBase, Highli
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile, PsiWhiteSpace}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.highlighter.usages.ScalaHighlightImplicitUsagesHandler.TargetKind
 import org.jetbrains.plugins.scala.highlighter.usages.ScalaHighlightUsagesHandlerFactory.implicitHighlightingEnabled
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
@@ -28,10 +28,10 @@ import org.jetbrains.plugins.scala.util.UnloadableThreadLocal
  */
 final class ScalaHighlightUsagesHandlerFactory extends HighlightUsagesHandlerFactory {
 
-  import ScalaTokenType._
-  import ScalaTokenTypes._
+  import ScalaTokenType.*
+  import ScalaTokenTypes.*
 
-  override def createHighlightUsagesHandler(editor: Editor, file: PsiFile): HighlightUsagesHandlerBase[_ <: PsiElement] = {
+  override def createHighlightUsagesHandler(editor: Editor, file: PsiFile): HighlightUsagesHandlerBase[? <: PsiElement] = {
     if (!file.is[ScalaFile]) return null
     val offset = TargetElementUtil.adjustOffset(file, editor.getDocument, editor.getCaretModel.getOffset)
     val element: PsiElement = file.findElementAt(offset) match {

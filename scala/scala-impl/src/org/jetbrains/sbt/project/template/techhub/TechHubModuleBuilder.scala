@@ -80,7 +80,7 @@ class TechHubModuleBuilder extends
     SbtModuleBuilderUtil.doSetupModule(module, getExternalProjectSettings, getContentEntryPath)
   }
 
-  override def getModuleType: ModuleType[_ <: ModuleBuilder] = JavaModuleType.getModuleType
+  override def getModuleType: ModuleType[? <: ModuleBuilder] = JavaModuleType.getModuleType
 
   override def modifySettingsStep(settingsStep: SettingsStep): ModuleWizardStep = {
     settingsStep.addSettingsComponent(settingsComponents.getMainPanel)

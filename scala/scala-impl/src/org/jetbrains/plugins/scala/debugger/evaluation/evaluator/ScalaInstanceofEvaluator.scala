@@ -7,7 +7,7 @@ import com.intellij.debugger.engine.evaluation.EvaluationContextImpl
 import com.intellij.debugger.engine.evaluation.expression.{Evaluator, Modifier, TypeEvaluator}
 import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.psi.PsiType
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 
 /**

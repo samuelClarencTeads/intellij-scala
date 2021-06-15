@@ -7,7 +7,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBod
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 import org.jetbrains.plugins.scala.testingSupport.test.utils.ScalaTestLocationsFinderUtils
-import org.scalatest.finders._
+import org.scalatest.finders.*
 
 
 // TODO: do not show gutters on non-constants, e.g.:
@@ -58,7 +58,7 @@ object ScalaTestTestLocationsFinder {
   private type TestLocations = Seq[PsiElement]
 
   import ScalaTestLocationsFinderUtils.collectTestLocations
-  import SuiteMethodNames._
+  import SuiteMethodNames.*
 
   private def funSuiteTestLocations(body: ScTemplateBody): TestLocations =
     collectTestLocations(body, infixStyle = false, EmptySet, FunSuiteLeaves)

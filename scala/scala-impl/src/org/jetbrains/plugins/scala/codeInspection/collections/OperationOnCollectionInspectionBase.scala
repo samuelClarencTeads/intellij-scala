@@ -7,14 +7,14 @@ import com.intellij.codeInspection.{ProblemHighlightType, ProblemsHolder}
 import com.intellij.openapi.ui.{InputValidator, Messages}
 import com.intellij.openapi.wm.IdeFocusManager
 import com.intellij.psi.PsiElement
-import com.intellij.ui._
+import com.intellij.ui.*
 
-import javax.swing._
+import javax.swing.*
 import javax.swing.event.ChangeEvent
-import org.jetbrains.plugins.scala.codeInspection.collections.OperationOnCollectionInspectionBase._
+import org.jetbrains.plugins.scala.codeInspection.collections.OperationOnCollectionInspectionBase.*
 import org.jetbrains.plugins.scala.codeInspection.{AbstractInspection, ScalaInspectionBundle, charExpr}
 import org.jetbrains.plugins.scala.extensions.ObjectExt
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.settings.{ScalaApplicationSettings, ScalaProjectSettingsUtil}
 import org.jetbrains.plugins.scala.util.JListCompatibility
 
@@ -73,7 +73,7 @@ abstract class OperationOnCollectionInspectionBase extends AbstractInspection(in
 
   private def simplifications(expr: ScExpression): Seq[Simplification] = {
     def simplificationTypes = for {
-      (st, idx) <- possibleSimplificationTypes.zipWithIndex
+      case (st, idx) <- possibleSimplificationTypes.zipWithIndex
       if getSimplificationTypesEnabled(idx)
     } yield st
 

@@ -16,7 +16,7 @@ import scala.language.implicitConversions
  */
 object ProjectStructureDsl {
 
-  import DslUtils._
+  import DslUtils.*
 
   trait ProjectAttribute
   trait ModuleAttribute
@@ -86,29 +86,29 @@ object ProjectStructureDsl {
   }
 
   class project(val name: String) extends Attributed {
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with ProjectAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & ProjectAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with ProjectAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & ProjectAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 
   class module(override val name: String, val group: Array[String] = null) extends Attributed with Named {
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with ModuleAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & ModuleAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with ModuleAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & ModuleAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 
   class library(override val name: String) extends Attributed with Named {
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with LibraryAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & LibraryAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
-    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] with LibraryAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
+    protected implicit def defineAttributeSeq[T](attribute: Attribute[Seq[T]] & LibraryAttribute)(implicit m: Manifest[Seq[T]]): AttributeSeqDef[T] =
       new AttributeSeqDef(attribute, attributes)
   }
 
   class dependency[D <: Named](val reference: D) extends Attributed with Named {
     override val name: String = reference.name
-    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] with DependencyAttribute): AttributeDef[T] =
+    protected implicit def defineAttribute[T : Manifest](attribute: Attribute[T] & DependencyAttribute): AttributeDef[T] =
       new AttributeDef(attribute, attributes)
   }
 

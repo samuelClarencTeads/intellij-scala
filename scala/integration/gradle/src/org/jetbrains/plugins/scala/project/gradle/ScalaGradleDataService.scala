@@ -12,10 +12,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.libraries.Library
 import org.jetbrains.plugins.gradle.model.data.ScalaModelData
 import org.jetbrains.plugins.gradle.util.GradleConstants
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.external.{AbstractDataService, AbstractImporter, Importer}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin
@@ -78,7 +78,7 @@ private object ScalaGradleDataService {
         }
       }
 
-      import LibraryExt._
+      import LibraryExt.*
       compilerClasspath
         .map(_.getName)
         .filter(isRuntimeLibrary)

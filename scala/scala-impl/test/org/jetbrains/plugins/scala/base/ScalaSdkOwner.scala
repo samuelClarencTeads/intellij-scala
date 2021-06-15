@@ -10,7 +10,7 @@ trait ScalaSdkOwner extends Test
   with ScalaVersionProvider
   with LibrariesOwner {
 
-  import ScalaSdkOwner._
+  import ScalaSdkOwner.*
 
   @deprecatedOverriding(
     "Consider using supportedIn instead to run with the latest possible scala version.\n" +

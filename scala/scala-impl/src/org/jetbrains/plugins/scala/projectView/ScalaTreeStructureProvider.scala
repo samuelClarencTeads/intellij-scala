@@ -13,9 +13,9 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinitio
  */
 final class ScalaTreeStructureProvider extends TreeStructureProvider with DumbAware {
 
-  import ScalaTreeStructureProvider._
+  import ScalaTreeStructureProvider.*
 
-  import scala.jdk.CollectionConverters._
+  import scala.jdk.CollectionConverters.*
 
   override def modify(parent: Node, children: util.Collection[Node], settings: ViewSettings): util.Collection[Node] =
     children.asScala.map { it =>

@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.annotator.annotationHolder.{DelegateAnnotationHolder, ErrorIndication}
 import org.jetbrains.plugins.scala.annotator.element.ScForBindingAnnotator.RemoveCaseFromPatternedEnumeratorFix
 import org.jetbrains.plugins.scala.codeInspection.caseClassParamInspection.RemoveValFromGeneratorIntentionAction
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScEnumerator, ScGenerator}
 
 object ScGeneratorAnnotator extends ElementAnnotator[ScGenerator] {
@@ -38,7 +38,7 @@ object ScGeneratorAnnotator extends ElementAnnotator[ScGenerator] {
 
     for {
       forExpression <- generator.forStatement
-      ScEnumerator.withDesugaredAndEnumeratorToken(desugaredGenerator, generatorToken) <- Some(generator)
+      case ScEnumerator.withDesugaredAndEnumeratorToken(desugaredGenerator, generatorToken) <- Some(generator)
       session = new AnnotationSession(desugaredGenerator.analogMethodCall.getContainingFile)
     } {
       val followingEnumerators = generator.nextSiblings
@@ -92,7 +92,7 @@ object ScGeneratorAnnotator extends ElementAnnotator[ScGenerator] {
   }
 
   private def delegateHolderFor(target: PsiElement, session: AnnotationSession)
-                               (implicit holder: ScalaAnnotationHolder): DelegateAnnotationHolder with ErrorIndication =
+                               (implicit holder: ScalaAnnotationHolder): DelegateAnnotationHolder & ErrorIndication =
     new DelegateAnnotationHolder(session) with ErrorIndication {
 
       override protected val element: Some[PsiElement] = Some(target)

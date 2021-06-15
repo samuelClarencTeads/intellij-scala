@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes.SCA
 //noinspection TypeAnnotation
 final class ScalaIndexPatternBuilder extends IndexPatternBuilder {
 
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   override def getIndexingLexer(file: PsiFile) =
     byParserDefinition[Lexer](file)(_.createLexer(null))

@@ -5,10 +5,10 @@ package impl
 package expr
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.ifReadAllowed
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 /**
  * @author Alexander Podkhalyuzin

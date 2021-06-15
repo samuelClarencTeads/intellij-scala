@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages
 
 import com.intellij.psi.{PsiNamedElement, SmartPsiElementPointer}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 /**
   * @author Alexander Podkhalyuzin

@@ -31,7 +31,7 @@ class ScalaTestSingleTestLocationFinderOld(
 
   def findTestName: Option[String] = {
 
-    import ScalaTestUtil._
+    import ScalaTestUtil.*
 
     //noinspection ConvertibleToMethodValue
     val suitsWithFinders: Seq[(Seq[String], String => Option[String])] = Seq(
@@ -74,7 +74,7 @@ class ScalaTestSingleTestLocationFinderOld(
     // use iterators, let the search be lazy
     val searchResults: Iterator[(String, String)] =
       for {
-        (suites, findTestName) <- suitsWithFinders.iterator
+        case (suites, findTestName) <- suitsWithFinders.iterator
         suite                  <- suites.iterator
         testName               <- findTestName(suite)
       } yield (suite, testName)

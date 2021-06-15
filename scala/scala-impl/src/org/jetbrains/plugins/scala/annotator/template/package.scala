@@ -3,7 +3,7 @@ package annotator
 
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition, ScTrait}
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 

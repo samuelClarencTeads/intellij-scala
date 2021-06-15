@@ -10,10 +10,10 @@ import com.intellij.openapi.components.StorageScheme
 import org.jdom.input.SAXBuilder
 import org.jdom.xpath.XPath
 import org.jdom.{Attribute, Element}
-import org.jetbrains.plugins.scala.project.converter.ScalaSdkData._
+import org.jetbrains.plugins.scala.project.converter.ScalaSdkData.*
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.xml.{Elem, PrettyPrinter}
 
 /**

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.annotator
 
 import org.jetbrains.plugins.scala.annotator.element.ScReferenceAnnotator
 import org.jetbrains.plugins.scala.base.SimpleTestCase
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 

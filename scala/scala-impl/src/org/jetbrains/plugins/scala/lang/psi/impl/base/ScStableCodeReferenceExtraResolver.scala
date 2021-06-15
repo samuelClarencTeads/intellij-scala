@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala.lang.psi.impl.base
 import com.intellij.openapi.extensions.ExtensionPointName
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.ApiStatus
 import org.jetbrains.plugins.scala.extensions.IteratorExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.base._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
 
 import scala.jdk.CollectionConverters.IteratorHasAsScala
 

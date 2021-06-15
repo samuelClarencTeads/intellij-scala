@@ -23,7 +23,7 @@ abstract class SbtTestRunningSupportBase extends SbtTestRunningSupport {
     comm: SbtShellCommunication,
     oldSettings: SettingMap
   ): Future[Boolean] = {
-    val futures = for ((settingEntry, value) <- oldSettings)
+    val futures = for (case (settingEntry, value) <- oldSettings)
       yield SettingQueryHandler(settingEntry, comm).setSettingValue(value)
     Future.sequence(futures).map(_.forall(identity))
   }

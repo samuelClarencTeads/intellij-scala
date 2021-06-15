@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package methodSignature
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 

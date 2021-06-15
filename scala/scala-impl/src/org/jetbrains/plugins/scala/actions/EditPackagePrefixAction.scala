@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.actions
 
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.roots.ModuleRootManager
 import javax.swing.JComponent
 import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes

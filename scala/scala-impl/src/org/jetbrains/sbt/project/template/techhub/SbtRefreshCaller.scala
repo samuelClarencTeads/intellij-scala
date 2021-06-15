@@ -22,8 +22,8 @@ trait SbtRefreshCaller {
 
         val settings =
           ExternalSystemApiUtil.getSettings(project, SbtProjectSystem.Id).
-            asInstanceOf[AbstractExternalSystemSettings[_ <: AbstractExternalSystemSettings[_, SbtProjectSettings, _],
-            SbtProjectSettings, _ <: ExternalSystemSettingsListener[SbtProjectSettings]]]
+            asInstanceOf[AbstractExternalSystemSettings[? <: AbstractExternalSystemSettings[?, SbtProjectSettings, ?],
+            SbtProjectSettings, ? <: ExternalSystemSettingsListener[SbtProjectSettings]]]
 
         getExternalProjectSettings.setExternalProjectPath(getContentEntryPath)
         settings linkProject getExternalProjectSettings

@@ -8,13 +8,13 @@ import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocumentati
 import org.jetbrains.plugins.scala.extensions.OptionExt
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.sbt.editor.documentationProvider.SbtDocumentationProvider._
+import org.jetbrains.sbt.editor.documentationProvider.SbtDocumentationProvider.*
 import org.jetbrains.sbt.language.SbtFileType
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Generates documentation from sbt key description.<br>

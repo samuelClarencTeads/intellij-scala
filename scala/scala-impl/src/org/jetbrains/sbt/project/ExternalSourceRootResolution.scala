@@ -9,7 +9,7 @@ import com.intellij.openapi.util.io.FileUtilRt
 import org.jetbrains.sbt.project.data.{ContentRootNode, LibraryNode, ModuleDependencyNode, ModuleNode, ModuleSdkNode}
 import org.jetbrains.sbt.project.sources.SharedSourcesModuleType
 import org.jetbrains.sbt.structure.ProjectData
-import org.jetbrains.sbt.{structure => sbtStructure}
+import org.jetbrains.sbt.{structure as sbtStructure}
 
 /**
  * @author Pavel Fatin
@@ -192,7 +192,7 @@ trait ExternalSourceRootResolution { self: SbtProjectResolver =>
     def base: File = commonBase(roots)
 
     private def commonBase(roots: Seq[Root]) = {
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       val paths = roots.map { root =>
         root.base.getOrElse(root.directory)
           .getCanonicalFile.toPath.normalize
@@ -217,7 +217,7 @@ trait ExternalSourceRootResolution { self: SbtProjectResolver =>
 
   private case class Root(scope: Root.Scope, kind: Root.Kind, directory: File) {
     def base: Option[File] = Root.DefaultPaths.collectFirst {
-      case paths if directory.parent.exists(_.endsWith(paths: _*)) => directory << (paths.length + 1)
+      case paths if directory.parent.exists(_.endsWith(paths*)) => directory << (paths.length + 1)
     }
   }
 

@@ -3,14 +3,14 @@ package lang
 package completion
 package filters.other
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
-import org.jetbrains.plugins.scala.lang.lexer._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
+import org.jetbrains.plugins.scala.lang.lexer.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 
 /** 
 * @author Alexander Podkhalyuzin
@@ -49,7 +49,7 @@ class ExtendsFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = true
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = true
 
   @NonNls
   override def toString = "'extends' keyword filter"

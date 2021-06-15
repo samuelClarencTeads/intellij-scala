@@ -4,7 +4,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQuickFixTestBase}
 
 class VariableNullInitializerInspectionTest extends ScalaQuickFixTestBase {
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] = classOf[VariableNullInitializerInspection]
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] = classOf[VariableNullInitializerInspection]
 
   override protected val description = ScalaInspectionBundle.message("variable.with.null.initializer")
 

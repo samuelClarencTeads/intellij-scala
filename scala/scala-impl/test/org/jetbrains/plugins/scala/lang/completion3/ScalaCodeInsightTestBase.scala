@@ -10,9 +10,9 @@ import com.intellij.psi.statistics.impl.StatisticsManagerImpl
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter.normalize
 import org.jetbrains.plugins.scala.extensions.invokeAndWait
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Alexander Podkhalyuzin
@@ -21,7 +21,7 @@ abstract class ScalaCodeInsightTestBase extends ScalaLightCodeInsightFixtureTest
 
   import CompletionType.BASIC
   import Lookup.REPLACE_SELECT_CHAR
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
 
   protected override def setUp(): Unit = {
     super.setUp()
@@ -182,7 +182,7 @@ object ScalaCodeInsightTestBase {
   }
 
   private def allItems(impl: LookupImpl) = {
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
     impl.getItems.asScala
   }
 }

@@ -6,7 +6,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.{HighlightInfoHolder, Highl
 import com.intellij.codeInsight.daemon.impl.{AnnotationHolderImpl, HighlightInfo, HighlightVisitor}
 import com.intellij.lang.injection.InjectedLanguageManager
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.annotator.ScalaAnnotator
 import org.jetbrains.plugins.scala.annotator.hints.AnnotatorHints
 import org.jetbrains.plugins.scala.annotator.usageTracker.ScalaRefCountHolder

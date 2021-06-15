@@ -3,13 +3,13 @@ package lang
 package completion
 package filters.expression
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
-import org.jetbrains.plugins.scala.lang.parser._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
+import org.jetbrains.plugins.scala.lang.parser.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScStableReferencePattern
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 /** 
  * @author Alexander Podkhalyuzin
@@ -32,7 +32,7 @@ class ExpressionFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = {
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = {
     true
   }
 

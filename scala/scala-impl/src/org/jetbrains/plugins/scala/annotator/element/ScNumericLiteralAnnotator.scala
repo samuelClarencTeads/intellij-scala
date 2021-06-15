@@ -4,7 +4,7 @@ package element
 
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.util.TextRange
-import org.jetbrains.plugins.scala.annotator.quickfix.NumberLiteralQuickFix._
+import org.jetbrains.plugins.scala.annotator.quickfix.NumberLiteralQuickFix.*
 import org.jetbrains.plugins.scala.extensions.ElementText
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral.Numeric
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.{ScIntegerLiteral, ScLongLiteral}
@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScPrefixExpr
 
 sealed abstract class ScNumericLiteralAnnotator[L <: Numeric : reflect.ClassTag](isLong: Boolean) extends ElementAnnotator[L] {
 
-  import project.ScalaLanguageLevel._
+  import project.ScalaLanguageLevel.*
 
   protected def annotate(literal: L)
                         (implicit holder: ScalaAnnotationHolder): Option[(ScExpression, Boolean)] = {
@@ -35,7 +35,7 @@ sealed abstract class ScNumericLiteralAnnotator[L <: Numeric : reflect.ClassTag]
       level <- languageLevel
       if kind == Oct
 
-      (message, severity) <- level match {
+      case (message, severity) <- level match {
         case Scala_2_10 => Some(ScalaBundle.message("octal.literals.deprecated"), HighlightSeverity.WARNING)
         case level if level >= Scala_2_11 => Some(ScalaBundle.message("octal.literals.removed"), HighlightSeverity.ERROR)
         case _ => None

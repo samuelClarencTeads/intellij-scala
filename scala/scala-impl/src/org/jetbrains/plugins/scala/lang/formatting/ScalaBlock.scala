@@ -2,35 +2,35 @@ package org.jetbrains.plugins.scala
 package lang
 package formatting
 
-import com.intellij.formatting._
+import com.intellij.formatting.*
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.{CodeStyleSettings, CommonCodeStyleSettings}
 import com.intellij.psi.tree.IElementType
 import org.jetbrains.plugins.scala.extensions.{&&, Parent, PsiElementExt}
 import org.jetbrains.plugins.scala.lang.formatting.ScalaBlock.{isConstructorArgOrMemberFunctionParameter, shouldIndentAfterCaseClause}
-import org.jetbrains.plugins.scala.lang.formatting.processors._
+import org.jetbrains.plugins.scala.lang.formatting.processors.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtNotifications.FmtVerbosity
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScFunctionalTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScLiteral, ScPrimaryConstructor}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScDefinitionWithAssignment, ScExtension, ScFunction}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScGivenDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, ScPackaging}
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocComment
 
 import java.util
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaBlock(val parentBlock: ScalaBlock,
                  val node: ASTNode,
@@ -309,7 +309,7 @@ class ScalaBlock(val parentBlock: ScalaBlock,
 
   //noinspection HardCodedStringLiteral
   private def debugText: String = {
-    import extensions._
+    import extensions.*
     val text = node.getPsi.getContainingFile.getText.substring(getTextRange)
     if (text.trim.length != text.length) s"`$text`"
     else text

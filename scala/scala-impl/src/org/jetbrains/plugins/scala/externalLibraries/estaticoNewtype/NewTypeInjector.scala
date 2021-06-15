@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.api.ParameterizedType
 
 class NewTypeInjector extends SyntheticMembersInjector {
 
-  import NewTypeInjector._
+  import NewTypeInjector.*
 
   override def injectFunctions(source: ScTypeDefinition): Seq[String] = {
     val companionClass = source match {

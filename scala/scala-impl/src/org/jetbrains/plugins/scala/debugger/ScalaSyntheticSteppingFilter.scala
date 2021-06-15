@@ -5,7 +5,7 @@ import com.intellij.psi.PsiElement
 import com.sun.jdi.Location
 import com.sun.jdi.request.StepRequest
 import org.jetbrains.plugins.scala.debugger.evaluation.ScalaEvaluatorBuilderUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil

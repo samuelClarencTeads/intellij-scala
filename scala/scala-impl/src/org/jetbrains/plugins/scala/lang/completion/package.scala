@@ -2,18 +2,18 @@ package org.jetbrains.plugins.scala
 package lang
 
 import com.intellij.codeInsight.AutoPopupController
-import com.intellij.codeInsight.completion._
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
 import com.intellij.patterns.{ElementPattern, PlatformPatterns, StandardPatterns}
 import com.intellij.psi.util.PsiTreeUtil.{getContextOfType, getParentOfType}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.{Consumer, ProcessingContext}
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker.hasStableType
 import org.jetbrains.plugins.scala.caches.CachesUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.completion.weighter.ScalaByExpectedTypeWeigher
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
@@ -34,16 +34,16 @@ import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 package object completion {
 
   import PlatformPatterns.psiElement
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   private[completion] def identifierPattern =
     psiElement(tIDENTIFIER)
 
-  private[completion] def identifierWithParentPattern(clazz: Class[_ <: ScalaPsiElement]) =
+  private[completion] def identifierWithParentPattern(clazz: Class[? <: ScalaPsiElement]) =
     identifierPattern.withParent(clazz)
 
-  private[completion] def identifierWithParentsPattern(classes: Class[_ <: ScalaPsiElement]*) =
-    identifierPattern.withParents(classes: _*)
+  private[completion] def identifierWithParentsPattern(classes: Class[? <: ScalaPsiElement]*) =
+    identifierPattern.withParents(classes*)
 
   private[completion] def annotationPattern =
     psiElement.afterLeaf(psiElement(tAT))
@@ -109,13 +109,13 @@ package object completion {
     result
   }
 
-  implicit class CaptureExt(private val pattern: ElementPattern[_ <: PsiElement]) extends AnyVal {
+  implicit class CaptureExt(private val pattern: ElementPattern[? <: PsiElement]) extends AnyVal {
 
     import StandardPatterns.{and, or}
 
-    def &&(pattern: ElementPattern[_ <: PsiElement]): ElementPattern[_ <: PsiElement] = and(this.pattern, pattern)
+    def &&(pattern: ElementPattern[? <: PsiElement]): ElementPattern[? <: PsiElement] = and(this.pattern, pattern)
 
-    def ||(pattern: ElementPattern[_ <: PsiElement]): ElementPattern[_ <: PsiElement] = or(this.pattern, pattern)
+    def ||(pattern: ElementPattern[? <: PsiElement]): ElementPattern[? <: PsiElement] = or(this.pattern, pattern)
   }
 
   private[completion] implicit class LookupElementExt[E <: LookupElement](private val lookupElement: E) extends AnyVal {
@@ -219,7 +219,7 @@ package object completion {
   private[completion] def dummyIdentifier(file: PsiFile, offset: Int): String = {
     import CompletionUtil.{DUMMY_IDENTIFIER, DUMMY_IDENTIFIER_TRIMMED}
     import ScalaNamesUtil.isBacktickedName.BackTick
-    import ScalaNamesValidator._
+    import ScalaNamesValidator.*
 
     file.findReferenceAt(offset) match {
       case null =>
@@ -312,8 +312,8 @@ package object completion {
 
   private[completion] implicit class CompletionResultSetExt(private val set: CompletionResultSet) extends AnyVal {
 
-    def addAllElements(lookupElements: Iterable[_ <: LookupElement]): Unit = {
-      import scala.jdk.CollectionConverters._
+    def addAllElements(lookupElements: Iterable[? <: LookupElement]): Unit = {
+      import scala.jdk.CollectionConverters.*
       set.addAllElements(lookupElements.asJava)
     }
   }
@@ -360,8 +360,8 @@ package object completion {
 
   private class BacktickPrefixMatcher(private val delegate: PrefixMatcher) extends PrefixMatcher(delegate.getPrefix) {
 
-    import ScalaNamesUtil._
-    import isBacktickedName._
+    import ScalaNamesUtil.*
+    import isBacktickedName.*
 
     private val backticklessMatcher = delegate.cloneWithPrefix {
       withoutBackticks(myPrefix)
@@ -388,7 +388,7 @@ package object completion {
 
   private final class ScalaByTypeWeigher extends LookupElementWeigher("scalaTypeCompletionWeigher") {
 
-    override def weigh(element: LookupElement, context: WeighingContext): Comparable[_] =
+    override def weigh(element: LookupElement, context: WeighingContext): Comparable[?] =
       element.getPsiElement match {
         case typeAlias: ScTypeAlias if typeAlias.isLocal => 1 // localType
         case typeDefinition: ScTypeDefinition if isLocal(typeDefinition) => 1 // localType

@@ -3,7 +3,7 @@ package annotator
 package element
 
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScLiteralTypeElement
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 object ScLiteralTypeElementAnnotator extends ElementAnnotator[ScLiteralTypeElement] {
 

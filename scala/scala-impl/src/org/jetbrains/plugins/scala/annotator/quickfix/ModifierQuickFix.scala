@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package annotator
 package quickfix
 
-import com.intellij.codeInsight._
+import com.intellij.codeInsight.*
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -45,7 +45,7 @@ sealed abstract class ModifierQuickFix(listOwner: ScModifierListOwner)
 
 object ModifierQuickFix {
 
-  import ScalaModifier._
+  import ScalaModifier.*
 
   private val logger = Logger.getInstance(getClass)
 

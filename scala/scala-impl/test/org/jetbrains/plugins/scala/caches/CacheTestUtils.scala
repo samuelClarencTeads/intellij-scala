@@ -77,7 +77,7 @@ trait CacheTestUtils { testFixtureProvider: TestFixtureProvider =>
 
   private def makePsiElement(): PsiElement = {
     implicit val projectContext: ProjectContext = testFixtureProvider.getFixture.getProject
-    import PsiSelectionUtil._
+    import PsiSelectionUtil.*
 
     val file = ScalaPsiElementFactory.createScalaFileFromText("class Test")
     selectElement[PsiElement](file, path("Test"))

@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.externalLibraries
 
 import org.jetbrains.plugins.scala.externalLibraries.kindProjector.KindProjectorUtil.{Lambda, LambdaSymbolic}
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScGenericCall, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAliasDefinition
 

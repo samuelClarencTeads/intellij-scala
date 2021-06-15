@@ -1,9 +1,9 @@
 package org.jetbrains.idea.devkit.scala.project
 
 import junit.framework.TestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import org.jetbrains.sbt.project.template.AbstractArchivedSbtProjectBuilder._
+import org.jetbrains.sbt.project.template.AbstractArchivedSbtProjectBuilder.*
 
 class SbtIdeaPluginProjectBuilderTest extends TestCase {
 

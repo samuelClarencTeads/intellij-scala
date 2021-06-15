@@ -11,7 +11,7 @@ import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable
 import com.intellij.openapi.ui.DialogWrapper.DialogStyle
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.util.NotificationUtil
 import org.jetbrains.sbt.RichFile
 
@@ -30,7 +30,7 @@ object ScalaSdkJLineFixer {
     case class RequiredFound(file: File) extends JlineResolveResult
   }
 
-  import JlineResolveResult._
+  import JlineResolveResult.*
 
   /**
    * @return false - if jline jar could not be found and it is required to run scala console in current scala version<br>

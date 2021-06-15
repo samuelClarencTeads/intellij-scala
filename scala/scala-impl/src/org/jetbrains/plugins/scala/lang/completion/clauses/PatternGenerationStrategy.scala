@@ -20,7 +20,7 @@ sealed trait PatternGenerationStrategy {
 
 object PatternGenerationStrategy {
 
-  import extensions._
+  import extensions.*
 
   implicit class StrategyExt(private val strategy: PatternGenerationStrategy) extends AnyVal {
 

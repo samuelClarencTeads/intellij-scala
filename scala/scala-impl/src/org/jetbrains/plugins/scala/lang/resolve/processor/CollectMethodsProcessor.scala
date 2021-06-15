@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.resolve.processor
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
 import org.jetbrains.plugins.scala.lang.resolve.{ScalaResolveResult, StdKinds}
 

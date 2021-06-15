@@ -6,14 +6,14 @@ package base
 package patterns
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.scope.PsiScopeProcessor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScBindingPatternStub
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScTypeExt}
 
 /**

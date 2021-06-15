@@ -20,7 +20,7 @@ sealed abstract class ParameterlessOverrideInspection extends AbstractMethodSign
 
 object ParameterlessOverrideInspection {
 
-  import quickfix._
+  import quickfix.*
 
   final class EmptyParenMethod extends ParameterlessOverrideInspection {
 

@@ -4,8 +4,8 @@ import java.io.File
 
 import com.intellij.execution.configurations.ParametersList
 import org.jetbrains.plugins.scala.project.Version
-import org.jetbrains.sbt.SbtUtil._
-import org.junit.Assert._
+import org.jetbrains.sbt.SbtUtil.*
+import org.junit.Assert.*
 import org.junit.Test
 
 class SbtUtilTest {

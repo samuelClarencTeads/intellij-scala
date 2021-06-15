@@ -4,7 +4,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQuickFixTestBase}
 
 class PostfixUnaryOperationInspectionTest extends ScalaQuickFixTestBase {
-  override protected val classOfInspection : Class[_ <: LocalInspectionTool] = classOf[PostfixUnaryOperationInspection]
+  override protected val classOfInspection : Class[? <: LocalInspectionTool] = classOf[PostfixUnaryOperationInspection]
   override protected val description = ScalaInspectionBundle.message("displayname.postfix.unary.operation")
 
   private val hint = ScalaInspectionBundle.message("unary.operation.can.use.prefix.notation")

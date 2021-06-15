@@ -5,7 +5,7 @@ import java.awt.{Color, Graphics, Graphics2D, RenderingHints}
 
 import com.intellij.diff.util.DiffDividerDrawUtil.DividerPolygon
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.editor._
+import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.event.{VisibleAreaEvent, VisibleAreaListener}
 import com.intellij.openapi.ui.{Divider, Splitter}
 import com.intellij.psi.PsiDocumentManager

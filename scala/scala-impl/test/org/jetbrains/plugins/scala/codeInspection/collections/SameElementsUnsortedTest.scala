@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package collections
 
-import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG => END, SELECTION_START_TAG => START}
+import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG as END, SELECTION_START_TAG as START}
 
 /**
   * @author Nikolay.Tropin
   */
 abstract class CorrespondsUnsortedInspectionTest extends OperationsOnCollectionInspectionTest {
 
-  override val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[CorrespondsUnsortedInspection]
 }
 

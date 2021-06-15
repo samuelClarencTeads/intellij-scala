@@ -8,7 +8,7 @@ import com.intellij.refactoring.safeDelete.usageInfo.SafeDeleteReferenceJavaDele
 import org.jetbrains.plugins.scala.extensions.Parent
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScInfixExpr, ScMethodCall}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import extensions._
+import extensions.*
 
 
 class SafeDeleteScalaArgumentDeleteUsageInfo(element: PsiElement, referencedElement: PsiElement, isSafeDelete: Boolean)

@@ -9,7 +9,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.search.PsiElementProcessor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier.{ABSTRACT, OVERRIDE}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTypeDefinition}
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.memberPullUp.ScalaPullUpProc
 
 final class PullUpQuickFix(member: ScMember, name: String) extends AbstractIntentionAction {
 
-  import PullUpQuickFix._
+  import PullUpQuickFix.*
 
   private val smartPointer = member.createSmartPointer
 

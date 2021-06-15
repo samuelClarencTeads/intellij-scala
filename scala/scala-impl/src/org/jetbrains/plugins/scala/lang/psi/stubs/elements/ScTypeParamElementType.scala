@@ -30,7 +30,7 @@ class ScTypeParamElementType extends ScStubElementType[ScTypeParamStub, ScTypePa
   }
 
   override def deserialize(dataStream: StubInputStream,
-                           parentStub: StubElement[_ <: PsiElement]) = new ScTypeParamStubImpl(
+                           parentStub: StubElement[? <: PsiElement]) = new ScTypeParamStubImpl(
     parentStub,
     this,
     name = dataStream.readNameString,
@@ -44,7 +44,7 @@ class ScTypeParamElementType extends ScStubElementType[ScTypeParamStub, ScTypePa
     containingFileName = dataStream.readNameString(),
   )
 
-  override def createStubImpl(typeParam: ScTypeParam, parentStub: StubElement[_ <: PsiElement]): ScTypeParamStub = {
+  override def createStubImpl(typeParam: ScTypeParam, parentStub: StubElement[? <: PsiElement]): ScTypeParamStub = {
     val lowerBoundText = typeParam.lowerTypeElement
       .map(_.getText)
     val upperBoundText = typeParam.upperTypeElement

@@ -2,8 +2,8 @@ package org.jetbrains.plugins.scala
 package refactoring.changeSignature
 
 import com.intellij.psi.{PsiEllipsisType, PsiMember, PsiMethod, PsiType}
-import com.intellij.refactoring.changeSignature._
-import org.junit.Assert._
+import com.intellij.refactoring.changeSignature.*
+import org.junit.Assert.*
 
 /**
  * Nikolay.Tropin

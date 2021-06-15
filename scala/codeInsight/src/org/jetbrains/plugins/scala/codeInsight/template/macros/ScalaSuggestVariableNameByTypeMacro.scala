@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.codeInsight.template.macros
 
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
-import com.intellij.codeInsight.template.{TextResult, _}
+import com.intellij.codeInsight.template.{TextResult, *}
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 

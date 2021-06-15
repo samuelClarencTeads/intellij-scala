@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.testingSupport.test.structureView
 
 import java.util.Collections
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.execution.PsiLocation
 import com.intellij.icons.AllIcons
@@ -17,8 +17,8 @@ import org.jetbrains.plugins.scala.extensions.{IteratorExt, ObjectExt, PsiElemen
 import org.jetbrains.plugins.scala.lang.parser.{ScCodeBlockElementType, ScalaElementType}
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScReferencePattern, ScTuplePattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScLiteral, ScPatternList}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterClause
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
@@ -33,7 +33,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.specs2.Specs2Util
 import org.jetbrains.plugins.scala.testingSupport.test.utest.UTestConfigurationProducer
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 // used on "Structure view" (Alt + 7)
 // TODO: split this by test frameworks
@@ -117,8 +117,8 @@ object TestNodeProvider {
   }
 
   private def extractTestViewElementInfix(expr: ScInfixExpr, clazz: ScTypeDefinition, project: Project): Option[Test] = {
-    import ScalaTestUtil._
-    import Specs2Util._
+    import ScalaTestUtil.*
+    import Specs2Util.*
     import org.jetbrains.plugins.scala.testingSupport.test.TestConfigurationUtil.isInheritor
     if (flatSpecBases.exists(isInheritor(clazz, _)))
       extractFlatSpec(expr, project)
@@ -143,7 +143,7 @@ object TestNodeProvider {
   }
 
   private def extractTestViewElement(expr: ScMethodCall, clazz: ScTypeDefinition, project: Project): Option[Test] = {
-    import ScalaTestUtil._
+    import ScalaTestUtil.*
     import org.jetbrains.plugins.scala.testingSupport.test.TestConfigurationUtil.isInheritor
     if (funSuiteBases.exists(isInheritor(clazz, _)))
       extractFunSuite(expr, project) //this should be a funSuite-like test
@@ -210,7 +210,7 @@ object TestNodeProvider {
 
   private def checkScMethodCall(expr: ScMethodCall, funName: String, paramNames: List[String]*): Boolean = {
     val methodExpr = expr.getEffectiveInvokedExpr.findFirstChildByType(ScalaElementType.REFERENCE_EXPRESSION)
-    methodExpr.exists(methodExpr => checkRefExpr(methodExpr.asInstanceOf[ScReferenceExpression], funName, paramNames: _*))
+    methodExpr.exists(methodExpr => checkRefExpr(methodExpr.asInstanceOf[ScReferenceExpression], funName, paramNames*))
   }
 
   private def checkScMethodCallApply(expr: ScMethodCall, @NonNls callerName: String, @NonNls paramNames: List[String]*): Boolean = {
@@ -296,7 +296,7 @@ object TestNodeProvider {
       Some(ignoredScalaTestElement(expr, getInfixExprTestName(expr), entry.children(())))
     } else if (checkScInfixExpr(expr, "is", List("org.scalatest.PendingNothing")) || checkPendingInfixExpr(expr)) {
       Some(pendingScalaTestElement(expr, getInfixExprTestName(expr), entry.children(())))
-    } else if (checkScInfixExpr(expr, entry.funName, entry.args: _*)) {
+    } else if (checkScInfixExpr(expr, entry.funName, entry.args*)) {
       Some(new Test(expr, getInfixExprTestName(expr), entry.children(())))
     } else None
   }
@@ -369,19 +369,19 @@ object TestNodeProvider {
   }
 
   private def extractScMethodCall(expr: ScMethodCall, entry: ExtractEntry, project: Project): Option[Test] = {
-    if (entry.canIgnore && (checkScMethodCall(expr, "ignore", scMethodCallDefaultArg: _*) ||
-      checkScMethodCall(expr, "ignore", scMethodCallDefaultArgScalaTest3_v1: _*) ||
-      checkScMethodCall(expr, "ignore", scMethodCallDefaultArgScalaTest3_v2: _*)))
+    if (entry.canIgnore && (checkScMethodCall(expr, "ignore", scMethodCallDefaultArg*) ||
+      checkScMethodCall(expr, "ignore", scMethodCallDefaultArgScalaTest3_v1*) ||
+      checkScMethodCall(expr, "ignore", scMethodCallDefaultArgScalaTest3_v2*)))
     {
       Some(ignoredScalaTestElement(expr, getMethodCallTestName(expr), entry.children(())))
     }
     else if (entry.canPend && checkMethodCallPending(expr)) {
       Some(pendingScalaTestElement(expr, getMethodCallTestName(expr), entry.children(())))
     }
-    else if (checkScMethodCall(expr, entry.funName, entry.args: _*) ||
-      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArg:_*) ||
-      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArgScalaTest3_v1:_*) ||
-      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArgScalaTest3_v2:_*)
+    else if (checkScMethodCall(expr, entry.funName, entry.args*) ||
+      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArg*) ||
+      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArgScalaTest3_v1*) ||
+      checkScMethodCallApply(expr, entry.funName, scMethodCallDefaultArgScalaTest3_v2*)
     ) {
       Some(new Test(expr, getMethodCallTestName(expr), entry.children(())))
     }
@@ -422,44 +422,44 @@ object TestNodeProvider {
   private def extractFunSpec(expr: ScMethodCall, project: Project): Option[Test] = {
     lazy val children = processChildren(getInnerMethodCalls(expr), extractFunSpec, project)
     extractScMethodCall(expr, ExtractEntry("describe", true, true, _ => children, List("java.lang.String"), List("void")),
-      project).orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArg:_*), project)).
-      orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArgScalaTest3_v1:_*), project)).
-      orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArgScalaTest3_v2:_*), project)).
-      orElse(extractScMethodCall(expr, ExtractEntry("they", true, true, scMethodCallDefaultArg:_*), project))
+      project).orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArg*), project)).
+      orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArgScalaTest3_v1*), project)).
+      orElse(extractScMethodCall(expr, ExtractEntry("it", true, true, scMethodCallDefaultArgScalaTest3_v2*), project)).
+      orElse(extractScMethodCall(expr, ExtractEntry("they", true, true, scMethodCallDefaultArg*), project))
   }
 
   private def extractFeatureSpec(expr: ScMethodCall, project: Project): Option[Test] = {
     lazy val children = processChildren(getInnerMethodCalls(expr), extractFeatureSpec, project)
     val entries = Seq(
       ExtractEntry("feature", true, false, _ => children, List("java.lang.String"), List("void")),
-      ExtractEntry("scenario", true, true, scMethodCallDefaultArg: _*),
-      ExtractEntry("scenario", true, true, scMethodCallDefaultArgScalaTest3_v1: _*),
-      ExtractEntry("scenario", true, true, scMethodCallDefaultArgScalaTest3_v2: _*),
+      ExtractEntry("scenario", true, true, scMethodCallDefaultArg*),
+      ExtractEntry("scenario", true, true, scMethodCallDefaultArgScalaTest3_v1*),
+      ExtractEntry("scenario", true, true, scMethodCallDefaultArgScalaTest3_v2*),
       //scalatest 3.1.0
       ExtractEntry("Feature", true, false, _ => children, List("java.lang.String"), List("void")),
-      ExtractEntry("Scenario", true, true, scMethodCallDefaultArg: _*),
-      ExtractEntry("Scenario", true, true, scMethodCallDefaultArgScalaTest3_v1: _*),
-      ExtractEntry("Scenario", true, true, scMethodCallDefaultArgScalaTest3_v2: _*),
+      ExtractEntry("Scenario", true, true, scMethodCallDefaultArg*),
+      ExtractEntry("Scenario", true, true, scMethodCallDefaultArgScalaTest3_v1*),
+      ExtractEntry("Scenario", true, true, scMethodCallDefaultArgScalaTest3_v2*),
     )
     entries.iterator.flatMap(extractScMethodCall(expr, _, project)).headOption
   }
 
   private def extractPropSpec(expr: ScMethodCall, project: Project): Option[Test] = {
-    extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArg: _*), project).
-      orElse(extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArgScalaTest3_v1: _*), project)).
-      orElse(extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArgScalaTest3_v2: _*), project))
+    extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArg*), project).
+      orElse(extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArgScalaTest3_v1*), project)).
+      orElse(extractScMethodCall(expr, ExtractEntry("property", true, true, scMethodCallDefaultArgScalaTest3_v2*), project))
   }
 
   // TODO: recheck, why we pass 3 parameters, while extractScMethodCall already handles 3 variants
   private def extractFunSuite(expr: ScMethodCall, project: Project): Option[Test] = {
-    extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArg:_*), project)
-      .orElse(extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArgScalaTest3_v1:_*), project))
-      .orElse(extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArgScalaTest3_v2:_*), project))
+    extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArg*), project)
+      .orElse(extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArgScalaTest3_v1*), project))
+      .orElse(extractScMethodCall(expr, ExtractEntry("test", true, true, scMethodCallDefaultArgScalaTest3_v2*), project))
   }
 
   private def extractMUnitFunSuite(expr: ScMethodCall, project: Project): Option[Test] = {
-    val entry = ExtractEntry("test", false, false, munitTestMethodCallArg: _*)
-    if (checkScMethodCall(expr, entry.funName, entry.args: _*))
+    val entry = ExtractEntry("test", false, false, munitTestMethodCallArg*)
+    if (checkScMethodCall(expr, entry.funName, entry.args*))
       Some(new Test(expr, getMethodCallTestName(expr), entry.children(())))
     else
       None
@@ -495,7 +495,7 @@ object TestNodeProvider {
       } else None
     }
     if (isUTestSuiteApplyCall(expr) || isUTestTestsCall(expr)) {
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       expr.args.findFirstChildByType(ScCodeBlockElementType.BlockExpression) match {
         case Some(blockExpr: ScBlockExpr) =>
           (
@@ -598,7 +598,7 @@ object TestNodeProvider {
     case _ => None
   }
 
-  def getTestNames(aSuite: ScTypeDefinition, configurationProducer: AbstractTestConfigurationProducer[_]): Seq[String] = {
+  def getTestNames(aSuite: ScTypeDefinition, configurationProducer: AbstractTestConfigurationProducer[?]): Seq[String] = {
     @tailrec
     def getTestLeaves(elements: Iterable[TreeElement], res: List[Test] = List()): List[Test] = {
       if (elements.isEmpty) res else {
@@ -642,5 +642,5 @@ case class ExtractEntry(funName: String, canIgnore: Boolean, canPend: Boolean, c
 
 object ExtractEntry {
   def apply(funName: String, canIgnore: Boolean, canPend: Boolean, args: List[String]*): ExtractEntry =
-    ExtractEntry(funName, canIgnore, canPend, _ => Array[TreeElement](), args: _*)
+    ExtractEntry(funName, canIgnore, canPend, _ => Array[TreeElement](), args*)
 }

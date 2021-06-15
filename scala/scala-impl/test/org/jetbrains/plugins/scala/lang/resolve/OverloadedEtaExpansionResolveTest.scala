@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 class OverloadedEtaExpansionResolveTest
     extends ScalaLightCodeInsightFixtureTestAdapter
     with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   def testFunctionMap(): Unit = doResolveTest(
     s"""

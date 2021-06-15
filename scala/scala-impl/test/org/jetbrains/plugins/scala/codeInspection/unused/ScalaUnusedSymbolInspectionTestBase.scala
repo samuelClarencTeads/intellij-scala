@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQ
 
 abstract class ScalaUnusedSymbolInspectionTestBase extends ScalaQuickFixTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ScalaUnusedSymbolInspection]
 
   override protected val description: String =

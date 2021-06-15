@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.psi.light
 import com.intellij.lang.java.lexer.JavaLexer
 import com.intellij.openapi.project.Project
 import com.intellij.pom.java.LanguageLevel
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightParameter
 import com.intellij.psi.impl.source.PsiImmediateClassType
 import org.jetbrains.plugins.scala.lang.psi.ElementScope

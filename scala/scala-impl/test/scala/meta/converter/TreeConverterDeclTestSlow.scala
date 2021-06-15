@@ -2,8 +2,8 @@ package scala.meta.converter
 
 import scala.collection.immutable.Seq
 import scala.meta.TreeConverterTestBaseWithLibrary
-import scala.meta._
-import scala.{Seq => _}
+import scala.meta.*
+import scala.{Seq as _}
 
 // tests that require library loading
 class TreeConverterDeclTestSlow extends TreeConverterTestBaseWithLibrary {

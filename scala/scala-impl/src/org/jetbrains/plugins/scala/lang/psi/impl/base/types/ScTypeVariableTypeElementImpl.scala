@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementImpl
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeVariableTypeElement
 import org.jetbrains.plugins.scala.lang.psi.types.ScExistentialArgument
 import org.jetbrains.plugins.scala.lang.psi.types.api.{Any, Nothing}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
  * @author Alefas

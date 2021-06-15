@@ -5,10 +5,10 @@ import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.util.ModificationTracker
 import com.intellij.psi.PsiElement
 import org.apache.maven.artifact.versioning.ComparableVersion
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.parsing.top.TmplDef
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -17,14 +17,14 @@ import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticC
 import org.jetbrains.plugins.scala.lang.psi.types.api.Any
 import org.jetbrains.plugins.scala.lang.psi.types.{ScParameterizedType, ScType, ScalaType}
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 /**
   * Partially based on and inspired by contribution from @vovapolu
   * (https://github.com/JetBrains/intellij-scala/pull/435).
   */
 class KindProjectorUtil(project: Project) {
-  import KindProjectorUtil._
+  import KindProjectorUtil.*
 
   /**
     * Synthetic top level declarations required to make kind-projector

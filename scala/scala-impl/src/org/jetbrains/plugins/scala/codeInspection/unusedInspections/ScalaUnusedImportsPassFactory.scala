@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package unusedInspections
 
-import com.intellij.codeHighlighting._
+import com.intellij.codeHighlighting.*
 import com.intellij.codeInsight.daemon.ProblemHighlightFilter
 import com.intellij.codeInsight.daemon.impl.{DefaultHighlightInfoProcessor, HighlightInfoProcessor}
 import com.intellij.openapi.editor.{Document, Editor}

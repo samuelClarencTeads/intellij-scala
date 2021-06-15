@@ -12,7 +12,7 @@ private[compilerReferences] class CompilerReferenceIndexerScheduler(
   project:              Project,
   expectedIndexVersion: Int
 ) extends IndexerScheduler {
-  import CompilerReferenceIndexerScheduler._
+  import CompilerReferenceIndexerScheduler.*
 
   private[this] val indexer  = new CompilerReferenceIndexer(project, expectedIndexVersion)
   private[this] val jobQueue = new BackgroundTaskQueue(project, ScalaBundle.message("bytecode.indices.progress.title"))

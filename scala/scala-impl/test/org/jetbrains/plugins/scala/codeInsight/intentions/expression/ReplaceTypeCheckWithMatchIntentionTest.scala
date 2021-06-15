@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
  */
 class ReplaceTypeCheckWithMatchIntentionTest extends ScalaIntentionTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   override def familyName: String = ScalaBundle.message("family.name.replace.type.check.with.pattern.matching")
 

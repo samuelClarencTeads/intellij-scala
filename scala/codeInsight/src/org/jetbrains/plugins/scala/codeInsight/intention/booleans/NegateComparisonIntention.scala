@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScInfixExpr
 
 /**
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.ScInfixExpr
   */
 final class NegateComparisonIntention extends PsiElementBaseIntentionAction {
 
-  import NegateComparisonIntention._
+  import NegateComparisonIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean = {
     val infixExpr: ScInfixExpr = PsiTreeUtil.getParentOfType(element, classOf[ScInfixExpr], false)

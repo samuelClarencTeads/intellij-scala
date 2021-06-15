@@ -1,14 +1,14 @@
 package org.jetbrains.plugins.scala
 package codeInsight.generation.ui
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.refactoring.classMembers.AbstractMemberInfoModel
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.plugins.scala.lang.refactoring.ui._
+import org.jetbrains.plugins.scala.lang.refactoring.ui.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Nikolay.Tropin

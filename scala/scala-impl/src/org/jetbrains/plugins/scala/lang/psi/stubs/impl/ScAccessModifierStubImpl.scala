@@ -12,8 +12,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScAccessModifier
   * User: Alexander Podkhalyuzin
   * Date: 17.06.2009
   */
-class ScAccessModifierStubImpl(parent: StubElement[_ <: PsiElement],
-                               elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScAccessModifierStubImpl(parent: StubElement[? <: PsiElement],
+                               elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                                override val isProtected: Boolean,
                                override val isPrivate: Boolean,
                                override val isThis: Boolean,

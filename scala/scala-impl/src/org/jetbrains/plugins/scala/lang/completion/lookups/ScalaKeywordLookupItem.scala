@@ -33,8 +33,8 @@ object ScalaKeywordLookupItem {
 
   final class KeywordInsertHandler(val keyword: String) extends InsertHandler[LookupElement] {
 
-    import KeywordInsertHandler._
-    import ScalaKeyword._
+    import KeywordInsertHandler.*
+    import ScalaKeyword.*
 
     override def handleInsert(context: InsertionContext,
                               lookupElement: LookupElement): Unit = keyword match {

@@ -3,7 +3,7 @@ package compiler
 
 import java.util.concurrent.TimeUnit
 
-import com.intellij.execution.process._
+import com.intellij.execution.process.*
 import com.intellij.openapi.util.Key
 import com.intellij.util.io.BaseOutputReader
 
@@ -41,7 +41,7 @@ class ProcessWatcher(process: Process, commandLine: String) {
   }
 
   private object MyProcessListener extends ProcessAdapter {
-    override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = {
+    override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = {
       val text = event.getText
 
       outputType match {

@@ -4,7 +4,7 @@ package codeInsight.intention.expression
 import com.intellij.codeInsight.CodeInsightUtilCore
 import com.intellij.codeInsight.highlighting.HighlightManager
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.codeInsight.template.impl.{TemplateManagerImpl, TemplateState}
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Editor
@@ -15,18 +15,18 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
 import com.intellij.refactoring.rename.inplace.MyLookupExpression
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.{createExpressionFromText, createParameterFromText}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaVariableValidator
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -193,7 +193,7 @@ class ConvertUnderscoreToParameterIntention extends PsiElementBaseIntentionActio
 
         private def addHighlights(ranges: mutable.HashMap[TextRange, TextAttributesKey], editor: Editor,
                                   highlighters: ArrayBuffer[RangeHighlighter], highlightManager: HighlightManager): Unit = {
-          for ((range, attributes) <- ranges) {
+          for (case (range, attributes) <- ranges) {
             highlightManager.addOccurrenceHighlight(
               editor, range.getStartOffset, range.getEndOffset,
               attributes, 0, highlighters.asJava)

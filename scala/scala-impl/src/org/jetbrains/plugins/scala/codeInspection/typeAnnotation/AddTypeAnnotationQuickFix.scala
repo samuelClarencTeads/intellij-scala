@@ -2,17 +2,17 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package typeAnnotation
 
-import java.{util => ju}
+import java.{util as ju}
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.application.ex.ApplicationManagerEx
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInsight.intention.types.AbstractTypeAnnotationIntention.complete
 import org.jetbrains.plugins.scala.codeInsight.intention.types.AddOnlyStrategy
-import org.jetbrains.plugins.scala.codeInspection.typeAnnotation.AddTypeAnnotationQuickFix._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.typeAnnotation.AddTypeAnnotationQuickFix.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.TypeAdjuster
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 
@@ -69,7 +69,7 @@ object AddTypeAnnotationQuickFix {
   }
 
   private class CollectTypesToAddStrategy() extends AddOnlyStrategy(editor = None) {
-    import AddOnlyStrategy._
+    import AddOnlyStrategy.*
     import TypeAdjuster.markToAdjust
 
     private val annotations = mutable.ArrayBuffer[(ScTypeElement, PsiElement)]()

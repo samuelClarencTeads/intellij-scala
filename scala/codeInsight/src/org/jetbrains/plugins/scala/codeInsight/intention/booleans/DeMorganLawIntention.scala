@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 /**
   * @author Ksenia.Sautina
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr._
   */
 final class DeMorganLawIntention extends PsiElementBaseIntentionAction {
 
-  import DeMorganLawIntention._
+  import DeMorganLawIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean = {
     val infixExpr: ScInfixExpr = PsiTreeUtil.getParentOfType(element, classOf[ScInfixExpr], false)

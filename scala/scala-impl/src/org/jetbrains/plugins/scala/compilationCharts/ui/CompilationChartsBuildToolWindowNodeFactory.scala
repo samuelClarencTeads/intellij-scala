@@ -19,7 +19,7 @@ import scala.jdk.CollectionConverters.CollectionHasAsScala
 class CompilationChartsBuildToolWindowNodeFactory
   extends ProjectManagerListener {
 
-  import CompilationChartsBuildToolWindowNodeFactory._
+  import CompilationChartsBuildToolWindowNodeFactory.*
 
   override def projectOpened(project: Project): Unit = {
     def isJpsBuild(event: BuildEvent): Boolean = {

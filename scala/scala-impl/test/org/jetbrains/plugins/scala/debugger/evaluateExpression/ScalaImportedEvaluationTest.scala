@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package debugger.evaluateExpression
 
-import org.jetbrains.plugins.scala.debugger._
+import org.jetbrains.plugins.scala.debugger.*
 import org.junit.experimental.categories.Category
 
 @Category(Array(classOf[DebuggerTests]))

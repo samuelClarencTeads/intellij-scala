@@ -14,7 +14,7 @@ import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.lang.psi.compiled.SigFileType
 import org.jetbrains.plugins.scala.tasty.TastyFileType
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 sealed abstract class FilterScope(val delegate: GlobalSearchScope)
                                  (implicit project: Project)
@@ -97,7 +97,7 @@ object ScalaFilterScope {
 
 final class SourceFilterScope private(delegate: GlobalSearchScope, fileTypes: Seq[FileType])
                                      (implicit project: Project)
-  extends FilterScope(GlobalSearchScope.getScopeRestrictedByFileTypes(delegate, fileTypes: _*)) {
+  extends FilterScope(GlobalSearchScope.getScopeRestrictedByFileTypes(delegate, fileTypes*)) {
 
   override protected def mayContain(file: VirtualFile): Boolean = isInSourceContent(file)
 }

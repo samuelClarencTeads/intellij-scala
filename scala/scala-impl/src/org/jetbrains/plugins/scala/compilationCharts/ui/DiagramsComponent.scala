@@ -9,21 +9,21 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.ui.components.{JBPanelWithEmptyText, JBScrollPane}
 import com.intellij.util.ui.StartupUiUtil
-import org.jetbrains.plugins.scala.compilationCharts.ui.Common._
+import org.jetbrains.plugins.scala.compilationCharts.ui.Common.*
 import org.jetbrains.plugins.scala.compilationCharts.{CompilationProgressStateManager, CompileServerMetricsStateManager, Memory, Timestamp}
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, invokeLater}
 
 import java.io.File
 import javax.swing.UIManager
 import scala.concurrent.duration.{Duration, FiniteDuration}
-import scala.math.Ordering.Implicits._
+import scala.math.Ordering.Implicits.*
 
 class DiagramsComponent(chartsComponent: CompilationChartsComponent,
                         project: Project,
                         defaultZoom: Zoom)
   extends JBPanelWithEmptyText {
 
-  import DiagramsComponent._
+  import DiagramsComponent.*
 
   // injecting due to cyclic dependency between scroll pane and diagrams component
   private[ui] var scrollComponent: JBScrollPane = _

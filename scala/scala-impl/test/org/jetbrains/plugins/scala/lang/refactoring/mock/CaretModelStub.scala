@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.refactoring.mock
 import java.util
 
 import com.intellij.openapi.Disposable
-import com.intellij.openapi.editor._
+import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.event.CaretListener
 import com.intellij.openapi.editor.markup.TextAttributes
 
@@ -12,9 +12,9 @@ import com.intellij.openapi.editor.markup.TextAttributes
  */
 
 class CaretModelStub extends CaretModel {
-  override def setCaretsAndSelections(caretStates: util.List[_ <: CaretState]): Unit = ???
+  override def setCaretsAndSelections(caretStates: util.List[? <: CaretState]): Unit = ???
 
-  override def setCaretsAndSelections(caretStates: util.List[_ <: CaretState], updateSystemSelection: Boolean): Unit = ???
+  override def setCaretsAndSelections(caretStates: util.List[? <: CaretState], updateSystemSelection: Boolean): Unit = ???
 
   override def getCaretCount: Int = ???
 

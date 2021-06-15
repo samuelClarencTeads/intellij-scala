@@ -11,7 +11,7 @@ import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import org.jetbrains.annotations.Nls
 import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes

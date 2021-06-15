@@ -2,17 +2,17 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package typeAnnotation
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScFunctionExpr, ScTypedExpression, ScUnderscoreSection}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
-import org.jetbrains.plugins.scala.settings.annotations._
-import org.jetbrains.plugins.scala.util._
+import org.jetbrains.plugins.scala.settings.annotations.*
+import org.jetbrains.plugins.scala.util.*
 
 import scala.annotation.nowarn
 
@@ -21,7 +21,7 @@ import scala.annotation.nowarn
   */
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 class TypeAnnotationInspection extends AbstractInspection {
-  import TypeAnnotationInspection._
+  import TypeAnnotationInspection.*
 
   override def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Unit] = {
     case value: ScPatternDefinition if value.isSimple && !value.hasExplicitType =>
@@ -61,7 +61,7 @@ object TypeAnnotationInspection {
         canBePrivate.seq(new MakePrivateQuickFix(element.asInstanceOf[ScModifierListOwner])) ++
           Seq(new AddTypeAnnotationQuickFix(anchor), new ModifyCodeStyleQuickFix(), new LearnWhyQuickFix())
 
-      holder.registerProblem(anchor, ScalaInspectionBundle.message("type.annotation.required.for", reason), fixes: _*)
+      holder.registerProblem(anchor, ScalaInspectionBundle.message("type.annotation.required.for", reason), fixes*)
     }
   }
 

@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.inWriteAction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.Ignore
 
 import scala.meta.intellij.MetaExpansionsManager.PARADISE_VERSION
@@ -48,7 +48,7 @@ class MetaAnnotationJarTest extends JavaCodeInsightFixtureTestCase with ScalaMet
   }
 
   def testLoadAnnotationFromJar(): Unit = {
-    import intellij.psi._
+    import intellij.psi.*
     val source =
       """
         |@addFoo

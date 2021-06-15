@@ -1,10 +1,10 @@
 package org.jetbrains.sbt
 package annotator
 
-import _root_.org.junit.Assert._
+import _root_.org.junit.Assert.*
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.util.io.FileUtil
-import org.jetbrains.plugins.scala.annotator._
+import org.jetbrains.plugins.scala.annotator.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.util.TestUtils

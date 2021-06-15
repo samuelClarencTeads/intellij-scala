@@ -7,7 +7,7 @@ package elements
 import com.intellij.lang.{ASTNode, Language}
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.FileElement
-import com.intellij.psi.stubs._
+import com.intellij.psi.stubs.*
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.ScExpressionElementType
 import org.jetbrains.plugins.scala.lang.parser.{ScCodeBlockElementType, SelfPsiCreator}
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScStubElementType.isLocal
@@ -27,13 +27,13 @@ abstract class ScStubElementType[
 
   override def createElement(node: ASTNode): T
 
-  override final def createStub(psi: T, parentStub: StubElement[_ <: PsiElement]): S = {
+  override final def createStub(psi: T, parentStub: StubElement[? <: PsiElement]): S = {
     ScStubElementType.Processing {
       createStubImpl(psi, parentStub)
     }
   }
 
-  protected def createStubImpl(psi: T, parentStub: StubElement[_ <: PsiElement]): S
+  protected def createStubImpl(psi: T, parentStub: StubElement[? <: PsiElement]): S
 
   override final def getExternalId: String = getLanguage.getDisplayName.toLowerCase + "." + debugName
 
@@ -73,7 +73,7 @@ object ScStubElementType {
     case _: FileElement | null => false
     case _ =>
       node.getElementType match {
-        case _: ScTemplateDefinitionElementType[_] => false
+        case _: ScTemplateDefinitionElementType[?] => false
         case _: ScExpressionElementType | _: ScCodeBlockElementType => true
         case _ => isLocal(node.getTreeParent)
       }

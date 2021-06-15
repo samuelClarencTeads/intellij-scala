@@ -4,8 +4,8 @@ import com.intellij.lang.ASTNode
 import com.intellij.lang.folding.{CustomFoldingBuilder, FoldingDescriptor}
 import com.intellij.openapi.editor.{Document, FoldingGroup}
 import com.intellij.openapi.project.PossiblyDumbAware
-import com.intellij.openapi.util._
-import com.intellij.psi._
+import com.intellij.openapi.util.*
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
@@ -18,8 +18,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScCompoundTypeElement, ScParenthesisedTypeElement, ScTypeElement, ScTypeProjection}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScEnd, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParamClause
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScGivenAlias
@@ -29,14 +29,14 @@ import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScStubFileElementType
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes
 import org.jetbrains.plugins.scala.settings.ScalaCodeFoldingSettings
 
-import scala.collection._
-import scala.jdk.CollectionConverters._
+import scala.collection.*
+import scala.jdk.CollectionConverters.*
 
 // TODO: do not use ASTNode.getText or PsiElement.getText
 // TODO: extract shared string literals, like "{...}"
 class ScalaFoldingBuilder extends CustomFoldingBuilder with PossiblyDumbAware {
-  import ScalaElementType._
-  import ScalaFoldingUtil._
+  import ScalaElementType.*
+  import ScalaFoldingUtil.*
 
   private val foldingSettings = ScalaCodeFoldingSettings.getInstance()
 

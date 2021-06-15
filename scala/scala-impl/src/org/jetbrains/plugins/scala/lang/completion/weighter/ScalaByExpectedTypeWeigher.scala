@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils
 final class ScalaByExpectedTypeWeigher(maybeDefinition: Option[ScExpression])
                                       (implicit position: PsiElement) extends LookupElementWeigher("scalaExpectedType") {
 
-  import ScalaByExpectedTypeWeigher._
+  import ScalaByExpectedTypeWeigher.*
 
   private lazy val expectedTypes = maybeDefinition.fold(Seq.empty[ScType]) {
     _.expectedTypes()

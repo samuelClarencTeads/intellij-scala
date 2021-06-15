@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.testingSupport.test.ui
 
-import java.awt._
+import java.awt.*
 import java.util
 
 import com.intellij.application.options.ModuleDescriptionsComboBox
 import com.intellij.execution.configuration.BrowseModuleValueActionListener
-import com.intellij.execution.ui._
+import com.intellij.execution.ui.*
 import com.intellij.execution.{ExecutionBundle, ShortenCommandLine}
 import com.intellij.ide.util.{ClassFilter, PackageChooserDialog}
 import com.intellij.openapi.editor.ex.EditorEx
@@ -17,20 +17,20 @@ import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.ui.{EditorTextField, EditorTextFieldWithBrowseButton, EnumComboBoxModel, IdeBorderFactory}
 import com.intellij.uiDesigner.core.{GridConstraints, Spacer}
 import com.intellij.util.ui.JBUI
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.{IteratorExt, ObjectExt}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.settings.SimpleMappingListCellRenderer
-import org.jetbrains.plugins.scala.testingSupport.test._
-import org.jetbrains.plugins.scala.testingSupport.test.testdata._
-import org.jetbrains.plugins.scala.testingSupport.test.ui.TestRunConfigurationForm.{PackageChooserActionListener, _}
+import org.jetbrains.plugins.scala.testingSupport.test.*
+import org.jetbrains.plugins.scala.testingSupport.test.testdata.*
+import org.jetbrains.plugins.scala.testingSupport.test.ui.TestRunConfigurationForm.{PackageChooserActionListener, *}
 import org.jetbrains.plugins.scala.util.ui.TextWithMnemonic.AbstractButtonExt
 import org.jetbrains.sbt.settings.SbtSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 //noinspection ConvertNullInitializerToUnderscore
 final class TestRunConfigurationForm(val myProject: Project) {
@@ -233,7 +233,7 @@ final class TestRunConfigurationForm(val myProject: Project) {
     myWholePanel = new JPanel
 
     implicit val uiBuilder: GridUiBuilder = new GridUiBuilder(myWholePanel, columns = 4)
-    import uiBuilder._
+    import uiBuilder.*
 
     myTestKind = labeledComponent(ScalaBundle.message("test.run.config.test.kind"), new ComboBox[TestKind])
 
@@ -318,7 +318,7 @@ final class TestRunConfigurationForm(val myProject: Project) {
 
   private def addSeparatorBetweenTopAndBottomPanel()(implicit uiBuilder: GridUiBuilder) = {
     val dim = new Dimension(-1, 32)
-    import uiBuilder._
+    import uiBuilder.*
     append(new Spacer, new GridConstraints(
       rowIdx, 0, 1, columns,
       GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE,
@@ -329,7 +329,7 @@ final class TestRunConfigurationForm(val myProject: Project) {
   }
 
   private def addBottomFiller()(implicit uiBuilder: GridUiBuilder): Unit = {
-    import uiBuilder._
+    import uiBuilder.*
     append(new Spacer, new GridConstraints(
       rowIdx, 0, 1, columns,
       GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL,

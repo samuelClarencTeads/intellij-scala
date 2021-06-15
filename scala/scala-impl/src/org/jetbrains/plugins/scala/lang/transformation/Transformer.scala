@@ -5,15 +5,15 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiDocumentManager, PsiElement, PsiFile}
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
-import org.jetbrains.plugins.scala.lang.transformation.annotations._
-import org.jetbrains.plugins.scala.lang.transformation.calls._
-import org.jetbrains.plugins.scala.lang.transformation.general._
-import org.jetbrains.plugins.scala.lang.transformation.implicits._
-import org.jetbrains.plugins.scala.lang.transformation.references._
-import org.jetbrains.plugins.scala.lang.transformation.types._
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
+import org.jetbrains.plugins.scala.lang.transformation.annotations.*
+import org.jetbrains.plugins.scala.lang.transformation.calls.*
+import org.jetbrains.plugins.scala.lang.transformation.general.*
+import org.jetbrains.plugins.scala.lang.transformation.implicits.*
+import org.jetbrains.plugins.scala.lang.transformation.references.*
+import org.jetbrains.plugins.scala.lang.transformation.types.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin

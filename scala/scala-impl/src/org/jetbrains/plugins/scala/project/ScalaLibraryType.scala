@@ -2,11 +2,11 @@ package org.jetbrains.plugins.scala
 package project
 
 import java.io.File
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.roots.libraries._
-import com.intellij.openapi.roots.ui.configuration._
+import com.intellij.openapi.roots.libraries.*
+import com.intellij.openapi.roots.ui.configuration.*
 import com.intellij.openapi.roots.{JavadocOrderRootType, OrderRootType}
 import com.intellij.openapi.vfs.VirtualFile
 import javax.swing.{Icon, JComponent}
@@ -61,7 +61,7 @@ final class ScalaLibraryType extends LibraryType[ScalaLibraryProperties](ScalaLi
 //noinspection TypeAnnotation
 object ScalaLibraryType {
 
-  import template._
+  import template.*
 
   def apply() =
     LibraryType.findByKind(Kind).asInstanceOf[ScalaLibraryType]

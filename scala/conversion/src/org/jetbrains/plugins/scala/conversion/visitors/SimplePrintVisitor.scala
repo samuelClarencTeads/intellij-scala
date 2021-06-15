@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package conversion
 package visitors
 
-import com.intellij.openapi.util._
+import com.intellij.openapi.util.*
 
 import scala.collection.mutable
 
@@ -12,10 +12,10 @@ import scala.collection.mutable
  */
 class SimplePrintVisitor protected() {
 
-  import SimplePrintVisitor._
-  import ast._
-  import ClassConstruction.ClassType._
-  import ModifierType._
+  import SimplePrintVisitor.*
+  import ast.*
+  import ClassConstruction.ClassType.*
+  import ModifierType.*
   import lang.refactoring.util.ScalaNamesUtil.escapeKeyword
 
   private val printer = new mutable.StringBuilder()

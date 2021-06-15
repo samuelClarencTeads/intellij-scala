@@ -5,9 +5,9 @@ package stats
 import java.util.concurrent.ConcurrentHashMap
 
 import com.intellij.util.containers.WeakList
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.reflect.ClassTag
 import scala.collection
 

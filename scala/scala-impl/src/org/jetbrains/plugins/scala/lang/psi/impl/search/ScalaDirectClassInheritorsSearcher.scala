@@ -24,7 +24,7 @@ import scala.collection.mutable.ArrayBuffer
  */
 class ScalaDirectClassInheritorsSearcher extends QueryExecutor[PsiClass, DirectClassInheritorsSearch.SearchParameters] {
 
-  override def execute(queryParameters: DirectClassInheritorsSearch.SearchParameters, consumer: Processor[_ >: PsiClass]): Boolean = {
+  override def execute(queryParameters: DirectClassInheritorsSearch.SearchParameters, consumer: Processor[? >: PsiClass]): Boolean = {
     val clazz = queryParameters.getClassToProcess
 
     val scope: SearchScope = inReadAction {
@@ -70,7 +70,7 @@ class ScalaDirectClassInheritorsSearcher extends QueryExecutor[PsiClass, DirectC
       def getJarFile(clazz: PsiClass) = inReadAction { PsiUtil.getJarFile(clazz) }
 
       val clazzJar = getJarFile(clazz)
-      for ((_, sameNameInheritors) <- map) {
+      for (case (_, sameNameInheritors) <- map) {
         ProgressManager.checkCanceled()
         val found = sameNameInheritors.find { inheritor =>
           ProgressManager.checkCanceled()

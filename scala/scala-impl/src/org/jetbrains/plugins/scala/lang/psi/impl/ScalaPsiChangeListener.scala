@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.impl
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.ScalaLanguage
 
 object ScalaPsiChangeListener {
@@ -19,7 +19,7 @@ object ScalaPsiChangeListener {
     object ChildReplaced   extends EventType
     object ChildrenChanged extends EventType
   }
-  import EventType._
+  import EventType.*
 
   private class ScalaPsiChangeListenerImpl(onScalaPsiChange: PsiElement => Unit,
                                            onNonScalaChange: () => Unit,

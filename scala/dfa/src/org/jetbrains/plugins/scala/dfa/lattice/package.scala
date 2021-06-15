@@ -14,5 +14,5 @@ package object lattice {
    *
    * @tparam L the type to implement the lattice for
    */
-  type Lattice[L] = lattice.JoinSemiLattice[L] with lattice.MeetSemiLattice[L]
+  type Lattice[L] = lattice.JoinSemiLattice[L] & lattice.MeetSemiLattice[L]
 }

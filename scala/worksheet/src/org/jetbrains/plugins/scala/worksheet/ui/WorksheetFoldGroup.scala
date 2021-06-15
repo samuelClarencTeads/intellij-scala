@@ -12,7 +12,7 @@ import com.intellij.openapi.vfs.newvfs.FileAttribute
 import org.jetbrains.plugins.scala.macroAnnotations.Measure
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.worksheet.ui.WorksheetDiffSplitters.{DiffMapping, SimpleWorksheetSplitter}
-import org.jetbrains.plugins.scala.worksheet.ui.WorksheetFoldGroup._
+import org.jetbrains.plugins.scala.worksheet.ui.WorksheetFoldGroup.*
 import org.jetbrains.plugins.scala.worksheet.utils.FileAttributeUtilCache
 
 import scala.collection.mutable
@@ -25,7 +25,7 @@ final class WorksheetFoldGroup(
   private val splitter: Option[SimpleWorksheetSplitter]
 ) {
 
-  import FoldRegionSerializer._
+  import FoldRegionSerializer.*
 
   private val originalDocument: Document = originalEditor.getDocument
   private val viewerDocument  : Document = viewerEditor.getDocument
@@ -188,7 +188,7 @@ final class WorksheetFoldGroup(
 
 object WorksheetFoldGroup {
 
-  import FoldRegionSerializer._
+  import FoldRegionSerializer.*
 
   private val PLACEHOLDER_LIMIT = 75
   private val WORKSHEET_PERSISTENT_FOLD_KEY = new FileAttribute("WorksheetPersistentFoldings", 1, false)
@@ -199,11 +199,11 @@ object WorksheetFoldGroup {
    * @param spaces           number of folded lines
    * @param expanded         whether the region is expanded
    */
-  private case class FoldRegionInfo private(region: FoldRegion,
-                                            leftEndOffset: Int,
-                                            leftContentLines: Int,
-                                            spaces: Int,
-                                            var expanded: Boolean) {
+  private case class FoldRegionInfo(region: FoldRegion,
+                                    leftEndOffset: Int,
+                                    leftContentLines: Int,
+                                    spaces: Int,
+                                    var expanded: Boolean) {
     override def equals(obj: scala.Any): Boolean = obj match {
       case info: FoldRegionInfo => this.region.equals(info.region)
       case _ => false
@@ -235,7 +235,7 @@ object WorksheetFoldGroup {
 
     val builder = Seq.newBuilder[(Int, Int)]
 
-    val Seq(parsedHead, parsedTail @ _*) = parsedRegions
+    val Seq(parsedHead, parsedTail*) = parsedRegions
     val regionsEffective = parsedTail :+ fakeEndFoldRegion(originalDocument, viewerDocument)
 
     regionsEffective.foldLeft(parsedHead) { case (prevFolding, currFolding) =>

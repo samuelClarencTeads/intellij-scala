@@ -6,8 +6,8 @@ package plainText
 import com.intellij.codeInsight.daemon.JavaErrorBundle
 import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
 

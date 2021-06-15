@@ -12,6 +12,6 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBod
   * User: Alexander Podkhalyuzin
   * Date: 17.06.2009
   */
-class ScTemplateBodyStubImpl(parent: StubElement[_ <: PsiElement],
-                             elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement])
+class ScTemplateBodyStubImpl(parent: StubElement[? <: PsiElement],
+                             elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement])
   extends StubBase[ScTemplateBody](parent, elementType) with ScTemplateBodyStub

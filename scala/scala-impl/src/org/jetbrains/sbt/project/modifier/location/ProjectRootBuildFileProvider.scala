@@ -2,7 +2,7 @@ package org.jetbrains.sbt.project.modifier.location
 
 import java.io.File
 
-import com.intellij.openapi.module.{Module => IJModule}
+import com.intellij.openapi.module.{Module as IJModule}
 import org.jetbrains.sbt.project.modifier.BuildFileElementType
 
 /**
@@ -11,7 +11,7 @@ import org.jetbrains.sbt.project.modifier.BuildFileElementType
  */
 object ProjectRootBuildFileProvider extends BuildFileProvider {
   override def findIoFile(module: IJModule, elementType: BuildFileElementType): Option[BuildFileEntry[File]] = {
-    import org.jetbrains.sbt._
+    import org.jetbrains.sbt.*
     val project = module.getProject
     val buildFile = project.getBasePath.toFile / Sbt.BuildFile
     if (buildFile.exists) Some(BuildFileEntry(buildFile, isModuleLocal = false)) else None

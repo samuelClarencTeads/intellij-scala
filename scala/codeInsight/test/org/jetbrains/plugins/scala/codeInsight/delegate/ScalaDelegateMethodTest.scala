@@ -18,8 +18,8 @@ import scala.annotation.nowarn
 class ScalaDelegateMethodTest extends base.ScalaLightPlatformCodeInsightTestCaseAdapter
   with ScalaDelegateMethodTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
-  import ScalaDelegateMethodTestBase._
+  import EditorTestUtil.{CARET_TAG as CARET}
+  import ScalaDelegateMethodTestBase.*
 
   private def doTest(fileText: String, expectedText: String,
                      settings: ScalaCodeStyleSettings = defaultSettings(getProjectAdapter)): Unit = {

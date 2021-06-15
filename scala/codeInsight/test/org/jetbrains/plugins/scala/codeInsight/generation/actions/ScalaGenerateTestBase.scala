@@ -4,7 +4,7 @@ package generation
 package actions
 
 import com.intellij.lang.LanguageCodeInsightActionHandler
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Nikolay.Tropin
@@ -12,7 +12,7 @@ import org.junit.Assert._
  */
 abstract class ScalaGenerateTestBase extends base.ScalaLightCodeInsightFixtureTestAdapter {
 
-  import base.ScalaLightCodeInsightFixtureTestAdapter._
+  import base.ScalaLightCodeInsightFixtureTestAdapter.*
 
   protected val handler: LanguageCodeInsightActionHandler
 

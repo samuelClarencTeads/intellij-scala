@@ -2,11 +2,11 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package controlFlow
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInspection.ScalaInspectionBundle
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.util.{IntentionAvailabilityChecker, SideEffectsUtil}
 
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.util.{IntentionAvailabilityChecker, SideEffec
   */
 final class ScalaUnusedExpressionInspection extends AbstractRegisteredInspection {
 
-  import ScalaUnusedExpressionInspection._
+  import ScalaUnusedExpressionInspection.*
   import SideEffectsUtil.{hasNoSideEffects, mayOnlyThrow}
 
   override protected def problemDescriptor(element: PsiElement,

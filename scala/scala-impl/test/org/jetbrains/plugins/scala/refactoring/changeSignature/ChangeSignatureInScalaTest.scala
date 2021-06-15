@@ -6,10 +6,10 @@ import com.intellij.refactoring.changeSignature.{ChangeSignatureProcessorBase, P
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScMethodLike
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.{ScalaChangeSignatureHandler, ScalaParameterInfo}
 import org.jetbrains.plugins.scala.util.TypeAnnotationSettings
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Nikolay.Tropin

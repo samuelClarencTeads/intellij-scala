@@ -5,26 +5,26 @@ package impl
 package toplevel
 package typedef
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightMethod
 import com.intellij.psi.scope.{ElementClassHint, NameHint, PsiScopeProcessor}
 import com.intellij.psi.util.PsiTreeUtil.isContextAncestor
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil._
-import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.*
+import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.StdType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
-import org.jetbrains.plugins.scala.lang.resolve.processor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.util.UnloadableThreadLocal
 
@@ -351,7 +351,7 @@ object TypeDefinitionMembers {
     true
   }
 
-  import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets._
+  import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets.*
 
   private def shouldProcessVals(processor: PsiScopeProcessor): Boolean = processor match {
     case BaseProcessor(kinds) => (kinds contains VAR) || (kinds contains VAL) || (kinds contains OBJECT)

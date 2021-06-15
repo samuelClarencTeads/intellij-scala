@@ -7,7 +7,7 @@ import com.intellij.debugger.jdi.{LocalVariableProxyImpl, StackFrameProxyImpl}
 import com.intellij.debugger.ui.impl.watch.{LocalVariableDescriptorImpl, NodeDescriptorImpl}
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 

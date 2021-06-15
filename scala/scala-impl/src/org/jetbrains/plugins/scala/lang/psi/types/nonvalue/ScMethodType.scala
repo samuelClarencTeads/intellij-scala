@@ -4,7 +4,7 @@ package psi
 package types
 package nonvalue
 
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{MethodInvocation, ScExpression, ScGenericCall, ScMethodCall, ScPostfixExpr, ScReferenceExpression, ScUnderscoreSection}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 

@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.util
 import java.util.Objects
 
 import junit.framework.TestCase
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 class HashBuilderTest extends TestCase  {
 

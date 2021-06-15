@@ -12,7 +12,7 @@ import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.psi.PsiElement
 import com.intellij.util.io.URLUtil
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions.{inWriteAction, _}
+import org.jetbrains.plugins.scala.extensions.{inWriteAction, *}
 import org.jetbrains.plugins.scala.util.internal.I18nBundleContent
 import org.jetbrains.plugins.scala.util.internal.I18nBundleContent.{BundleInfo, BundleUsageInfo, Entry}
 

@@ -11,7 +11,7 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.ui.IdeBorderFactory
 import com.intellij.uiDesigner.core.{GridConstraints, GridLayoutManager, Spacer}
-import javax.swing._
+import javax.swing.*
 
 import scala.collection.immutable.ListMap
 
@@ -75,7 +75,7 @@ final class TrailingCommaPanel(settings: CodeStyleSettings) extends ScalaCodeSty
   }
 
   private def buildInnerPanel(): JPanel = {
-    import GridConstraints._
+    import GridConstraints.*
     val panel = new JPanel
     panel.setLayout(new GridLayoutManager(2, 3, new Insets(0, 0, 0, 0), -1, -1))
     panel.setBorder(IdeBorderFactory.createTitledBorder(ScalaBundle.message("trailing.comma.panel.title")))
@@ -131,7 +131,7 @@ private object TrailingCommaPanel {
     override def toString: String = displayValue
     override def equals(o: Any): Boolean = {
       o match {
-        case that: ComboBoxItem[_] =>
+        case that: ComboBoxItem[?] =>
           Objects.equals(value, that.value)
         case _ =>
           false

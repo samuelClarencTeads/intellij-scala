@@ -5,11 +5,11 @@ package processor
 
 import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
-import com.intellij.psi.scope._
+import com.intellij.psi.*
+import com.intellij.psi.scope.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScSuperReference, ScThisReference}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAlias
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObj
 import org.jetbrains.plugins.scala.lang.psi.impl.ScPackageImpl
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
-import org.jetbrains.plugins.scala.lang.resolve.processor.precedence._
+import org.jetbrains.plugins.scala.lang.resolve.processor.precedence.*
 
 class ResolveProcessor(override val kinds: Set[ResolveTargets.Value],
                        val ref: PsiElement,
@@ -65,7 +65,7 @@ class ResolveProcessor(override val kinds: Set[ResolveTargets.Value],
     */
   def resetPrecedence(): Unit = holder.reset()
 
-  import precedenceTypes._
+  import precedenceTypes.*
 
   def checkImports(): Boolean = checkPrecedence(IMPORT)
 

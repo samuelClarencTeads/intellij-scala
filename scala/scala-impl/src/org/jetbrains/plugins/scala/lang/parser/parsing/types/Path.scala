@@ -6,8 +6,8 @@ package types
 
 import com.intellij.psi.tree.IElementType
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
-import org.jetbrains.plugins.scala.lang.parser.ScalaElementType._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
+import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.*
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
 
 /**

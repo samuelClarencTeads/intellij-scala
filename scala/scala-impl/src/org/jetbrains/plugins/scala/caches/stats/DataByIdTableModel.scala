@@ -12,7 +12,7 @@ import javax.swing.JTable
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.extensions.invokeLater
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class DataById[Data](id: Data => String) {
   private val dataBuffer: ConcurrentMap[String, Data] = new ConcurrentHashMap()
@@ -49,10 +49,10 @@ class DataById[Data](id: Data => String) {
 }
 
 class DataByIdTableModel[Data](dataById: DataById[Data],
-                               columnInfos: ColumnInfo[String, _]*)
+                               columnInfos: ColumnInfo[String, ?]*)
                               (preferredWidths: Seq[Int])
 
-  extends ListTableModel[String](columnInfos: _*) {
+  extends ListTableModel[String](columnInfos*) {
 
   private val comparator = new SpeedSearchComparator(false)
   private var currentPattern: String = ""

@@ -3,11 +3,11 @@ package lang
 package completion
 package filters.toplevel
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
-import org.jetbrains.plugins.scala.lang.parser._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
+import org.jetbrains.plugins.scala.lang.parser.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
 
@@ -45,7 +45,7 @@ class PackageFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]) = true
+  override def isClassAcceptable(hintClass: java.lang.Class[?]) = true
 
   @NonNls
   override def toString = "'package' keyword filter"

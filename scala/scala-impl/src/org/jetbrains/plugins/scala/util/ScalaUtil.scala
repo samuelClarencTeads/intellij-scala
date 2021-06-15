@@ -9,7 +9,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.util.PathUtil
 import org.jetbrains.jps.incremental.scala.Client
 import org.jetbrains.plugins.scala.lang.psi.api.ScFile
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 /**
  * User: Alexander Podkhalyuzin

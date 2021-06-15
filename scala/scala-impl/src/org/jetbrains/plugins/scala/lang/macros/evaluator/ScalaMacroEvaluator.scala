@@ -20,7 +20,7 @@ import com.intellij.openapi.util.Key
 import com.intellij.psi.PsiNamedElement
 import org.jetbrains.plugins.scala.components.libextensions.LibraryExtensionsManager
 import org.jetbrains.plugins.scala.lang.macros.MacroDef
-import org.jetbrains.plugins.scala.lang.macros.evaluator.impl._
+import org.jetbrains.plugins.scala.lang.macros.evaluator.impl.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
@@ -34,7 +34,7 @@ import scala.reflect.ClassTag
  */
 
 class ScalaMacroEvaluator(project: Project) {
-  import ScalaMacroEvaluator._
+  import ScalaMacroEvaluator.*
 
   @Cached(LibraryExtensionsManager.MOD_TRACKER, null)
   private def typingRules:    Map[MacroImpl, ScalaMacroTypeable]    = loadRules(defaultTypeProviders)

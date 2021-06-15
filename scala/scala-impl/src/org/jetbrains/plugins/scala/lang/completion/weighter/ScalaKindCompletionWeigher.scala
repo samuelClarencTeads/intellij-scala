@@ -5,9 +5,9 @@ package weighter
 
 import com.intellij.codeInsight.completion.{CompletionLocation, CompletionWeigher}
 import com.intellij.codeInsight.lookup.LookupElement
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 
@@ -18,8 +18,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
  */
 final class ScalaKindCompletionWeigher extends CompletionWeigher {
 
-  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[_] = {
-    import KindWeights._
+  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[?] = {
+    import KindWeights.*
 
     def handleMember(inMember: PsiMember): Value = inMember match {
       case _ if inMember.getContainingClass == null => normal

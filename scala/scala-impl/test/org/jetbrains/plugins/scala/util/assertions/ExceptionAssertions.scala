@@ -6,7 +6,7 @@ import scala.reflect.ClassTag
 
 trait ExceptionAssertions {
 
-  import org.junit.Assert._
+  import org.junit.Assert.*
 
   def assertExceptionMessage[E <: Throwable: ClassTag](expectedMessage: Option[String])(code: => Unit): Unit = {
     val expectedExceptionName = implicitly[ClassTag[E]].runtimeClass.getName

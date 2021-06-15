@@ -11,7 +11,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.search.GlobalSearchScope
 import org.jetbrains.plugins.scala.indices.protocol.sbt.{Configuration, SbtCompilationInfo}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.indices.protocol.CompilationInfo
 import org.jetbrains.plugins.scala.indices.protocol.jps.JpsCompilationInfo
 
@@ -32,7 +32,7 @@ private[findUsages] class ScalaDirtyScopeHolder(
       psiDocManager,
       modificationTracker
     ) {
-  import ScalaDirtyScopeHolder._
+  import ScalaDirtyScopeHolder.*
 
   override protected def scopeForSourceContentFile(vfile: VirtualFile): Set[ScopedModule] = {
     val ftype = fileTypeRegistry.getFileTypeByFileName(vfile.getNameSequence)

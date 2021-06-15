@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicReference
 
 import com.intellij.debugger.DebuggerManagerEx
-import com.intellij.debugger.engine._
-import com.intellij.debugger.engine.evaluation._
+import com.intellij.debugger.engine.*
+import com.intellij.debugger.engine.evaluation.*
 import com.intellij.debugger.engine.evaluation.expression.EvaluatorBuilder
 import com.intellij.debugger.engine.events.SuspendContextCommandImpl
-import com.intellij.debugger.impl._
+import com.intellij.debugger.impl.*
 import com.intellij.diagnostic.ThreadDumper
 import com.intellij.execution.Executor
 import com.intellij.execution.application.{ApplicationConfiguration, ApplicationConfigurationType}
@@ -34,13 +34,13 @@ import org.jetbrains.java.debugger.breakpoints.properties.JavaLineBreakpointProp
 import org.jetbrains.plugins.scala.base.ScalaSdkOwner
 import org.jetbrains.plugins.scala.debugger.breakpoints.ScalaLineBreakpointType
 import org.jetbrains.plugins.scala.debugger.evaluation.ScalaCodeFragmentFactory
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.junit.Assert
 
 import scala.collection.mutable
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.{Failure, Success, Try}
 
 /**
@@ -137,7 +137,7 @@ abstract class ScalaDebuggerTestCase extends ScalaDebuggerTestBase with ScalaSdk
       override def startNotified(event: ProcessEvent): Unit =
         tryInitBreakpointTracker()
 
-      override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = {
+      override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = {
         val text = event.getText
         if (debug) print(text)
       }
@@ -150,9 +150,9 @@ abstract class ScalaDebuggerTestCase extends ScalaDebuggerTestBase with ScalaSdk
 
   private def runProcess(className: String,
                          module: Module,
-                         executorClass: Class[_ <: Executor],
+                         executorClass: Class[? <: Executor],
                          listener: ProcessListener,
-                         runner: ProgramRunner[_ <: RunnerSettings]): ProcessHandler = {
+                         runner: ProgramRunner[? <: RunnerSettings]): ProcessHandler = {
     val configuration: ApplicationConfiguration = new ApplicationConfiguration("app", module.getProject, ApplicationConfigurationType.getInstance)
     configuration.setModule(module)
     configuration.setMainClassName(className)
@@ -432,7 +432,7 @@ abstract class ScalaDebuggerTestCase extends ScalaDebuggerTestBase with ScalaSdk
   }
 
   protected def evaluateCodeFragments(fragmentsWithResults: (String, String)*): Unit =
-    evaluateCodeFragments(mainClassName, fragmentsWithResults: _*)
+    evaluateCodeFragments(mainClassName, fragmentsWithResults*)
 
 
   def atNextBreakpoint(action: => Unit): Unit = {
@@ -457,7 +457,7 @@ abstract class ScalaDebuggerTestCase extends ScalaDebuggerTestBase with ScalaSdk
   protected def addFileWithBreakpoints(path: String, fileText: String): Unit = {
     val breakpointLines =
       for {
-        (line, idx) <- fileText.linesIterator.zipWithIndex
+        case (line, idx) <- fileText.linesIterator.zipWithIndex
         if line.contains(bp)
       } yield idx
     val cleanedText = fileText.replace(bp, "")

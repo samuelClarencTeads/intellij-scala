@@ -6,7 +6,7 @@ import com.intellij.psi.impl.compiled.ClassFileStubBuilder
 import com.intellij.psi.{FileViewProvider, FileViewProviderFactory, PsiManager}
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.vfs.VirtualFile
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaLanguage}
 

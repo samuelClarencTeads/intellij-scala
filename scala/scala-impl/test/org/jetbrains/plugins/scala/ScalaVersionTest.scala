@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 
 import junit.framework.TestCase
 import org.jetbrains.plugins.scala.project.ScalaLanguageLevel
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class ScalaVersionTest extends TestCase {
 

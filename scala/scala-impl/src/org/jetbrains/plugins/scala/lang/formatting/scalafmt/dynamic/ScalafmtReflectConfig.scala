@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic
 import java.lang.reflect.Constructor
 
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions.ReflectionException
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.ReflectUtils._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.ReflectUtils.*
 
 import scala.util.Try
 
@@ -15,7 +15,7 @@ class ScalafmtReflectConfig private[dynamic](
 ) {
 
   private val targetCls = target.getClass
-  private val constructor: Constructor[_] = targetCls.getConstructors()(0)
+  private val constructor: Constructor[?] = targetCls.getConstructors()(0)
   private val constructorParamNames = constructor.getParameters.map(_.getName)
   private val publicMethodNames = targetCls.getMethods.map(_.getName)
   private val rewriteParamIdx = constructorParamNames.indexOf("rewrite").ensuring(_ >= 0)
@@ -74,7 +74,7 @@ class ScalafmtReflectConfig private[dynamic](
         target.invoke(accessorName)
       }
       fieldsValues(rewriteParamIdx) = emptyRewrites
-      val targetNew = constructor.newInstance(fieldsValues: _*).asInstanceOf[Object]
+      val targetNew = constructor.newInstance(fieldsValues*).asInstanceOf[Object]
       new ScalafmtReflectConfig(fmtReflect, targetNew, classLoader)
     } else {
       this

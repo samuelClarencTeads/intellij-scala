@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.worksheet.processor
 
 import com.intellij.openapi.editor.Document
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 
 private class WorksheetInterpretExprsIterator(
@@ -11,7 +11,7 @@ private class WorksheetInterpretExprsIterator(
   lastProcessedLine: Option[Int]
 ) extends Iterator[Either[PsiErrorElement, PsiElement]] {
 
-  import WorksheetInterpretExprsIterator._
+  import WorksheetInterpretExprsIterator.*
 
   private val firstElement = inReadAction {
     firstElementToProcess(lastProcessedLine)(file, document)

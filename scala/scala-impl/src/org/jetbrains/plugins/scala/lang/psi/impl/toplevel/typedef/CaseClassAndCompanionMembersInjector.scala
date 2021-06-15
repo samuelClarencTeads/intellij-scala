@@ -8,10 +8,10 @@ package typedef
 import com.intellij.psi.{PsiClass, PsiElement}
 import org.jetbrains.plugins.scala.extensions.{Model, PsiElementExt, PsiModifierListOwnerExt, PsiNamedElementExt, StringsExt}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
-import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonNames._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonNames.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameterClause, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTypeDefinition}
-import org.jetbrains.plugins.scala.util.CommonQualifiedNames._
+import org.jetbrains.plugins.scala.util.CommonQualifiedNames.*
 
 class CaseClassAndCompanionMembersInjector extends SyntheticMembersInjector {
 

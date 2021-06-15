@@ -10,7 +10,7 @@ import org.junit.Assert.assertTrue
  */
 class ScalaLookupRenderingTest extends ScalaCodeInsightTestBase {
 
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
 
   def testJavaVarargs(): Unit = {
     this.configureJavaFile(

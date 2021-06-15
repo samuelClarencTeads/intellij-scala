@@ -1,6 +1,6 @@
 package org.jetbrains.sbt.project.modifier.location
 
-import com.intellij.openapi.module.{Module => IJModule}
+import com.intellij.openapi.module.{Module as IJModule}
 import com.intellij.psi.{PsiElement, PsiFile}
 import org.jetbrains.sbt.project.modifier.BuildFileElementType
 

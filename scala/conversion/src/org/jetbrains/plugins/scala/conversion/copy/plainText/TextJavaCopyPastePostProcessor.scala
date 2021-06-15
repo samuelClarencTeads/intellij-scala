@@ -10,7 +10,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.{Editor, RangeMarker}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.search.GlobalSearchScope
 import org.jetbrains.plugins.scala.conversion.copy.ScalaPasteFromJavaDialog.CopyFrom
@@ -25,7 +25,7 @@ import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 class TextJavaCopyPastePostProcessor extends SingularCopyPastePostProcessor[ConverterUtil.ConvertedCode](DataFlavor.stringFlavor) {
   private val lineSeparator = '\n'
 
-  import ConverterUtil._
+  import ConverterUtil.*
 
   override protected def extractTransferableDataImpl(content: Transferable): Option[AnyRef] = {
     def hasTextBlockTransferableData(content: Transferable) =
@@ -45,7 +45,7 @@ class TextJavaCopyPastePostProcessor extends SingularCopyPastePostProcessor[Conv
   }
 
   override def processTransferableData(bounds: RangeMarker, caretOffset: Int,
-                                       ref: Ref[_ >: java.lang.Boolean], value: ConvertedCode)
+                                       ref: Ref[? >: java.lang.Boolean], value: ConvertedCode)
                                       (implicit project: Project,
                                                  editor: Editor,
                                                  file: ScalaFile): Unit = {

@@ -19,10 +19,10 @@ import org.jetbrains.plugins.scala.lang.parser.PsiBuilderExt
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilderImpl
 import org.jetbrains.plugins.scala.lang.parser.parsing.types.StableId
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
-import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType._
+import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType.*
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.docsyntax.ScalaDocSyntaxElementType
-import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes._
-import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing._
+import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes.*
+import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing.*
 import org.jetbrains.plugins.scala.util.IndentUtil
 
 import scala.collection.immutable.HashMap

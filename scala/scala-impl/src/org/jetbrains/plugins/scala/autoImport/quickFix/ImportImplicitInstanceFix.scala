@@ -30,7 +30,7 @@ final class ImportImplicitInstanceFix private (notFoundImplicitParams: () => Seq
   override def shouldShowHint(): Boolean =
     super.shouldShowHint() && ScalaApplicationSettings.getInstance().SHOW_IMPORT_POPUP_IMPLICITS
 
-  override def createAddImportAction(editor: Editor): ScalaAddImportAction[_, _] =
+  override def createAddImportAction(editor: Editor): ScalaAddImportAction[?, ?] =
     ScalaAddImportAction.importImplicits(editor, elements, owner, popupPosition)
 
   override def isAddUnambiguous: Boolean = false
@@ -87,7 +87,7 @@ object ImportImplicitInstanceFix {
 
     val forParameter = implicitTypeToSearch(parameter).map(TypeToSearch(prefix :+ parameter, _))
 
-    import ImplicitCollector._
+    import ImplicitCollector.*
     val forProbableArgs = probableArgumentsFor(parameter).flatMap {
       case (arg, ImplicitParameterNotFoundResult) =>
         arg.implicitParameters.flatMap(withProbableArguments(prefix :+ arg, _, visited + parameter.element))

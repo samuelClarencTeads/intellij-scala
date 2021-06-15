@@ -4,16 +4,16 @@ import java.io.File
 import java.util.Collections
 import java.util.concurrent.CompletableFuture
 
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.build.events.impl.SuccessResultImpl
-import com.intellij.openapi.externalSystem.model.project._
+import com.intellij.openapi.externalSystem.model.project.*
 import com.intellij.openapi.externalSystem.model.task.{ExternalSystemTaskId, ExternalSystemTaskNotificationListener}
 import com.intellij.openapi.externalSystem.model.{DataNode, ExternalSystemException}
 import com.intellij.openapi.externalSystem.service.project.ExternalSystemProjectResolver
-import org.jetbrains.bsp.BspUtil.{bloopConfigDir, _}
-import org.jetbrains.bsp.project.importing.BspProjectResolver._
-import org.jetbrains.bsp.project.importing.BspResolverDescriptors._
-import org.jetbrains.bsp.project.importing.BspResolverLogic._
+import org.jetbrains.bsp.BspUtil.{bloopConfigDir, *}
+import org.jetbrains.bsp.project.importing.BspProjectResolver.*
+import org.jetbrains.bsp.project.importing.BspResolverDescriptors.*
+import org.jetbrains.bsp.project.importing.BspResolverLogic.*
 import org.jetbrains.bsp.project.importing.preimport.{BloopPreImporter, PreImporter}
 import org.jetbrains.bsp.protocol.session.Bsp4JJobFailure
 import org.jetbrains.bsp.protocol.session.BspSession.{BspServer, NotificationAggregator}
@@ -24,8 +24,8 @@ import org.jetbrains.plugins.scala.build.BuildMessages.EventId
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildReporter, ExternalSystemNotificationReporter}
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
-import scala.concurrent.duration._
+import scala.jdk.CollectionConverters.*
+import scala.concurrent.duration.*
 import scala.concurrent.{Await, TimeoutException}
 import scala.util.control.NonFatal
 import scala.util.{Failure, Success, Try}
@@ -159,7 +159,7 @@ class BspProjectResolver extends ExternalSystemProjectResolver[BspExecutionSetti
   // special handling for sbt projects: run bloopInstall first
   // TODO support other bloop-enabled build tools as well
   private def preImport(executionSettings: BspExecutionSettings, workspace: File)(implicit reporter: BuildReporter): Try[BuildMessages] = {
-    import BspProjectSettings._
+    import BspProjectSettings.*
 
     val emptySuccess = Success(BuildMessages.empty.status(BuildMessages.OK))
     def isSbtProject = new File(workspace, "build.sbt").exists()

@@ -10,7 +10,7 @@ import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.{PsiClass, PsiMethod, PsiNamedElement}
 import org.jetbrains.plugins.scala.caches.ScalaShortNamesCacheManager
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.findInheritorObjectsForOwner
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
@@ -78,7 +78,7 @@ private final class StaticMembersFinder(place: ScReferenceExpression,
     )(NameAvailability) {
 
     override protected def buildItem(lookupItem: ScalaLookupItem): LookupElement = {
-      putAllMethods(lookupItem, asList(overloadsToImport: _*))
+      putAllMethods(lookupItem, asList(overloadsToImport*))
       super.buildItem(lookupItem)
     }
   }

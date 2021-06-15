@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.light
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightMethodBuilder
 import org.jetbrains.plugins.scala.lang.psi.light.EmptyPrivateConstructor.constructorName
 

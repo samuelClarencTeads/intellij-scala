@@ -4,11 +4,11 @@ package completion
 import com.intellij.codeInsight.completion.{CompletionParameters, CompletionProvider, CompletionResultSet, InsertionContext}
 import com.intellij.codeInsight.lookup.{InsertHandlerDecorator, LookupElement, LookupElementDecorator}
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.{findElementOfClassAtOffset, getContextOfType, isAncestor}
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.debugger.evaluation.ScalaRuntimeTypeEvaluator
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaLexer, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.{adjustTypes, nameContext}
@@ -29,11 +29,11 @@ import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType.DOC_TAG
 import scala.annotation.tailrec
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private class ScalaBasicCompletionProvider extends CompletionProvider[CompletionParameters] {
-  import ScalaBasicCompletionProvider._
-  import ScalaCompletionUtil._
+  import ScalaBasicCompletionProvider.*
+  import ScalaCompletionUtil.*
 
   override def addCompletions(parameters: CompletionParameters,
                               context: ProcessingContext,
@@ -79,7 +79,7 @@ private class ScalaBasicCompletionProvider extends CompletionProvider[Completion
           parameters.getInvocationCount
         )
 
-        import ScalaAfterNewCompletionContributor._
+        import ScalaAfterNewCompletionContributor.*
         val maybeExpectedTypes = expectedTypeAfterNew(position, context)
 
         val defaultLookupElements = processor.lookupElements().filter {
@@ -122,7 +122,7 @@ private class ScalaBasicCompletionProvider extends CompletionProvider[Completion
           ) {
 
             private val lookupStrings =
-              mutable.Set(defaultLookupElements.map(_.getLookupString).toSeq: _*)
+              mutable.Set(defaultLookupElements.map(_.getLookupString).toSeq*)
             private val decorator = insertHandlerDecorator(canonicalText)
 
             override protected def validLookupElement(result: ScalaResolveResult): Option[LookupElement] = for {
@@ -139,7 +139,7 @@ private class ScalaBasicCompletionProvider extends CompletionProvider[Completion
 
 object ScalaBasicCompletionProvider {
 
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   private class PostProcessor(override val getPlace: ScReferenceImpl,
                               private val isInSimpleString: Boolean,

@@ -7,7 +7,7 @@ import com.intellij.ide.actions.ShowSettingsUtilImpl
 import com.intellij.openapi.options.ex.ConfigurableVisitor
 import com.intellij.openapi.options.{Configurable, ConfigurableGroup, ShowSettingsUtil}
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.ui.HyperlinkLabel
 import javax.swing.event.HyperlinkEvent
 import org.jetbrains.annotations.Nls
@@ -17,12 +17,12 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaTabbedCodeStyle
 import org.jetbrains.plugins.scala.lang.formatting.settings.TypeAnnotationsPanelBase.TAB_TITLE
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings.ReturnTypeLevel.{ADD, BY_CODE_STYLE, REMOVE}
-import org.jetbrains.plugins.scala.settings._
-import org.jetbrains.plugins.scala.settings.annotations._
+import org.jetbrains.plugins.scala.settings.*
+import org.jetbrains.plugins.scala.settings.annotations.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by kate on 7/14/16.

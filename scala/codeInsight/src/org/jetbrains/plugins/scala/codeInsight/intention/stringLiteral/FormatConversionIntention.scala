@@ -9,10 +9,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.profile.codeInspection.InspectionProfileManager
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInspection.parentheses.ScalaUnnecessaryParenthesesInspection
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.format.{StringConcatenationParser, _}
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.format.{StringConcatenationParser, *}
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.util.MultilineStringUtil
 
@@ -119,7 +119,7 @@ object FormatConversionIntention {
   ) with AnyToStringConcatenationBase
 
   trait AnyToStringConcatenationBase {
-    self: FormatConversionIntention[_] =>
+    self: FormatConversionIntention[?] =>
 
     // just run the tests...
     override def invoke(project: Project, editor: Editor, element: PsiElement): Unit = {

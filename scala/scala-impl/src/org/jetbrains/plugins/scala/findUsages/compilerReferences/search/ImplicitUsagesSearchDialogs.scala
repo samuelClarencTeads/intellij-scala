@@ -12,7 +12,7 @@ import com.intellij.ui.HyperlinkLabel
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.labels.LinkLabel
 import com.intellij.util.ui.FormBuilder
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.SearchTargetExtractors.UsageType
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.{CompilerIndicesConfigurable, CompilerIndicesSbtSettings, CompilerIndicesSettings}

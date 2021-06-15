@@ -15,11 +15,11 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScVariableDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createValFromVarDefinition
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class VarCouldBeValInspection extends HighlightingPassInspection {
 
-  import VarCouldBeValInspection._
+  import VarCouldBeValInspection.*
 
   override def invoke(element: PsiElement, isOnTheFly: Boolean): Seq[ProblemInfo] = element match {
     case variable: ScVariableDefinition

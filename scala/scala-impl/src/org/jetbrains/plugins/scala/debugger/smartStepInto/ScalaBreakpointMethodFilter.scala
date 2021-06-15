@@ -1,22 +1,22 @@
 package org.jetbrains.plugins.scala.debugger.smartStepInto
 
 import com.intellij.debugger.SourcePosition
-import com.intellij.debugger.engine._
+import com.intellij.debugger.engine.*
 import com.intellij.psi.{PsiElement, PsiMethod}
 import com.intellij.util.Range
 import com.sun.jdi.{Location, Method}
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.debugger.ScalaPositionManager
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScMethodLike, ScPrimaryConstructor}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay.Tropin

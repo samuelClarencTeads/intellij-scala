@@ -6,16 +6,16 @@ import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.psi.PsiNamedElement
 import com.intellij.ui.{SimpleColoredComponent, SimpleTextAttributes}
 import com.intellij.util.ui.UIUtil
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.actions.Parameters
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.highlighter.DefaultHighlighter
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.TypeAnnotationRenderer.ParameterTypeDecorateOptions
-import org.jetbrains.plugins.scala.lang.psi.types.api.presentation._
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.*
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.DefaultListCellRendererAdapter
 import org.jetbrains.plugins.scala.util.JListCompatibility
 

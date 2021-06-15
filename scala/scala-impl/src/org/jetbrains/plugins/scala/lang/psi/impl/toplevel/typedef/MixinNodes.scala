@@ -9,7 +9,7 @@ package toplevel
 package typedef
 
 import java.util.concurrent.ConcurrentHashMap
-import java.util.{List => JList}
+import java.util.{List as JList}
 
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.{PsiClass, PsiClassType, PsiNamedElement}
@@ -17,13 +17,13 @@ import com.intellij.util.containers.{ContainerUtil, SmartHashSet}
 import com.intellij.util.{AstLoadingFilter, SmartList}
 import gnu.trove.{THashMap, THashSet, TObjectHashingStrategy}
 import org.jetbrains.plugins.scala.caches.ModTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAliasDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticClass
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.MixinNodes.SuperTypesData
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScProjectionType, ScThisType}
 import org.jetbrains.plugins.scala.lang.psi.types.api.{ParameterizedType, TypeParameterType}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.ScTypePolymorphicType
@@ -36,7 +36,7 @@ import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
 import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.collection.immutable.{ArraySeq, SeqMap}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class MixinNodes[T <: Signature](signatureCollector: SignatureProcessor[T]) {
   type Map = MixinNodes.Map[T]
@@ -69,7 +69,7 @@ abstract class MixinNodes[T <: Signature](signatureCollector: SignatureProcessor
 
   private def addSuperSignatures(superTypesData: SuperTypesData, map: Map): Unit = {
 
-    for ((superClass, subst) <- superTypesData.substitutors) {
+    for (case (superClass, subst) <- superTypesData.substitutors) {
       signatureCollector.processAll(superClass, subst, map)
     }
 

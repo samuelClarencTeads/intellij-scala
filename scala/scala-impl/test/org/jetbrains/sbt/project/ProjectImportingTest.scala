@@ -28,9 +28,9 @@ import scala.jdk.CollectionConverters.SeqHasAsJava
 @Category(Array(classOf[SlowTests]))
 class ProjectImportingTest extends ImportingTestCase with InexactMatch {
 
-  import DependencyManagerBase._
-  import ProjectImportingTest._
-  import ProjectStructureDsl._
+  import DependencyManagerBase.*
+  import ProjectImportingTest.*
+  import ProjectStructureDsl.*
 
   implicit private val scalaVersion: ScalaVersion = LatestScalaVersions.Scala_2_11
 

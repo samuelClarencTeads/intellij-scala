@@ -12,5 +12,5 @@ object OutputType {
   object StdOut extends OutputType
   object StdErr extends OutputType
   object MySystem extends OutputType
-  final case class Other(key: Key[_]) extends OutputType
+  final case class Other(key: Key[?]) extends OutputType
 }

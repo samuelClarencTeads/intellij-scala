@@ -3,9 +3,9 @@ package org.jetbrains.plugins.scala.codeInsight.hints
 
 class ScalaUnalignedMethodChainInlayHintsTest extends ScalaMethodChainInlayHintsTestBase {
 
-  import Hint.{End => E, Start => S}
+  import Hint.{End as E, Start as S}
 
-  override protected def doTest(text: String, settings: Setting[_]*): Unit = {
+  override protected def doTest(text: String, settings: Setting[?]*): Unit = {
     super.doTest(text, uniqueTypesToShowMethodChains(2) +: alignMethodChainInlayHints(false) +: settings: _*)
   }
 

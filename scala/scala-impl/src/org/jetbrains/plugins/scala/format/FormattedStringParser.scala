@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package format
 
 import com.intellij.psi.{PsiClass, PsiElement, PsiMethod}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInterpolatedStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -80,7 +80,7 @@ object FormattedStringParser extends StringParser {
 
     // String.format("%d", 1)
     case MethodInvocation(PsiReferenceEx.resolve((f: PsiMethod) &&
-      ContainingClass(owner: PsiClass)), Seq(literal: ScStringLiteral, args@_*))
+      ContainingClass(owner: PsiClass)), Seq(literal: ScStringLiteral, args*))
       if isStringFormatMethod(owner.qualifiedName, f.getName) =>
       (literal, args)
   }
@@ -145,7 +145,7 @@ object FormattedStringParser extends StringParser {
           Injection(argument, Some(specifier))
         }.getOrElse(UnboundPositionalSpecifier(specifier, position))
       } else {
-        import SpecialFormatEscape._
+        import SpecialFormatEscape.*
         implicit val projectContext: ProjectContext = literal.projectContext
         val itValue = it.toString
         // NOTE: ideally, %% and %n shouldn't be treated as bindings at all at this stage cause they are not bound to any injection.

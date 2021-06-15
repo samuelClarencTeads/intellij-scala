@@ -32,7 +32,7 @@ class InterpolatedStringEnterHandler extends EnterHandlerDelegateAdapter {
 
     val element = file.findElementAt(offset)
 
-    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
 
     def modifyOffset(moveOn: Int): Unit = {
       offset += moveOn

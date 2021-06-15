@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.util
 
 import junit.framework.TestCase
-import org.junit.Assert._
-import org.jetbrains.plugins.scala.util.EnumSet._
+import org.junit.Assert.*
+import org.jetbrains.plugins.scala.util.EnumSet.*
 
 class EnumSetTest extends TestCase {
-  import JavaEnum._
+  import JavaEnum.*
 
   def testEnumSet(): Unit = {
 

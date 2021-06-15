@@ -8,7 +8,7 @@ import org.junit.Assert
 class ExpectedTypeDrivenOverloadingResolutionTest
   extends ScalaLightCodeInsightFixtureTestAdapter
   with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   def testSCL16251(): Unit = {
     val (src, _) = setupResolveTest(

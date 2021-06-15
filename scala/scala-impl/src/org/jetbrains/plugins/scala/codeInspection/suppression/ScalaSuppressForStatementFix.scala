@@ -13,12 +13,12 @@ import com.intellij.psi.{PsiComment, PsiElement}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaLanguage
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScDocCommentOwner, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createNewLine
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay.Tropin
@@ -45,7 +45,7 @@ abstract class ScalaSuppressByLineCommentFix(key: HighlightDisplayKey) extends S
     }
   }
 
-  override def getCommentsFor(container: PsiElement): util.List[_ <: PsiElement] = {
+  override def getCommentsFor(container: PsiElement): util.List[? <: PsiElement] = {
     ScalaSuppressableInspectionTool.commentsFor(container).asJava
   }
 }
@@ -61,12 +61,12 @@ class ScalaSuppressForStatementFix(key: HighlightDisplayKey) extends ScalaSuppre
   }
 }
 
-abstract class ScalaSuppressForDefinitionFix(key: HighlightDisplayKey, @Nls text: String, defClasses: Class[_ <: PsiElement]*)
+abstract class ScalaSuppressForDefinitionFix(key: HighlightDisplayKey, @Nls text: String, defClasses: Class[? <: PsiElement]*)
         extends ScalaSuppressByLineCommentFix(key) {
 
   override def getText: String = text
 
-  override def getContainer(context: PsiElement): PsiElement = PsiTreeUtil.getParentOfType(context, defClasses: _*)
+  override def getContainer(context: PsiElement): PsiElement = PsiTreeUtil.getParentOfType(context, defClasses*)
 }
 
 class ScalaSuppressForClassFix(key: HighlightDisplayKey) 

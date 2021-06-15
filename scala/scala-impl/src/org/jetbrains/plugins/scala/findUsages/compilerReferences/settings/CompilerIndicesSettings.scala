@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.findUsages.compilerReferences.{ScalaCompilerR
 import org.jetbrains.sbt.shell.SbtProjectTaskRunner
 
 import scala.beans.BooleanBeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.control.NonFatal
 
 @State(

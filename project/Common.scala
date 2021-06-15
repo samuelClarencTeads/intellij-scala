@@ -36,7 +36,8 @@ object Common {
     // it stops us from using -target:11
     // (it's reproduced in some places in Scala Plugin, e.g. in org.jetbrains.plugins.scala.lang.psi.types.ScalaConformance.LeftConformanceVisitor.visitTypeParameterType
     // After the fix we would require to update to a newer 2.13.x version
-    "-target:8"
+    "-target:8",
+    "-Xsource:3",
   )
 
   // options for modules which classes can be used outside IDEA process with arbitrary JVM version, e.g.:

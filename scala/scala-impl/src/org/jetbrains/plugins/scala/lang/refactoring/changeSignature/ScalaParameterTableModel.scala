@@ -3,12 +3,12 @@ package lang.refactoring.changeSignature
 
 import com.intellij.codeInsight.daemon.impl.analysis.{FileHighlightingSetting, HighlightLevelUtil}
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
-import com.intellij.refactoring.changeSignature._
+import com.intellij.psi.*
+import com.intellij.refactoring.changeSignature.*
 import com.intellij.util.ui.ColumnInfo
 import javax.swing.table.TableCellEditor
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
-import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.ScalaParameterTableModel._
+import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.ScalaParameterTableModel.*
 import org.jetbrains.plugins.scala.lang.refactoring.ui.ScalaCodeFragmentTableCellEditor
 
 import scala.collection.mutable.ArrayBuffer
@@ -20,8 +20,8 @@ import scala.collection.mutable.ArrayBuffer
 class ScalaParameterTableModel(typeContext: PsiElement,
                                defaultValueContext: PsiElement,
                                methodDescriptor: ScalaMethodDescriptor,
-                               columnInfos: ColumnInfo[_, _]*)
-        extends ParameterTableModelBase[ScalaParameterInfo, ScalaParameterTableModelItem](typeContext, defaultValueContext, columnInfos: _*) {
+                               columnInfos: ColumnInfo[?, ?]*)
+        extends ParameterTableModelBase[ScalaParameterInfo, ScalaParameterTableModelItem](typeContext, defaultValueContext, columnInfos*) {
 
   private implicit val project: Project = defaultValueContext.getProject
   val initialParams: Seq[Seq[ScalaParameterInfo]] = methodDescriptor.parameters

@@ -8,7 +8,7 @@ import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.{LanguageLevelModuleExtensionImpl, ModifiableRootModel, ModuleRootManager}
 import com.intellij.pom.java.LanguageLevel
-import org.jetbrains.bsp.BspUtil._
+import org.jetbrains.bsp.BspUtil.*
 import org.jetbrains.plugins.scala.project.external.{AbstractDataService, AbstractImporter, Importer, JdkByHome, JdkByVersion, SdkUtils}
 
 class BspMetadataService extends AbstractDataService[BspMetadata, Module](BspMetadata.Key) {

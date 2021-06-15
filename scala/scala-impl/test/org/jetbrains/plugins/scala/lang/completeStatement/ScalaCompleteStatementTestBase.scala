@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
   */
 abstract class ScalaCompleteStatementTestBase extends ScalaLightCodeInsightFixtureTestAdapter {
 
-  import ScalaLightCodeInsightFixtureTestAdapter._
+  import ScalaLightCodeInsightFixtureTestAdapter.*
 
   protected val fileType: LanguageFileType = ScalaFileType.INSTANCE
 
@@ -49,7 +49,7 @@ abstract class ScalaCompleteStatementTestBase extends ScalaLightCodeInsightFixtu
 
 class JavaCompleteStatementTest extends ScalaCompleteStatementTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   override protected val fileType: LanguageFileType = JavaFileType.INSTANCE
 

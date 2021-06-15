@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.codeInspection.ScalaInspectionTestBase
 import org.jetbrains.plugins.scala.util.runners.{MultipleScalaVersionsRunner, RunWithScalaVersions, TestScalaVersion}
 import org.junit.runner.RunWith
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 @RunWith(classOf[MultipleScalaVersionsRunner])
@@ -78,7 +78,7 @@ class ScalaMalformedStringInspectionTest extends ScalaInspectionTestBase {
     val codeBuilder = new StringBuilder()
     val testBuilder = Seq.newBuilder[String]
 
-    for (specifier <- formatSpecifiers; (arg, repr) <- arguments) {
+    for (specifier <- formatSpecifiers; case (arg, repr) <- arguments) {
       codeBuilder ++= codeFromSpecifierAndArg(specifier, arg)
       codeBuilder += '\n'
 

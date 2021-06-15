@@ -2,13 +2,13 @@ package org.jetbrains.plugins.scala.lang
 package completion
 package postfix
 
-import java.{util => ju}
+import java.{util as ju}
 
-import com.intellij.codeInsight.template.postfix.templates._
+import com.intellij.codeInsight.template.postfix.templates.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiFile
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Roman.Shein
@@ -34,7 +34,7 @@ final class ScalaPostfixTemplateProvider extends PostfixTemplateProvider {
 
 object ScalaPostfixTemplateProvider {
 
-  import templates._
+  import templates.*
 
   private[postfix] val Templates = Set[PostfixTemplate](
     new ScalaTryPostfixTemplate,

@@ -4,7 +4,7 @@ package project.converter
 import java.nio.file.Path
 
 import com.intellij.conversion.{ConversionContext, ConversionProcessor, ModuleSettings}
-import org.jetbrains.plugins.scala.project.converter.ScalaModuleConversionProcessor._
+import org.jetbrains.plugins.scala.project.converter.ScalaModuleConversionProcessor.*
 
 /**
  * @author Pavel Fatin

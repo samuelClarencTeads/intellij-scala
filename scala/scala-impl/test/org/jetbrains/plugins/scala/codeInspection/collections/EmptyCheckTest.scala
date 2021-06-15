@@ -6,7 +6,7 @@ package collections
   * @author Nikolay.Tropin
   */
 abstract class CheckEmptinessTest extends OperationsOnCollectionInspectionTest {
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[EmptyCheckInspection]
 }
 

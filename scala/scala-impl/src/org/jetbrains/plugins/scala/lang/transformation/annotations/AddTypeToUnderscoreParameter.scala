@@ -5,7 +5,7 @@ package annotations
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.extensions.{&&, PsiElementExt}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScUnderscoreSection
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.project.ProjectContext
 

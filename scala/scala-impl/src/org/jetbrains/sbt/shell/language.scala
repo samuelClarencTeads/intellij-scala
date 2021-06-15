@@ -2,13 +2,13 @@ package org.jetbrains.sbt
 package shell
 
 import com.intellij.extapi.psi.PsiFileBase
-import com.intellij.lang._
+import com.intellij.lang.*
 import com.intellij.lexer.FlexAdapter
 import com.intellij.openapi.project.Project
 import com.intellij.psi.tree.{IElementType, IFileElementType, TokenSet}
 import com.intellij.psi.{FileViewProvider, PsiElement, TokenType}
 import javax.swing.Icon
-import org.jetbrains.annotations._
+import org.jetbrains.annotations.*
 import org.jetbrains.plugins.scala.LanguageFileTypeBase
 
 object SbtShellLanguage extends Language("sbtShell") with DependentLanguage {
@@ -21,7 +21,7 @@ final class SbtShellElementType(@NotNull @NonNls debugName: String) extends IEle
 
 final class SbtShellParserDefinition extends ParserDefinition {
 
-  import SbtShellParserDefinition._
+  import SbtShellParserDefinition.*
 
   override def createLexer(project: Project): FlexAdapter =
     new SbtShellLexerAdapter

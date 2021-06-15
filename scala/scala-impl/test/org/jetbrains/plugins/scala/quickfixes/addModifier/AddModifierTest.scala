@@ -16,7 +16,7 @@ import scala.annotation.nowarn
 @nowarn("msg=ScalaLightPlatformCodeInsightTestCaseAdapter")
 class AddModifierTest extends base.ScalaLightPlatformCodeInsightTestCaseAdapter {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   def testAbstractModifier(): Unit = {
     configureFromFileTextAdapter(
@@ -24,7 +24,7 @@ class AddModifierTest extends base.ScalaLightPlatformCodeInsightTestCaseAdapter 
       s"@Deprecated class Foo$CARET extends Runnable"
     )
 
-    import extensions._
+    import extensions.*
     val place = getFileAdapter.findElementAt(getEditorAdapter.getCaretModel.getOffset)
     PsiTreeUtil.getParentOfType(place, classOf[ScModifierListOwner]) match {
       case null =>

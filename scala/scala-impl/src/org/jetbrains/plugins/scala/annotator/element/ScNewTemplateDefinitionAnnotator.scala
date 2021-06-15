@@ -3,7 +3,7 @@ package annotator
 package element
 
 import org.jetbrains.plugins.scala.annotator.template.{isAbstract, kindOf, superRefs}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 
 object ScNewTemplateDefinitionAnnotator extends ElementAnnotator[ScNewTemplateDefinition] {

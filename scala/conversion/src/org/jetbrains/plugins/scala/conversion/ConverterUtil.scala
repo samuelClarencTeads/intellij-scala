@@ -5,7 +5,7 @@ import com.intellij.codeInspection.{InspectionManager, LocalQuickFixOnPsiElement
 import com.intellij.openapi.editor.{Editor, RangeMarker}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.codeInsight.intention.RemoveBracesIntention
 import org.jetbrains.plugins.scala.codeInspection.parentheses.ScalaUnnecessaryParenthesesInspection
 import org.jetbrains.plugins.scala.codeInspection.prefixMutableCollections.ReferenceMustBePrefixedInspection
@@ -17,8 +17,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScParenthesisedExpr
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportSelector
-import org.jetbrains.plugins.scala.lang.refactoring._
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.lang.refactoring.*
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 import org.jetbrains.plugins.scala.util.TypeAnnotationUtil
 
 import scala.annotation.tailrec
@@ -40,7 +40,7 @@ object ConverterUtil {
 
     val dropElements = new mutable.HashSet[PsiElement]()
     val builder = ArraySeq.newBuilder[Part]
-    for ((startOffset, endOffset) <- startOffsets.zip(endOffsets)) {
+    for (case (startOffset, endOffset) <- startOffsets.zip(endOffsets)) {
       @tailrec
       def findElem(offset: Int): PsiElement = {
         if (offset > endOffset) return null
@@ -213,7 +213,7 @@ object ConverterUtil {
   def getTextBetweenOffsets(file: PsiFile, startOffsets: Array[Int], endOffsets: Array[Int]): String = {
     val builder = new java.lang.StringBuilder()
     val textGaps = startOffsets.zip(endOffsets).sortWith(_._1 < _._1)
-    for ((start, end) <- textGaps) {
+    for (case (start, end) <- textGaps) {
       if (start != end && start < end)
         builder.append(file.charSequence.subSequence(start, end))
     }

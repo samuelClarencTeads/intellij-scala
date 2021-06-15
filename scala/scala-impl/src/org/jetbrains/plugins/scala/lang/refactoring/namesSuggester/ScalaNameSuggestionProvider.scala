@@ -3,7 +3,7 @@ package lang
 package refactoring
 package namesSuggester
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.psi.codeStyle.SuggestedNameInfo
 import com.intellij.psi.{PsiElement, PsiNamedElement}
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * User: Alexander Podkhalyuzin
@@ -24,7 +24,7 @@ import scala.jdk.CollectionConverters._
 class ScalaNameSuggestionProvider extends AbstractNameSuggestionProvider {
 
   import NameSuggester.suggestNames
-  import ScalaNameSuggestionProvider._
+  import ScalaNameSuggestionProvider.*
 
   override protected def suggestedNames(element: PsiElement): Seq[String] = element match {
     case definition: ScNewTemplateDefinition => suggestNames(definition)

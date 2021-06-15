@@ -8,7 +8,7 @@ package typedef
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiNamedElement
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement

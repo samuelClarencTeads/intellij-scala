@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.debugger
 import java.util.concurrent.ConcurrentMap
 import com.intellij.debugger.engine.SyntheticTypeComponentProvider
 import com.intellij.util.containers.ContainerUtil
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.debugger.LocationLineManager.{invokeStatic, invokeVirtual}
 import org.jetbrains.plugins.scala.debugger.ScalaPositionManager.isAnonfunType
 import org.jetbrains.plugins.scala.debugger.TopLevelMembers.isSyntheticClassForTopLevelMembers
@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 /**
@@ -122,7 +122,7 @@ object ScalaSyntheticProvider {
   }
 
   private def invokesSingleMethod(m: Method): Boolean = {
-    import LocationLineManager._
+    import LocationLineManager.*
 
     val bytecodes: Array[Byte] =
       try m.bytecodes()

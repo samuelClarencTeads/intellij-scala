@@ -13,8 +13,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAlias
   * Date: 18.10.2008
   */
 class ScTypeAliasStubImpl(
-  parent:                         StubElement[_ <: PsiElement],
-  elementType:                    IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+  parent:                         StubElement[? <: PsiElement],
+  elementType:                    IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
   name:                           String,
   override val typeText:          Option[String],
   override val lowerBoundText:    Option[String],

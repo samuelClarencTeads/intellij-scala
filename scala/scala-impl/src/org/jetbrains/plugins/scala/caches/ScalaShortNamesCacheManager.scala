@@ -2,16 +2,16 @@ package org.jetbrains.plugins.scala
 package caches
 
 import com.intellij.openapi.project.{DumbService, Project}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{GlobalSearchScope, PsiShortNamesCache}
 import com.intellij.psi.stubs.StubIndexKey
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.light.PsiMethodWrapper
-import org.jetbrains.plugins.scala.lang.psi.stubs.index.ScalaIndexKeys._
-import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil._
+import org.jetbrains.plugins.scala.lang.psi.stubs.index.ScalaIndexKeys.*
+import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.*
 
 import scala.util.Try
 import scala.collection.immutable.ArraySeq.unsafeWrapArray
@@ -132,7 +132,7 @@ final class ScalaShortNamesCacheManager(implicit project: Project) {
                               (implicit scope: GlobalSearchScope) =
     namesCache.getMethodsByName(cleanName, scope).filter {
       case _: ScFunction |
-           _: PsiMethodWrapper[_] => false
+           _: PsiMethodWrapper[?] => false
       case _ => true
     }
 

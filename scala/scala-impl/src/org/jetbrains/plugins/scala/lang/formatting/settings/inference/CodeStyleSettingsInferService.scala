@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.formatting.settings.inference
 
 import com.intellij.application.options.codeStyle.CodeStyleSchemesModel
 import com.intellij.ide.startup.StartupManagerEx
-import com.intellij.openapi.components.{PersistentStateComponent, _}
+import com.intellij.openapi.components.{PersistentStateComponent, *}
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.{DumbService, Project}
 import com.intellij.psi.codeStyle.CodeStyleSettings
@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.inference.ScalaDocAs
 import org.jetbrains.plugins.scala.lang.formatting.settings.inference.ScalaDocAsteriskAlignStyleIndexer.AsteriskAlignStyle.AlignByColumnThree
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @State(
   name = "CodeStyleSettingsInfer",

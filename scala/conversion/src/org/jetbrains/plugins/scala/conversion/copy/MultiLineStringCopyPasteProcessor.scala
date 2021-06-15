@@ -7,7 +7,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.util.text.StringUtil.startsWithChar
 import com.intellij.psi.{PsiElement, PsiFile}
-import org.jetbrains.plugins.scala.conversion.copy.MultiLineStringCopyPasteProcessor._
+import org.jetbrains.plugins.scala.conversion.copy.MultiLineStringCopyPasteProcessor.*
 import org.jetbrains.plugins.scala.extensions.{PsiElementExt, childOf, inWriteAction}
 import org.jetbrains.plugins.scala.format.WithStrippedMargin
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings

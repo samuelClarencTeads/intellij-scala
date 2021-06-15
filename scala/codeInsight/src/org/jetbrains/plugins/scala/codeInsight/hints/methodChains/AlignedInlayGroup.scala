@@ -5,15 +5,15 @@ package methodChains
 import java.awt.{Graphics, Insets, Rectangle}
 
 import com.intellij.openapi.Disposable
-import com.intellij.openapi.editor._
+import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.editor.impl.EditorImpl
 import com.intellij.openapi.editor.markup.TextAttributes
 import com.intellij.openapi.util.{Disposer, Key}
 import org.jetbrains.plugins.scala.annotator.hints.Text
-import org.jetbrains.plugins.scala.codeInsight.hints.methodChains.AlignedInlayGroup._
+import org.jetbrains.plugins.scala.codeInsight.hints.methodChains.AlignedInlayGroup.*
 import org.jetbrains.plugins.scala.codeInsight.implicits.TextPartsHintRenderer
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 private abstract class AlignedHintTemplate(val textParts: Seq[Text]) {
   def line(document: Document): Int = document.getLineNumber(endOffset)
@@ -86,7 +86,7 @@ private class AlignedInlayGroup(hints: Seq[AlignedHintTemplate],
 private object AlignedInlayGroup {
   private val ScalaMethodChainDisposableKey: Key[Disposable] = Key.create[Disposable]("SCALA_METHOD_CHAIN_DISPOSABLE_KEY")
 
-  def dispose(inlay: Inlay[_]): Unit = {
+  def dispose(inlay: Inlay[?]): Unit = {
     inlay
       .getUserData(ScalaMethodChainDisposableKey)
       .nullSafe
@@ -117,7 +117,7 @@ private object AlignedInlayGroup {
 
     private var cached: Cached = Cached(lineEndX = 0, margin = 0)
 
-    def setMargin(lineEndX: Int, margin: Int, inlay: Inlay[_], repaint: Boolean): Unit = {
+    def setMargin(lineEndX: Int, margin: Int, inlay: Inlay[?], repaint: Boolean): Unit = {
       if (cached.margin != margin) {
         cached = Cached(lineEndX, margin)
 

@@ -32,7 +32,7 @@ class Ref[T <: Entry : ClassTag](val index: Int)(implicit val scalaSig: ScalaSig
     else get.toString
 
   override def equals(obj: scala.Any): Boolean = obj match {
-    case r: Ref[_] => r.index == index
+    case r: Ref[?] => r.index == index
     case _ => false
   }
 

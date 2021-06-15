@@ -11,29 +11,29 @@ import com.intellij.util.PairConsumer
 import org.jdom.Element
 import org.jetbrains.idea.maven.importing.{MavenImporter, MavenRootModelAdapter}
 import org.jetbrains.idea.maven.model.{MavenArtifact, MavenArtifactInfo, MavenPlugin}
-import org.jetbrains.idea.maven.project._
+import org.jetbrains.idea.maven.project.*
 import org.jetbrains.idea.maven.server.{MavenEmbedderWrapper, NativeMavenProjectHolder}
 import org.jetbrains.jps.model.java.JavaSourceRootType
 import org.jetbrains.jps.model.module.JpsModuleSourceRootType
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.external.Importer
-import org.jetbrains.plugins.scala.project.maven.ScalaMavenImporter._
+import org.jetbrains.plugins.scala.project.maven.ScalaMavenImporter.*
 
 import java.io.File
 import java.util
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin
  */
 class ScalaMavenImporter extends MavenImporter("org.scala-tools", "maven-scala-plugin") {
 
-  override def getModuleType: ModuleType[_ <: ModuleBuilder] =  StdModuleTypes.JAVA
+  override def getModuleType: ModuleType[? <: ModuleBuilder] =  StdModuleTypes.JAVA
 
   override def collectSourceRoots(
     mavenProject: MavenProject,
-    result: PairConsumer[String, JpsModuleSourceRootType[_]]
+    result: PairConsumer[String, JpsModuleSourceRootType[?]]
   ): Unit = {
     val sourceFolders = getSourceFolders(mavenProject)
     val testFolders = getTestFolders(mavenProject)

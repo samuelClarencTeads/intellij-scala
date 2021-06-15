@@ -4,7 +4,7 @@ package psi
 package api
 package expr
 
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInfixElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeArgs
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
   */
 trait ScInfixExpr extends ScExpression with ScSugarCallExpr with ScInfixElement {
 
-  import ScInfixExpr._
+  import ScInfixExpr.*
 
   type Kind = ScExpression
   type Reference = ScReferenceExpression

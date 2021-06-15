@@ -2,8 +2,8 @@ package org.jetbrains.plugins.scala.worksheet.highlighting
 
 import com.intellij.psi.PsiFile
 import org.jetbrains.plugins.scala.annotator.{Error, ScalaHighlightingTestBase}
-import org.junit.Assert._
-import org.jetbrains.plugins.scala.util.assertions.CollectionsAssertions._
+import org.junit.Assert.*
+import org.jetbrains.plugins.scala.util.assertions.CollectionsAssertions.*
 
 class IsolatedWorksheetsHighlightingTest extends ScalaHighlightingTestBase {
 

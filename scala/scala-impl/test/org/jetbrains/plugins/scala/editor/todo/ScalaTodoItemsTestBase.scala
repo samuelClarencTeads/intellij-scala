@@ -10,9 +10,9 @@ import com.intellij.testFramework.EditorTestUtil
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.extensions.StringExt
 import org.jetbrains.plugins.scala.util.Markers
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.math.Ordering.comparatorToOrdering
 
 /** see analogue class from platform: [[com.intellij.editor.TodoItemsTestCase]] */

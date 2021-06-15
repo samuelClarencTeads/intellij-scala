@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testDiscovery.actions
 
-import java.util.{List => JList}
+import java.util.{List as JList}
 
 import com.intellij.openapi.util.Couple
 import com.intellij.psi.util.ClassUtil
@@ -8,14 +8,14 @@ import com.intellij.psi.{PsiElement, PsiMethod}
 import com.intellij.rt.coverage.testDiscovery.instrumentation.TestDiscoveryInstrumentationUtils
 import org.jetbrains.annotations.NotNull
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScMethodLike
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScPatternDefinition, ScValueOrVariable, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private[testDiscovery]
 object ScalaShowAffectedTestsActionCompanion {
@@ -91,7 +91,7 @@ object ScalaShowAffectedTestsActionCompanion {
   private def jvmType(t: ScType): String = DebuggerUtil.getJVMStringForType(t, isParam = false)
 
   private def getterSignature(v: ScBindingPattern): Option[String] = {
-    import TestDiscoveryInstrumentationUtils.{SEPARATOR => Sep}
+    import TestDiscoveryInstrumentationUtils.{SEPARATOR as Sep}
 
     if (v.isWildcard) {
       None
@@ -103,7 +103,7 @@ object ScalaShowAffectedTestsActionCompanion {
   }
 
   private def setterSignature(v: ScBindingPattern): Option[String] = {
-    import TestDiscoveryInstrumentationUtils.{SEPARATOR => Sep}
+    import TestDiscoveryInstrumentationUtils.{SEPARATOR as Sep}
 
     if (v.isWildcard) {
       None

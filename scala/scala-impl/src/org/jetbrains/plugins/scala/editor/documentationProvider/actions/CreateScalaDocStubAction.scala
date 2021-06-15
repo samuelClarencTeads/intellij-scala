@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.actions.ScalaActionUtil
 import org.jetbrains.plugins.scala.editor.ScalaEditorBundle
 import org.jetbrains.plugins.scala.editor.documentationProvider.actions.CreateScalaDocStubAction.createStub
 import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocStubGenerator
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScTypeAlias}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
@@ -77,7 +77,7 @@ class CreateScalaDocStubAction extends AnAction(
     }
 
     @inline def convertToParamMap[T <: ScNamedElement](params: collection.immutable.Seq[T]) =
-      mutable.HashMap(params.map(p => (p.getName, p)): _*)
+      mutable.HashMap(params.map(p => (p.getName, p))*)
 
     def processParams[T <: ScNamedElement](groupNames: List[String], params: List[Seq[T]]): Unit = {
       val paramMaps = groupNames zip params map {

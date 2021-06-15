@@ -10,7 +10,7 @@ package object parentheses {
   private[codeInspection]
   def registerRedundantParensProblem(@Nls description: String, element: ScalaPsiElement, quickfix: LocalQuickFix)
                                     (implicit holder: ProblemsHolder, isOnTheFly: Boolean): Unit = {
-    import com.intellij.codeInspection.ProblemHighlightType._
+    import com.intellij.codeInspection.ProblemHighlightType.*
 
     if (isOnTheFly) {
       val left = TextRange.create(0, 1)

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.formatting.settings.migration
 
 import com.intellij.testFramework.LightIdeaTestCase
 import org.jetbrains.plugins.scala.lang.formatting.settings.migration.CodeStyleSettingsMigrationServiceBase.Migrations
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class CodeStyleSettingsMigrationServiceBaseTest extends LightIdeaTestCase {
 

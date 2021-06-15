@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate
 
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.Variance
-import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate._
+import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate.*
 
 trait Update extends ((ScType, Variance) => AfterUpdate)
 
 object Update {
-  import AfterUpdate._
+  import AfterUpdate.*
 
   def apply(pf: PartialFunction[(ScType, Variance), ScType]): Update = (v1: ScType, v2: Variance) => {
     if (pf.isDefinedAt(v1, v2)) ReplaceWith(pf(v1, v2))

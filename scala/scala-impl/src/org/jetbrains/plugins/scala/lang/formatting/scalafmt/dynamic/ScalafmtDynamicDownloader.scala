@@ -3,8 +3,8 @@ package org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic
 import com.intellij.openapi.progress.ProcessCanceledException
 import org.apache.ivy.util.{AbstractMessageLogger, MessageLogger}
 import org.jetbrains.plugins.scala.DependencyManagerBase
-import org.jetbrains.plugins.scala.DependencyManagerBase._
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.BuildInfo
 
 import java.net.URL
@@ -19,7 +19,7 @@ class ScalafmtDynamicDownloader(
   def download(version: String): Either[DownloadFailure, DownloadSuccess] =
     try {
       val resolver = new ScalafmtDependencyResolver(extraResolvers, progressListener)
-      val resolvedDependencies = resolver.resolve(dependencies(version): _*)
+      val resolvedDependencies = resolver.resolve(dependencies(version)*)
       val jars: Seq[Path] = resolvedDependencies.map(_.file.toPath)
       val urls = jars.map(_.toUri.toURL)
       Right(DownloadSuccess(version, urls))

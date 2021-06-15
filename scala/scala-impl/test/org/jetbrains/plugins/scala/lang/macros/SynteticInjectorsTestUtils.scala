@@ -4,8 +4,8 @@ import com.intellij.openapi.diagnostic.Logger
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait, ScTypeDefinition}
-import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider._
-import org.junit.Assert._
+import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider.*
+import org.junit.Assert.*
 
 object SynteticInjectorsTestUtils {
   private val log = Logger.getInstance(getClass)

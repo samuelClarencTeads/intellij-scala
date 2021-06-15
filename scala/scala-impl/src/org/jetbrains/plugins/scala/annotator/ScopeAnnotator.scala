@@ -3,12 +3,12 @@ package annotator
 
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.annotator.element.ElementAnnotator
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScRefinement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlockExpr, ScFor, ScGenerator}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameterClause, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTypeDefinition}
@@ -177,7 +177,7 @@ object ScopeAnnotator extends ElementAnnotator[ScalaPsiElement] {
     // But they can still clash if they have equivalent parameter types, so we have to check them against each other
     val result = Set.newBuilder[ScFunction]
     for {
-      (a, ai) <- elements.iterator.zipWithIndex
+      case (a, ai) <- elements.iterator.zipWithIndex
       b <- elements.iterator.drop(ai + 1)
       if a.parametersTypes.zip(b.parametersTypes).forall { case (a, b) => a equiv b }
     } result ++= Seq(a, b)

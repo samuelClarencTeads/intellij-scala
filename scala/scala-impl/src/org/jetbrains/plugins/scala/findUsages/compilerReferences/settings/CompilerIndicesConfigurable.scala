@@ -8,10 +8,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import javax.swing.JComponent
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 class CompilerIndicesConfigurable(project: Project) extends Configurable {
-  import CompilerIndicesConfigurable._
+  import CompilerIndicesConfigurable.*
 
   private[this] val panel                              = new CompilerIndicesSettingsForm(project)
   private[this] var shutdownCallback: Option[Runnable] = None

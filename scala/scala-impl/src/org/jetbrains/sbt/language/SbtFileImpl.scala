@@ -3,7 +3,7 @@ package language
 
 import com.intellij.openapi.module.{Module, ModuleManager, ModuleUtilCore}
 import com.intellij.openapi.roots.ProjectRootManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{GlobalSearchScope, searches}
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.caches.ModTracker
@@ -11,12 +11,12 @@ import org.jetbrains.plugins.scala.extensions.PsiClassExt
 import org.jetbrains.plugins.scala.lang.psi.ScDeclarationSequenceHolder
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.jetbrains.plugins.scala.lang.psi.impl._
+import org.jetbrains.plugins.scala.lang.psi.impl.*
 import org.jetbrains.plugins.scala.macroAnnotations.{Cached, CachedInUserData}
 import org.jetbrains.sbt.project.data.SbtModuleData
 import org.jetbrains.sbt.project.module.SbtModule.{Build, Imports}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin
@@ -25,7 +25,7 @@ final class SbtFileImpl private[language](provider: FileViewProvider)
   extends ScalaFileImpl(provider, SbtFileType)
     with ScDeclarationSequenceHolder {
 
-  import SbtFileImpl._
+  import SbtFileImpl.*
 
   override def typeDefinitions: Seq[ScTypeDefinition] = Seq.empty
 
@@ -71,7 +71,7 @@ final class SbtFileImpl private[language](provider: FileViewProvider)
       val manager = ModuleManager.getInstance(getProject)
 
       val moduleByUri = for {
-        SbtModuleData(_, buildURI) <- SbtUtil.getSbtModuleData(module)
+        case SbtModuleData(_, buildURI) <- SbtUtil.getSbtModuleData(module)
 
         module <- manager.getModules.find { module =>
           Build(module) == buildURI

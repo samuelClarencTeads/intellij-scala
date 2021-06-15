@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package project
 package template
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.facet.impl.ui.libraries.{LibraryCompositionSettings, LibraryOptionsPanel}
 import com.intellij.framework.library.FrameworkLibraryVersionFilter
@@ -15,7 +15,7 @@ import com.intellij.openapi.util.Disposer
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.UI
 import javax.swing.{JComponent, JLabel, JTextField}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 /**
  * @author Pavel Fatin

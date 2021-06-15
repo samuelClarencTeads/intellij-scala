@@ -3,7 +3,7 @@ package lang
 package completion
 package clauses
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementWeigher}
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.psi.PsiElement
@@ -11,12 +11,12 @@ import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by kate
@@ -52,7 +52,7 @@ class CaseClassParametersCompletionContributor extends ScalaCompletionContributo
         val byType = position.getContext match {
           case pattern: ScPattern =>
             for {
-              (parameter, expectedType) <- caseClassParameters.lift(myPosition).zip(pattern.expectedType)
+              case (parameter, expectedType) <- caseClassParameters.lift(myPosition).zip(pattern.expectedType)
               name <- NameSuggester.suggestNamesByType(expectedType).headOption
             } yield (parameter, name)
           case _ => Iterable.empty
@@ -76,7 +76,7 @@ class CaseClassParametersCompletionContributor extends ScalaCompletionContributo
 
       private def createWeigher(position: Int, parameters: Seq[ScParameter]) = new LookupElementWeigher("orderByPosition") {
 
-        override def weigh(element: LookupElement): Comparable[_] = element match {
+        override def weigh(element: LookupElement): Comparable[?] = element match {
           case ScalaLookupItem(item, namedElement) =>
             namedElement match {
               case parameter: ScParameter if parameter.name == item.getLookupString /*not equals when name computed by type*/ =>

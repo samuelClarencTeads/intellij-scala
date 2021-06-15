@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.scala.lang.refactoring.introduceVariable
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.{Editor, ScrollType}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.{Pass, TextRange}
 import com.intellij.psi.PsiModifier.PRIVATE
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
 import com.intellij.psi.util.PsiTreeUtil
@@ -18,16 +18,16 @@ import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, PsiElementExt, PsiModifierListOwnerExt, childOf, executeWriteActionCommand, inWriteAction}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScDeclaredElementsHolder, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScExtendsBlock, ScTemplateParents}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.refactoring._
+import org.jetbrains.plugins.scala.lang.refactoring.*
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
-import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil._
+import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.{ScalaRefactoringUtil, ScalaVariableValidator, ValidationReporter}
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 
@@ -42,7 +42,7 @@ trait IntroduceExpressions {
 
   val INTRODUCE_VARIABLE_REFACTORING_NAME: String = ScalaBundle.message("introduce.variable.title")
 
-  import IntroduceExpressions._
+  import IntroduceExpressions.*
 
   def invokeExpression(file: PsiFile, startOffset: Int, endOffset: Int)
                       (implicit project: Project, editor: Editor): Unit = {
@@ -218,7 +218,7 @@ object IntroduceExpressions {
         }
 
         new ScalaInplaceVariableIntroducer(newExpr, maybeType, named, replaceAll, forceType)
-          .performInplaceRefactoring(new ju.LinkedHashSet(ju.Arrays.asList(suggestedNames: _*)))
+          .performInplaceRefactoring(new ju.LinkedHashSet(ju.Arrays.asList(suggestedNames*)))
       }
     }
   }
@@ -306,7 +306,7 @@ object IntroduceExpressions {
       } else {
         replacedOccurrences.map(findParentExpr(file, _))
       }
-    val commonParent: PsiElement = PsiTreeUtil.findCommonParent(parentExprs.toSeq: _*)
+    val commonParent: PsiElement = PsiTreeUtil.findCommonParent(parentExprs.toSeq*)
 
     val nextParentInFile = nextParent(commonParent, file)
 

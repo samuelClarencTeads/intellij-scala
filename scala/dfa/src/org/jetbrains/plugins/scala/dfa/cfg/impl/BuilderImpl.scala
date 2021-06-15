@@ -13,8 +13,8 @@ private[cfg] class BuilderImpl[SourceInfo] extends Builder[SourceInfo] {
   override type UnlinkedJump = UnlinkedJumpImpl
   override type LoopLabel = LoopLabelImpl
 
-  private type NodeImpl = impl.NodeImpl[SourceInfo] with Node
-  private type JumpingImpl = impl.JumpingImpl[SourceInfo] with Jumping
+  private type NodeImpl = impl.NodeImpl[SourceInfo] & Node
+  private type JumpingImpl = impl.JumpingImpl[SourceInfo] & Jumping
   private type Block = impl.BlockImpl[SourceInfo]
 
   private class Scope(val block: Block, var variables: Map[Variable, Value])

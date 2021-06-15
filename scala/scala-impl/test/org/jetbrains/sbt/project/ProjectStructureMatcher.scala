@@ -16,16 +16,16 @@ import org.jetbrains.jps.model.java.{JavaResourceRootType, JavaSourceRootType}
 import org.jetbrains.jps.model.module.JpsModuleSourceRootType
 import org.jetbrains.plugins.scala.project.external.{SdkReference, SdkUtils}
 import org.jetbrains.plugins.scala.project.{ProjectExt, ScalaLibraryProperties}
-import org.jetbrains.sbt.project.ProjectStructureDsl._
+import org.jetbrains.sbt.project.ProjectStructureDsl.*
 import org.jetbrains.sbt.project.data.SbtModuleData
 import org.junit.Assert
 import org.junit.Assert.{assertFalse, assertTrue, fail}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 trait ProjectStructureMatcher {
 
-  import ProjectStructureMatcher._
+  import ProjectStructureMatcher.*
 
   def assertMatch[T](what: String, expected: Seq[T], actual: Seq[T]): Unit
   def assertMatchUnordered[T : Ordering](what: String, expected: Seq[T], actual: Seq[T]): Unit =
@@ -78,7 +78,7 @@ trait ProjectStructureMatcher {
   }
 
   private def assertModulesEqual(expected: module, actual: Module): Unit = {
-    import ProjectStructureDsl._
+    import ProjectStructureDsl.*
 
     expected.foreach(contentRoots)(assertModuleContentRootsEqual(actual))
     expected.foreach(sources)(assertModuleContentFoldersEqual(actual, JavaSourceRootType.SOURCE))
@@ -138,7 +138,7 @@ trait ProjectStructureMatcher {
     assertMatch("Content root", expectedRoots, actualRoots)
   }
 
-  private def assertModuleContentFoldersEqual(module: Module, folderType: JpsModuleSourceRootType[_])(expected: Seq[String]): Unit = {
+  private def assertModuleContentFoldersEqual(module: Module, folderType: JpsModuleSourceRootType[?])(expected: Seq[String]): Unit = {
     val contentRoot = getSingleContentRoot(module)
     assertContentRootFoldersEqual(contentRoot, contentRoot.getSourceFolders(folderType).asScala.toSeq, expected)
   }
@@ -178,7 +178,7 @@ trait ProjectStructureMatcher {
     pairByName(expected, actualLibraryEntries).foreach((assertDependencyScopeAndExportedFlagEqual _).tupled)
   }
 
-  private def assertDependencyScopeAndExportedFlagEqual(expected: dependency[_], actual: roots.ExportableOrderEntry): Unit = {
+  private def assertDependencyScopeAndExportedFlagEqual(expected: dependency[?], actual: roots.ExportableOrderEntry): Unit = {
     expected.foreach(isExported)(it => assertEquals("Dependency isExported flag", it, actual.isExported))
     expected.foreach(scope)(it => assertEquals("Dependency scope", it, actual.getScope))
   }

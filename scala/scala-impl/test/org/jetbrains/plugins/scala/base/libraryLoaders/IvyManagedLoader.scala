@@ -16,7 +16,7 @@ case class IvyManagedLoader(dependencies: DependencyDescription*) extends Librar
   override def init(implicit module: Module, version: ScalaVersion): Unit = {
     val resolved = IvyManagedLoader.cache.getOrElseUpdate(
       dependencies,
-      dependencyManager.resolve(dependencies: _*)
+      dependencyManager.resolve(dependencies*)
     )
     resolved.foreach { resolved =>
       VfsRootAccess.allowRootAccess(resolved.file.getCanonicalPath): @nowarn("cat=deprecation")

@@ -8,16 +8,16 @@ package imports
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.scope.{NameHint, PsiScopeProcessor}
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.caches.ScalaShortNamesCacheManager
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.base.types.ScSimpleTypeElementImpl
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScImportStmtStub
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.clean
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
-import org.jetbrains.plugins.scala.lang.resolve.processor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.precedence.PrecedenceHelper
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveTargets, StdKinds}
 import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
@@ -45,7 +45,7 @@ class ScImportStmtImpl(stub: ScImportStmtStub,
   extends ScalaStubBasedElementImpl(stub, nodeType, node)
     with ScImportStmt {
 
-  import ScImportStmtImpl._
+  import ScImportStmtImpl.*
 
   override def importExprs: Seq[ScImportExpr] =
     getStubOrPsiChildren(ScalaElementType.IMPORT_EXPR, JavaArrayFactoryUtil.ScImportExprFactory).toSeq

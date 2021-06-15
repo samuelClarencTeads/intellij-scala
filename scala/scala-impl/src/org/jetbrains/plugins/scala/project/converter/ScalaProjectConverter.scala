@@ -5,10 +5,10 @@ import java.io.File
 import java.nio.file.Path
 import java.util
 
-import com.intellij.conversion._
+import com.intellij.conversion.*
 
-import scala.jdk.CollectionConverters._
-import ScalaProjectConverter._
+import scala.jdk.CollectionConverters.*
+import ScalaProjectConverter.*
 
 /**
  * @author Pavel Fatin

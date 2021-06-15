@@ -3,21 +3,21 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences.indices
 import java.io.{DataInput, DataOutput}
 import java.util
 
-import com.intellij.openapi.util.io.{DataInputOutputUtilRt => ioutil}
+import com.intellij.openapi.util.io.{DataInputOutputUtilRt as ioutil}
 import com.intellij.util.indexing.{DataIndexer, IndexExtension, IndexId}
 import com.intellij.util.io.{DataExternalizer, KeyDescriptor}
 import org.jetbrains.jps.backwardRefs.CompilerRef
-import org.jetbrains.jps.backwardRefs.CompilerRef._
+import org.jetbrains.jps.backwardRefs.CompilerRef.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.bytecode.CompiledScalaFile
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private[findUsages] object ScalaCompilerIndices {
   val backwardUsages: IndexId[CompilerRef, collection.Seq[Int]]            = IndexId.create("sc.back.refs")
   val backwardHierarchy: IndexId[CompilerRef, collection.Seq[CompilerRef]] = IndexId.create("sc.back.hierarchy")
   val version                                                   = 0
 
-  val getIndices: util.Collection[_ <: IndexExtension[_, _, _ >: CompiledScalaFile]] = util.Arrays.asList(
+  val getIndices: util.Collection[? <: IndexExtension[?, ?, ? >: CompiledScalaFile]] = util.Arrays.asList(
     backUsagesExtension,
     backHierarchyExtension
   )

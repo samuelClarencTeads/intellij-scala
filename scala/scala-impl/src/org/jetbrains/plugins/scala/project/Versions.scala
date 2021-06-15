@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package project
 
 import com.intellij.util.net.HttpConfigurable
-import org.jetbrains.plugins.scala.LatestScalaVersions._
+import org.jetbrains.plugins.scala.LatestScalaVersions.*
 import org.jetbrains.plugins.scala.extensions.withProgressSynchronously
 
 import scala.io.Source
@@ -17,7 +17,7 @@ case class Versions(defaultVersion: String,
 
 object Versions {
 
-  import Entity._
+  import Entity.*
 
   sealed abstract class Kind(private[Versions] val entities: List[Entity]) {
 
@@ -99,7 +99,7 @@ object Versions {
 
   private[this] object Entity {
 
-    import buildinfo.BuildInfo._
+    import buildinfo.BuildInfo.*
 
     val ScalaEntity: Entity = Entity(
       url = "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/",

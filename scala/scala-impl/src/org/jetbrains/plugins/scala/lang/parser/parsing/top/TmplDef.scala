@@ -24,8 +24,8 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.top.template.GivenDef
  **/
 object TmplDef extends ParsingRule {
 
-  import ScalaElementType._
-  import lexer.ScalaTokenType._
+  import ScalaElementType.*
+  import lexer.ScalaTokenType.*
   import lexer.ScalaTokenTypes.kCASE
 
   override final def apply()(implicit builder: ScalaPsiBuilder): Boolean = {

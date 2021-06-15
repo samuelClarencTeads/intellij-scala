@@ -4,8 +4,8 @@ import com.intellij.openapi.progress.ProgressIndicator
 import org.jetbrains.bsp.{BspError, BspTaskCancelled}
 
 import scala.annotation.tailrec
-import scala.concurrent._
-import scala.concurrent.duration._
+import scala.concurrent.*
+import scala.concurrent.duration.*
 import scala.util.{Failure, Try}
 
 
@@ -17,7 +17,7 @@ abstract class BspJob[T] {
 object BspJob {
 
   /** Check both indicator and promise for canceled status to combine different ways of canceling tasks.  */
-  class CancelCheck(promise: Promise[_], indicator: ProgressIndicator) {
+  class CancelCheck(promise: Promise[?], indicator: ProgressIndicator) {
 
     def cancel(): Unit = {
       promise.failure(BspTaskCancelled)

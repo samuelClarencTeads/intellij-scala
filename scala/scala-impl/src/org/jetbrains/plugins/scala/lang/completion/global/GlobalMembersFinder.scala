@@ -71,7 +71,7 @@ sealed abstract class GlobalMembersFinder protected(protected val place: ScExpre
   protected[global] final def objectCandidates[T <: ScTypedDefinition](typeDefinitions: Iterable[ScTypeDefinition])
                                                                       (namedElements: ScMember => Seq[T])
                                                                       (constructor: (T, ScObject) => GlobalMemberResult): Iterable[GlobalMemberResult] = for {
-    ThisOrCompanionObject(targetObject) <- typeDefinitions
+    case ThisOrCompanionObject(targetObject) <- typeDefinitions
 
     member <- targetObject.members
     if isAccessible(member)
@@ -105,7 +105,7 @@ private[completion] abstract class ByPlaceGlobalMembersFinder protected(override
 
   protected object NameAvailability extends global.NameAvailability {
 
-    import NameAvailabilityState._
+    import NameAvailabilityState.*
 
     private lazy val elements = place
       .completionVariants()

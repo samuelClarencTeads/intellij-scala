@@ -29,7 +29,7 @@ class ScalaTestFrameworkCommandLineSbtState(
     SbtProcessHandlerWrapper(shellRunner.createProcessHandler)
   }
 
-  override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+  override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
     val useUiWithSbt = testConfigurationData.useUiWithSbt
 
     val processHandler = startProcess()

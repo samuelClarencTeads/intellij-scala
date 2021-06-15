@@ -16,11 +16,11 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.LanguageLevelModuleExtensionImpl
 import com.intellij.openapi.roots.libraries.Library
 import com.intellij.util.CommonProcessors.{CollectProcessor, UniqueProcessor}
-import org.jetbrains.plugins.scala.project._
-import org.jetbrains.plugins.scala.project.external._
+import org.jetbrains.plugins.scala.project.*
+import org.jetbrains.plugins.scala.project.external.*
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin

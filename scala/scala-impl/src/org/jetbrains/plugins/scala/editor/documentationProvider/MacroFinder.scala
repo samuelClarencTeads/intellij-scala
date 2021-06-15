@@ -38,7 +38,7 @@ private class MacroFinderImpl(
     }
 
     myCache.get(macroName) match {
-      case macroValue: Some[_] =>
+      case macroValue: Some[?] =>
         return macroValue
       case None             =>
     }
@@ -56,7 +56,7 @@ private class MacroFinderImpl(
 
     val macroValues: Iterator[String] = for {
       comment <- comments
-      (defineKey, defineTag) <- findDefineTags(comment)
+      case (defineKey, defineTag) <- findDefineTags(comment)
       if defineKey.nonEmpty && defineKey == macroName
     } yield defineTagValue(comment, defineTag)
 

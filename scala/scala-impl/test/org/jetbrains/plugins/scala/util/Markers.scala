@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.util
 
 import com.intellij.openapi.util.TextRange
-import org.jetbrains.plugins.scala.extensions._
-import org.junit.Assert._
+import org.jetbrains.plugins.scala.extensions.*
+import org.junit.Assert.*
 
 import scala.annotation.tailrec
 import scala.collection.{immutable, mutable}

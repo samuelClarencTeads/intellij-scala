@@ -15,7 +15,7 @@ class AddTypeToReferencePatternTest extends TransformerTest(new AddTypeToReferen
 
   def testGenerator(): Unit = check(
     before = "for (v <- new List[A]()) {}",
-    after = "for (v: A <- new List[A]()) {}"
+    after = "for (case v: A <- new List[A]()) {}"
   )()
 
   def testNestedPattern(): Unit = check(

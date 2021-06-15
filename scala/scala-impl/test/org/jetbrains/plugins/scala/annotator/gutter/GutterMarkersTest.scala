@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.scala.annotator.gutter
 
-import com.intellij.testFramework.EditorTestUtil.{CARET_TAG => caret}
+import com.intellij.testFramework.EditorTestUtil.{CARET_TAG as caret}
 import com.intellij.testFramework.fixtures.impl.CodeInsightTestFixtureImpl
 import org.jetbrains.plugins.scala.{LatestScalaVersions, ScalaVersion, TypecheckerTests}
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.experimental.categories.Category
 

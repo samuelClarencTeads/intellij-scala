@@ -24,7 +24,7 @@ import scala.annotation.tailrec
  */
 object BlockStat extends ParsingRule {
 
-  import lexer.ScalaTokenType._
+  import lexer.ScalaTokenType.*
   import lexer.ScalaTokenTypes
 
   @tailrec

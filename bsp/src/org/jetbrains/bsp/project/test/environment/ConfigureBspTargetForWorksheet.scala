@@ -5,7 +5,7 @@ import com.intellij.openapi.module.Module
 import com.intellij.psi.PsiFile
 import javax.swing.Icon
 import org.jetbrains.bsp.{BspBundle, BspUtil, Icons}
-import org.jetbrains.bsp.project.test.environment.BspJvmEnvironment._
+import org.jetbrains.bsp.project.test.environment.BspJvmEnvironment.*
 import org.jetbrains.plugins.scala.actions.ScalaActionUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.worksheet.actions.topmenu.TopComponentAction

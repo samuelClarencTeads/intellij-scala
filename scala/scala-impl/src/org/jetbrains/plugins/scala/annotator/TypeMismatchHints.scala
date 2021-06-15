@@ -9,10 +9,10 @@ import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.annotator.Format.{InnerParentheses, OuterParentheses, Plain}
 import org.jetbrains.plugins.scala.annotator.Tree.{Leaf, Node}
 import org.jetbrains.plugins.scala.annotator.TypeDiff.{Match, Mismatch}
-import org.jetbrains.plugins.scala.annotator.hints.{Text, _}
+import org.jetbrains.plugins.scala.annotator.hints.{Text, *}
 import org.jetbrains.plugins.scala.caches.CachesUtil.fileModCount
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightSettings
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScFunctionExpr, ScInfixExpr, ScPostfixExpr}
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
@@ -65,7 +65,7 @@ object TypeMismatchHints {
 
   private def partsOf(expected: ScType, actual: ScType, message: String)(implicit scheme: EditorColorsScheme, context: TypePresentationContext): Seq[Text] = {
     def toText(diff: Tree[TypeDiff]): Text = diff match {
-      case Node(diffs @_*) =>
+      case Node(diffs*) =>
         Text(foldedString,
           foldedAttributes(diff.exists(_.is[Mismatch])),
           expansion = Some(() => diffs.map(toText)))

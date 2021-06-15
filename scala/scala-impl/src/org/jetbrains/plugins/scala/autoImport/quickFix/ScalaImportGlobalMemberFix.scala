@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.annotator.UnresolvedReferenceFixProvider
 import org.jetbrains.plugins.scala.autoImport.GlobalMember
 import org.jetbrains.plugins.scala.autoImport.GlobalMember.findGlobalMembers
 import org.jetbrains.plugins.scala.autoImport.quickFix.ScalaImportElementFix.isExcluded
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.{hasImplicitModifier, inNameContext}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
@@ -26,12 +26,12 @@ import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils.isAccessible
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.jetbrains.plugins.scala.autoImport.ImportOrderings.defaultImportOrdering
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private class ScalaImportGlobalMemberFix(computation: MemberToImportComputation,
                                          ref: ScReferenceExpression) extends ScalaImportElementFix[MemberToImport](ref) {
 
-  override def createAddImportAction(editor: Editor): ScalaAddImportAction[_, _] =
+  override def createAddImportAction(editor: Editor): ScalaAddImportAction[?, ?] =
     ScalaAddImportAction(editor, ref, elements)
 
   override def isAddUnambiguous: Boolean =
@@ -54,7 +54,7 @@ private class ScalaImportGlobalMemberFix(computation: MemberToImportComputation,
 
 private class ScalaImportGlobalMemberWithPrefixFix(computation: MemberToImportComputation,
                                                    ref: ScReferenceExpression) extends ScalaImportElementFix[MemberToImport](ref) {
-  override def createAddImportAction(editor: Editor): ScalaAddImportAction[_, _] =
+  override def createAddImportAction(editor: Editor): ScalaAddImportAction[?, ?] =
     ScalaAddImportAction.importWithPrefix(editor, elements, ref)
 
   override def isAddUnambiguous: Boolean = false
@@ -162,10 +162,10 @@ object ScalaImportGlobalMemberFix {
   }
 
   @TestOnly
-  def fixWithoutPrefix(ref: ScReferenceExpression): Option[ScalaImportElementFix[_ <: ElementToImport]] =
+  def fixWithoutPrefix(ref: ScReferenceExpression): Option[ScalaImportElementFix[? <: ElementToImport]] =
     create(ref).findByType[ScalaImportGlobalMemberFix]
 
   @TestOnly
-  def fixWithPrefix(ref: ScReferenceExpression): Option[ScalaImportElementFix[_ <: ElementToImport]] =
+  def fixWithPrefix(ref: ScReferenceExpression): Option[ScalaImportElementFix[? <: ElementToImport]] =
     create(ref).findByType[ScalaImportGlobalMemberWithPrefixFix]
 }

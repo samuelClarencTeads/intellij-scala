@@ -6,8 +6,8 @@ import com.intellij.codeInsight.intention.HighPriorityAction
 import com.intellij.codeInspection.{InspectionManager, LocalQuickFix, ProblemDescriptor, ProblemHighlightType}
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.codeInspection.parameters.TypedParameterWithoutParenthesisInspection._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.parameters.TypedParameterWithoutParenthesisInspection.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterClause
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 
@@ -20,7 +20,7 @@ class TypedParameterWithoutParenthesisInspection extends AbstractRegisteredInspe
     for {
       pc <- element.asOptionOf[ScParameterClause]
       if !pc.hasParenthesis
-      Seq(parem) <- Some(pc.parameters)
+      case Seq(parem) <- Some(pc.parameters)
       if parem.typeElement.isDefined
       desc <- super.problemDescriptor(element, Some(createQuickFix(pc)), descriptionTemplate, highlightType)
     } yield desc

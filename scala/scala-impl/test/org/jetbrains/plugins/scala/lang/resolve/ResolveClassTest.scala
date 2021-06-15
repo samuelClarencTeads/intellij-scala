@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 

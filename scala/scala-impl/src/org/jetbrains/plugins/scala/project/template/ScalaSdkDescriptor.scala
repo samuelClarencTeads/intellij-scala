@@ -28,8 +28,8 @@ final case class ScalaSdkDescriptor(version: Option[String],
 
 object ScalaSdkDescriptor {
 
-  import Artifact._
-  import Kind._
+  import Artifact.*
+  import Kind.*
 
   private[project]
   def buildFromComponents(components: Seq[ScalaSdkComponent]): Either[NlsString, ScalaSdkDescriptor] = {
@@ -87,7 +87,7 @@ object ScalaSdkDescriptor {
   private[this] def files(components: Seq[ScalaSdkComponent])
                          (predicate: Artifact => Boolean): Seq[File] =
     for {
-      ScalaSdkComponent(artifact, _, _, file) <- components
+      case ScalaSdkComponent(artifact, _, _, file) <- components
       if predicate(artifact)
     } yield file
 }

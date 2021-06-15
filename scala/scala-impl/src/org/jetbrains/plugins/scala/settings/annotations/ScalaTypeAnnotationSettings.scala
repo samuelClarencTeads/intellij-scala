@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.extensions.BooleanExt
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin
@@ -29,7 +29,7 @@ object ScalaTypeAnnotationSettings {
       val entity = declaration.entity
       val isLocal = location.isInLocalScope
 
-      import style._
+      import style.*
 
       def reasonToEnforce =
         (TYPE_ANNOTATION_IMPLICIT_MODIFIER && !entity.isParameter && declaration.isImplicit).option("implicit definition")

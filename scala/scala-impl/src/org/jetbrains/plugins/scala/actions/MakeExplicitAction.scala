@@ -3,7 +3,7 @@ package actions
 
 import java.awt.Point
 
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.util.BaseListPopupStep
@@ -13,7 +13,7 @@ import com.intellij.psi.{NavigatablePsiElement, PsiDocumentManager, PsiElement, 
 import com.intellij.ui.awt.RelativePoint
 import javax.swing.JList
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScMethodCall, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
@@ -56,7 +56,7 @@ final class MakeExplicitAction extends AnAction(
 
 object MakeExplicitAction {
 
-  import JBPopupFactory.{getInstance => PopupFactory}
+  import JBPopupFactory.{getInstance as PopupFactory}
   import ScalaPsiElementFactory.{createExpressionFromText, createReferenceFromText}
 
   private val MakeExplicit = ScalaBundle.message("make.explicit")
@@ -64,7 +64,7 @@ object MakeExplicitAction {
 
   private[this] var popup: JBPopup = _
 
-  def createPopup(list: JList[_]): JBPopup = {
+  def createPopup(list: JList[?]): JBPopup = {
     GoToImplicitConversionAction.setList(list)
     popup = createPopupBuilder(list).createPopup
     popup
@@ -80,7 +80,7 @@ object MakeExplicitAction {
       .show(new RelativePoint(list, currentItemPoint(list)))
   }
 
-  def currentItemPoint(list: JList[_], moveLeft: Int = 20): Point = list.getSelectedIndex match {
+  def currentItemPoint(list: JList[?], moveLeft: Int = 20): Point = list.getSelectedIndex match {
     case -1 => throw new RuntimeException("Index = -1 is less than zero.")
     case index =>
       list.getCellBounds(index, index) match {
@@ -89,7 +89,7 @@ object MakeExplicitAction {
       }
   }
 
-  private[this] def createPopupBuilder(list: JList[_]) = {
+  private[this] def createPopupBuilder(list: JList[?]) = {
     PopupFactory.createListPopupBuilder(list)
       .setTitle(ScalaBundle.message("title.choose.implicit.conversion.method"))
       .setAdText(ScalaBundle.message("press.alt.enter"))
@@ -120,7 +120,7 @@ object MakeExplicitAction {
 
     override def getTextFor(value: String): String = value
 
-    override def onChosen(selectedValue: String, finalChoice: Boolean): PopupStep[_] =
+    override def onChosen(selectedValue: String, finalChoice: Boolean): PopupStep[?] =
       selectedValue match {
         case null =>
           PopupStep.FINAL_CHOICE

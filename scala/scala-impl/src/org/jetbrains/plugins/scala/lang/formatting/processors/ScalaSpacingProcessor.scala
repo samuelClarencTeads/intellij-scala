@@ -7,27 +7,27 @@ import com.intellij.formatting.Spacing
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.impl.source.tree.{LeafPsiElement, PsiWhiteSpaceImpl}
 import com.intellij.psi.tree.{IElementType, TokenSet}
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes, ScalaTokenTypesEx, ScalaXmlTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.{ScCodeBlockElementType, ScalaElementType}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.ScXmlPattern
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportSelectors, ScImportStmt}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, ScPackaging}
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScStubFileElementType
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.{isIdentifier, isKeyword}
@@ -45,7 +45,7 @@ import scala.annotation.{nowarn, tailrec}
 //noinspection InstanceOf
 object ScalaSpacingProcessor extends ScalaTokenTypes {
 
-  import ScalaElementType._
+  import ScalaElementType.*
 
   private val LOG = Logger.getInstance("#org.jetbrains.plugins.scala.lang.formatting.processors.ScalaSpacingProcessor")
 
@@ -245,7 +245,7 @@ object ScalaSpacingProcessor extends ScalaTokenTypes {
     if (rightPsi.isInstanceOf[PsiComment] && settings.KEEP_FIRST_COLUMN_COMMENT)
       return Spacing.createKeepingFirstColumnSpacing(0, Integer.MAX_VALUE, true, settings.KEEP_BLANK_LINES_IN_CODE)
 
-    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
     if (leftPsi.isInstanceOf[PsiComment] && rightPsi.isInstanceOf[PsiComment]) {
       return ON_NEW_LINE
     }
@@ -801,7 +801,7 @@ object ScalaSpacingProcessor extends ScalaTokenTypes {
       val cs = settings
       val ss = scalaSettings
 
-      import BlankLinesContext._
+      import BlankLinesContext.*
 
       def minBlankLinesAround(psi: PsiElement, context: BlankLinesContext): Int =
         (psi, context) match {

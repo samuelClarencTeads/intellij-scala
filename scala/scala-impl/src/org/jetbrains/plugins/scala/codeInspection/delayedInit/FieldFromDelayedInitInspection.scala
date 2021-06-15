@@ -4,7 +4,7 @@ package delayedInit
 
 import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScPatternDefinition, ScValueOrVariable, ScVariableDefinition}
@@ -19,12 +19,12 @@ import scala.annotation.nowarn
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 final class FieldFromDelayedInitInspection extends AbstractInspection(ScalaInspectionBundle.message("display.name.field.from.delayedinit")) {
 
-  import FieldFromDelayedInitInspection._
+  import FieldFromDelayedInitInspection.*
 
   override protected def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Any] = {
     case ref: ScReferenceExpression =>
       for {
-        FieldInDelayedInit(delayedInitClass) <- ref.bind()
+        case FieldInDelayedInit(delayedInitClass) <- ref.bind()
         parents = parentDefinitions(ref)
         if !parents.exists(_.sameOrInheritor(delayedInitClass))
       } holder.registerProblem(ref.nameId, ScalaInspectionBundle.message("field.defined.in.delayedinit.is.likely.to.be.null"))

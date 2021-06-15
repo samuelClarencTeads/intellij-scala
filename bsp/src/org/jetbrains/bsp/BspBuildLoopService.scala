@@ -45,7 +45,7 @@ final class BspBuildLoopService(project: Project) {
 
     /** Delays compilation just a little bit so that it's less likely that multiple builds are triggered for one
       * set of changes. */
-    private var scheduledCompile: ScheduledFuture[_] =
+    private var scheduledCompile: ScheduledFuture[?] =
       AppExecutorUtil.getAppScheduledExecutorService.schedule[Unit](()=>(), 0, TimeUnit.NANOSECONDS)
 
     private def checkCompile(): Unit = {
@@ -98,7 +98,7 @@ final class BspBuildLoopService(project: Project) {
 
       val runnable: Runnable = { () =>
         taskManager
-          .build(modulesToCompile.toArray: _*)
+          .build(modulesToCompile.toArray*)
           .onSuccess(clearOnSuccess(_)): Unit
       }
       ApplicationManager.getApplication.invokeLater(runnable, ModalityState.NON_MODAL)

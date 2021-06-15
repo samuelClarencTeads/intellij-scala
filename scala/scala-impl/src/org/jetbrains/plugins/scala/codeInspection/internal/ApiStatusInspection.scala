@@ -5,8 +5,8 @@ package internal
 import com.intellij.codeInspection.{InspectionManager, LocalQuickFix, ProblemDescriptor, ProblemHighlightType}
 import com.intellij.psi.{PsiDocCommentOwner, PsiElement}
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.codeInspection.internal.ApiStatusInspection._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.internal.ApiStatusInspection.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScReference}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 

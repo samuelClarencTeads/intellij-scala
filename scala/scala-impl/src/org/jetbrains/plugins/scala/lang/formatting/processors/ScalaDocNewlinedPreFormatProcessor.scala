@@ -68,7 +68,7 @@ final class ScalaDocNewlinedPreFormatProcessor extends PreFormatProcessor with S
   }
 
   private def fixNewlines(element: PsiElement, scalaSettings: ScalaCodeStyleSettings): Unit = {
-    import ScalaDocNewlinedPreFormatProcessor._
+    import ScalaDocNewlinedPreFormatProcessor.*
     val prevElement = element.getPrevSibling
     if (prevElement == null) return
 
@@ -184,7 +184,7 @@ final class ScalaDocNewlinedPreFormatProcessor extends PreFormatProcessor with S
   }
 
   private def linesCountAndLastWsBeforeElement(element: PsiElement): Option[(Int, PsiElement)] = {
-    import ScalaDocNewlinedPreFormatProcessor._
+    import ScalaDocNewlinedPreFormatProcessor.*
     val asterisksOpt = element.withPrevSiblings
       .dropWhile(_.elementType != ScalaDocTokenType.DOC_COMMENT_LEADING_ASTERISKS)
       .headOption

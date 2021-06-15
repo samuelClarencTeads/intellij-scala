@@ -10,7 +10,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class ScalaSomeSmartCompletionTest extends ScalaCodeInsightTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   def testSomeSmart1(): Unit = doCompletionTest(
     fileText =

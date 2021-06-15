@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package annotator
 
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
-import org.jetbrains.plugins.scala.lang.psi.api._
+import org.jetbrains.plugins.scala.lang.psi.api.*
 
 /**
  * @author Ye Xianjin
@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.psi.api._
  */
 class IntegerLiteralCheckTest extends AnnotatorSimpleTestCase {
 
-  import IntegerLiteralCheckTest._
+  import IntegerLiteralCheckTest.*
 
   private val OverflowIntPattern = BundleMessagePattern(ScalaBundle.message("integer.literal.is.out.of.range"))
   private val OverflowLongPattern = BundleMessagePattern(ScalaBundle.message("long.literal.is.out.of.range"))
@@ -100,10 +100,10 @@ class IntegerLiteralCheckTest extends AnnotatorSimpleTestCase {
 //noinspection TypeAnnotation
 private object IntegerLiteralCheckTest {
 
-  import java.lang.Integer.{MAX_VALUE => IntMaxValue, MIN_VALUE => IntMinValue}
-  import java.lang.Long.{MAX_VALUE => LongMaxValue, MIN_VALUE => LongMinValue}
+  import java.lang.Integer.{MAX_VALUE as IntMaxValue, MIN_VALUE as IntMinValue}
+  import java.lang.Long.{MAX_VALUE as LongMaxValue, MIN_VALUE as LongMinValue}
 
-  import scala.util.Random._
+  import scala.util.Random.*
 
   val PredefinedInts = Set(
     0,

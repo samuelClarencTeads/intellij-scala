@@ -6,12 +6,12 @@ import com.intellij.codeInsight.AnnotationUtil
 import com.intellij.codeInsight.editorActions.ReferenceData
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.search.{GlobalSearchScope, LocalSearchScope}
 import com.intellij.psi.util.{PsiTreeUtil, PsiUtil}
 import com.siyeh.ig.psiutils.{ControlFlowUtils, CountingLoop, ExpressionUtils}
-import org.jetbrains.plugins.scala.conversion.ast.{ModifierType, _}
+import org.jetbrains.plugins.scala.conversion.ast.{ModifierType, *}
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, PsiClassExt, PsiMemberExt, PsiMethodExt}
 import org.jetbrains.plugins.scala.lang.dependency.Path
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.util.UnloadableThreadLocal
 
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.postfixOps
 
 /**
@@ -546,7 +546,7 @@ object JavaToScala {
 
   val fieldParameterMap = mutable.HashMap.empty[String, String]
 
-  import ClassConstruction.ClassType._
+  import ClassConstruction.ClassType.*
 
   def createClass(inClass: PsiClass, externalProperties: ExternalProperties)
                  (implicit associations: mutable.ListBuffer[AssociationHelper] = mutable.ListBuffer(),

@@ -2,7 +2,7 @@ package org.jetbrains.sbt
 package codeInspection
 package typeAnnotation
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG, SELECTION_START_TAG}
 import org.jetbrains.plugins.scala.codeInspection.typeAnnotation.TypeAnnotationInspectionTest
@@ -23,7 +23,7 @@ class SbtAnnotationInspectionTest extends TypeAnnotationInspectionTest with Mock
     super.setUp()
 
     val settings = getScalaSettings
-    import settings._
+    import settings.*
 
     excludeWhenTypeIsStable = TYPE_ANNOTATION_EXCLUDE_WHEN_TYPE_IS_STABLE
     TYPE_ANNOTATION_EXCLUDE_WHEN_TYPE_IS_STABLE = false
@@ -37,7 +37,7 @@ class SbtAnnotationInspectionTest extends TypeAnnotationInspectionTest with Mock
 
   override def tearDown(): Unit = {
     val settings = getScalaSettings
-    import settings._
+    import settings.*
 
     TYPE_ANNOTATION_EXCLUDE_WHEN_TYPE_IS_STABLE = excludeWhenTypeIsStable
     TYPE_ANNOTATION_EXCLUDE_IN_DIALECT_SOURCES = excludeInDialectSources

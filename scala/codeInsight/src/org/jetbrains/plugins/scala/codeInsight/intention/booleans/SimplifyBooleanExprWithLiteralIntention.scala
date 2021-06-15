@@ -7,8 +7,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
 import org.jetbrains.plugins.scala.codeInspection.booleans.SimplifyBooleanUtil
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 import scala.annotation.tailrec
 
@@ -18,7 +18,7 @@ import scala.annotation.tailrec
  */
 final class SimplifyBooleanExprWithLiteralIntention extends PsiElementBaseIntentionAction {
 
-  import SimplifyBooleanExprWithLiteralIntention._
+  import SimplifyBooleanExprWithLiteralIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean = {
     findSimplifiableParent(element).exists { expr =>

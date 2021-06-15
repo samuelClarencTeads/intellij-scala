@@ -6,7 +6,7 @@ import java.util.regex.Pattern
 
 import com.intellij.analysis.AnalysisScope
 import com.intellij.execution.ExecutionException
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.filters.TextConsoleBuilderFactory
 import com.intellij.execution.process.{OSProcessHandler, ProcessAdapter, ProcessEvent}
 import com.intellij.execution.runners.ExecutionEnvironment
@@ -15,13 +15,13 @@ import com.intellij.openapi.module.{Module, ModuleManager}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.ex.PathUtilEx
 import com.intellij.openapi.projectRoots.{JdkUtil, Sdk}
-import com.intellij.openapi.roots._
+import com.intellij.openapi.roots.*
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiManager
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.util.Using
 
@@ -173,7 +173,7 @@ class ScaladocCommandLineState(env: ExecutionEnvironment, project: Project)
 
     val sourcePath = OrderEnumerator.orderEntries(project).withoutLibraries().withoutSdk().getAllSourceRoots
     val documentableFilesList = mutable.ListBuffer.empty[String]
-    val allModules = mutable.HashSet(modules.toSeq: _*)
+    val allModules = mutable.HashSet(modules.toSeq*)
     val modulesNeeded = mutable.HashSet.empty[Module]
 
     def filterModulesList(files: VirtualFile*): Unit = {
@@ -235,7 +235,7 @@ class ScaladocCommandLineState(env: ExecutionEnvironment, project: Project)
       for (c <- children) {
         val documentableFiles = visitAll(c, scope)
         if (needFilter) {
-          filterModulesList(documentableFiles: _*)
+          filterModulesList(documentableFiles*)
         }
 
         for (docFile <- documentableFiles) {

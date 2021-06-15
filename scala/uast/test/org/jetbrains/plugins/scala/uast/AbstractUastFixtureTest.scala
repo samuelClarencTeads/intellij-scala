@@ -5,8 +5,8 @@ import java.io.File
 
 import com.intellij.psi.{PsiElement, PsiFile}
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
-import org.jetbrains.uast._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
+import org.jetbrains.uast.*
 import org.jetbrains.uast.visitor.AbstractUastVisitor
 
 import scala.collection.mutable

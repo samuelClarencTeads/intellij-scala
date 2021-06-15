@@ -3,23 +3,23 @@ package scala.meta.trees
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.{PsiClass, PsiElement, PsiMethod, PsiPackage}
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
 import org.jetbrains.plugins.scala.lang.psi.types.api.StdType
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaTypeVisitor}
-import org.jetbrains.plugins.scala.lang.psi.{impl, api => p, types => ptype}
+import org.jetbrains.plugins.scala.lang.psi.{impl, api as p, types as ptype}
 
 import scala.annotation.tailrec
 import scala.language.postfixOps
 import scala.meta.ScalaMetaBundle
-import scala.meta.trees.error._
-import scala.{meta => m, Seq => _}
+import scala.meta.trees.error.*
+import scala.{meta as m, Seq as _}
 
 trait Namer {
   self: TreeConverter =>
@@ -92,7 +92,7 @@ trait Namer {
     val visitor = new ScalaTypeVisitor {
       override def visitStdType(x: StdType): Unit = {
         val stdTypes = x.projectContext.stdTypes
-        import stdTypes._
+        import stdTypes.*
 
         res = x match {
           case Any    => std.anyTypeName

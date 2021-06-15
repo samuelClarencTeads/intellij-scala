@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package debugger.evaluation
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 import com.intellij.debugger.JavaDebuggerBundle
 import com.intellij.debugger.codeinsight.RuntimeTypeEvaluator
@@ -13,11 +13,11 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiImmediateClassType
 import com.sun.jdi.{ClassType, ReferenceType, Type, Value}
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.debugger.evaluation.ScalaRuntimeTypeEvaluator._
+import org.jetbrains.plugins.scala.debugger.evaluation.ScalaRuntimeTypeEvaluator.*
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 import org.jetbrains.plugins.scala.extensions.{IteratorExt, inReadAction}
 import org.jetbrains.plugins.scala.lang.psi.ElementScope

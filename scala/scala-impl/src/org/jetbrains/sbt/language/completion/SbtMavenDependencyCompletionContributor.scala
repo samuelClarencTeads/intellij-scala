@@ -2,17 +2,17 @@ package org.jetbrains.sbt
 package language
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
 import com.intellij.openapi.project.Project
 import com.intellij.patterns.PlatformPatterns.psiElement
 import com.intellij.patterns.StandardPatterns.{instanceOf, string}
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
-import org.jetbrains.plugins.scala.lang.completion._
+import org.jetbrains.plugins.scala.lang.completion.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScInfixExpr, ScReferenceExpression}
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.sbt.resolvers.SbtResolverUtils
 
 /**
@@ -107,8 +107,8 @@ final class SbtMavenDependencyCompletionContributor extends CompletionContributo
           if rop == place.getContext && oper.textMatches("%") && isValidOp(loper) =>
           val versionSuffix = if (loper.textMatches("%%")) s"_${place.scalaLanguageLevelOrDefault.getVersion}" else ""
           for {
-            ScStringLiteral(group) <- Option(llop)
-            ScStringLiteral(artifact) <- Option(lrop)
+            case ScStringLiteral(group) <- Option(llop)
+            case ScStringLiteral(artifact) <- Option(lrop)
           } yield completeVersion(group, artifact + versionSuffix)
         case _ => // do nothing
       }

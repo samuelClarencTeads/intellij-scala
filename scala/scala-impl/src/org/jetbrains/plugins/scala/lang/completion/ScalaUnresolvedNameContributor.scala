@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.daemon.impl.{DaemonCodeAnalyzerEx, HighlightInfo}
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementWeigher}
 import com.intellij.lang.annotation.HighlightSeverity
@@ -11,19 +11,19 @@ import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile, PsiReference}
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScFieldId, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDeclaration, ScTypeAliasDeclaration}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTypeDefinition}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
-import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets._
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets.*
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 /** Contributor adds unresolved names in current scope to completion list.
   * Unresolved reference name adds to completion list, according to [[ScReference.getKinds()]]
@@ -41,7 +41,7 @@ import org.jetbrains.plugins.scala.util.HashBuilder._
   */
 class ScalaUnresolvedNameContributor extends ScalaCompletionContributor {
 
-  import ScalaUnresolvedNameContributor._
+  import ScalaUnresolvedNameContributor.*
 
   extend(
     CompletionType.BASIC,
@@ -173,7 +173,7 @@ sealed abstract class ScalaTextLookupItem(protected val reference: ScReference)
   protected val arguments: String = maybeArguments.fold("")(createParameters)
 
   private[this] def createParameters(arguments: Iterable[ScExpression]) = {
-    import NameSuggester._
+    import NameSuggester.*
     val suggester = new UniqueNameSuggester()
 
     def createParameter: ScExpression => (String, ScType) = {
@@ -233,7 +233,7 @@ object ScalaTextLookupItem {
 
   object Weigher extends LookupElementWeigher("unresolvedOnTop") {
 
-    override def weigh(item: LookupElement): Comparable[_] = item match {
+    override def weigh(item: LookupElement): Comparable[?] = item match {
       case lookupItem: ScalaTextLookupItem => lookupItem
       case _ => null
     }

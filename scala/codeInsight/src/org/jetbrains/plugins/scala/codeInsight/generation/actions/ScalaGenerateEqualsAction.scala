@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTem
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createMethodWithContext
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.lang.psi.types.{PhysicalMethodSignature, ScType, TermSignature}
-import org.jetbrains.plugins.scala.overrideImplement.ScalaOIUtil._
+import org.jetbrains.plugins.scala.overrideImplement.ScalaOIUtil.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 /**

@@ -14,11 +14,11 @@ import org.jetbrains.plugins.scala.extensions.LoggerExt
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.SbtCompilationSupervisor
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.CompilerIndicesSettings
 import org.jetbrains.sbt.SbtBundle
-import org.jetbrains.sbt.SbtUtil._
+import org.jetbrains.sbt.SbtUtil.*
 import org.jetbrains.sbt.project.SbtProjectResolver.ImportCancelledException
-import org.jetbrains.sbt.project.structure.SbtStructureDump._
+import org.jetbrains.sbt.project.structure.SbtStructureDump.*
 import org.jetbrains.sbt.shell.SbtShellCommunication
-import org.jetbrains.sbt.shell.SbtShellCommunication._
+import org.jetbrains.sbt.shell.SbtShellCommunication.*
 
 import java.io.{BufferedWriter, File, OutputStreamWriter, PrintWriter}
 import java.nio.charset.Charset
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeoutException
 import java.util.concurrent.atomic.AtomicBoolean
 import scala.concurrent.Future
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.{Failure, Success, Try, Using}
 
 class SbtStructureDump {

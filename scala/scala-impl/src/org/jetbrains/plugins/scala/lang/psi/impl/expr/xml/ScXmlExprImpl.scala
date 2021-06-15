@@ -7,10 +7,10 @@ package xml
 
 import _root_.org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaType}
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.types.api.{Any, Nothing}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
 * @author Alexander Podkhalyuzin

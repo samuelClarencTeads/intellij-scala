@@ -10,8 +10,8 @@ package typedef
  */
 
 import com.intellij.lang.ASTNode
-import com.intellij.navigation._
-import com.intellij.psi._
+import com.intellij.navigation.*
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiFileImpl
 import com.intellij.psi.javadoc.PsiDocComment
 import com.intellij.psi.stubs.StubElement
@@ -19,9 +19,9 @@ import com.intellij.psi.util.PsiTreeUtil
 import javax.swing.Icon
 import org.jetbrains.plugins.scala.JavaArrayFactoryUtil.ScTypeDefinitionFactory
 import org.jetbrains.plugins.scala.caches.{BlockModificationTracker, ModTracker}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.TokenSets.TYPE_DEFINITIONS
-import org.jetbrains.plugins.scala.lang.lexer._
+import org.jetbrains.plugins.scala.lang.lexer.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.stubOrPsiNextSibling
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScModifierList
@@ -30,16 +30,16 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScExtendsBlock, ScTemplateBody, ScTemplateParents}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createObjectWithContext
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.JavaIdentifier
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScTemplateDefinitionStub
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScTemplateDefinitionElementType
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypeParameterType
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScProjectionType, ScThisType}
 import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.AccessModifierRenderer
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.macroAnnotations.{Cached, CachedInUserData, CachedWithRecursionGuard}
 import org.jetbrains.plugins.scala.projectView.FileKind
@@ -130,9 +130,9 @@ abstract class ScTypeDefinitionImpl[T <: ScTemplateDefinition](stub: ScTemplateD
         if (name == c.name && hasSameScalaKind(c)) return c
       }
     } else {
-      val parentSourceMirror = classParent.asInstanceOf[ScTypeDefinitionImpl[_]].getSourceMirrorClass
+      val parentSourceMirror = classParent.asInstanceOf[ScTypeDefinitionImpl[?]].getSourceMirrorClass
       parentSourceMirror match {
-        case td: ScTypeDefinitionImpl[_] => for (i <- td.typeDefinitions if name == i.name && hasSameScalaKind(i))
+        case td: ScTypeDefinitionImpl[?] => for (i <- td.typeDefinitions if name == i.name && hasSameScalaKind(i))
           return i
         case _ => this
       }
@@ -181,7 +181,7 @@ abstract class ScTypeDefinitionImpl[T <: ScTemplateDefinition](stub: ScTemplateD
       case _                                                                             => false
     }
 
-    def findByStub(contextStub: StubElement[_]): Option[ScTypeDefinition] = {
+    def findByStub(contextStub: StubElement[?]): Option[ScTypeDefinition] = {
       val siblings  = contextStub.getChildrenByType(TYPE_DEFINITIONS, ScTypeDefinitionFactory)
       siblings.find(isCompanion)
     }
@@ -215,7 +215,7 @@ abstract class ScTypeDefinitionImpl[T <: ScTemplateDefinition](stub: ScTemplateD
     }
 
     val contextStub = getContext match {
-      case stub: ScalaStubBasedElementImpl[_, _] => stub.getStub
+      case stub: ScalaStubBasedElementImpl[?, ?] => stub.getStub
       case file: PsiFileImpl => file.getStub
       case _ => null
     }
@@ -262,7 +262,7 @@ abstract class ScTypeDefinitionImpl[T <: ScTemplateDefinition](stub: ScTemplateD
   }
 
 
-  import ScTypeDefinitionImpl._
+  import ScTypeDefinitionImpl.*
 
   @Cached(ModTracker.anyScalaPsiChange, this)
   override final def getQualifiedName: String = {
@@ -402,7 +402,7 @@ abstract class ScTypeDefinitionImpl[T <: ScTemplateDefinition](stub: ScTemplateD
         .setOriginal(actualElement = this)
     }
 
-    import scala.meta.intellij.psi._
+    import scala.meta.intellij.psi.*
     import scala.meta.{Defn, Term}
 
     val defn = this.metaExpand match {

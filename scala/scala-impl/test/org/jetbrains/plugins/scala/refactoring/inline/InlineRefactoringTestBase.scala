@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.extensions.executeWriteActionCommand
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.refactoring.inline.ScalaInlineHandler
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * User: Alexander Podkhalyuzin

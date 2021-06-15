@@ -6,7 +6,7 @@ import com.intellij.openapi.roots.ModuleRootModificationUtil
 import com.intellij.psi.PsiManager
 import com.intellij.testFramework.PsiTestUtil
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.ScalaDirtyScopeHolder.ScopedModule
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class DirtyScopeHolderTest extends ScalaCompilerReferenceServiceFixture {
   private[this] var moduleA: Module = _

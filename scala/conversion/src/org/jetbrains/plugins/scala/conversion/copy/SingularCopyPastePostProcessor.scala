@@ -3,7 +3,7 @@ package conversion
 package copy
 
 import java.awt.datatransfer.{DataFlavor, Transferable}
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.editorActions.{CopyPastePostProcessor, TextBlockTransferableData}
 import com.intellij.openapi.editor.{Editor, RangeMarker}
@@ -22,7 +22,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 abstract class SingularCopyPastePostProcessor[T <: TextBlockTransferableData](dataFlavor: DataFlavor)
   extends CopyPastePostProcessor[T] {
 
-  import ju.Collections._
+  import ju.Collections.*
 
   override final def collectTransferableData(file: PsiFile, editor: Editor,
                                              startOffsets: Array[Int], endOffsets: Array[Int]): ju.List[T] =
@@ -42,11 +42,11 @@ abstract class SingularCopyPastePostProcessor[T <: TextBlockTransferableData](da
       case _ => None
     }
 
-  import java.lang.{Boolean => JBoolean}
+  import java.lang.{Boolean as JBoolean}
 
   override final def processTransferableData(project: Project, editor: Editor,
                                              bounds: RangeMarker, caretOffset: Int,
-                                             ref: Ref[_ >: JBoolean], values: ju.List[_ <: T]): Unit =
+                                             ref: Ref[? >: JBoolean], values: ju.List[? <: T]): Unit =
     PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument) match {
       case scalaFile: ScalaFile =>
         Option(scalaFile.findElementAt(caretOffset)) match {
@@ -60,7 +60,7 @@ abstract class SingularCopyPastePostProcessor[T <: TextBlockTransferableData](da
     }
 
   def processTransferableData(bounds: RangeMarker, caretOffset: Int,
-                              ref: Ref[_ >: JBoolean], value: T)
+                              ref: Ref[? >: JBoolean], value: T)
                              (implicit project: Project,
                               editor: Editor,
                               file: ScalaFile): Unit

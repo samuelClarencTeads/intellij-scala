@@ -139,7 +139,7 @@ object ImplicitConversionData {
   }
 
   @CachedInUserData(named, ModTracker.libraryAware(named))
-  private def rawElementWithFunctionTypeCheck(named: PsiNamedElement with Typeable): Option[ImplicitConversionData] = {
+  private def rawElementWithFunctionTypeCheck(named: PsiNamedElement & Typeable): Option[ImplicitConversionData] = {
     for {
       function1Type <- named.elementScope.cachedFunction1Type
       elementType   <- named.`type`().toOption
@@ -154,7 +154,7 @@ object ImplicitConversionData {
     rawCheck(function).map(_.withSubstitutor(substitutor))
   }
 
-  private def fromElementWithFunctionType(named: PsiNamedElement with Typeable,
+  private def fromElementWithFunctionType(named: PsiNamedElement & Typeable,
                                           substitutor: ScSubstitutor): Option[ImplicitConversionData] = {
     rawElementWithFunctionTypeCheck(named).map(_.withSubstitutor(substitutor))
   }
@@ -179,7 +179,7 @@ object ImplicitConversionData {
       new RegularImplicitConversionData(element, rawParamType, rawReturnType, substitutor)
   }
 
-  private class ElementWithFunctionTypeData(override val element: PsiNamedElement with Typeable,
+  private class ElementWithFunctionTypeData(override val element: PsiNamedElement & Typeable,
                                             rawElementType: ScType,
                                             override val substitutor: ScSubstitutor = ScSubstitutor.empty)
     extends ImplicitConversionData {
@@ -193,7 +193,7 @@ object ImplicitConversionData {
       for {
         functionType <- element.elementScope.cachedFunction1Type
         elementType <- element.`type`().toOption.map(substitutor.followed(undefiningSubst))
-        (paramType, retType) <- extractFunctionTypeParameters(elementType, functionType)
+        case (paramType, retType) <- extractFunctionTypeParameters(elementType, functionType)
       } yield (paramType, retType)
     }
 

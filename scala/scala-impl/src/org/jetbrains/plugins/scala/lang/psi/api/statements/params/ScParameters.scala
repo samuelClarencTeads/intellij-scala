@@ -5,7 +5,7 @@ package api
 package statements
 package params
 
-import com.intellij.psi._
+import com.intellij.psi.*
 
 /**
 * @author Alexander Podkhalyuzin

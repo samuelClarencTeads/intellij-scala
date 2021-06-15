@@ -4,31 +4,31 @@ package formatting
 
 import java.util
 
-import com.intellij.formatting._
+import com.intellij.formatting.*
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.{Key, TextRange}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.{CodeStyleSettings, CommonCodeStyleSettings}
-import com.intellij.psi.tree._
+import com.intellij.psi.tree.*
 import com.intellij.psi.util.PsiTreeUtil
 import org.apache.commons.lang3.StringUtils
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
-import org.jetbrains.plugins.scala.lang.formatting.ScalaWrapManager._
-import org.jetbrains.plugins.scala.lang.formatting.getDummyBlocks._
-import org.jetbrains.plugins.scala.lang.formatting.processors._
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
+import org.jetbrains.plugins.scala.lang.formatting.ScalaWrapManager.*
+import org.jetbrains.plugins.scala.lang.formatting.getDummyBlocks.*
+import org.jetbrains.plugins.scala.lang.formatting.processors.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
 import org.jetbrains.plugins.scala.lang.parser.{ScCodeBlockElementType, ScalaElementType}
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolatedStringLiteral, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScModifierListOwner, ScPackaging}
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes
@@ -339,7 +339,7 @@ class getDummyBlocks(private val block: ScalaBlock) {
 
 
   private def addScalaDocTagSubBlocks(docTag: ScDocTag, subBlocks: util.ArrayList[Block]): Unit = {
-    import ScalaDocTokenType._
+    import ScalaDocTokenType.*
 
     val children = docTag.getNode.getFirstChildNode.withTreeNextNodes.toList
     val (childrenLeading, childrenFromNameElement) =
@@ -831,8 +831,8 @@ class getDummyBlocks(private val block: ScalaBlock) {
   private def isComment(node: ASTNode) = COMMENTS_TOKEN_SET.contains(node.getElementType)
 
   private def createAlignment(node: ASTNode): Alignment = {
-    import commonSettings._
-    import Alignment.{createAlignment => create}
+    import commonSettings.*
+    import Alignment.{createAlignment as create}
     node.getPsi match {
       case _: ScXmlStartTag                                                          => create //todo:
       case _: ScXmlEmptyTag                                                          => create //todo:
@@ -949,7 +949,7 @@ class getDummyBlocks(private val block: ScalaBlock) {
         .getOrElse(Alignment.createAlignment(true))
 
     children.view.filter(isNotEmptyDocNode).foreach { child =>
-      import ScalaDocTokenType._
+      import ScalaDocTokenType.*
 
       val childType = child.getElementType
 
@@ -1009,7 +1009,7 @@ class getDummyBlocks(private val block: ScalaBlock) {
   private def getTemplateParentsBlocks(node: ASTNode): util.ArrayList[Block] = {
     val subBlocks = new util.ArrayList[Block]
 
-    import ScalaCodeStyleSettings._
+    import ScalaCodeStyleSettings.*
     val alignSetting = ss.ALIGN_EXTENDS_WITH
     val alignment =
       if (alignSetting == ALIGN_TO_EXTENDS) block.getAlignment

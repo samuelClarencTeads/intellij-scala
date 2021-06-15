@@ -9,7 +9,7 @@ import com.intellij.codeInsight.template.postfix.templates.{PostfixTemplateWithE
 import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.lang.completion.postfix.templates.selector.AncestorSelector.SelectAllAncestors
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 /**
  * @author Roman.Shein

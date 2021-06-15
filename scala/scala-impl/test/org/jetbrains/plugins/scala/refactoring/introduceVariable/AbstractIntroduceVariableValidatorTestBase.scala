@@ -12,8 +12,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil.{getExpression, getTypeElement}
-import org.jetbrains.plugins.scala.lang.refactoring.util._
-import org.jetbrains.plugins.scala.util.TestUtils._
+import org.jetbrains.plugins.scala.lang.refactoring.util.*
+import org.jetbrains.plugins.scala.util.TestUtils.*
 
 abstract class AbstractIntroduceVariableValidatorTestBase(kind: String)
   extends ActionTestBase("/introduceVariable/validator/" + kind) {
@@ -21,7 +21,7 @@ abstract class AbstractIntroduceVariableValidatorTestBase(kind: String)
   protected var fileEditorManager: FileEditorManager = _
   protected var myFile: PsiFile = _
 
-  import AbstractIntroduceVariableValidatorTestBase._
+  import AbstractIntroduceVariableValidatorTestBase.*
 
   protected def removeAllMarker(text: String): String = {
     val index = text.indexOf(ALL_MARKER)
@@ -87,7 +87,7 @@ object AbstractIntroduceVariableValidatorTestBase {
     }
   }
 
-  import ScalaRefactoringUtil._
+  import ScalaRefactoringUtil.*
 
   private[this] def getContainerOne(file: PsiFile, length: Int)
                                    (implicit selectionModel: SelectionModel): PsiElement = {
@@ -117,7 +117,7 @@ object AbstractIntroduceVariableValidatorTestBase {
     val occurrences = getTypeElementOccurrences(typeElement, fileEncloser(file).orNull)
     val containerOne = getContainerOne(file, occurrences.length)
 
-    val parent = findCommonParent(occurrences: _*)
+    val parent = findCommonParent(occurrences*)
     new ScalaTypeValidator(typeElement, occurrences.isEmpty, enclosingContainer(parent), containerOne)
   }
 

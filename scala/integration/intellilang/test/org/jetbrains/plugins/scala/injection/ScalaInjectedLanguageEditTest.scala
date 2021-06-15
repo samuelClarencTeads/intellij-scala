@@ -5,8 +5,8 @@ import org.jetbrains.plugins.scala.base.EditorActionTestBase
 
 class ScalaInjectedLanguageEditTest extends EditorActionTestBase {
 
-  import EditorTestUtil.{CARET_TAG => Caret}
-  import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotes => Quotes}
+  import EditorTestUtil.{CARET_TAG as Caret}
+  import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotes as Quotes}
 
   def testInsertMarginCharOnEnterInsideInjectedFileInMultilineString(): Unit = {
     val before =

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.openapi.actionSystem.{ActionManager, IdeActions}
 import com.intellij.openapi.keymap.KeymapUtil.getFirstKeyboardShortcutText
 import com.intellij.patterns.PlatformPatterns.psiElement
@@ -16,8 +16,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScReferenceE
  */
 final class ScalaGlobalMembersCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaGlobalMembersCompletionContributor._
-  import global._
+  import ScalaGlobalMembersCompletionContributor.*
+  import global.*
 
   extend(
     CompletionType.BASIC,

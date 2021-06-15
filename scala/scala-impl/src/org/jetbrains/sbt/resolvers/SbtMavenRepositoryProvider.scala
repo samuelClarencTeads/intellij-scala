@@ -1,13 +1,13 @@
 package org.jetbrains.sbt
 package resolvers
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.project.Project
 import org.jetbrains.idea.maven.indices.{MavenIndex, MavenRepositoryProvider}
 import org.jetbrains.idea.maven.model.MavenRemoteRepository
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class SbtMavenRepositoryProvider extends MavenRepositoryProvider {
 

@@ -220,7 +220,7 @@ class DependencyTest extends base.SimpleTestCase {
         def foo() {}
       }
       object B extends A
-      import B._
+      import B.*
       foo()
     }""", "O.A", "O.B", "O.B.foo")
   }

@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package lang
 package typeInference
 
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.base.libraryLoaders.{IvyManagedLoader, LibraryLoader}
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 
 class PartialUnificationCatsHighlightingTest_2_12 extends ScalaLightCodeInsightFixtureTestAdapter {

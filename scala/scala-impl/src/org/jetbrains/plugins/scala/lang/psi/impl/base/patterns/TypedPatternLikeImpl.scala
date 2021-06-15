@@ -9,7 +9,7 @@ trait TypedPatternLikeImpl extends ScPattern { this: Typeable =>
   final override def isIrrefutableFor(t: Option[ScType]): Boolean = {
     for {
       ty <- t
-      Right(tp) <- Some(`type`())
+      case Right(tp) <- Some(`type`())
     } yield {
       ty conforms tp
     }

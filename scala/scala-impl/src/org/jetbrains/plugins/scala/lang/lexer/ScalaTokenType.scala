@@ -16,7 +16,7 @@ class ScalaTokenType(debugName: String) extends IElementType(debugName, ScalaLan
 //noinspection TypeAnnotation
 object ScalaTokenType {
 
-  import ScalaModifier._
+  import ScalaModifier.*
 
   val ClassKeyword     = new ScalaTokenType("class")
   val TraitKeyword     = new ScalaTokenType("trait")

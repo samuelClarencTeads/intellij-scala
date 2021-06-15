@@ -1,26 +1,26 @@
 package scala.meta.trees
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.PsiMethodExt
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition, ScTypeAliasDeclaration}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 import org.jetbrains.plugins.scala.lang.psi.impl.base.types.ScInfixTypeElementImpl
 import org.jetbrains.plugins.scala.lang.psi.types.AliasType
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypeParameterType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
-import org.jetbrains.plugins.scala.lang.psi.{api => p, types => ptype}
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
+import org.jetbrains.plugins.scala.lang.psi.{api as p, types as ptype}
 
 import scala.collection.immutable.Seq
 import scala.language.postfixOps
 import scala.meta.ScalaMetaBundle
-import scala.meta.collections._
-import scala.meta.trees.error._
-import scala.{meta => m, Seq => _}
+import scala.meta.collections.*
+import scala.meta.trees.error.*
+import scala.{meta as m, Seq as _}
 
 trait TypeAdapter {
   self: TreeConverter =>
@@ -95,7 +95,7 @@ trait TypeAdapter {
   }
 
   def toType(tr: TypeResult): m.Type = {
-    import org.jetbrains.plugins.scala.lang.psi.types.result._
+    import org.jetbrains.plugins.scala.lang.psi.types.result.*
     tr match {
       case Right(res) => toType(res)
       case Failure(cause) => throw new ScalaMetaTypeResultFailure(cause.nls)
@@ -261,7 +261,7 @@ trait TypeAdapter {
   }
 
   def returnType(tr: ptype.result.TypeResult): m.Type = {
-    import ptype.result._
+    import ptype.result.*
     tr match {
       case Right(t) => toType(t)
       case Failure(cause) =>

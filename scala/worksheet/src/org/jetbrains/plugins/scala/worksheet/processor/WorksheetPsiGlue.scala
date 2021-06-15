@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala.worksheet.processor
 
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.{PsiComment, PsiElement, PsiWhiteSpace}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.worksheet.ui.printers.repl.QueuedPsi
-import org.jetbrains.plugins.scala.worksheet.ui.printers.repl.QueuedPsi._
+import org.jetbrains.plugins.scala.worksheet.ui.printers.repl.QueuedPsi.*
 
 import scala.collection.{immutable, mutable}
 

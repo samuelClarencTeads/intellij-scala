@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScMethodCall
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.ParameterizedType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.nowarn
@@ -21,13 +21,13 @@ import scala.annotation.nowarn
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 final class NestedStatefulMonadsInspection extends AbstractInspection(NestedStatefulMonadsInspection.Description) {
 
-  import NestedStatefulMonadsInspection._
+  import NestedStatefulMonadsInspection.*
 
   override def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Unit] = {
     case call: ScMethodCall =>
       import call.projectContext
       for {
-        Typeable(genericType@ParameterizedType(_, arguments)) <- Some(call)
+        case Typeable(genericType@ParameterizedType(_, arguments)) <- Some(call)
         if isStatefulMonadType(genericType) && arguments.exists(isStatefulMonadType)
       } holder.registerProblem(call, Description)
   }

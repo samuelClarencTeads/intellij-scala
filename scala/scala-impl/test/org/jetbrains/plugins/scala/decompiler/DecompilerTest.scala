@@ -4,7 +4,7 @@ import junit.framework.TestCase
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.junit.Assert
 
-import java.io.{File => jFile}
+import java.io.{File as jFile}
 import scala.io.Codec
 import scala.tools.nsc.io.File
 

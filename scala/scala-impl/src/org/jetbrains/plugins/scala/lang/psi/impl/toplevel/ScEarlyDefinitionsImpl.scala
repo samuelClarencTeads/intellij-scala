@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.TokenSets.MEMBERS
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.EARLY_DEFINITIONS
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.stubOrPsiPrevSibling
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScPatternDefinition, ScVariableDefinition}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScEarlyDefinitionsStub
 

@@ -7,7 +7,7 @@ import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.PsiManager
 import com.intellij.testFramework.HeavyPlatformTestCase
 import org.jetbrains.plugins.scala.util.TestUtils.getTestDataPath
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * @author Nikolay Obedin

@@ -11,8 +11,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.serviceContainer.AlreadyDisposedException
 import com.intellij.util.ui.EDT
 
-import java.util.{List => JList}
-import java.util.{ArrayList => JArrayList}
+import java.util.{List as JList}
+import java.util.{ArrayList as JArrayList}
 import org.jetbrains.plugins.scala.ScalaBundle
 
 /**

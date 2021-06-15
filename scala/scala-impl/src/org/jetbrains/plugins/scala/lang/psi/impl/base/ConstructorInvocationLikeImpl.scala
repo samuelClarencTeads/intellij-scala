@@ -7,7 +7,7 @@ package base
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ConstructorInvocationLike, JavaConstructor, ScalaConstructor}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScAssignment, ScExpression, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
@@ -28,9 +28,9 @@ trait ConstructorInvocationLikeImpl extends ConstructorInvocationLike {
       case _                        => Seq.empty
     }
     (for {
-      (paramClause, argList) <- paramClauses.zip(arguments)
+      case (paramClause, argList) <- paramClauses.zip(arguments)
     } yield {
-      for ((arg, idx) <- argList.exprs.zipWithIndex) yield
+      for (case (arg, idx) <- argList.exprs.zipWithIndex) yield
         arg match {
           case ScAssignment(refToParam: ScReferenceExpression, Some(expr)) =>
             val param = paramClause.find(_.name == refToParam.refName)

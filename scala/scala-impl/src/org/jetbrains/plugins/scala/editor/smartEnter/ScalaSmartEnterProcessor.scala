@@ -4,7 +4,7 @@ package editor.smartEnter
 import java.lang.Long
 
 import com.intellij.codeInsight.CodeInsightUtil
-import com.intellij.codeInsight.editorActions.smartEnter._
+import com.intellij.codeInsight.editorActions.smartEnter.*
 import com.intellij.codeInsight.lookup.LookupManager
 import com.intellij.featureStatistics.FeatureUsageTracker
 import com.intellij.openapi.actionSystem.IdeActions
@@ -14,11 +14,11 @@ import com.intellij.openapi.editor.actionSystem.{EditorActionHandler, EditorActi
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.IncorrectOperationException
-import org.jetbrains.plugins.scala.editor.smartEnter.fixers._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.editor.smartEnter.fixers.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 
 /**

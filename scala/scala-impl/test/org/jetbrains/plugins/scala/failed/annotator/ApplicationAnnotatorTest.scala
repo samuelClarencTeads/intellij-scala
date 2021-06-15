@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.failed
 package annotator
 
-import org.jetbrains.plugins.scala.annotator._
+import org.jetbrains.plugins.scala.annotator.*
 
 /**
   * Created by kate on 3/24/16.

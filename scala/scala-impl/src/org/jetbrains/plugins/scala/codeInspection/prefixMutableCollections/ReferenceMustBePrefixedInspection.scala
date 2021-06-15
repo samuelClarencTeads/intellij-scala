@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala.codeInspection.prefixMutableCollections
 
 import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.caches.ScalaShortNamesCacheManager
 import org.jetbrains.plugins.scala.codeInspection.{AbstractFixOnPsiElement, AbstractInspection, ScalaInspectionBundle}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference.qualifier
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScReference, ScStableCodeReference}
@@ -26,7 +26,7 @@ import scala.annotation.nowarn
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 class ReferenceMustBePrefixedInspection extends AbstractInspection(ScalaInspectionBundle.message("reference.must.be.prefixed")) {
 
-  import ReferenceMustBePrefixedInspection._
+  import ReferenceMustBePrefixedInspection.*
 
   override def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Unit] = {
     case reference: ScReference if reference.qualifier.isEmpty && !reference.getParent.isInstanceOf[ScImportSelector] =>
@@ -62,7 +62,7 @@ object ReferenceMustBePrefixedInspection {
   private class AddPrefixQuickFix(reference: ScReference, segments: Seq[String])
     extends AbstractFixOnPsiElement(ScalaInspectionBundle.message("add.prefix.to.reference"), reference) {
 
-    import AddPrefixQuickFix._
+    import AddPrefixQuickFix.*
 
     override protected def doApplyFix(reference: ScReference)
                                      (implicit project: Project): Unit = {

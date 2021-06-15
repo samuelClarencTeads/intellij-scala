@@ -3,7 +3,7 @@ package org.jetbrains.sbt
 import junit.framework.TestCase
 
 class JvmMemorySizeTest extends TestCase {
-  import org.junit.Assert._
+  import org.junit.Assert.*
 
   def testFactories(): Unit = {
     def testFactory(factory: JvmMemorySize.Factory, size: Long): Unit = {
@@ -12,7 +12,7 @@ class JvmMemorySizeTest extends TestCase {
       assertEquals(size * 2L, memorySize.sizeInBytes)
     }
 
-    import JvmMemorySize._
+    import JvmMemorySize.*
     testFactory(Bytes, 1L)
     testFactory(Kilobytes, 1024L)
     testFactory(Megabytes, 1024L * 1024L)
@@ -30,7 +30,7 @@ class JvmMemorySizeTest extends TestCase {
         ???
     }
 
-    import JvmMemorySize._
+    import JvmMemorySize.*
     assertMemorySizeString("10", Bytes(10))
     assertMemorySizeString("1000", Bytes(1000))
 
@@ -63,7 +63,7 @@ class JvmMemorySizeTest extends TestCase {
   }
 
   def testEquals(): Unit = {
-    import JvmMemorySize._
+    import JvmMemorySize.*
 
     assertEquals(Kilobytes(1), Bytes(1024))
     assertNotEquals(Kilobytes(2), Bytes(2025))
@@ -73,7 +73,7 @@ class JvmMemorySizeTest extends TestCase {
   }
 
   def testComparable(): Unit = {
-    import JvmMemorySize._
+    import JvmMemorySize.*
 
     assert(Kilobytes(1) < Bytes(1025))
     assert(Kilobytes(1) > Bytes(1023))

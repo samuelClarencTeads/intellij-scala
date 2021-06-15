@@ -21,7 +21,7 @@ trait SbtTestEventHandler {
 class ReportingSbtTestEventHandler(messageConsumer: TeamCityTestStatusReporter)
   extends SbtTestEventHandler {
 
-  import ReportingSbtTestEventHandler._
+  import ReportingSbtTestEventHandler.*
 
   private var currentId = 0
   private var idStack = List[Int](0)
@@ -32,7 +32,7 @@ class ReportingSbtTestEventHandler(messageConsumer: TeamCityTestStatusReporter)
     case TaskComplete =>
     case ErrorWaitForInput => throw new Exception("error running sbt")
     case SbtShellCommunication.Output(output) =>
-      import TestRunnerUtil._
+      import TestRunnerUtil.*
       val infoIdx = output.indexOf(sbtInfo)
       if (infoIdx == -1) return
       val info = output.substring(infoIdx).trim
@@ -124,7 +124,7 @@ object ReportingSbtTestEventHandler {
     suiteFinishedRegex, scopeOpenedRegex, scopeClosedRegex, testPendingRegex, testIgnoredRegex)
 
   val consoleViewContentType: ConsoleViewContentType = ConsoleViewContentType.NORMAL_OUTPUT
-  val processOutputType: Key[_] = ProcessOutputTypes.STDOUT
+  val processOutputType: Key[?] = ProcessOutputTypes.STDOUT
 
   def getDuration(duration: String): Long = {
     val durationMatcher = timePattern.matcher(duration)
@@ -142,6 +142,6 @@ object ReportingSbtTestEventHandler {
     /**
      * @param message test status reprot message in TeamCity format
      */
-    def report(message: String, key: Key[_]): Unit
+    def report(message: String, key: Key[?]): Unit
   }
 }

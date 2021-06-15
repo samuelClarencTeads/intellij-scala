@@ -260,15 +260,15 @@ class OverrideHighlightingTest extends ScalaHighlightingTestBase {
          |class C4(@BeanProperty var value: Int) extends GetterWithSetter
          |""".stripMargin
     assertErrors(code, Seq(
-      Error("value", "Overriding type Int does not conform to base type String"),
-      Error("B3", "Class 'B3' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
-      Error("C3", "Class 'C3' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
-      Error("value", "Overriding type Int does not conform to base type String"),
-      //
-      Error("value", "Overriding type Int does not conform to base type String"),
-      Error("B4", "Class 'B4' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
-      Error("C4", "Class 'C4' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
-      Error("value", "Overriding type Int does not conform to base type String"),
-    ): _*)
+          Error("value", "Overriding type Int does not conform to base type String"),
+          Error("B3", "Class 'B3' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
+          Error("C3", "Class 'C3' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
+          Error("value", "Overriding type Int does not conform to base type String"),
+          //
+          Error("value", "Overriding type Int does not conform to base type String"),
+          Error("B4", "Class 'B4' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
+          Error("C4", "Class 'C4' must either be declared abstract or implement abstract member 'setValue(foo: String): Unit' in 'Setter'"),
+          Error("value", "Overriding type Int does not conform to base type String"),
+        )*)
   }
 }

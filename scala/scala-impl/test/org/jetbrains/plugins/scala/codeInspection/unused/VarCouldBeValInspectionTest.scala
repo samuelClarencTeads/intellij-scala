@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.codeInspection.varCouldBeValInspection.VarCou
   */
 class VarCouldBeValInspectionTest extends ScalaQuickFixTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[VarCouldBeValInspection]
 
   override protected val description: String = ScalaInspectionBundle.message("var.could.be.a.val")

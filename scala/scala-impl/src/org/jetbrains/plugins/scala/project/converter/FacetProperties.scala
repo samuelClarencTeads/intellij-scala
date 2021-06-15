@@ -5,7 +5,7 @@ import org.jdom.{Attribute, Element}
 import org.jdom.xpath.XPath
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin

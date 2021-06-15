@@ -4,7 +4,7 @@ package annotator.modifiers
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier
 import org.jetbrains.plugins.scala.util.TestUtils
 
-import extensions._
+import extensions.*
 import java.nio.file.{Files, Paths}
 import java.util.concurrent.Executors
 import scala.concurrent.duration.Duration
@@ -35,12 +35,12 @@ object GeneratedModifierTestGenerator {
   ) ++ outers.filter(canHaveModifiers).map(_.replace(content, ""))
 
   private val scala2Modifiers = {
-    import ScalaModifier._
+    import ScalaModifier.*
     Seq(Private, Protected, Final, Abstract, Override, Implicit, Sealed, Lazy, Case).map(_.text())
   }
 
   private val scala3Modifiers = {
-    import ScalaModifier._
+    import ScalaModifier.*
     Seq(Inline, Transparent, Open, Opaque, Infix).map(_.text())
   }
 

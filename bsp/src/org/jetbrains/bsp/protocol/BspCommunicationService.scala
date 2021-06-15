@@ -2,7 +2,7 @@ package org.jetbrains.bsp.protocol
 
 import java.io.File
 import java.net.URI
-import java.nio.file._
+import java.nio.file.*
 import java.util.concurrent.TimeUnit
 
 import com.intellij.openapi.Disposable
@@ -17,7 +17,7 @@ import org.jetbrains.bsp.settings.BspExecutionSettings
 import org.jetbrains.plugins.scala.util.{ScalaShutDownTracker, UnloadAwareDisposable}
 
 import scala.collection.mutable
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Success, Try}
 

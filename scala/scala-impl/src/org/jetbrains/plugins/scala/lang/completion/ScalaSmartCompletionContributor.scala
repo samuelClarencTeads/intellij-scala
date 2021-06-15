@@ -3,35 +3,35 @@ package lang
 package completion
 
 import com.intellij.codeInsight.CodeInsightUtilCore
-import com.intellij.codeInsight.completion._
-import com.intellij.codeInsight.lookup._
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
+import com.intellij.codeInsight.template.*
 import com.intellij.codeInsight.template.impl.ConstantNode
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.patterns.ElementPattern
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.completion.lookups.{ScalaChainLookupElement, ScalaKeywordLookupItem, ScalaLookupItem}
-import org.jetbrains.plugins.scala.lang.psi._
+import org.jetbrains.plugins.scala.lang.psi.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScCaseClause, ScTypedPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScSimpleTypeElement, ScTypeElement}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaPsiElement, ScalaRecursiveElementVisitor}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScProjectionType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 import org.jetbrains.plugins.scala.lang.resolve.processor.CompletionProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveUtils, ScalaResolveResult, StdKinds}
@@ -39,7 +39,7 @@ import org.jetbrains.plugins.scala.lang.resolve.{ResolveUtils, ScalaResolveResul
 import scala.annotation.tailrec
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * User: Alexander Podkhalyuzin
@@ -47,7 +47,7 @@ import scala.jdk.CollectionConverters._
   */
 final class ScalaSmartCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaSmartCompletionContributor._
+  import ScalaSmartCompletionContributor.*
 
   /*
     ref = expr
@@ -283,11 +283,11 @@ final class ScalaSmartCompletionContributor extends ScalaCompletionContributor {
   private def extend[T <: ScalaPsiElement](clazz: Class[T]): Unit =
     extend(clazz, new ScalaSmartCompletionProvider)
 
-  private def extend(clazz: Class[_ <: ScalaPsiElement],
+  private def extend(clazz: Class[? <: ScalaPsiElement],
                      provider: CompletionProvider[CompletionParameters]): Unit =
     extend(superParentPattern(clazz), provider)
 
-  private def extend(pattern: ElementPattern[_ <: PsiElement],
+  private def extend(pattern: ElementPattern[? <: PsiElement],
                      provider: CompletionProvider[CompletionParameters]): Unit =
     extend(CompletionType.SMART, pattern, provider)
 }
@@ -331,7 +331,7 @@ object ScalaSmartCompletionContributor {
       case Reference(r) => (r, r.getContext.asInstanceOf[T])
     }
 
-  private def superParentPattern(clazz: Class[_ <: ScalaPsiElement]) =
+  private def superParentPattern(clazz: Class[? <: ScalaPsiElement]) =
     identifierWithParentsPattern(classOf[ScReferenceExpression], clazz) ||
       identifierWithParentsPattern(classOf[ScReferenceExpression], classOf[ScReferenceExpression], clazz)
 
@@ -583,7 +583,7 @@ object ScalaSmartCompletionContributor {
     }.withInsertHandler {
       new AnonymousFunctionInsertHandler(params, builder)
     }.withAutoCompletionPolicy {
-      import AutoCompletionPolicy._
+      import AutoCompletionPolicy.*
       if (ApplicationManager.getApplication.isUnitTestMode) ALWAYS_AUTOCOMPLETE
       else NEVER_AUTOCOMPLETE
     }
@@ -674,7 +674,7 @@ object ScalaSmartCompletionContributor {
             reference <- simple.reference
             refName = reference.refName
 
-            (abstractType, name) <- abstractNames.get(refName)
+            case (abstractType, name) <- abstractNames.get(refName)
             value = abstractType.simplifyType match {
               case simplifiedType if simplifiedType.isAny || simplifiedType.isNothing => name
               case simplifiedType => simplifiedType.presentableText
@@ -715,7 +715,7 @@ object ScalaSmartCompletionContributor {
 
       val template = builder.buildTemplate()
       for {
-        (name, (_, actualName)) <- abstractNames
+        case (name, (_, actualName)) <- abstractNames
       } template.addVariable(name, actualName, actualName, false)
 
       document.deleteString(commonParent.getTextRange.getStartOffset, commonParent.getTextRange.getEndOffset)
@@ -744,7 +744,7 @@ object ScalaSmartCompletionContributor {
     }
 
     private def suggestedParameters(types: Iterable[Parameter]) = {
-      import Model._
+      import Model.*
 
       val suggester = new NameSuggester.UniqueNameSuggester("x")
       types.map {

@@ -4,7 +4,7 @@ import java.net.URI
 import java.nio.file.Paths
 import java.util.concurrent.CompletableFuture
 
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.execution.configurations.{ModuleBasedConfiguration, RunConfiguration}
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.module.Module
@@ -14,7 +14,7 @@ import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.{JavaPsiFacade, PsiFile}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.bsp.BspBundle
-import org.jetbrains.bsp.BspUtil._
+import org.jetbrains.bsp.BspUtil.*
 import org.jetbrains.bsp.data.BspMetadata
 import org.jetbrains.bsp.protocol.session.BspSession.{BspServer, BspSessionTask}
 import org.jetbrains.bsp.protocol.{BspCommunication, BspJob}
@@ -22,7 +22,7 @@ import org.jetbrains.plugins.scala.build.BuildToolWindowReporter.CancelBuildActi
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildToolWindowReporter}
 import org.jetbrains.plugins.scala.extensions.invokeAndWait
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.Promise
 import scala.util.{Failure, Success, Try}
 
@@ -75,7 +75,7 @@ object BspJvmEnvironment {
   }
 
   def resolveForRun(
-    config: ModuleBasedConfiguration[_, _],
+    config: ModuleBasedConfiguration[?, ?],
     module: Module,
     holder: BspTargetIdHolder
   ): Result[JvmEnvironment] = {

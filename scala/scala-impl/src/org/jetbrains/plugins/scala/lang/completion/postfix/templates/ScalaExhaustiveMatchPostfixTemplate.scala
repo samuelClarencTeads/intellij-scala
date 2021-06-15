@@ -26,7 +26,7 @@ final class ScalaExhaustiveMatchPostfixTemplate(
   null
 ) {
 
-  import ScalaExhaustiveMatchPostfixTemplate._
+  import ScalaExhaustiveMatchPostfixTemplate.*
 
   override def isApplicable(context: PsiElement,
                             document: Document,
@@ -35,7 +35,7 @@ final class ScalaExhaustiveMatchPostfixTemplate(
 
   override def expand(context: PsiElement, editor: Editor): Unit =
     for {
-      (expression, strategy) <- topMostStrategy(context)
+      case (expression, strategy) <- topMostStrategy(context)
     } expandForStrategy(expression, strategy)(context.getProject, editor)
 
   override def isEditable: Boolean = false

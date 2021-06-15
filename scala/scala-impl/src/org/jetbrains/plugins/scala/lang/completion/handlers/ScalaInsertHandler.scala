@@ -3,17 +3,17 @@ package lang
 package completion
 package handlers
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.{AutoPopupController, CodeInsightSettings}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.getParentOfType
 import org.jetbrains.plugins.scala.codeInspection.redundantBlock.RedundantBlockInspection.isRedundantBlock
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.tIDENTIFIER
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolated, ScReference, ScStableCodeReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFun, ScFunction, ScTypeAlias}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScExtendsBlock, ScTemplateParents}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -136,7 +136,7 @@ object ScalaInsertHandler {
 
 final class ScalaInsertHandler extends InsertHandler[ScalaLookupItem] {
 
-  import ScalaInsertHandler._
+  import ScalaInsertHandler.*
 
   override def handleInsert(context: InsertionContext, item: ScalaLookupItem): Unit = {
     val InsertionContextExt(editor, document, file, project) = context

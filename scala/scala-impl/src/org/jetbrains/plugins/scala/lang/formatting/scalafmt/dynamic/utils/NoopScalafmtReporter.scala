@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils
 import java.io.{PrintWriter, Writer}
 import java.nio.file.Path
 
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.NoopScalafmtReporter._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.NoopScalafmtReporter.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.interfaces.ScalafmtReporter
 
 class NoopScalafmtReporter extends ScalafmtReporter {

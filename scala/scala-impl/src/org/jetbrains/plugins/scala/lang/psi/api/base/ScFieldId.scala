@@ -4,7 +4,7 @@ package psi
 package api
 package base
 
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 
 /**
   * @author ilyas

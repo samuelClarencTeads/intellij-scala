@@ -17,7 +17,7 @@ import com.intellij.psi.{PsiComment, PsiElement, PsiWhiteSpace}
 import com.intellij.refactoring.RefactoringBundle
 import com.intellij.ui.ReplacePromptDialog
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.{ScalaExtractMethodSettings, ScalaExtractMethodUtils}
@@ -86,7 +86,7 @@ object DuplicatesUtil {
                                        (implicit project: Project, editor: Editor): Unit = {
     var replaceAll = false
     var cancelled = false
-    for ((d, idx) <- duplicates.zipWithIndex) {
+    for (case (d, idx) <- duplicates.zipWithIndex) {
       if (!replaceAll) {
         previewDuplicate(project, editor, d) {
           val dialog = showPromptDialog(settings.methodName, idx + 1, duplicates.size, project)

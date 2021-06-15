@@ -3,7 +3,7 @@ package annotator
 
 import org.jetbrains.plugins.scala.annotator.element.ScPatternAnnotator
 import org.jetbrains.plugins.scala.base.ScalaLightPlatformCodeInsightTestCaseAdapter
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScPattern
 import org.junit.Assert
 import org.junit.Assert.assertEquals

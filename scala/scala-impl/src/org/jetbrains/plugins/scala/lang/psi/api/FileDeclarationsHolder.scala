@@ -3,19 +3,19 @@ package lang.psi.api
 
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.roots.ProjectRootManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.migration.PsiMigrationManager
 import com.intellij.psi.scope.{NameHint, PsiScopeProcessor}
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions.{StubBasedExt, _}
+import org.jetbrains.plugins.scala.extensions.{StubBasedExt, *}
 import org.jetbrains.plugins.scala.externalLibraries.bm4.BetterMonadicForSupport
 import org.jetbrains.plugins.scala.externalLibraries.kindProjector.KindProjectorUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScPackageLike.processPackageObject
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
-import org.jetbrains.plugins.scala.lang.psi.impl._
+import org.jetbrains.plugins.scala.lang.psi.impl.*
 import org.jetbrains.plugins.scala.lang.psi.{ScDeclarationSequenceHolder, ScImportsHolder}
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
 import org.jetbrains.plugins.scala.lang.resolve.processor.precedence.{PrecedenceTypes, SubstitutablePrecedenceHelper}
@@ -28,8 +28,8 @@ import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
   */
 trait FileDeclarationsHolder extends ScDeclarationSequenceHolder with ScImportsHolder {
 
-  import FileDeclarationsHolder._
-  import ScPackageImpl._
+  import FileDeclarationsHolder.*
+  import ScPackageImpl.*
 
   override def processDeclarations(processor: PsiScopeProcessor,
                                    state: ResolveState,

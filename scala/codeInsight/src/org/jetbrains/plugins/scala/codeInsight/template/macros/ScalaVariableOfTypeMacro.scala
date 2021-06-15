@@ -4,13 +4,13 @@ package template
 package macros
 
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.codeInsight.template.impl.TextExpression
 import com.intellij.java.JavaBundle
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiClass, PsiElement}
 import org.jetbrains.plugins.scala.codeInsight.template.util.VariablesCompletionProcessor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScTypeExt, TypePresentationContext}
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.resolve.{ScalaResolveResult, ScalaResolv
 
 sealed abstract class ScalaVariableOfTypeMacro(override final val getPresentableName: String) extends ScalaMacro {
 
-  import ScalaVariableOfTypeMacro._
+  import ScalaVariableOfTypeMacro.*
 
   override def calculateLookupItems(expressions: Array[Expression], context: ExpressionContext): Array[LookupElement] = expressions match {
     case _ if arrayIsValid(expressions) =>
@@ -43,7 +43,7 @@ sealed abstract class ScalaVariableOfTypeMacro(override final val getPresentable
                        showOne: Boolean = false)
                       (implicit context: ExpressionContext): Array[LookupElement] = {
     val elements = for {
-      (typed, scType) <- findDefinitions
+      case (typed, scType) <- findDefinitions
       typeText <- this.typeText(expressions, scType)
     } yield {
       LookupElementBuilder.create(typed, typed.name)
@@ -60,7 +60,7 @@ sealed abstract class ScalaVariableOfTypeMacro(override final val getPresentable
 
   override def getDefaultValue: String = "x"
 
-  def arrayIsValid(array: Array[_]): Boolean = array.isEmpty
+  def arrayIsValid(array: Array[?]): Boolean = array.isEmpty
 
   protected def typeText(expressions: Array[Expression], `type`: ScType)
                         (implicit context: ExpressionContext): Boolean = {
@@ -92,7 +92,7 @@ object ScalaVariableOfTypeMacro {
     */
   final class RegularVariable extends ScalaVariableOfTypeMacro(JavaBundle.message("macro.variable.of.type")) {
 
-    override def arrayIsValid(array: Array[_]): Boolean = array.nonEmpty
+    override def arrayIsValid(array: Array[?]): Boolean = array.nonEmpty
   }
 
   final class ArrayVariable extends ScalaVariableOfTypeMacro(JavaBundle.message("macro.array.variable")) {

@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.utest.UTestConfigurationP
   * @since 13.05.2015.
   */
 abstract class UTestTestCase extends ScalaTestingTestCase {
-  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[_] =
+  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[?] =
     RunConfigurationProducer.getInstance(classOf[UTestConfigurationProducer])
 
   protected val testSuiteSecondPrefix = "import utest.framework.TestSuite"

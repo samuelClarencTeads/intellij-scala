@@ -16,7 +16,7 @@ private abstract class GlobalMemberResult protected(protected val resolveResult:
                                                     containingClass: Option[PsiClass] = None)
                                                    (nameAvailability: NameAvailability) {
 
-  import GlobalMemberResult._
+  import GlobalMemberResult.*
 
   protected def this(elementToImport: PsiNamedElement,
                      classToImport: PsiClass)

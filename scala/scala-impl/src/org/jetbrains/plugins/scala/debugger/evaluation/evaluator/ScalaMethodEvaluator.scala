@@ -5,7 +5,7 @@ import com.intellij.debugger.engine.evaluation.expression.{DisableGC, Evaluator}
 import com.intellij.debugger.engine.{DebugProcess, DebugProcessImpl, JVMName}
 import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.debugger.{JavaDebuggerBundle, SourcePosition}
-import com.sun.jdi._
+import com.sun.jdi.*
 import com.sun.tools.jdi.{ConcreteMethodImpl, TypeComponentImpl}
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.debugger.ScalaPositionManager
@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 import org.jetbrains.plugins.scala.extensions.inReadAction
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.util.{Success, Try}
 

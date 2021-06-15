@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.transformation
 import java.awt.Dimension
 import java.lang
 
-import javax.swing._
+import javax.swing.*
 import javax.swing.tree.{DefaultTreeCellRenderer, TreeNode}
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.util.SystemInfo
@@ -15,15 +15,15 @@ import org.jdesktop.swingx.treetable.DefaultMutableTreeTableNode
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.BooleanExt
-import org.jetbrains.plugins.scala.lang.transformation.annotations._
-import org.jetbrains.plugins.scala.lang.transformation.calls._
+import org.jetbrains.plugins.scala.lang.transformation.annotations.*
+import org.jetbrains.plugins.scala.lang.transformation.calls.*
 import org.jetbrains.plugins.scala.lang.transformation.conversions.MakeBoxingExplicit
 import org.jetbrains.plugins.scala.lang.transformation.declarations.{ExpandProcedureSyntax, MakeResultExpressionExplicit}
 import org.jetbrains.plugins.scala.lang.transformation.functions.{ExpandEtaExpansion, ExpandPlaceholderSyntax, MakeEtaExpansionExplicit}
-import org.jetbrains.plugins.scala.lang.transformation.general._
-import org.jetbrains.plugins.scala.lang.transformation.implicits._
-import org.jetbrains.plugins.scala.lang.transformation.references._
-import org.jetbrains.plugins.scala.lang.transformation.types._
+import org.jetbrains.plugins.scala.lang.transformation.general.*
+import org.jetbrains.plugins.scala.lang.transformation.implicits.*
+import org.jetbrains.plugins.scala.lang.transformation.references.*
+import org.jetbrains.plugins.scala.lang.transformation.types.*
 
 class SelectionDialog {
   private val RootGroup = Group("root",
@@ -112,7 +112,7 @@ class SelectionDialog {
 
     override protected def createCenterPanel: JComponent = {
       val rightColumn: ColumnInfo[Node, lang.Boolean] = new ColumnInfo[Node, java.lang.Boolean](ScalaBundle.message("column.enabled")) {
-        override def getColumnClass: Class[_] = classOf[Boolean]
+        override def getColumnClass: Class[?] = classOf[Boolean]
 
         override def isCellEditable(item: Node) = true
 

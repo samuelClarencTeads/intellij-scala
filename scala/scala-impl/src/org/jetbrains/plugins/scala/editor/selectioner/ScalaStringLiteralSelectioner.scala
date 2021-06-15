@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.editor.selectioner
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.editorActions.{ExtendWordSelectionHandlerBase, SelectWordUtil}
 import com.intellij.openapi.editor.Editor
@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.util.MultilineStringUtil
 import org.jetbrains.plugins.scala.util.MultilineStringUtil.MultilineQuotes
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaStringLiteralSelectioner extends ExtendWordSelectionHandlerBase {
 
@@ -63,7 +63,7 @@ class ScalaStringLiteralSelectioner extends ExtendWordSelectionHandlerBase {
       case _ => return ranges.asJava
     }
 
-    import ScalaTokenTypes._
+    import ScalaTokenTypes.*
 
     val contentRange = MultilineStringUtil.contentRange(stringLiteral)
     val rangesFixed = e.elementType match {
@@ -88,7 +88,7 @@ class ScalaStringLiteralSelectioner extends ExtendWordSelectionHandlerBase {
   }
 
   private def addDefaultWordSelection(e: PsiElement): Boolean = {
-    import ScalaTokenTypes._
+    import ScalaTokenTypes.*
     e.elementType match {
       case `tINTERPOLATED_MULTILINE_STRING` | `tINTERPOLATED_STRING` => true
       case _                                                         => false

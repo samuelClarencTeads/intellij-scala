@@ -11,7 +11,7 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.util.concurrency.annotations.{RequiresEdt, RequiresWriteLock}
 import org.jetbrains.jps.incremental.scala.local.worksheet.repl_interface.PrintWriterReporter
 import org.jetbrains.plugins.scala.compiler.data.worksheet.ReplMessages
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScAssignment
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScValueOrVariable
@@ -36,8 +36,8 @@ final class WorksheetEditorPrinterRepl private[printers](
   file: ScalaFile
 ) extends WorksheetEditorPrinterBase(editor, viewer) {
 
-  import ReplMessages._
-  import WorksheetEditorPrinterRepl._
+  import ReplMessages.*
+  import WorksheetEditorPrinterRepl.*
 
   // Mapping of successfully-processed chunks from left editor to the output end in the right editor
   private val inputToOutputMapping = mutable.ArrayBuffer.empty[InputOutputMappingItem]
@@ -395,8 +395,8 @@ object WorksheetEditorPrinterRepl {
   // Ideally lines from compiler (see extractReplMessage) should be relative to the original input
   // but unfortunately old scala versions does not provide such API
   private def extraOffset(scalaSdk: LibraryEx, chunk: QueuedPsi): (Int, Int) = {
-    import project._
-    import ScalaLanguageLevel._
+    import project.*
+    import ScalaLanguageLevel.*
 
     val languageLevel = scalaSdk.properties.languageLevel
 

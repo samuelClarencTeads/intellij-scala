@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.util.reporter
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.util.ProgressIndicatorBase
 import com.intellij.openapi.util.TextRange
-import org.jetbrains.plugins.scala.util.reporter.KnownErrors._
+import org.jetbrains.plugins.scala.util.reporter.KnownErrors.*
 
 import scala.collection.mutable
 
@@ -22,9 +22,9 @@ trait ProgressReporter {
 
   private def errors(expected: Boolean): Seq[(String, TextRange, String)] = {
     for {
-      (fileName, errors) <- errorMessages.toSeq
+      case (fileName, errors) <- errorMessages.toSeq
       (known, unknown) = errors.partition(err => knownErrors(fileName).contains(err._1))
-      (range, message) <- if (expected) known else unknown
+      case (range, message) <- if (expected) known else unknown
     } yield {
       (fileName, range, message)
     }

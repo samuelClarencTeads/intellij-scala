@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.scala.project.sdkdetect.repository
 
 import java.nio.file.Path
-import java.util.stream.{Stream => JStream}
+import java.util.stream.{Stream as JStream}
 
 import com.intellij.openapi.progress.ProgressIndicator
 import org.jetbrains.idea.maven.utils.MavenUtil
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.ObjectExt
-import org.jetbrains.plugins.scala.project.template.{PathExt, _}
+import org.jetbrains.plugins.scala.project.template.{PathExt, *}
 
 
 private[repository] object MavenDetector extends ScalaSdkDetector {

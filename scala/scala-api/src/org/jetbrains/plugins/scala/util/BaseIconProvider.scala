@@ -10,7 +10,7 @@ import javax.swing.Icon
 //noinspection ScalaWrongMethodsUsage
 trait BaseIconProvider extends Iconable {
 
-  import ElementPresentationUtil._
+  import ElementPresentationUtil.*
 
   protected def delegate: PsiModifierListOwner
 

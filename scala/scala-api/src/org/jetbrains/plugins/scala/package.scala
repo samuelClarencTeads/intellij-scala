@@ -1,6 +1,6 @@
 package org.jetbrains.plugins
 
-import com.intellij.openapi.application.ApplicationManager.{getApplication => application}
+import com.intellij.openapi.application.ApplicationManager.{getApplication as application}
 import com.intellij.openapi.application.ex.ApplicationManagerEx
 import com.intellij.openapi.util.Computable
 import com.intellij.util.SystemProperties

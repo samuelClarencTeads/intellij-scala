@@ -6,11 +6,11 @@ import com.intellij.codeInspection.{LocalInspectionTool, ProblemHighlightType, P
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElementVisitor
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScBooleanLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElementExt
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypeExt
 import org.jetbrains.plugins.scala.lang.psi.types.api.Boolean
@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.project.ProjectContext
   */
 abstract class NameBooleanParametersInspectionBase extends LocalInspectionTool {
 
-  import NameBooleanParametersInspectionBase._
+  import NameBooleanParametersInspectionBase.*
 
   override def buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor = {
     new ScalaElementVisitor {

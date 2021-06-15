@@ -8,7 +8,7 @@ import com.intellij.lang.{Language, LanguageNamesValidation}
 import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.editor.{Editor, ScrollType}
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.SearchScope
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.refactoring.rename.RenamePsiElementProcessor

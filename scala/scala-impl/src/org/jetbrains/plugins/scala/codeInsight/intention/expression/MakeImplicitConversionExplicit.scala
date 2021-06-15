@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
   */
 class MakeImplicitConversionExplicit extends PsiElementBaseIntentionAction {
 
-  import MakeImplicitConversionExplicit._
+  import MakeImplicitConversionExplicit.*
 
   override def getFamilyName: String = ScalaBundle.message("family.name.make.implicit.conversion.explicit")
 
@@ -30,7 +30,7 @@ class MakeImplicitConversionExplicit extends PsiElementBaseIntentionAction {
 
   override def invoke(project: Project, editor: Editor, element: PsiElement): Unit =
     for {
-      (expression, function) <- findImplicitElement(element)
+      case (expression, function) <- findImplicitElement(element)
 
       importStatically = expression.implicitConversions(fromUnderscore = true).contains(function)
     } MakeExplicitAction.replaceWithExplicit(expression, function, importStatically)(project, editor)

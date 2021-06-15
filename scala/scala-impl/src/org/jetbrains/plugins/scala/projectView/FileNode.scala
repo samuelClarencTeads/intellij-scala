@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package projectView
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.ide.projectView.impl.nodes.PsiFileNode
 import com.intellij.ide.projectView.{PresentationData, ViewSettings}
@@ -17,7 +17,7 @@ private[projectView] sealed abstract class FileNode(protected val file: ScalaFil
                                                    (implicit project: Project, settings: ViewSettings)
   extends PsiFileNode(project, file, settings) with IconableNode {
 
-  import scala.jdk.CollectionConverters._
+  import scala.jdk.CollectionConverters.*
 
   override def getChildrenImpl: ju.Collection[Node] =
     if (settings.isShowMembers)

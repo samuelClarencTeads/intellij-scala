@@ -4,7 +4,7 @@ package notification
 package source
 
 import java.util
-import java.util._
+import java.util.*
 
 import com.intellij.codeInsight.AttachSourcesProvider
 import com.intellij.ide.highlighter.{JavaClassFileType, JavaFileType}

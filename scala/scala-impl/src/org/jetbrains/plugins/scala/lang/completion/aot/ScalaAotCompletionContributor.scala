@@ -3,21 +3,21 @@ package lang
 package completion
 package aot
 
-import com.intellij.codeInsight.completion._
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScFieldId, ScPrimaryConstructor}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScFunctionExpr
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameterClause, ScParameters}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 
 /**
  * @author Pavel Fatin
@@ -25,7 +25,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
 final class ScalaAotCompletionContributor extends ScalaCompletionContributor {
 
   import CompletionType.BASIC
-  import ScalaAotCompletionContributor._
+  import ScalaAotCompletionContributor.*
 
   import reflect.{ClassTag, classTag}
 
@@ -121,7 +121,7 @@ final class ScalaAotCompletionContributor extends ScalaCompletionContributor {
     provider
   )
 
-  private def registerDeclarationProvider[E <: ScalaPsiElement : ClassTag](provider: DeclarationCompletionProvider[_]): Unit = extend(
+  private def registerDeclarationProvider[E <: ScalaPsiElement : ClassTag](provider: DeclarationCompletionProvider[?]): Unit = extend(
     BASIC,
     identifierWithParentPattern(classTag[E].runtimeClass.asSubclass(classOf[ScalaPsiElement])),
     provider
@@ -142,12 +142,12 @@ object ScalaAotCompletionContributor {
       parameter.paramType.map(_.typeElement)
   }
 
-  private abstract class DeclarationCompletionProvider[D <: ScMember with ScDeclaration](keyword: String,
-                                                                                         classes: Class[_ <: ScMember]*) extends aot.CompletionProvider[D] {
+  private abstract class DeclarationCompletionProvider[D <: ScMember & ScDeclaration](keyword: String,
+                                                                                      classes: Class[? <: ScMember]*) extends aot.CompletionProvider[D] {
 
     override protected def addCompletions(resultSet: CompletionResultSet, prefix: String)
                                          (implicit parameters: CompletionParameters, context: ProcessingContext): Unit =
-      PsiTreeUtil.getParentOfType(positionFromParameters, classes: _*) match {
+      PsiTreeUtil.getParentOfType(positionFromParameters, classes*) match {
         case member: ScMember if !member.hasModifierPropertyScala(ScalaModifier.OVERRIDE) =>
           super.addCompletions(resultSet, prefix)
         case _ =>

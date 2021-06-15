@@ -7,16 +7,16 @@ package synthetic
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightElement
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.util.IncorrectOperationException
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.stubs.index.ScalaIndexKeys
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
-import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets._
+import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.BaseProcessor
 
 import scala.collection.mutable
@@ -78,7 +78,7 @@ object ScSyntheticPackage {
       case i => (fqn.substring(i + 1), fqn.substring(0, i))
     }
 
-    import ScalaIndexKeys._
+    import ScalaIndexKeys.*
     PACKAGE_FQN_KEY.allElementsByHash(fqn) match {
       case seq if seq.isEmpty =>
         val packages = PACKAGE_OBJECT_KEY.allElementsByHash(fqn)

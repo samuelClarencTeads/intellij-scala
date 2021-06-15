@@ -2,31 +2,31 @@ package org.jetbrains.plugins.scala
 package debugger
 
 import java.io.File
-import java.util.{List => JList}
+import java.util.{List as JList}
 
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.server.BuildManager
-import com.intellij.openapi.compiler._
-import com.intellij.openapi.projectRoots._
-import com.intellij.openapi.roots._
+import com.intellij.openapi.compiler.*
+import com.intellij.openapi.projectRoots.*
+import com.intellij.openapi.roots.*
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.openapi.vfs._
+import com.intellij.openapi.vfs.*
 import com.intellij.pom.java.LanguageLevel
-import com.intellij.testFramework._
+import com.intellij.testFramework.*
 import org.jetbrains.plugins.scala.base.ScalaSdkOwner
-import org.jetbrains.plugins.scala.base.libraryLoaders._
+import org.jetbrains.plugins.scala.base.libraryLoaders.*
 import org.jetbrains.plugins.scala.compilation.CompilerTestUtil
 import org.jetbrains.plugins.scala.compilation.CompilerTestUtil.{NoOpRevertableChange, RevertableChange}
 import org.jetbrains.plugins.scala.compiler.{CompileServerLauncher, ScalaCompileServerSettings}
 import org.jetbrains.plugins.scala.debugger.ScalaCompilerTestBase.{ListCompilerMessageExt, markCompileServerThreadsLongRunning}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.project.{IncrementalityType, ProjectExt}
 import org.jetbrains.plugins.scala.util.UnloadAwareDisposable
 import org.junit.Assert
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.duration
 import scala.language.implicitConversions
 

@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences.search
 import com.intellij.openapi.editor.Document
 import com.intellij.psi.{PsiDocumentManager, PsiElement, PsiFile, PsiManager}
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.UsagesInFile
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 object UsageToPsiElements {
   private[search] final case class ElementsInContext(

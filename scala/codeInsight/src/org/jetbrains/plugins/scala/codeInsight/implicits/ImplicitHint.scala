@@ -10,7 +10,7 @@ import com.intellij.openapi.util.Key
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.annotator.hints.Hint
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 object ImplicitHint {
   private val EmptyInsets = new Insets(0, 0, 0, 0)
@@ -22,7 +22,7 @@ object ImplicitHint {
   def isImplicitHint(inlay: Inlay): Boolean = inlay.getUserData(ElementKey) != null
 
   def addTo(hint: Hint, model: InlayModel): Inlay = {
-    import hint._
+    import hint.*
 
     val offset = if (suffix) element.getTextRange.getEndOffset else element.getTextRange.getStartOffset
 

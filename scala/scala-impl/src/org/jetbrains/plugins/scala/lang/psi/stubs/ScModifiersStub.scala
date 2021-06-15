@@ -6,7 +6,7 @@ package stubs
 import com.intellij.psi.stubs.StubElement
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScModifierList
-import org.jetbrains.plugins.scala.util.EnumSet._
+import org.jetbrains.plugins.scala.util.EnumSet.*
 
 /**
   * User: Alexander Podkhalyuzin

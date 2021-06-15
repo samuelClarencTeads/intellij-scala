@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.worksheet.inspections
 
-import com.intellij.codeInspection._
-import com.intellij.psi._
+import com.intellij.codeInspection.*
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.worksheet.{WorksheetBundle, WorksheetFile}
 
 final class WorksheetPackageDeclarationInspection extends LocalInspectionTool {

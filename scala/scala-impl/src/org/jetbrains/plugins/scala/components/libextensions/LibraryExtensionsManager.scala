@@ -4,7 +4,7 @@ import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.ide.util.PropertiesComponent
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
@@ -16,16 +16,16 @@ import com.intellij.openapi.util.ModificationTracker
 import com.intellij.openapi.vfs.JarFileSystem
 import com.intellij.util.lang.UrlClassLoader
 import com.intellij.util.messages.Topic
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.components.ScalaPluginVersionVerifier
-import org.jetbrains.plugins.scala.components.libextensions.ui._
+import org.jetbrains.plugins.scala.components.libextensions.ui.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 import org.jetbrains.sbt.project.module.SbtModule
 import org.jetbrains.sbt.resolvers.SbtResolver
 
-import java.{util => ju}
+import java.{util as ju}
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
 import scala.reflect.ClassTag
@@ -35,7 +35,7 @@ import scala.xml.factory.XMLLoader
 import scala.xml.{Elem, SAXParser}
 
 final class LibraryExtensionsManager(project: Project) {
-  import LibraryExtensionsManager._
+  import LibraryExtensionsManager.*
 
   private val EXT_JARS_KEY = "extensionJars"
 
@@ -44,7 +44,7 @@ final class LibraryExtensionsManager(project: Project) {
   private val popup       = new PopupHelper
   private val publisher   = project.getMessageBus.syncPublisher(EXTENSIONS_TOPIC)
 
-  private val myExtensionInstances  = mutable.HashMap[Class[_], mutable.ArrayBuffer[Any]]()
+  private val myExtensionInstances  = mutable.HashMap[Class[?], mutable.ArrayBuffer[Any]]()
   private val myLoadedLibraries     = mutable.ArrayBuffer[ExtensionJarData]()
 
   { // init
@@ -156,7 +156,7 @@ final class LibraryExtensionsManager(project: Project) {
   }
 
   private def loadDescriptor(descriptor: LibraryDescriptor, jarFile: File): Unit = {
-    val classBuffer = mutable.HashMap[Class[_], mutable.ArrayBuffer[Any]]()
+    val classBuffer = mutable.HashMap[Class[?], mutable.ArrayBuffer[Any]]()
     descriptor.getCurrentPluginDescriptor.foreach { currentVersion =>
       val IdeaVersionDescriptor(_, _, _, defaultPackage, extensions) = currentVersion
       val classLoader = UrlClassLoader.build()

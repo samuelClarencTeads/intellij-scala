@@ -16,10 +16,10 @@ import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScAnnotationsStubImpl
   * Date: 22.06.2009
   */
 class ScAnnotationsElementType extends ScStubElementType[ScAnnotationsStub, ScAnnotations]("annotations") {
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScAnnotationsStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScAnnotationsStub =
     new ScAnnotationsStubImpl(parentStub, this)
 
-  override def createStubImpl(psi: ScAnnotations, parentStub: StubElement[_ <: PsiElement]): ScAnnotationsStub =
+  override def createStubImpl(psi: ScAnnotations, parentStub: StubElement[? <: PsiElement]): ScAnnotationsStub =
     new ScAnnotationsStubImpl(parentStub, this)
 
   override def createElement(node: ASTNode): ScAnnotations = new ScAnnotationsImpl(node)

@@ -5,16 +5,16 @@ import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
-import org.jetbrains.plugins.scala.annotator.quickfix._
+import org.jetbrains.plugins.scala.annotator.quickfix.*
 import org.jetbrains.plugins.scala.extensions.{&&, Parent}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotation
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypesExt
-import org.jetbrains.plugins.scala.lang.psi.types.api._
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
   * Pavel.Fatin, 18.05.2010
@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.result._
 trait FunctionAnnotator {
   self: ScalaAnnotator =>
 
-  import FunctionAnnotator._
+  import FunctionAnnotator.*
 
   def annotateFunction(function: ScFunctionDefinition, typeAware: Boolean = true)
                       (implicit holder: ScalaAnnotationHolder): Unit = {

@@ -2,19 +2,19 @@ package org.jetbrains.plugins.scala
 package lang
 package formatting
 
-import com.intellij.formatting._
-import com.intellij.lang._
+import com.intellij.formatting.*
+import com.intellij.lang.*
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.util._
-import com.intellij.psi._
+import com.intellij.openapi.util.*
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleSettings
-import com.intellij.psi.formatter.{FormattingDocumentModelImpl, PsiBasedFormattingModel, FormatterUtil => PsiFormatterUtil}
+import com.intellij.psi.formatter.{FormattingDocumentModelImpl, PsiBasedFormattingModel, FormatterUtil as PsiFormatterUtil}
 import com.intellij.psi.impl.source.tree.TreeUtil
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor
 
 final class ScalaFormattingModelBuilder extends FormattingModelBuilder {
 
-  import ScalaFormattingModelBuilder._
+  import ScalaFormattingModelBuilder.*
 
   override def createModel(formattingContext: FormattingContext): FormattingModel = {
     val element = formattingContext.getPsiElement

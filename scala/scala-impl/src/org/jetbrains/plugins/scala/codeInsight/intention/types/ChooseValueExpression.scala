@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.codeInsight.intention.types
 
 import com.intellij.codeInsight.completion.InsertionContext
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.lookup.*
 import com.intellij.codeInsight.template.impl.TemplateManagerImpl
 import com.intellij.codeInsight.template.{Expression, ExpressionContext, Result, TextResult}
 import com.intellij.openapi.util.TextRange

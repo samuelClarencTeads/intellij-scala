@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.util.runners
 
-import com.intellij.pom.java.{LanguageLevel => JdkVersion}
+import com.intellij.pom.java.{LanguageLevel as JdkVersion}
 import junit.extensions.TestDecorator
 import junit.framework.{Test, TestCase, TestSuite}
 import org.jetbrains.plugins.scala.ScalaVersion
@@ -16,11 +16,11 @@ import java.lang.annotation.Annotation
 import java.util
 import scala.annotation.tailrec
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
-class MultipleScalaVersionsRunner(private val myTest: Test, klass: Class[_]) extends JUnit38ClassRunner(myTest) {
+class MultipleScalaVersionsRunner(private val myTest: Test, klass: Class[?]) extends JUnit38ClassRunner(myTest) {
 
-  def this(klass: Class[_]) =
+  def this(klass: Class[?]) =
     this(MultipleScalaVersionsRunner.testSuite(klass.asSubclass(classOf[TestCase])), klass)
 
   override def getDescription: Description = {
@@ -96,7 +96,7 @@ private object MultipleScalaVersionsRunner {
     def this(version: JdkVersion) = this(sanitize(s"(jdk ${version.toString})"))
   }
 
-  def testSuite(klass: Class[_ <: TestCase]): TestSuite = {
+  def testSuite(klass: Class[? <: TestCase]): TestSuite = {
     assert(classOf[ScalaSdkOwner].isAssignableFrom(klass))
 
     val suite = new MyBaseTestSuite(klass.getName)
@@ -172,7 +172,7 @@ private object MultipleScalaVersionsRunner {
       scalaVersionToTests.head._2
     } else {
       for {
-        (version, tests) <- scalaVersionToTests.toSeq.sortBy(_._1)
+        case (version, tests) <- scalaVersionToTests.toSeq.sortBy(_._1)
         if tests.nonEmpty
       } yield {
         val firstTest = tests.head
@@ -195,7 +195,7 @@ private object MultipleScalaVersionsRunner {
 
     if (jdkVersionToTests.size == 1) jdkVersionToTests.head._2 else {
       for {
-        (version, tests) <- jdkVersionToTests.toSeq.sortBy(_._1)
+        case (version, tests) <- jdkVersionToTests.toSeq.sortBy(_._1)
         if tests.nonEmpty
       } yield {
         val suite = new JdkVersionTestSuite(version)
@@ -205,23 +205,23 @@ private object MultipleScalaVersionsRunner {
     }
   }
 
-  private def scalaVersionsToRun(klass: Class[_ <: TestCase]): Seq[TestScalaVersion] = {
+  private def scalaVersionsToRun(klass: Class[? <: TestCase]): Seq[TestScalaVersion] = {
     val annotation = findAnnotation(klass, classOf[RunWithScalaVersions])
     annotation
       .map(_.value.toSeq)
       .getOrElse(DefaultScalaVersionsToRun)
   }
 
-  private def jdkVersionsToRun(klass: Class[_ <: TestCase]): Seq[TestJdkVersion] = {
+  private def jdkVersionsToRun(klass: Class[? <: TestCase]): Seq[TestJdkVersion] = {
     val annotation = findAnnotation(klass, classOf[RunWithJdkVersions])
     annotation
       .map(_.value.toSeq)
       .getOrElse(Seq(DefaultJdkVersionToRun))
   }
 
-  private def findAnnotation[T <: Annotation](klass: Class[_], annotationClass: Class[T]): Option[T] = {
+  private def findAnnotation[T <: Annotation](klass: Class[?], annotationClass: Class[T]): Option[T] = {
     @tailrec
-    def inner(c: Class[_]): Annotation = c.getAnnotation(annotationClass) match {
+    def inner(c: Class[?]): Annotation = c.getAnnotation(annotationClass) match {
       case null =>
         c.getSuperclass match {
           case null => null
@@ -242,11 +242,11 @@ private object MultipleScalaVersionsRunner {
   }
 
   // Copied from JUnit38ClassRunner, added "Category" annotation propagation for ScalaVersionTestSuite
-  private def makeDescription(klass: Class[_], test: Test): Description = test match {
+  private def makeDescription(klass: Class[?], test: Test): Description = test match {
     case ts: TestSuite =>
       val name = Option(ts.getName).getOrElse(createSuiteDescriptionName(ts))
       val annotations =  findAnnotation(klass, classOf[Category]).toSeq
-      val description = Description.createSuiteDescription(name, annotations: _*)
+      val description = Description.createSuiteDescription(name, annotations*)
       ts.tests.asScala.foreach { childTest =>
         // compiler fails on TeamCity without this case, no idea why
         //noinspection ScalaRedundantCast

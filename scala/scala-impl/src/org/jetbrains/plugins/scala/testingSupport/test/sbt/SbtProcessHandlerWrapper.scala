@@ -29,7 +29,7 @@ case class SbtProcessHandlerWrapper(inner: OSProcessHandler) extends ProcessHand
 
   override def isProcessTerminating: Boolean = false
 
-  override def notifyTextAvailable(text: String, outputType: com.intellij.openapi.util.Key[_]): Unit =
+  override def notifyTextAvailable(text: String, outputType: com.intellij.openapi.util.Key[?]): Unit =
     inner.notifyTextAvailable(text, outputType)
 
   override def destroyProcessImpl(): Unit = {

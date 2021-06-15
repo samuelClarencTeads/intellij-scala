@@ -7,11 +7,11 @@ import java.awt.Color
 
 import com.intellij.codeInsight.CodeInsightBundle
 import com.intellij.codeInsight.lookup.LookupElement
-import com.intellij.lang.parameterInfo._
-import com.intellij.psi._
+import com.intellij.lang.parameterInfo.*
+import com.intellij.psi.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScParameterizedTypeElement, ScSimpleTypeElement, ScTypeArgs, ScTypeElement, ScTypeProjection}
@@ -28,7 +28,7 @@ import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
  * Date: 22.02.2009
  */
 class ScalaTypeParameterInfoHandler extends ScalaParameterInfoHandler[ScTypeArgs, Any, ScTypeElement] {
-  override def getArgListStopSearchClasses: java.util.Set[_ <: Class[_]] = {
+  override def getArgListStopSearchClasses: java.util.Set[? <: Class[?]] = {
     java.util.Collections.singleton(classOf[PsiMethod]) //todo: ?
   }
 
@@ -40,8 +40,8 @@ class ScalaTypeParameterInfoHandler extends ScalaParameterInfoHandler[ScTypeArgs
 
   override def getActualParametersRBraceType: IElementType = ScalaTokenTypes.tRBRACE
 
-  override def getArgumentListAllowedParentClasses: java.util.Set[Class[_]] = {
-    val set = new java.util.HashSet[Class[_]]()
+  override def getArgumentListAllowedParentClasses: java.util.Set[Class[?]] = {
+    val set = new java.util.HashSet[Class[?]]()
     set.add(classOf[ScParameterizedTypeElement])
     set.add(classOf[ScGenericCall])
     set

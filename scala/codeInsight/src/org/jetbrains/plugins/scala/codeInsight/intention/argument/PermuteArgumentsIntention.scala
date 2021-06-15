@@ -18,7 +18,7 @@ import scala.annotation.tailrec
   */
 final class PermuteArgumentsIntention extends PsiElementBaseIntentionAction {
 
-  import PermuteArgumentsIntention._
+  import PermuteArgumentsIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean =
     check(project, editor, element).isDefined

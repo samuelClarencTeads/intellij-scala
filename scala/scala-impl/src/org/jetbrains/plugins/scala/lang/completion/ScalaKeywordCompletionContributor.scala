@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.psi.filters.position.{FilterPattern, LeftNeighbour}
 import com.intellij.psi.filters.{AndFilter, ElementFilter, NotFilter, TextFilter}
@@ -16,9 +16,9 @@ import scala.annotation.nowarn
  */
 final class ScalaKeywordCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaKeyword._
-  import ScalaKeywordCompletionContributor._
-  import filters._
+  import ScalaKeyword.*
+  import ScalaKeywordCompletionContributor.*
+  import filters.*
 
   private def registerFor(firstFilter: ElementFilter,
                           secondFilter: ElementFilter,
@@ -30,7 +30,7 @@ final class ScalaKeywordCompletionContributor extends ScalaCompletionContributor
       override def addCompletions(parameters: CompletionParameters,
                                   context: ProcessingContext,
                                   resultSet: CompletionResultSet): Unit =
-        lookups.ScalaKeywordLookupItem.addFor(resultSet, keywords: _*)
+        lookups.ScalaKeywordLookupItem.addFor(resultSet, keywords*)
     }
   )
 
@@ -38,7 +38,7 @@ final class ScalaKeywordCompletionContributor extends ScalaCompletionContributor
                                          keywords: String*): Unit = registerFor(
     new NotFilter(afterDotPattern),
     filter,
-    keywords: _*
+    keywords*
   )
 
   registerStandardCompletion(new toplevel.PackageFilter, PACKAGE)

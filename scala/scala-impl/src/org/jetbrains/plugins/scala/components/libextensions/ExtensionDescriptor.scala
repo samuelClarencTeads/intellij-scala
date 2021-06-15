@@ -27,7 +27,7 @@ case class LibraryDescriptor(name: String,
 object LibraryDescriptor {
   def parse(str: String): Either[String, LibraryDescriptor] = parse(XML.loadString(str))
   def parse(data: Elem):  Either[String, LibraryDescriptor] = {
-    import scala.xml._
+    import scala.xml.*
 
     def verifyDescriptor(libraryDescriptor: LibraryDescriptor): Seq[String] = {
       val errorsBuilder = ArraySeq.newBuilder[String]

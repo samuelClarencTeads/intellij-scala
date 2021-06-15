@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang.psi.impl.statements
 
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlockExpr, ScExpression}
 

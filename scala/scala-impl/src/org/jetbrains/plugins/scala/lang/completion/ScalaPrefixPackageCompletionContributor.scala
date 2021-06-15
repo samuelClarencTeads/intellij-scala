@@ -3,12 +3,12 @@ package lang
 package completion
 
 import com.intellij.codeInsight.CodeInsightSettings
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{JavaPsiFacade, PsiElement, PsiPackage}
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.extensions.{PsiNamedElementExt, ResolvesTo, inReadAction}
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionWithContextFromText
@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
  */
 final class ScalaPrefixPackageCompletionContributor extends ScalaCompletionContributor {
 
-  import ScalaPrefixPackageCompletionContributor._
+  import ScalaPrefixPackageCompletionContributor.*
 
   extend(
     CompletionType.BASIC,

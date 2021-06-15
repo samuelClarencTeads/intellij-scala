@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ScTypeDefiniti
  */
 class ScalaAotCompletionTest extends ScalaCodeInsightTestBase {
 
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
 
   def testParameterName(): Unit = doAotCompletionTest(
     fileText =

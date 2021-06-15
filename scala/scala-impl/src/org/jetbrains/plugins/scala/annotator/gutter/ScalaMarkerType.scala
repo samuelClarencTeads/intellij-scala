@@ -10,15 +10,15 @@ import com.intellij.codeInsight.daemon.GutterIconNavigationHandler
 import com.intellij.codeInsight.daemon.impl.{GutterTooltipHelper, PsiElementListNavigator}
 import com.intellij.ide.util.{PsiClassListCellRenderer, PsiElementListCellRenderer}
 import com.intellij.openapi.actionSystem.IdeActions
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.presentation.java.ClassPresentationUtil
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import javax.swing.{Icon, ListCellRenderer}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.annotator.gutter.GutterUtil.namedParent
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTrait}
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.search.ScalaOverridingMemberSea
 import org.jetbrains.plugins.scala.lang.psi.types.TermSignature
 import org.jetbrains.plugins.scala.util.SAMUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * User: Alexander Podkhalyuzin

@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 import com.intellij.util.containers.ContainerUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 object ScalaCollectionsUtil {

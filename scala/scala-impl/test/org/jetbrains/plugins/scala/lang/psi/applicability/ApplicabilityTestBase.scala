@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala
 package lang.psi.applicability
 
 import org.jetbrains.plugins.scala.base.{SharedTestProjectToken, SimpleTestCase}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScAssignment, ScExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.junit.Assert
 
@@ -134,7 +134,7 @@ abstract class ApplicabilityTestBase extends SimpleTestCase {
   private def typify(definition: String, application: String) = {
     val Parameter = """(\w+):\s*([A-Za-z\[\]]+)""".r
     
-    val types = for(Parameter(_, t) <- Parameter.findAllIn(definition).toList) yield t
+    val types = for(case Parameter(_, t) <- Parameter.findAllIn(definition).toList) yield t
     val ids = (1 to types.size).map("T" + _)
 
     val id = ids.iterator

@@ -20,11 +20,11 @@ class ScImportSelectorsElementType extends ScStubElementType[ScImportSelectorsSt
     dataStream.writeBoolean(stub.hasWildcard)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScImportSelectorsStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScImportSelectorsStub =
     new ScImportSelectorsStubImpl(parentStub, this,
       hasWildcard = dataStream.readBoolean)
 
-  override def createStubImpl(selectors: ScImportSelectors, parentStub: StubElement[_ <: PsiElement]): ScImportSelectorsStub =
+  override def createStubImpl(selectors: ScImportSelectors, parentStub: StubElement[? <: PsiElement]): ScImportSelectorsStub =
     new ScImportSelectorsStubImpl(parentStub, this,
       hasWildcard = selectors.hasWildcard)
 

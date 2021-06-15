@@ -9,7 +9,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.colors.EditorFontType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.PopupStep.FINAL_CHOICE
-import com.intellij.openapi.ui.popup._
+import com.intellij.openapi.ui.popup.*
 import com.intellij.openapi.ui.popup.util.BaseListPopupStep
 import com.intellij.openapi.util.Key
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
@@ -19,7 +19,7 @@ import javax.swing.event.ListSelectionEvent
 import javax.swing.{Icon, JLabel, JList}
 import org.jetbrains.annotations.{Nls, TestOnly}
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScImportsHolder
 import org.jetbrains.plugins.scala.lang.psi.api.ImplicitArgumentsOwner
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
@@ -80,7 +80,7 @@ sealed abstract class ScalaAddImportAction[Psi <: PsiElement, Elem <: ElementToI
 
   private def showChooser(validVariants: Seq[Elem]): Unit = {
     val title = chooserTitle(validVariants)
-    val firstPopupStep: BaseListPopupStep[Elem] = new BaseListPopupStep[Elem](title, validVariants.toSeq: _*) {
+    val firstPopupStep: BaseListPopupStep[Elem] = new BaseListPopupStep[Elem](title, validVariants.toSeq*) {
       override def getIconFor(aValue: Elem): Icon =
         aValue.element.getIcon(0)
 
@@ -95,7 +95,7 @@ sealed abstract class ScalaAddImportAction[Psi <: PsiElement, Elem <: ElementToI
 
       override def getSeparatorAbove(value: Elem): ListSeparator = separatorAbove(value)
 
-      override def onChosen(selectedValue: Elem, finalChoice: Boolean): PopupStep[_] = {
+      override def onChosen(selectedValue: Elem, finalChoice: Boolean): PopupStep[?] = {
         if (selectedValue == null) {
           return FINAL_CHOICE
         }
@@ -114,7 +114,7 @@ sealed abstract class ScalaAddImportAction[Psi <: PsiElement, Elem <: ElementToI
     popupPosition.showPopup(popup, editor)
   }
 
-  protected def secondPopupStep(element: Elem): PopupStep[_] = {
+  protected def secondPopupStep(element: Elem): PopupStep[?] = {
     val qname: String = element.qualifiedName
     if (qname == null)
       return FINAL_CHOICE
@@ -122,7 +122,7 @@ sealed abstract class ScalaAddImportAction[Psi <: PsiElement, Elem <: ElementToI
     val toExclude = AddImportAction.getAllExcludableStrings(element.qualifiedName)
 
     new BaseListPopupStep[String](null, toExclude) {
-      override def onChosen(selectedValue: String, finalChoice: Boolean): PopupStep[_] = {
+      override def onChosen(selectedValue: String, finalChoice: Boolean): PopupStep[?] = {
         if (finalChoice) {
           AddImportAction.excludeFromImport(project, selectedValue)
         }
@@ -160,7 +160,7 @@ object ScalaAddImportAction {
 
   def apply(editor: Editor,
             reference: ScReference,
-            variants: Seq[ElementToImport]): ScalaAddImportAction[_, _] = reference match {
+            variants: Seq[ElementToImport]): ScalaAddImportAction[?, ?] = reference match {
     case reference: ScDocResolvableCodeReference => new ForScalaDoc(editor, variants, reference)
     case _ => new ForReference(editor, variants, reference)
   }
@@ -243,7 +243,7 @@ object ScalaAddImportAction {
     override protected def doAddImport(toImport: ImplicitToImport): Unit =
       ScImportsHolder(place).addImportForPath(toImport.qualifiedName)
 
-    override protected def secondPopupStep(element: ImplicitToImport): PopupStep[_] =
+    override protected def secondPopupStep(element: ImplicitToImport): PopupStep[?] =
       PopupStep.FINAL_CHOICE
 
     override protected def separatorAbove(variant: ImplicitToImport): ListSeparator = {

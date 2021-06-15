@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
   */
 final class InsertGapIntoStringIntention extends PsiElementBaseIntentionAction {
 
-  import InsertGapIntoStringIntention._
+  import InsertGapIntoStringIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean =
     replacement(element.getNode).isDefined
@@ -37,7 +37,7 @@ final class InsertGapIntoStringIntention extends PsiElementBaseIntentionAction {
 
 object InsertGapIntoStringIntention {
 
-  import lang.lexer.ScalaTokenTypes.{tMULTILINE_STRING => MultilineString, tSTRING => RegularString}
+  import lang.lexer.ScalaTokenTypes.{tMULTILINE_STRING as MultilineString, tSTRING as RegularString}
 
   private def replacement(node: ASTNode) = node.getElementType match {
     case RegularString => Some("\" +  + \"", 4)

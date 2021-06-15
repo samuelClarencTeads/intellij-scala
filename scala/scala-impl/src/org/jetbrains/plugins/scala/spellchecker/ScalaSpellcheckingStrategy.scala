@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
  * @since 2/3/13
  */
 class ScalaSpellcheckingStrategy extends SpellcheckingStrategy {
-  override def getTokenizer(element: PsiElement): Tokenizer[_ <: PsiElement] = {
+  override def getTokenizer(element: PsiElement): Tokenizer[? <: PsiElement] = {
     if (element.isInstanceOf[ScLiteral]) {
       return myLiteralExpressionTokenizer
     }

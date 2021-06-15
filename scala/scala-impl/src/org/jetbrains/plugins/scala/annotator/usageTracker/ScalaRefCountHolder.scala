@@ -4,7 +4,7 @@ package usageTracker
 
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.atomic.AtomicLong
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeHighlighting.Pass
 import com.intellij.codeInsight.daemon.{DaemonCodeAnalyzer, impl}
@@ -14,10 +14,10 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.StartupActivity
 import com.intellij.openapi.util.{LowMemoryWatcher, Ref, TextRange}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.containers.{ContainerUtil, hash}
 import org.jetbrains.plugins.scala.caches.CachesUtil
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 
 /**
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.project.ProjectExt
  */
 final class ScalaRefCountHolder private (file: PsiFile) {
 
-  import ScalaRefCountHolder._
+  import ScalaRefCountHolder.*
 
   private val lastReadyModCount = new AtomicLong(-1)
 
@@ -150,11 +150,11 @@ object ScalaRefCountHolder {
 
 final class ScalaRefCountHolderService(project: Project) extends Disposable {
 
-  import ScalaRefCountHolderService._
+  import ScalaRefCountHolderService.*
 
   private val autoCleaningMap = Ref.create[TimestampedValueMap[String, ScalaRefCountHolder]]
 
-  private var myCleanUpFuture: ScheduledFuture[_] = _
+  private var myCleanUpFuture: ScheduledFuture[?] = _
 
   private def init(): Unit = {
     autoCleaningMap.set(new TimestampedValueMap())
@@ -194,7 +194,7 @@ object ScalaRefCountHolderService {
   def getInstance(project: Project): ScalaRefCountHolderService =
     project.getService(classOf[ScalaRefCountHolderService])
 
-  import concurrent.duration._
+  import concurrent.duration.*
 
   private val CleanupDelay = 1.minute.toMillis
 
@@ -231,7 +231,7 @@ object ScalaRefCountHolderService {
         case diff if diff > 0 =>
           val timeDiff = System.currentTimeMillis() - storageTime
 
-          import scala.jdk.CollectionConverters._
+          import scala.jdk.CollectionConverters.*
           innerMap.entrySet
             .iterator
             .asScala

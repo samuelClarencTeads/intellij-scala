@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala.codeInspection.resourceLeaks
 
-import com.intellij.codeInspection.{ProblemHighlightType, _}
+import com.intellij.codeInspection.{ProblemHighlightType, *}
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInspection.collections.{MethodRepr, Qualified, invocation, unqualifed}
-import org.jetbrains.plugins.scala.codeInspection.{AbstractRegisteredInspection, ScalaInspectionBundle, _}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.{AbstractRegisteredInspection, ScalaInspectionBundle, *}
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 
 import scala.collection.immutable.ArraySeq

@@ -6,7 +6,7 @@ import com.intellij.diagnostic.PluginException
 import com.intellij.execution.configurations.SimpleJavaParameters
 import com.intellij.openapi.application.{ApplicationManager, PathManager}
 import com.intellij.openapi.externalSystem.model.{ExternalSystemException, ProjectSystemId}
-import com.intellij.openapi.externalSystem.util._
+import com.intellij.openapi.externalSystem.util.*
 import com.intellij.openapi.externalSystem.{ExternalSystemConfigurableAware, ExternalSystemManager}
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.project.Project
@@ -20,10 +20,10 @@ import org.jetbrains.android.sdk.AndroidSdkType
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.jps.model.java.JdkVersionDetector
 import org.jetbrains.plugins.scala.extensions.ObjectExt
-import org.jetbrains.sbt.project.settings._
+import org.jetbrains.sbt.project.settings.*
 import org.jetbrains.sbt.settings.{SbtExternalSystemConfigurable, SbtSettings}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin
@@ -37,7 +37,7 @@ class SbtExternalSystemManager
     val classpath = parameters.getClassPath
 
     classpath.add(jarWith[this.type])
-    classpath.add(jarWith[org.jetbrains.sbt.structure.XmlSerializer[_]])
+    classpath.add(jarWith[org.jetbrains.sbt.structure.XmlSerializer[?]])
     classpath.add(jarWith[scala.App])
     classpath.add(jarWith[scala.xml.Node])
 
@@ -194,7 +194,7 @@ object SbtExternalSystemManager {
   }
 
   def getVmOptions(givenOptions: Seq[String], jreHome: Option[File]): Seq[String] = {
-    import DefaultOptions._
+    import DefaultOptions.*
     val ideaProxyOptions = proxyOptions { optName => !givenOptions.exists(_.startsWith(optName)) }
 
     val allOptions = ideaProxyOptions ++ givenOptions

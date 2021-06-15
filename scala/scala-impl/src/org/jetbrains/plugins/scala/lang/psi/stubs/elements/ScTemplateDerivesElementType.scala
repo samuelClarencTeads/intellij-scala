@@ -13,10 +13,10 @@ import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScTemplateDerivesStubImpl
 
 class ScTemplateDerivesElementType extends ScStubElementType[ScTemplateDerivesStub, ScTemplateDerives]("template derives") {
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScTemplateDerivesStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScTemplateDerivesStub =
     new ScTemplateDerivesStubImpl(parentStub.asInstanceOf[StubElement[PsiElement]], this)
 
-  override def createStubImpl(psi: ScTemplateDerives, parentStub: StubElement[_ <: PsiElement]): ScTemplateDerivesStub =
+  override def createStubImpl(psi: ScTemplateDerives, parentStub: StubElement[? <: PsiElement]): ScTemplateDerivesStub =
     new ScTemplateDerivesStubImpl(parentStub, this)
 
   override def createElement(node: ASTNode): ScTemplateDerives = new ScTemplateDerivesImpl(node)

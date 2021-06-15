@@ -5,7 +5,7 @@ package delegate
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.testFramework._
+import com.intellij.testFramework.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.junit.Assert
 
@@ -16,11 +16,11 @@ import org.junit.Assert
 class ScalaDelegateToJavaMethodTest extends fixtures.JavaCodeInsightFixtureTestCase
   with ScalaDelegateMethodTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
-  import ScalaDelegateMethodTestBase._
+  import EditorTestUtil.{CARET_TAG as CARET}
+  import ScalaDelegateMethodTestBase.*
   import builders.JavaModuleFixtureBuilder
 
-  protected override def tuneFixture(moduleBuilder: JavaModuleFixtureBuilder[_]): Unit = {
+  protected override def tuneFixture(moduleBuilder: JavaModuleFixtureBuilder[?]): Unit = {
     moduleBuilder.setMockJdkLevel(JavaModuleFixtureBuilder.MockJdkLevel.jdk15)
     // TODO: the path returned from IdeaTestUtil.getMockJdk14Path is invalid in the scala plugin
     //       because the mock-jdk14 does only exists in the intellij-community source

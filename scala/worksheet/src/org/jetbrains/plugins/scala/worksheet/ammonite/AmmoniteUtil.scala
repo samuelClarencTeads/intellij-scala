@@ -295,7 +295,7 @@ object AmmoniteUtil {
     implicit class MyStringExtractorContext(private val sc: StringContext) {
 
       object mre {
-        def apply(args: Any*): String = sc.s(args: _*)
+        def apply(args: Any*): String = sc.s(args*)
 
         def unapplySeq(s: String): Option[Seq[String]] = {
           val patternString = sc.parts.map(Pattern.quote).mkString("(.+)")

@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ScalaExtractMethodHandler
 import org.jetbrains.plugins.scala.util.TypeAnnotationSettings
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
 
@@ -81,7 +81,7 @@ abstract class ScalaExtractMethodTestBase extends ScalaLightPlatformCodeInsightT
   }
 
   private def extractExpectedResult(lastPsi: PsiElement) = {
-    import ScalaTokenTypes._
+    import ScalaTokenTypes.*
     val text = lastPsi.getText
     lastPsi.getNode.getElementType match {
       case `tLINE_COMMENT`                   => text.substring(2).trim

@@ -10,7 +10,7 @@ import scala.collection.mutable
   */
 abstract class IntermediateNode {
 
-  import IntermediateNode._
+  import IntermediateNode.*
 
   val comments: Comments = Comments()
 

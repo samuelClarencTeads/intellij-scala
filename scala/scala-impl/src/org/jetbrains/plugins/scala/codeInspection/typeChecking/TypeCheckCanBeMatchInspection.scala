@@ -9,12 +9,12 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScExistentialClause, ScTypeElementExt}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
@@ -35,7 +35,7 @@ import scala.collection.mutable
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 final class TypeCheckCanBeMatchInspection extends AbstractInspection(TypeCheckCanBeMatchInspection.inspectionName) {
 
-  import TypeCheckCanBeMatchInspection._
+  import TypeCheckCanBeMatchInspection.*
 
   override def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Any] = {
     case IsInstanceOfCall(call) =>
@@ -279,8 +279,8 @@ object TypeCheckCanBeMatchInspection {
 
           if (asInstanceOfCall.exists(_.is[SyntheticNamedElement])) {
             for {
-              (base1, type1) <- baseAndType(isInstOfCall)
-              (base2, type2) <- baseAndType(call)
+              case (base1, type1) <- baseAndType(isInstOfCall)
+              case (base2, type2) <- baseAndType(call)
 
               if type1.equiv(type2) && equiv(base1, base2)
             } result += call
@@ -299,7 +299,7 @@ object TypeCheckCanBeMatchInspection {
     val caseClauses = matchStmt.clauses.toList
 
     for {
-      (index, suggestedNames) <- renameData
+      case (index, suggestedNames) <- renameData
       caseClause = caseClauses(index)
       name = suggestedNames.head
     } {

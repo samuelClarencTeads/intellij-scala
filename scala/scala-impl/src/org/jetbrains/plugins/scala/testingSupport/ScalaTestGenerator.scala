@@ -9,13 +9,13 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.ex.IdeDocumentHistory
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.util.classMembers.MemberInfo
 import com.intellij.testIntegration.TestFramework
 import com.intellij.testIntegration.createTest.{CreateTestDialog, TestGenerator}
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.plugins.scala.actions.ScalaFileTemplateUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.FormatterUtil
 import org.jetbrains.plugins.scala.lang.parser.parsing.statements.Def
 import org.jetbrains.plugins.scala.lang.psi.ElementScope
@@ -23,17 +23,17 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.refactoring.extractTrait.ExtractSuperUtil
 import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestUtil
 import org.jetbrains.plugins.scala.testingSupport.test.{AbstractTestFramework, TestConfigurationUtil}
 import org.jetbrains.plugins.scala.util.MultilineStringUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaTestGenerator extends TestGenerator {
 
-  import ScalaTestGenerator._
+  import ScalaTestGenerator.*
 
   override def generateTest(project: Project, dialog: CreateTestDialog): PsiElement = {
     postponeFormattingWithin(project) {
@@ -137,7 +137,7 @@ class ScalaTestGenerator extends TestGenerator {
   ): Unit = {
     val body = typeDef.extendsBlock.templateBody.getOrElse(return)
 
-    import ScalaTestUtil._
+    import ScalaTestUtil.*
     import TestConfigurationUtil.isInheritor
 
     if (isFeatureSpecOld(typeDef)) {

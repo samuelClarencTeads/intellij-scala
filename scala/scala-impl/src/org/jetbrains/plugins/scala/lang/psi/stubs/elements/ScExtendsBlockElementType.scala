@@ -28,21 +28,21 @@ class ScExtendsBlockElementType extends ScStubElementType[ScExtendsBlockStub, Sc
   }
 
   override def deserialize(dataStream: StubInputStream,
-                           parentStub: StubElement[_ <: PsiElement]) = new ScExtendsBlockStubImpl(
+                           parentStub: StubElement[? <: PsiElement]) = new ScExtendsBlockStubImpl(
     parentStub,
     this,
     baseClasses = ArraySeq.unsafeWrapArray(dataStream.readNames)
   )
 
   override def createStubImpl(block: ScExtendsBlock,
-                              parentStub: StubElement[_ <: PsiElement]) = new ScExtendsBlockStubImpl(
+                              parentStub: StubElement[? <: PsiElement]) = new ScExtendsBlockStubImpl(
     parentStub,
     this,
     baseClasses = ScalaInheritors.directSupersNames(block)
   )
 
   override def indexStub(stub: ScExtendsBlockStub, sink: IndexSink): Unit = {
-    sink.occurrences(index.ScalaIndexKeys.SUPER_CLASS_NAME_KEY, stub.baseClasses: _*)
+    sink.occurrences(index.ScalaIndexKeys.SUPER_CLASS_NAME_KEY, stub.baseClasses*)
   }
 
   override def createElement(node: ASTNode) = new ScExtendsBlockImpl(node)

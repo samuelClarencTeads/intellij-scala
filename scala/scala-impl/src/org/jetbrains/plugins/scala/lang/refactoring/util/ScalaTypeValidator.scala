@@ -1,14 +1,14 @@
 package org.jetbrains.plugins.scala.lang.refactoring.util
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiTreeUtil.getParentOfType
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets._
+import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.BaseProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveTargets, ScalaResolveState}
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -35,7 +35,7 @@ class ScalaTypeValidator(val selectedElement: PsiElement, override val noOccurre
     }
   }
 
-  import ScalaTypeValidator._
+  import ScalaTypeValidator.*
 
   protected def forbiddenNames(position: PsiElement, name: String): Seq[(PsiNamedElement, String)] = {
     val builder = Seq.newBuilder[(PsiNamedElement, String)]

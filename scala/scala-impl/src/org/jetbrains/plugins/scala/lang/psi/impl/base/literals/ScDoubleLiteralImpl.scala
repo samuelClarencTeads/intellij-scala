@@ -6,7 +6,7 @@ package base
 package literals
 
 import java.lang
-import java.lang.{Double => JDouble}
+import java.lang.{Double as JDouble}
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project

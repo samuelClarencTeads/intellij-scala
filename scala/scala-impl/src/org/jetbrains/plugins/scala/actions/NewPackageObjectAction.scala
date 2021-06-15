@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala
 package actions
 
 import com.intellij.ide.fileTemplates.actions.AttributesDefaults
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.module.Module
 import com.intellij.psi.JavaDirectoryService
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.icons.Icons
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 /**
  * Pavel Fatin

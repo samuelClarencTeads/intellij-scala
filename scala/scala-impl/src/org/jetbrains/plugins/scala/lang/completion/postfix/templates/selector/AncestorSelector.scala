@@ -3,7 +3,7 @@ package postfix
 package templates
 package selector
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.template.postfix.templates.PostfixTemplateExpressionSelectorBase
 import com.intellij.openapi.editor.Document
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.{ScType, api}
 import org.jetbrains.plugins.scala.lang.surroundWith.surrounders.expression.ScalaExpressionSurrounder
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Roman.Shein
@@ -34,7 +34,7 @@ sealed abstract class AncestorSelector(condition: Condition[PsiElement])
                                                offset: Int): ju.List[PsiElement] =
     PsiTreeUtil.getParentOfType(context, classOf[ScExpression], false) match {
       case expression: ScExpression =>
-        import scala.jdk.CollectionConverters._
+        import scala.jdk.CollectionConverters.*
         iterateOverParents(expression, expression :: Nil)(offset).asJava
       case _ => ju.Collections.emptyList()
     }

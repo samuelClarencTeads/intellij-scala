@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package methodSignature
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiElement, PsiMethod}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScMethodCall, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScTypeExt, result}
@@ -25,7 +25,7 @@ final class JavaAccessorEmptyParenCallInspection extends AbstractRegisteredInspe
                                            isOnTheFly: Boolean): Option[ProblemDescriptor] =
     element match {
       case (place: ScReferenceExpression) childOf (call: ScMethodCall) if call.argumentExpressions.isEmpty =>
-        import JavaAccessorEmptyParenCallInspection._
+        import JavaAccessorEmptyParenCallInspection.*
         val problemExists = place match {
           case _ if call.getParent.is[ScMethodCall] => false
           case Resolved(resolveResult@ScalaResolveResult(method: PsiMethod, _))

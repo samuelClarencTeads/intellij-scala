@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets.UTF_8
 
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.text.StringUtil
-import org.apache.bcel.classfile._
+import org.apache.bcel.classfile.*
 
 import scala.reflect.internal.pickling.ByteCodecs
 
@@ -16,7 +16,7 @@ object Decompiler {
   val SCALA_SIG_ANNOTATION: String      = "Lscala/reflect/ScalaSignature;"
   val SCALA_LONG_SIG_ANNOTATION: String = "Lscala/reflect/ScalaLongSignature;"
 
-  import scalasig._
+  import scalasig.*
 
   private[this] val Log: Logger = Logger.getInstance("#org.jetbrains.plugins.scala.decompiler.DecompilerUtil")
 
@@ -80,7 +80,7 @@ object Decompiler {
     value.getValueString.getBytes(UTF_8)
 
   private def decode(strings: List[Array[Byte]]) = {
-    val bytes = Array.concat(strings: _*)
+    val bytes = Array.concat(strings*)
     ByteCodecs.decode(bytes)
     bytes
   }

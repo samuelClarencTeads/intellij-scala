@@ -17,7 +17,7 @@ import scala.annotation.tailrec
 
 trait PrecedenceHelper {
 
-  import PrecedenceHelper._
+  import PrecedenceHelper.*
 
   def getPlace: PsiElement
 

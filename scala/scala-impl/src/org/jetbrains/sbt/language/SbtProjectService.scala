@@ -27,7 +27,7 @@ import org.jetbrains.sbt.resolvers.indexes.IvyIndex
 import org.jetbrains.sbt.resolvers.{SbtMavenRepositoryProvider, SbtResolverUtils}
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin

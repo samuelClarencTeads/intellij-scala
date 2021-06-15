@@ -13,7 +13,7 @@ class MatchToPartialFunctionInspectionTest extends ScalaQuickFixTestBase {
 
   import MatchToPartialFunctionInspection.DESCRIPTION
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[MatchToPartialFunctionInspection]
 
   override protected val description: String = DESCRIPTION

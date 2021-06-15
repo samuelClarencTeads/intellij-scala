@@ -20,9 +20,9 @@ import org.junit.Assert
   * @since 05.04.16.
   */
 trait SimpleResolveTestBase {
-  this: TestFixtureProvider with UsefulTestCase with FailableTest =>
+  this: TestFixtureProvider & UsefulTestCase & FailableTest =>
 
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   protected def folderPath: String = TestUtils.getTestDataPath + "/resolve/"
 
@@ -41,10 +41,10 @@ trait SimpleResolveTestBase {
   }
 
   protected def doResolveTest(sources: (String, String)*): Unit =
-    doResolveTest(target = None, shouldResolve = true, sources: _*)
+    doResolveTest(target = None, shouldResolve = true, sources*)
 
   protected def doResolveTest(target: PsiElement, sources: (String, String)*): Unit =
-    doResolveTest(target = Some(target), shouldResolve = true, sources: _*)
+    doResolveTest(target = Some(target), shouldResolve = true, sources*)
 
   protected def setupResolveTest(target: Option[PsiElement], sources: (String, String)*): (ScReference, PsiElement) = {
     var src: ScReference = null
@@ -71,7 +71,7 @@ trait SimpleResolveTestBase {
   }
 
   private def doResolveTest(target: Option[PsiElement], shouldResolve: Boolean, sources: (String, String)*): Unit = {
-    val (src, tgt) = setupResolveTest(target, sources: _*)
+    val (src, tgt) = setupResolveTest(target, sources*)
     val result = src.resolve()
     if (shouldPass) {
       if (shouldResolve) Assert.assertNotNull(s"Failed to resolve element - '${src.getText}'", result)
@@ -88,7 +88,7 @@ trait SimpleResolveTestBase {
   }
 
   protected def testNoResolve(sources: (String, String)*): Unit =
-    doResolveTest(None, shouldResolve = false, sources: _*)
+    doResolveTest(None, shouldResolve = false, sources*)
 
   protected def doResolveTest(source: String, fileName: String = "dummy.scala"): Unit =
     doResolveTest(source -> fileName)

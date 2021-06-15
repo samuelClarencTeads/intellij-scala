@@ -14,7 +14,7 @@ import org.jetbrains.sbt.SbtUtil
 
 import java.io.File
 import java.util
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class SbtModuleTransformer(private val project: Project) extends ModuleTransformer {
 
@@ -73,7 +73,7 @@ class SbtModuleTransformer(private val project: Project) extends ModuleTransform
     case e: Exception => null
   }
 
-  override def transformModules(list: util.List[_ <: Module]): util.List[ProjectModule] = {
+  override def transformModules(list: util.List[? <: Module]): util.List[ProjectModule] = {
 //    if (DumbService.getInstance(project).isDumb) return List.empty.asJava
     list.asScala.map(module => obtainProjectModulesFor(module)).filter(_ != null).distinct.asJava
   }

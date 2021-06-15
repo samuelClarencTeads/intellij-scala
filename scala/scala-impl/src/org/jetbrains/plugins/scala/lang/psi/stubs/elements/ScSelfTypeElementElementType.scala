@@ -24,7 +24,7 @@ class ScSelfTypeElementElementType extends ScStubElementType[ScSelfTypeElementSt
   }
 
   override def deserialize(dataStream: StubInputStream,
-                           parentStub: StubElement[_ <: PsiElement]) = new ScSelfTypeElementStubImpl(
+                           parentStub: StubElement[? <: PsiElement]) = new ScSelfTypeElementStubImpl(
     parentStub,
     this,
     name = dataStream.readNameString,
@@ -33,7 +33,7 @@ class ScSelfTypeElementElementType extends ScStubElementType[ScSelfTypeElementSt
   )
 
   override def createStubImpl(typeElement: ScSelfTypeElement,
-                              parentStub: StubElement[_ <: PsiElement]): ScSelfTypeElementStub = {
+                              parentStub: StubElement[? <: PsiElement]): ScSelfTypeElementStub = {
     val typeElementText = typeElement.typeElement.map(_.getText)
 
     new ScSelfTypeElementStubImpl(
@@ -46,7 +46,7 @@ class ScSelfTypeElementElementType extends ScStubElementType[ScSelfTypeElementSt
   }
 
   override def indexStub(stub: ScSelfTypeElementStub, sink: IndexSink): Unit = {
-    sink.occurrences(index.ScalaIndexKeys.SELF_TYPE_CLASS_NAME_KEY, stub.classNames.toSeq: _*)
+    sink.occurrences(index.ScalaIndexKeys.SELF_TYPE_CLASS_NAME_KEY, stub.classNames.toSeq*)
   }
 
   override def createElement(node: ASTNode) = new ScSelfTypeElementImpl(node)

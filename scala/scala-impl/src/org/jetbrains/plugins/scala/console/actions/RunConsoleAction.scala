@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala.console.actions
 
-import com.intellij.execution._
+import com.intellij.execution.*
 import com.intellij.execution.configurations.{ConfigurationType, ConfigurationTypeUtil, RunConfiguration}
 import com.intellij.execution.executors.DefaultRunExecutor
 import com.intellij.execution.runners.{ExecutionEnvironmentBuilder, ProgramRunner}
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.psi.PsiFile
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.extensions.inReadAction
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.project.ProjectExt
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class RunConsoleAction extends AnAction(
   ScalaBundle.message("scalarepl.menu.action.text"),

@@ -5,8 +5,8 @@ import java.net.URLClassLoader
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path}
 
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions._
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.ReflectUtils._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.exceptions.*
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.utils.ReflectUtils.*
 
 import scala.util.Try
 

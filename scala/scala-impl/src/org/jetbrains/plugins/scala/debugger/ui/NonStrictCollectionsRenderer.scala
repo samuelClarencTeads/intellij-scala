@@ -11,7 +11,7 @@ import com.intellij.debugger.engine.evaluation.EvaluationContextImpl
 import com.intellij.debugger.impl.PositionUtil
 import com.intellij.debugger.ui.impl.watch.ValueDescriptorImpl
 import com.intellij.debugger.ui.impl.watch.WatchItemDescriptor
-import com.intellij.debugger.ui.tree.render._
+import com.intellij.debugger.ui.tree.render.*
 import com.intellij.debugger.ui.tree.DebuggerTreeNode
 import com.intellij.debugger.ui.tree.NodeDescriptor
 import com.intellij.debugger.ui.tree.ValueDescriptor
@@ -19,12 +19,12 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.JavaPsiFacade
 import com.intellij.psi.PsiExpression
 import com.intellij.util.IncorrectOperationException
-import com.sun.jdi._
+import com.sun.jdi.*
 import com.sun.tools.jdi.ObjectReferenceImpl
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.debugger.filters.ScalaDebuggerSettings
-import org.jetbrains.plugins.scala.debugger.ui.NonStrictCollectionsRenderer._
-import org.jetbrains.plugins.scala.debugger.ui.ScalaCollectionRenderer._
+import org.jetbrains.plugins.scala.debugger.ui.NonStrictCollectionsRenderer.*
+import org.jetbrains.plugins.scala.debugger.ui.ScalaCollectionRenderer.*
 
 /**
  * User: Dmitry Naydanov
@@ -64,7 +64,7 @@ class NonStrictCollectionsRenderer extends NodeRendererImpl {
     }
   }
 
-  private def tryToGetSize(objectRef: ObjectReference, context: EvaluationContext): SimpleMethodInvocationResult[_] = {
+  private def tryToGetSize(objectRef: ObjectReference, context: EvaluationContext): SimpleMethodInvocationResult[?] = {
     @inline def invoke(name: String) = invokeLengthMethodByName(objectRef, name, 'I', context)
 
     try {
@@ -187,7 +187,7 @@ object NonStrictCollectionsRenderer {
   private val EMPTY_ARGS = util.Collections.unmodifiableList(new util.ArrayList[Value]())
 
   //it considers only part of cases so it is not intended to be used outside 
-  private def invokeEmptyArgsMethod(obj: ObjectReference, method: Method, context: EvaluationContext): SimpleMethodInvocationResult[_] = {
+  private def invokeEmptyArgsMethod(obj: ObjectReference, method: Method, context: EvaluationContext): SimpleMethodInvocationResult[?] = {
     try {
       context.getDebugProcess.invokeMethod(context, obj, method, EMPTY_ARGS) match {
         case intValue: IntegerValue => Success[Int](intValue.intValue())

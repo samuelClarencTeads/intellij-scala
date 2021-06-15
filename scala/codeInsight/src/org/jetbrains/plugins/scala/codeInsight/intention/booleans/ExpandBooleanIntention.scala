@@ -8,7 +8,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScParenthesisedExpr, ScReturn}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.project.ProjectContext
   */
 final class ExpandBooleanIntention extends PsiElementBaseIntentionAction {
 
-  import ExpandBooleanIntention._
+  import ExpandBooleanIntention.*
 
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean =
     findReturnParent(element).filter { statement =>

@@ -10,7 +10,7 @@ import com.intellij.testFramework.EditorTestUtil
  */
 class FoldTrueAndTest extends OperationsOnCollectionInspectionTest {
 
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[FoldTrueAndInspection]
 
   override protected val hint: String =

@@ -3,7 +3,7 @@ package annotator
 package element
 
 import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.checkConformance
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScVariableDefinition
 

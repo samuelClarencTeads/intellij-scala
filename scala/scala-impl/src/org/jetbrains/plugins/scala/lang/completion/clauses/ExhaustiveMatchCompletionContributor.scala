@@ -3,18 +3,18 @@ package lang
 package completion
 package clauses
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElementPresentation
 import com.intellij.patterns.{ElementPattern, PlatformPatterns}
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 
 final class ExhaustiveMatchCompletionContributor extends ScalaCompletionContributor {
 
-  import ExhaustiveMatchCompletionContributor._
+  import ExhaustiveMatchCompletionContributor.*
   import PlatformPatterns.psiElement
 
   extend(
@@ -66,8 +66,8 @@ final class ExhaustiveMatchCompletionContributor extends ScalaCompletionContribu
     }
   }
 
-  private def extend(place: ElementPattern[_ <: PsiElement])
-                    (provider: ExhaustiveClauseCompletionProvider[_]): Unit =
+  private def extend(place: ElementPattern[? <: PsiElement])
+                    (provider: ExhaustiveClauseCompletionProvider[?]): Unit =
     extend(CompletionType.BASIC, place, provider)
 }
 
@@ -83,7 +83,7 @@ object ExhaustiveMatchCompletionContributor {
 
     override final protected def addCompletions(expression: E, result: CompletionResultSet)
                                                (implicit parameters: ClauseCompletionParameters): Unit = for {
-      PatternGenerationStrategy(strategy) <- targetType(expression)(parameters.place)
+      case PatternGenerationStrategy(strategy) <- targetType(expression)(parameters.place)
       if strategy.canBeExhaustive
 
       lookupElement = buildLookupElement(
@@ -102,7 +102,7 @@ object ExhaustiveMatchCompletionContributor {
     protected def targetType(expression: E)
                             (implicit place: PsiElement): Option[ScType]
 
-    protected def createInsertHandler(strategy: PatternGenerationStrategy): ExhaustiveClauseInsertHandler[_]
+    protected def createInsertHandler(strategy: PatternGenerationStrategy): ExhaustiveClauseInsertHandler[?]
   }
 
   private final class ExhaustiveClauseInsertHandler[

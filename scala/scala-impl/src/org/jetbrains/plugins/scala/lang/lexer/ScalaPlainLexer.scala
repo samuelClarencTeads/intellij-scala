@@ -14,7 +14,7 @@ final class ScalaPlainLexer(isScala3: Boolean,
                             treatDocCommentAsBlockComment: Boolean)
   extends LayeredLexer(ScalaSplittingLayerLexer(treatDocCommentAsBlockComment)) {
 
-  import ScalaPlainLexer._
+  import ScalaPlainLexer.*
   {
     val isDisabled = IsDisabled()
     IsDisabled() = false
@@ -31,8 +31,8 @@ final class ScalaPlainLexer(isScala3: Boolean,
 
 object ScalaPlainLexer {
 
-  import ScalaTokenTypes._
-  import core.{_ScalaCoreLexer => ScalaCoreLexer, _ScalaSplittingLexer => ScalaSplittingLexer}
+  import ScalaTokenTypes.*
+  import core.{_ScalaCoreLexer as ScalaCoreLexer, _ScalaSplittingLexer as ScalaSplittingLexer}
   import scaladoc.parser.ScalaDocElementTypes.SCALA_DOC_COMMENT
 
   private object IsDisabled {

@@ -42,10 +42,10 @@ object MakeArrayToStringInspection extends SimplificationType {
           case null => None
           case parent =>
             parent.getParent match {
-              case `.print`(qual, args@_*) if args.contains(expr) =>
+              case `.print`(qual, args*) if args.contains(expr) =>
                 // System.out.println(array)
                 Some(result)
-              case `print` (args@_*) if args.contains(expr) =>
+              case `print` (args*) if args.contains(expr) =>
                 // println(array)
                 Some(result)
               case _: ScInterpolatedStringLiteral =>

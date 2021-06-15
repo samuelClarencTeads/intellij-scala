@@ -4,7 +4,7 @@ package findUsages
 
 import com.intellij.usages.rules.{ImportFilteringRule, PsiElementUsage}
 import com.intellij.usages.{Usage, UsageTarget}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 
 final class ScalaImportFilteringRule extends ImportFilteringRule {

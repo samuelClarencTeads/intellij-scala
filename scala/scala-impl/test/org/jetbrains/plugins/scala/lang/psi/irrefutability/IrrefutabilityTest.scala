@@ -14,7 +14,7 @@ class IrrefutabilityTest extends ScalaLightCodeInsightFixtureTestAdapter {
     def unapply(arg: ScMatch): Option[(ScPattern, ScExpression)] =
       for {
         expr <- arg.expression
-        Seq(clause) <- Some(arg.clauses)
+        case Seq(clause) <- Some(arg.clauses)
         pattern <- clause.pattern
       } yield pattern -> expr
   }
@@ -148,16 +148,16 @@ class IrrefutabilityTest extends ScalaLightCodeInsightFixtureTestAdapter {
 
   def testWildcardSeqPattern(): Unit = {
     assertIsIrrefutable("Fun(A, B) match { case Fun(a, _*) => }")
-    assertIsIrrefutable("Fun(A, B) match { case Fun(a, b@_*) => }")
+    assertIsIrrefutable("Fun(A, B) match { case Fun(a, b*) => }")
     assertIsIrrefutable("Fun(A, B, C) match { case Fun(a, _*) => }")
-    assertIsIrrefutable("Fun(A, B, C) match { case Fun(a, b@_*) => }")
+    assertIsIrrefutable("Fun(A, B, C) match { case Fun(a, b*) => }")
 
     assertIsNotIrrefutable("A match { case (_*) => }")
     assertIsNotIrrefutable("Some(A) match { case Some(_*) => }")
-    assertIsNotIrrefutable("Some(A) match { case Some(a@_*) => }")
+    assertIsNotIrrefutable("Some(A) match { case Some(a*) => }")
     assertIsNotIrrefutable("Fun(A, B) match { case Fun(a, b) => }")
     assertIsNotIrrefutable("Fun(A, B) match { case Fun(a) => }")
     assertIsNotIrrefutable("Fun(A, B) match { case Fun(a, b, _*) => }")
-    assertIsNotIrrefutable("Fun(A, B) match { case Fun(a, b, c@_*) => }")
+    assertIsNotIrrefutable("Fun(A, B) match { case Fun(a, b, c*) => }")
   }
 }

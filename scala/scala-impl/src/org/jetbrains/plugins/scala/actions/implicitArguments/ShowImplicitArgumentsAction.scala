@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.actions.implicitArguments
 
 import com.intellij.ide.util.treeView.AbstractTreeNode
 import com.intellij.openapi.Disposable
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.ex.IdeDocumentHistory
@@ -17,7 +17,7 @@ import com.intellij.ui.{ClickListener, ScrollPaneFactory}
 import com.intellij.util.ArrayUtil
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.actions.ScalaActionUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.{ImplicitArgumentsOwner, ScalaFile}
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil
@@ -35,7 +35,7 @@ class ShowImplicitArgumentsAction extends AnAction(
   ScalaBundle.message("show.implicit.arguments.action.description"),
   /* icon = */ null
 ) {
-  import ShowImplicitArgumentsAction._
+  import ShowImplicitArgumentsAction.*
 
   override def update(e: AnActionEvent): Unit = ScalaActionUtil.enableAndShowIfInScalaFile(e)
 
@@ -118,7 +118,7 @@ class ShowImplicitArgumentsAction extends AnAction(
 }
 
 object ShowImplicitArgumentsAction {
-  private def getSelectedNode(jTree: JTree): AbstractTreeNode[_] = {
+  private def getSelectedNode(jTree: JTree): AbstractTreeNode[?] = {
     val path: TreePath = jTree.getSelectionPath
     if (path != null) {
       var component: AnyRef = path.getLastPathComponent
@@ -126,7 +126,7 @@ object ShowImplicitArgumentsAction {
         case node: DefaultMutableTreeNode =>
           component = node.getUserObject
           component match {
-            case abstractTreeNode: AbstractTreeNode[_] => return abstractTreeNode
+            case abstractTreeNode: AbstractTreeNode[?] => return abstractTreeNode
             case _ =>
           }
         case _ =>
@@ -136,7 +136,7 @@ object ShowImplicitArgumentsAction {
   }
 
   private def navigateSelectedElement(popup: JBPopup, jTree: JTree, project: Project): Boolean = {
-    val selectedNode: AbstractTreeNode[_] = getSelectedNode(jTree)
+    val selectedNode: AbstractTreeNode[?] = getSelectedNode(jTree)
 
     val succeeded: Ref[Boolean] = new Ref[Boolean]
     val commandProcessor: CommandProcessor = CommandProcessor.getInstance
@@ -185,7 +185,7 @@ object ShowImplicitArgumentsAction {
     val F4: Array[Shortcut] =
       ActionManager.getInstance.getAction(IdeActions.ACTION_EDIT_SOURCE).getShortcutSet.getShortcuts
     val ENTER: Array[Shortcut] = CustomShortcutSet.fromString("ENTER").getShortcuts
-    val shortcutSet: CustomShortcutSet = new CustomShortcutSet(ArrayUtil.mergeArrays(F4, ENTER): _*)
+    val shortcutSet: CustomShortcutSet = new CustomShortcutSet(ArrayUtil.mergeArrays(F4, ENTER)*)
 
     val title = if (isConversion) ScalaBundle.message("implicit.arguments.for.implicit.conversion") else ScalaBundle.message("implicit.arguments")
 

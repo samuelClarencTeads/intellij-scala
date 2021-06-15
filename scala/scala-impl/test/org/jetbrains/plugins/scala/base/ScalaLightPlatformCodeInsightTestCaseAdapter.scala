@@ -10,7 +10,7 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{PsiFile, PsiManager}
 import com.intellij.testFramework.{LightPlatformCodeInsightTestCase, LightPlatformTestCase, LightProjectDescriptor}
-import org.jetbrains.plugins.scala.base.libraryLoaders._
+import org.jetbrains.plugins.scala.base.libraryLoaders.*
 import org.jetbrains.plugins.scala.util.TestUtils
 
 /**
@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.util.TestUtils
  */
 @deprecated
 abstract class ScalaLightPlatformCodeInsightTestCaseAdapter extends LightPlatformCodeInsightTestCase with ScalaSdkOwner {
-  import LightPlatformTestCase._
+  import LightPlatformTestCase.*
 
   protected def sourceRootPath: String = null
 

@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.lang.rearranger
 
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier._
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier.*
 import com.intellij.psi.codeStyle.arrangement.std.{ArrangementSettingsToken, StdArrangementSettingsToken, StdArrangementTokenType, StdArrangementTokens}
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.ScalaBundle

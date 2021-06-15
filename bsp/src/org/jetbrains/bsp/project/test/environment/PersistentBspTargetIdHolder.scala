@@ -10,7 +10,7 @@ import com.intellij.openapi.components.Storage
 import com.intellij.openapi.components.StoragePathMacros
 import com.intellij.openapi.module.Module
 import com.intellij.util.xmlb.XmlSerializerUtil
-import org.jetbrains.bsp.project.test.environment.BspJvmEnvironment._
+import org.jetbrains.bsp.project.test.environment.BspJvmEnvironment.*
 
 @State(
   name = "PersistentBspTargetIdHolder",

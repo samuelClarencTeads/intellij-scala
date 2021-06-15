@@ -4,12 +4,12 @@ package codeInsight.intention.imports
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.LocalSearchScope
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.codeInsight.intention.imports.ImportMembersUtil._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInsight.intention.imports.ImportMembersUtil.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScImportsHolder
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 

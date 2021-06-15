@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.uast.controlStructures
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.Nullable
@@ -8,11 +8,11 @@ import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScCatchBlock, ScTry}
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.{ScUAnnotated, ScUElement, ScUExpression}
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * [[ScTry]] adapter for the [[UTryExpression]]

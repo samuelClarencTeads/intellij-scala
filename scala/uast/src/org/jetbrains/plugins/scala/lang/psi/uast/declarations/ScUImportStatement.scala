@@ -7,13 +7,13 @@ import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.ScUElement
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 import org.jetbrains.plugins.scala.lang.psi.uast.kinds.ScalaSpecialExpressionKinds
 import org.jetbrains.plugins.scala.uast.ReferenceExt
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * [[ScImportStmt]] adapter for the [[UImportStatement]]
@@ -26,7 +26,7 @@ final class ScUImportStatement(override protected val scElement: ScImportStmt,
     with ScUElement
     with UMultiResolvable {
 
-  import ScUImportStatement._
+  import ScUImportStatement.*
 
   override type PsiFacade = PsiElement
 

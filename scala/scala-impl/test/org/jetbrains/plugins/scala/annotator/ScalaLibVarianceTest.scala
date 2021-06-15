@@ -68,12 +68,12 @@ class ScalaLibVarianceTest extends VarianceTestBase {
       |  trait V1[-T]
       |  trait V2[+T]
       |  trait MyTrait[+T, -T2] {
-      |    val foo: V[_ <: T]
-      |    val bar: V[_ >: T2]
-      |    val foo1: V1[_ <: T]
-      |    val bar1: V1[_ >: T2]
-      |    val foo2: V2[_ <: T]
-      |    val bar2: V2[_ >: T2]
+      |    val foo: V[? <: T]
+      |    val bar: V[? >: T2]
+      |    val foo1: V1[? <: T]
+      |    val bar1: V1[? >: T2]
+      |    val foo2: V2[? <: T]
+      |    val bar2: V2[? >: T2]
       |  }
       |}
     """.stripMargin))

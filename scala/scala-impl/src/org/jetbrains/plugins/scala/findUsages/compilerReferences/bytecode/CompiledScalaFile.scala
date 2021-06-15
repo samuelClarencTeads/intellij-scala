@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences
 package bytecode
 
 import java.io.File
-import java.{util => ju}
+import java.{util as ju}
 
 import org.jetbrains.jps.backwardRefs.CompilerRef
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.{ScFunExprCompilerRef, ScalaCompilerReferenceWriter}

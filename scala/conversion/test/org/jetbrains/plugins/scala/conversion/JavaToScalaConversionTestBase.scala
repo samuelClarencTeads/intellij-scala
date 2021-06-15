@@ -6,7 +6,7 @@ import java.io.File
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.{CharsetToolkit, LocalFileSystem}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.util.TypeAnnotationSettings
@@ -20,7 +20,7 @@ import scala.collection.mutable
 @nowarn("msg=ScalaLightPlatformCodeInsightTestCaseAdapter")
 abstract class JavaToScalaConversionTestBase extends base.ScalaLightPlatformCodeInsightTestCaseAdapter {
 
-  import TypeAnnotationSettings._
+  import TypeAnnotationSettings.*
 
   private val startMarker = "/*start*/"
   private val endMarker = "/*end*/"
@@ -28,7 +28,7 @@ abstract class JavaToScalaConversionTestBase extends base.ScalaLightPlatformCode
   def folderPath: String = baseRootPath + "conversion/"
 
   protected def doTest(typeAnnotationSettings: ScalaCodeStyleSettings = alwaysAddType(ScalaCodeStyleSettings.getInstance(getProjectAdapter))): Unit = {
-    import org.junit.Assert._
+    import org.junit.Assert.*
     val oldSettings: Any = ScalaCodeStyleSettings.getInstance(getProjectAdapter).clone
 
     set(getProjectAdapter, typeAnnotationSettings)

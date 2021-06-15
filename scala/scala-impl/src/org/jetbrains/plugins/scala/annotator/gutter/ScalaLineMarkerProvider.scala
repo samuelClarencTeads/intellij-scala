@@ -4,9 +4,9 @@ package gutter
 
 import java.awt.event.MouseEvent
 import java.util.Collections.singletonList
-import java.{util => ju}
+import java.{util as ju}
 
-import com.intellij.codeInsight.daemon._
+import com.intellij.codeInsight.daemon.*
 import com.intellij.codeInsight.daemon.impl.GutterTooltipHelper
 import com.intellij.icons.AllIcons
 import com.intellij.icons.AllIcons.Gutter
@@ -17,24 +17,24 @@ import com.intellij.openapi.editor.colors.{CodeInsightColors, EditorColorsManage
 import com.intellij.openapi.editor.markup.{GutterIconRenderer, SeparatorPlacement}
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.util.{Function => IJFunction}
+import com.intellij.util.{Function as IJFunction}
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScCaseClauses, ScPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScFieldId, ScReference}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.types.TermSignature
-import org.jetbrains.plugins.scala.util.SAMUtil._
+import org.jetbrains.plugins.scala.util.SAMUtil.*
 
 /**
  * User: Alexander Podkhalyuzin
@@ -42,12 +42,12 @@ import org.jetbrains.plugins.scala.util.SAMUtil._
  */
 final class ScalaLineMarkerProvider extends LineMarkerProviderDescriptor with ScalaSeparatorProvider {
 
-  import Gutter._
+  import Gutter.*
   import GutterIconRenderer.Alignment
-  import GutterUtil._
-  import ScalaMarkerType._
+  import GutterUtil.*
+  import ScalaMarkerType.*
 
-  override def getLineMarkerInfo(element: PsiElement): LineMarkerInfo[_ <: PsiElement] =
+  override def getLineMarkerInfo(element: PsiElement): LineMarkerInfo[? <: PsiElement] =
     if (element.isValid) {
       val lineMarkerInfo =
         getOverridesImplementsMarkers(element)
@@ -72,7 +72,7 @@ final class ScalaLineMarkerProvider extends LineMarkerProviderDescriptor with Sc
     )
   }
 
-  private[this] def addSeparatorInfo(info: LineMarkerInfo[_ <: PsiElement]): LineMarkerInfo[_ <: PsiElement] = {
+  private[this] def addSeparatorInfo(info: LineMarkerInfo[? <: PsiElement]): LineMarkerInfo[? <: PsiElement] = {
     info.separatorColor =
       EditorColorsManager.getInstance().getGlobalScheme.getColor(CodeInsightColors.METHOD_SEPARATORS_COLOR)
     info.separatorPlacement = SeparatorPlacement.TOP
@@ -106,13 +106,13 @@ final class ScalaLineMarkerProvider extends LineMarkerProviderDescriptor with Sc
   private[this] val trivialSAMs: Set[String] = Set("scala.Function", "scala.PartialFunction", "java.util.function")
   private[this] def isInterestingSAM(sam: PsiClass): Boolean = !trivialSAMs.exists(sam.qualifiedName.startsWith)
 
-  private[this] def getImplementsSAMTypeMarker(element: PsiElement): Option[LineMarkerInfo[_ <: PsiElement]] = {
+  private[this] def getImplementsSAMTypeMarker(element: PsiElement): Option[LineMarkerInfo[? <: PsiElement]] = {
     if (!SamOption.isEnabled) {
       return None
     }
 
     if (canBeFunctionalExpressionAnchor(element)) for {
-      (parent, sam) <- funExprParent(element)
+      case (parent, sam) <- funExprParent(element)
       if isInterestingSAM(sam) &&
         PsiTreeUtil.getDeepestFirst(parent) == element
       icon = ImplementingFunctionalInterface
@@ -121,7 +121,7 @@ final class ScalaLineMarkerProvider extends LineMarkerProviderDescriptor with Sc
     else None
   }
 
-  private[this] def getOverridesImplementsMarkers(element: PsiElement): Option[LineMarkerInfo[_ <: PsiElement]] = {
+  private[this] def getOverridesImplementsMarkers(element: PsiElement): Option[LineMarkerInfo[? <: PsiElement]] = {
     if (!OverridingOption.isEnabled && !ImplementingOption.isEnabled) {
       return None
     }
@@ -182,9 +182,9 @@ final class ScalaLineMarkerProvider extends LineMarkerProviderDescriptor with Sc
   }
 
 
-  override def collectSlowLineMarkers(elements: ju.List[_ <: PsiElement],
-                                      result: ju.Collection[_ >: LineMarkerInfo[_]]): Unit = {
-    import scala.jdk.CollectionConverters._
+  override def collectSlowLineMarkers(elements: ju.List[? <: PsiElement],
+                                      result: ju.Collection[? >: LineMarkerInfo[?]]): Unit = {
+    import scala.jdk.CollectionConverters.*
 
     if (!OverriddenOption.isEnabled && !ImplementedOption.isEnabled) {
       return
@@ -240,9 +240,9 @@ private object GutterUtil {
       OverriddenOption.isEnabled && icon == AllIcons.Gutter.OverridenMethod ||
       ImplementedOption.isEnabled && icon == AllIcons.Gutter.ImplementedMethod
 
-  import Gutter._
+  import Gutter.*
   import GutterIconRenderer.Alignment
-  import ScalaMarkerType._
+  import ScalaMarkerType.*
 
   private[gutter] final case class ArrowUpOrDownLineMarkerInfo(
                                                                 element:            PsiElement,
@@ -259,15 +259,15 @@ private object GutterUtil {
         alignment,
         () => markerType.tooltipProvider.fun(element)
       ) {
-    override def canMergeWith(other: MergeableLineMarkerInfo[_]): Boolean = other match {
+    override def canMergeWith(other: MergeableLineMarkerInfo[?]): Boolean = other match {
       case that: ArrowUpOrDownLineMarkerInfo => icon == that.icon
       case _                                 => false
     }
 
-    def getCommonIcon(infos: ju.List[_ <: MergeableLineMarkerInfo[_]]): Icon = icon
+    def getCommonIcon(infos: ju.List[? <: MergeableLineMarkerInfo[?]]): Icon = icon
 
 
-    override def getCommonTooltip(infos: ju.List[_ <: MergeableLineMarkerInfo[_]]): IJFunction[_ >: PsiElement, String] =
+    override def getCommonTooltip(infos: ju.List[? <: MergeableLineMarkerInfo[?]]): IJFunction[? >: PsiElement, String] =
       _ =>
         markerType match {
           case ScalaMarkerType.overriddenMember => ScalaBundle.message("multiple.overriden.tooltip")
@@ -286,7 +286,7 @@ private object GutterUtil {
   def namedParent(e: PsiElement): Option[PsiElement] =
     e.withParentsInFile.find(ScalaPsiUtil.isNameContext)
 
-  def collectInheritingClassesMarker(aClass: ScTypeDefinition): Option[LineMarkerInfo[_ <: PsiElement]] = {
+  def collectInheritingClassesMarker(aClass: ScTypeDefinition): Option[LineMarkerInfo[? <: PsiElement]] = {
     val inheritor = ClassInheritorsSearch.search(aClass, false).findFirst.toOption
     inheritor.map { _ =>
       val range = aClass.nameId.getTextRange
@@ -313,7 +313,7 @@ private object GutterUtil {
     }
   }
 
-  def collectOverriddenMemberMarker(member: ScMember, anchor: PsiElement): Option[LineMarkerInfo[_ <: PsiElement]] =
+  def collectOverriddenMemberMarker(member: ScMember, anchor: PsiElement): Option[LineMarkerInfo[? <: PsiElement]] =
     member match {
       case Constructor(_) => None
       case _ =>
@@ -372,7 +372,7 @@ private object GutterUtil {
   }
 
   // Show companion for class / trait / object / enum in the gutter, https://youtrack.jetbrains.com/issue/SCL-17697
-  private[gutter] def companionMarker(element: PsiElement): Option[LineMarkerInfo[_ <: PsiElement]] = {
+  private[gutter] def companionMarker(element: PsiElement): Option[LineMarkerInfo[? <: PsiElement]] = {
     if (!CompanionOption.isEnabled) {
       return None
     }

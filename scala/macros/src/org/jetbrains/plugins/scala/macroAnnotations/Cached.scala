@@ -28,8 +28,8 @@ class Cached(modificationTracker: Object, psiElement: Any, trackedExpressions: A
 
 object Cached {
   def cachedImpl(c: whitebox.Context)(annottees: c.Tree*): c.Expr[Any] = {
-    import CachedMacroUtil._
-    import c.universe._
+    import CachedMacroUtil.*
+    import c.universe.*
     implicit val x: c.type = c
 
     def abort(@Nls message: String) = c.abort(c.enclosingPosition, message)
@@ -37,7 +37,7 @@ object Cached {
     def parameters: (Tree, Tree, Seq[Tree]) = {
       c.prefix.tree match {
         case q"new Cached(..$params)" if params.length >= 2 =>
-          val Seq(modificationTracker, psiElement, tracked @ _*) = params.map(_.asInstanceOf[c.universe.Tree])
+          val Seq(modificationTracker, psiElement, tracked*) = params.map(_.asInstanceOf[c.universe.Tree])
           (modificationTracker, psiElement, tracked)
         case _ => abort(MacrosBundle.message("macros.cached.wrong.parameters"))
       }

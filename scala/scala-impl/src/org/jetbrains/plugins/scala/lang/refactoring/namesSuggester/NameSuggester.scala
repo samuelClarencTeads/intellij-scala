@@ -4,11 +4,11 @@ package refactoring
 package namesSuggester
 
 import com.intellij.openapi.util.text.StringUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScLiteral, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScProjectionType}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.isIdentifier
@@ -60,7 +60,7 @@ object NameSuggester {
       case seq => seq.reverse
     }
 
-    mutable.LinkedHashSet(collected: _*)
+    mutable.LinkedHashSet(collected*)
       .map(validator.validateName)
       .to(ArraySeq)
   }
@@ -99,7 +99,7 @@ object NameSuggester {
     }
 
     val stdTypes = `type`.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     def valTypeName(`type`: ValType): String = {
       val typeName = `type`.name

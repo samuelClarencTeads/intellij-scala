@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.project.ProjectContext
 
 object ScSelfInvocationAnnotator extends ElementAnnotator[ScSelfInvocation] {
   // TODO unify using ConstructorInvocationLike
-  import ScConstructorInvocationAnnotator._
+  import ScConstructorInvocationAnnotator.*
 
   override def annotate(element: ScSelfInvocation, typeAware: Boolean = true)
                        (implicit holder: ScalaAnnotationHolder): Unit = {

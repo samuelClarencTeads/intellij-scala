@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.codeInspection.ScalaQuickFixTestBase
  */
 class DoubleNegationInspectionTest extends ScalaQuickFixTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] = classOf[DoubleNegationInspection]
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] = classOf[DoubleNegationInspection]
   override protected val description: String = "Double negation"
 
   private val hint = "Remove double negation"

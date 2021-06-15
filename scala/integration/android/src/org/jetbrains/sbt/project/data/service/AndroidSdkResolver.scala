@@ -3,10 +3,10 @@ package org.jetbrains.sbt.project.data.service
 
 import com.intellij.openapi.projectRoots.{ProjectJdkTable, Sdk}
 import org.jetbrains.android.sdk.{AndroidPlatform, AndroidSdkType}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.external.{AndroidJdk, SdkReference, SdkResolver}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class AndroidSdkResolver extends SdkResolver {
   override def findSdk(reference: SdkReference): Option[Sdk] = reference match {

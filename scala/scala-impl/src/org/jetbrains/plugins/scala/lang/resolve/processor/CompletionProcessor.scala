@@ -3,8 +3,8 @@ package lang
 package resolve
 package processor
 
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.withCompanionModule
 import org.jetbrains.plugins.scala.lang.psi.api.base.AuxiliaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAlias
@@ -85,7 +85,7 @@ class CompletionProcessor(override val kinds: Set[ResolveTargets.Value],
 
   override protected def isCheckForEqualPrecedence = false
 
-  import CompletionProcessor._
+  import CompletionProcessor.*
 
   override protected def execute(namedElement: PsiNamedElement)
                                 (implicit state: ResolveState): Boolean = {

@@ -3,9 +3,9 @@ package annotator
 package element
 
 import com.intellij.codeInspection.ProblemHighlightType
-import org.jetbrains.plugins.scala.annotator.AnnotatorUtils._
+import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.*
 import org.jetbrains.plugins.scala.annotator.quickfix.ChangeTypeFix
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScCatchBlock, ScTry}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager

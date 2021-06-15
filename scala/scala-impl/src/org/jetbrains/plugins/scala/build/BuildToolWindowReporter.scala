@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.build
 
 import java.io.File
 
-import com.intellij.build.events.impl._
+import com.intellij.build.events.impl.*
 import com.intellij.build.events.{BuildEvent, EventResult, MessageEvent}
 import com.intellij.build.{BuildViewManager, DefaultBuildDescriptor, FilePosition}
 import com.intellij.execution.ui.RunContentDescriptor
@@ -120,7 +120,7 @@ class BuildToolWindowReporter(project: Project,
 }
 
 object BuildToolWindowReporter {
-  class CancelBuildAction(cancelToken: Promise[_])
+  class CancelBuildAction(cancelToken: Promise[?])
     extends DumbAwareAction(ScalaBundle.message("report.build.toolwindow.cancel"), ScalaBundle.message("report.build.toolwindow.cancel"), AllIcons.Actions.Suspend) {
 
     override def actionPerformed(e: AnActionEvent): Unit = {

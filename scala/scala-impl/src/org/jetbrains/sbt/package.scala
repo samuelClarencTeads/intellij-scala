@@ -1,9 +1,9 @@
 package org.jetbrains
 
-import _root_.java.io._
-import _root_.java.lang.{Boolean => JavaBoolean}
+import _root_.java.io.*
+import _root_.java.lang.{Boolean as JavaBoolean}
 import _root_.java.security.MessageDigest
-import _root_.java.util.{Optional, ArrayList => JArrayList, List => JList}
+import _root_.java.util.{Optional, ArrayList as JArrayList, List as JList}
 
 import _root_.org.jetbrains.annotations.Nullable
 import com.intellij.ide.plugins.PluginManagerCore
@@ -11,13 +11,13 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.util.io.FileUtil
-import com.intellij.openapi.util.{Computable, Pair => IdeaPair}
+import com.intellij.openapi.util.{Computable, Pair as IdeaPair}
 import com.intellij.openapi.vfs.{VfsUtil, VirtualFile}
-import com.intellij.util.{PathUtil, Function => IdeaFunction}
+import com.intellij.util.{PathUtil, Function as IdeaFunction}
 import annotations.NonNls
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 import scala.util.Using
@@ -116,7 +116,7 @@ package object sbt {
 
     def either[A, B](right: => B)(left: => A): Either[A, B] = if (b) Right(right) else Left(left)
 
-    def seq[A](a: A*): Seq[A] = if (b) Seq(a: _*) else Seq.empty
+    def seq[A](a: A*): Seq[A] = if (b) Seq(a*) else Seq.empty
   }
 
   implicit class RichSeq[T](private val xs: Seq[T]) extends AnyVal {

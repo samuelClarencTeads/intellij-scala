@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.psi
 
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.TypeParamIdOwner
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScTypeAlias, ScTypeAliasDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTypeDefinition}
@@ -9,13 +9,13 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypePresentation.shouldExpand
 import org.jetbrains.plugins.scala.lang.psi.types.api.StdType.Name
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{DesignatorOwner, ScDesignatorType, ScProjectionType, ScThisType}
-import org.jetbrains.plugins.scala.lang.psi.types.api.{TypeParameterType, _}
+import org.jetbrains.plugins.scala.lang.psi.types.api.{TypeParameterType, *}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{NonValueType, ScMethodType, ScTypePolymorphicType}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate.{ProcessSubtypes, ReplaceWith}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
-import org.jetbrains.plugins.scala.project.{ProjectContext, _}
+import org.jetbrains.plugins.scala.project.{ProjectContext, *}
 import org.jetbrains.plugins.scala.util.SAMUtil
 import org.jetbrains.plugins.scala.util.ScEquivalenceUtil.areClassesEquivalent
 
@@ -391,7 +391,7 @@ package object types {
    * See also: [[FunctionTypeMarker]]
    */
   final case class FunctionLikeType(place: PsiElement) {
-    import FunctionTypeMarker._
+    import FunctionTypeMarker.*
 
     def unapply(tpe: ScType): Option[(FunctionTypeMarker, ScType, Seq[ScType])] = tpe match {
       case FunctionType(retTpe, paramTpes)       => (FunctionN, retTpe, paramTpes).toOption
@@ -399,7 +399,7 @@ package object types {
       case ScAbstractType(_, _, upper)           => unapply(upper)
       case tpe if place.isSAMEnabled             =>
         for {
-          (_, retTpe, paramTpes) <- SAMUtil.toSAMType(tpe, place).flatMap(unapply)
+          case (_, retTpe, paramTpes) <- SAMUtil.toSAMType(tpe, place).flatMap(unapply)
           cls                    <- tpe.extractClass
         } yield (SAM(cls), retTpe, paramTpes)
       case _ => None

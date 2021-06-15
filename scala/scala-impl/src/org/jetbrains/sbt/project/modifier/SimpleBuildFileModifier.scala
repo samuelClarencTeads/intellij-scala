@@ -6,8 +6,8 @@ import com.intellij.openapi.vfs.{VfsUtil, VirtualFile}
 import com.intellij.psi.{PsiElement, PsiFile, PsiManager}
 import com.intellij.testFramework.LightVirtualFile
 import org.jetbrains.plugins.scala.lang.formatting.FormatterUtil
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
-import org.jetbrains.sbt.project.modifier.location._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
+import org.jetbrains.sbt.project.modifier.location.*
 
 import scala.collection.mutable
 

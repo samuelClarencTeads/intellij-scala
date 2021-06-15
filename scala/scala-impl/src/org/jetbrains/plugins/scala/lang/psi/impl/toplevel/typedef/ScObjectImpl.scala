@@ -9,8 +9,8 @@ import com.intellij.lang.ASTNode
 import com.intellij.lang.java.lexer.JavaLexer
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi.PsiModifier._
-import com.intellij.psi._
+import com.intellij.psi.PsiModifier.*
+import com.intellij.psi.*
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.util.PsiUtil
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.getCompanionModule
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotationsHolder
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ScObjectImpl.moduleFieldName
 import org.jetbrains.plugins.scala.lang.psi.light.{EmptyPrivateConstructor, PsiClassWrapper, ScLightField}
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScTemplateDefinitionStub
@@ -173,7 +173,7 @@ class ScObjectImpl(
         .setOriginal(actualElement = this)
     }
 
-    import scala.meta.intellij.psi._
+    import scala.meta.intellij.psi.*
     import scala.meta.{Defn, Term}
 
     val (expansion, isSynthetic) = this.metaExpand match {

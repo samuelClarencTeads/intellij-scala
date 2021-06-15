@@ -8,13 +8,13 @@ import com.intellij.openapi.fileTypes.LanguageFileType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ValidationInfo
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi.{util => _, _}
+import com.intellij.psi.{util as _, *}
 import com.intellij.refactoring.changeSignature.{CallerChooserBase, ChangeSignatureDialogBase, ParameterTableModelItemBase}
 import com.intellij.refactoring.ui.{CodeFragmentTableCellEditorBase, StringTableCellEditor, VisibilityPanelBase}
 import com.intellij.refactoring.{BaseRefactoringProcessor, RefactoringBundle}
 import com.intellij.ui.table.{JBTable, TableView}
 import com.intellij.ui.treeStructure.Tree
-import com.intellij.ui.{util => _, _}
+import com.intellij.ui.{util as _, *}
 import com.intellij.util.Consumer
 import com.intellij.util.ui.table.{JBListTable, JBTableRowEditor, JBTableRowRenderer}
 import com.intellij.util.ui.{StartupUiUtil, UIUtil}
@@ -23,23 +23,23 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createTypeFromText
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.isIdentifier
 import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.changeInfo.ScalaChangeInfo
 import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ScalaExtractMethodUtils
 import org.jetbrains.plugins.scala.lang.refactoring.ui.ScalaComboBoxVisibilityPanel
-import org.jetbrains.plugins.scala.settings.annotations._
+import org.jetbrains.plugins.scala.settings.annotations.*
 import org.jetbrains.plugins.scala.util.TypeAnnotationUtil
 
-import java.awt._
+import java.awt.*
 import java.awt.event.ActionEvent
 import java.util
-import javax.swing._
+import javax.swing.*
 import javax.swing.border.MatteBorder
 import javax.swing.event.{ChangeEvent, HyperlinkEvent}
 import javax.swing.table.TableCellEditor
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 //noinspection ConvertNullInitializerToUnderscore
 class ScalaChangeSignatureDialog(val method: ScalaMethodDescriptor,
@@ -256,8 +256,8 @@ class ScalaChangeSignatureDialog(val method: ScalaMethodDescriptor,
 
     val namesWithIndices = paramNames.zipWithIndex
     for {
-      (name, idx) <- namesWithIndices
-      (name2, idx2) <- namesWithIndices
+      case (name, idx) <- namesWithIndices
+      case (name2, idx2) <- namesWithIndices
       if name == name2 && idx < idx2
     } {
       problems += ScalaBundle.message("change.signature.parameters.same.name.{0}", name)

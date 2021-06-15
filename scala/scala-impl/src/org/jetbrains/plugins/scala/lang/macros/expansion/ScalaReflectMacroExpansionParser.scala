@@ -23,7 +23,7 @@ class ScalaReflectMacroExpansionParser(projectName: String) {
   var expansions: ArrayBuffer[MacroExpansion] = mutable.ArrayBuffer[MacroExpansion]()
 
   private def transfer(message: String): Boolean = {
-    import ParsingState._
+    import ParsingState.*
     parsingState match {
       case PLACE =>
         placeRegex.matcher(message).matches
@@ -39,7 +39,7 @@ class ScalaReflectMacroExpansionParser(projectName: String) {
   }
 
   def processMessage(message: String): Unit = {
-    import ParsingState._
+    import ParsingState.*
 
     if (!transfer(message))
       return

@@ -3,7 +3,7 @@ package lang.psi.api.toplevel.typedef
 
 import com.intellij.psi.PsiWhiteSpace
 import org.jetbrains.plugins.scala.caches.ModTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotations, ScAnnotationsHolder, ScModifierList}
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocComment
 import org.jetbrains.plugins.scala.macroAnnotations.Cached

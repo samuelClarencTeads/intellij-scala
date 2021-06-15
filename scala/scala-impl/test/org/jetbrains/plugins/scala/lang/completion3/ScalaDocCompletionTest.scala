@@ -3,7 +3,7 @@ package lang
 package completion3
 
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 /**
   * User: Dmitry Naydanov

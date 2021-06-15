@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.completion.weighter
 import com.intellij.codeInsight.completion.{CompletionLocation, CompletionWeigher}
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.psi.PsiMethod
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 
@@ -23,7 +23,7 @@ class ScalaMethodCompletionWeigher extends CompletionWeigher {
 
 
 
-  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[_] = element match {
+  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[?] = element match {
     case ScalaLookupItem(_, namedElement) =>
       namedElement match {
         case psi: ScFunction =>

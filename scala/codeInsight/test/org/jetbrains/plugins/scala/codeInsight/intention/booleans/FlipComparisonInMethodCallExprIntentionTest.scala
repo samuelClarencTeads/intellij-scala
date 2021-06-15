@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
  */
 class FlipComparisonInMethodCallExprIntentionTest extends intentions.ScalaIntentionTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   override def familyName = ScalaCodeInsightBundle.message("family.name.flip.comparison.in.method.call.expression")
 

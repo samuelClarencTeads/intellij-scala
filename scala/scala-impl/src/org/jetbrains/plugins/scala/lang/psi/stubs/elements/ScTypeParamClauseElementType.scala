@@ -23,10 +23,10 @@ class ScTypeParamClauseElementType
     dataStream.writeName(stub.typeParameterClauseText)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScTypeParamClauseStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScTypeParamClauseStub =
     new ScTypeParamClauseStubImpl(parentStub, this, dataStream.readNameString)
 
-  override def createStubImpl(typeParamClause: ScTypeParamClause, parentStub: StubElement[_ <: PsiElement]): ScTypeParamClauseStub =
+  override def createStubImpl(typeParamClause: ScTypeParamClause, parentStub: StubElement[? <: PsiElement]): ScTypeParamClauseStub =
     new ScTypeParamClauseStubImpl(parentStub, this, typeParamClause.getText)
 
   override def createElement(node: ASTNode): ScTypeParamClause = new ScTypeParamClauseImpl(node)

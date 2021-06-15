@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.scala
+package org.jetbrains.plugins.scala.dfa
 
-package object dfa extends lattice.HasTopOps
+object DfaOps extends lattice.HasTopOps
   with lattice.HasBottomOps
   with lattice.SemiLatticeOps
   with lattice.JoinSemiLatticeOps

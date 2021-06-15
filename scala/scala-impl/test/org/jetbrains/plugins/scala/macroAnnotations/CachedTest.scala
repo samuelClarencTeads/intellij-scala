@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.macroAnnotations
 
 import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.caches.stats.Tracer
-import org.junit.Assert._
+import org.junit.Assert.*
 
 
 /**

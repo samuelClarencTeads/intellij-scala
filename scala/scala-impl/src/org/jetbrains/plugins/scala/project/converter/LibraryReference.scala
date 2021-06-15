@@ -11,10 +11,10 @@ import com.intellij.openapi.components.StorageScheme
 import com.intellij.openapi.vfs.VfsUtil
 import org.jdom.Element
 import org.jdom.xpath.XPath
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin

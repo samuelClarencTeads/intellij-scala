@@ -6,11 +6,11 @@ package toplevel
 package typedef
 
 import com.intellij.navigation.NavigationItem
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.PsiClassImplUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiClassAdapter
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.types.PhysicalMethodSignature
 

@@ -31,7 +31,7 @@ import scala.collection.mutable
   * Date: 03.08.17.
   */
 class AmmoniteScriptWrappersHolder(project: Project) {
-  import AmmoniteScriptWrappersHolder._
+  import AmmoniteScriptWrappersHolder.*
   
   private val file2object = mutable.WeakHashMap.empty[ScalaFile, (ScObject, Long)]
   

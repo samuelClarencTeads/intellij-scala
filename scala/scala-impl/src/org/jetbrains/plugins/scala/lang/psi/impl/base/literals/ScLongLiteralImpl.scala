@@ -6,7 +6,7 @@ package base
 package literals
 
 import java.lang
-import java.lang.{Long => JLong}
+import java.lang.{Long as JLong}
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project

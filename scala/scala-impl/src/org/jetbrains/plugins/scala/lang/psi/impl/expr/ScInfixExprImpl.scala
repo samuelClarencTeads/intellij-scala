@@ -5,11 +5,11 @@ package impl
 package expr
 
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.impl.base.{ScStringLiteralImpl, literals}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScProjectionType
 
 import scala.annotation.tailrec
@@ -20,9 +20,9 @@ import scala.annotation.tailrec
   */
 class ScInfixExprImpl(node: ASTNode) extends MethodInvocationImpl(node) with ScInfixExpr {
 
-  import ScInfixExprImpl._
+  import ScInfixExprImpl.*
   import resolve.ScalaResolveResult
-  import result._
+  import result.*
 
   override def argumentExpressions: Seq[ScExpression] = argsElement match {
     case right if right == left => Seq(right)
@@ -65,7 +65,7 @@ class ScInfixExprImpl(node: ASTNode) extends MethodInvocationImpl(node) with ScI
 
 object ScInfixExprImpl {
 
-  import literals._
+  import literals.*
 
   private def evaluateConstInfix(left: Any, right: Any, name: String) =
     util.LiteralEvaluationUtil.evaluateConstInfix(left, right, name) match {

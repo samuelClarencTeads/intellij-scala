@@ -5,7 +5,7 @@ package clauses
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiClass, PsiElement}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScPattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScPrimaryConstructor, ScStableCodeReference}
@@ -118,7 +118,7 @@ object PhysicalExtractorPatternComponents {
     parameters: ClauseCompletionParameters
   ): Option[PhysicalExtractorPatternComponents] =
     for {
-      Extractor(method) <- `class`.baseCompanion
+      case Extractor(method) <- `class`.baseCompanion
       returnType        <- method.returnType.toOption
       types = ScPattern.unapplySubpatternTypes(
         returnType,

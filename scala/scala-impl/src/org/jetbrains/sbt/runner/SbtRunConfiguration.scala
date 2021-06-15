@@ -6,7 +6,7 @@ import java.util.jar.JarFile
 
 import com.intellij.diagnostic.PluginException
 import com.intellij.execution.configuration.EnvironmentVariablesComponent
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.process.ProcessEvent
 import com.intellij.execution.runners.{ExecutionEnvironment, ProgramRunner}
 import com.intellij.execution.util.JavaParametersUtil
@@ -27,7 +27,7 @@ import org.jetbrains.sbt.SbtUtil
 import org.jetbrains.sbt.settings.SbtSettings
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Using
 
 /**
@@ -62,7 +62,7 @@ class SbtRunConfiguration(val project: Project, val configurationFactory: Config
   override def getState(executor: Executor, env: ExecutionEnvironment): RunProfileState =
     new SbtCommandLineState(preprocessTasks(), this, env)
 
-  override def getConfigurationEditor: SettingsEditor[_ <: RunConfiguration] = new SbtRunConfigurationEditor(project, this)
+  override def getConfigurationEditor: SettingsEditor[? <: RunConfiguration] = new SbtRunConfigurationEditor(project, this)
 
   override def writeExternal(element: Element): Unit = {
     super.writeExternal(element)
@@ -110,10 +110,10 @@ class SbtCommandLineState(val processedCommands: String, val configuration: SbtR
   
   def setListener(l: Option[String => Unit]): Unit = listener = l
 
-  override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+  override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
     val r = super.execute(executor, runner)
     listener.foreach(l => Option(r.getProcessHandler).foreach(_.addProcessListener(new OutputListener() {
-      override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = super.onTextAvailable(event, outputType)
+      override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = super.onTextAvailable(event, outputType)
     })))
     r
   }

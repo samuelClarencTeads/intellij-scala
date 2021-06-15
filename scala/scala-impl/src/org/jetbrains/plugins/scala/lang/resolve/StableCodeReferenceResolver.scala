@@ -5,7 +5,7 @@ package resolve
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScInfixPattern, ScInterpolationPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportExpr, ScImportSelector}
-import org.jetbrains.plugins.scala.lang.resolve.processor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.*
 
 class StableCodeReferenceResolver(reference: ScStableCodeReference, shapeResolve: Boolean,
                                   allConstructorResults: Boolean, noConstructorResolve: Boolean) {

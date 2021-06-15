@@ -84,7 +84,7 @@ private object PsiChange {
       val offset = original.getTextOffset
       formatted.accept(generatedVisitor)
 
-      import Replace._
+      import Replace.*
       val nextChangeIsSibling: Boolean = isNextChangeSibling(nextChange, original)
       inWriteAction(original.replace(formatted))
 

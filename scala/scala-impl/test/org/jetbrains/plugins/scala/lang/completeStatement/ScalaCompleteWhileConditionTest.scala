@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class ScalaCompleteWhileConditionTest extends ScalaCompleteStatementTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   def testWhileCondition1(): Unit = doCompletionTest(
     fileText =

@@ -8,7 +8,7 @@ import com.intellij.openapi.fileEditor.TextEditor
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.util.Condition
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.ui.components.JBList
 
@@ -16,10 +16,10 @@ import javax.swing.ListCellRenderer
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.PsiClassExt
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.testingSupport.test.testdata._
+import org.jetbrains.plugins.scala.testingSupport.test.testdata.*
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private class MyInheritorChooser(
   config: AbstractTestRunConfiguration,
@@ -31,7 +31,7 @@ private class MyInheritorChooser(
     performRunnable: Runnable,
     psiMethod: PsiMethod,
     containingClass: PsiClass,
-    acceptAbstractCondition: Condition[_ >: PsiClass]
+    acceptAbstractCondition: Condition[? >: PsiClass]
   ): Boolean = {
     //TODO: SCL-10530 this is mostly copy-paste from InheritorChooser; get rid of this once we support pattern test runs
     if (containingClass == null) return false
@@ -66,7 +66,7 @@ private class MyInheritorChooser(
 
     val renderer  = new PsiClassListCellRenderer()
     val classesSorted = classes.sorted(Ordering.comparatorToOrdering(renderer.getComparator))
-    val jbList = new JBList(classesSorted: _*)
+    val jbList = new JBList(classesSorted*)
     //scala type system gets confused because someone forgot generics in PsiElementListCellRenderer definition
     jbList.setCellRenderer(renderer.asInstanceOf[ListCellRenderer[PsiClass]])
     val testName = if (psiMethod != null) psiMethod.getName else containingClass.getName

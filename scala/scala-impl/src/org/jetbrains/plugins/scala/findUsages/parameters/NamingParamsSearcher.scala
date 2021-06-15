@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package findUsages
 package parameters
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.search.{PsiSearchHelper, TextOccurenceProcessor, UsageSearchContext}
 import com.intellij.util.{Processor, QueryExecutor}
@@ -20,7 +20,7 @@ import scala.collection.mutable
  * Date: 17.08.2009
  */
 class NamingParamsSearcher extends QueryExecutor[PsiReference, ReferencesSearch.SearchParameters] {
-  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[_ >: PsiReference]): Boolean = {
+  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[? >: PsiReference]): Boolean = {
     val project = queryParameters.getProject
     val scope = inReadAction(ScalaFilterScope(queryParameters))
 

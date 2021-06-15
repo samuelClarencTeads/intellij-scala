@@ -9,20 +9,20 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.project.{DumbAwareRunnable, ProjectManagerListener}
 import com.intellij.openapi.startup.StartupManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightElement
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.util.IncorrectOperationException
 
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiClassAdapter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFun
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
@@ -237,7 +237,7 @@ class SyntheticClasses(project: Project) extends PsiElementFinder {
 
   def registerClasses(): Unit = {
     val stdTypes = ctx.stdTypes
-    import stdTypes._
+    import stdTypes.*
     val typeParameters = SyntheticClasses.TypeParameter :: Nil
 
     all = new mutable.HashMap[String, ScSyntheticClass]
@@ -268,7 +268,7 @@ class SyntheticClasses(project: Project) extends PsiElementFinder {
     registerClass(Singleton, "Singleton")
     registerClass(Unit, "Unit")
 
-    import SyntheticClasses._
+    import SyntheticClasses.*
 
     val boolc = registerClass(Boolean, "Boolean")
     for (op <- bool_bin_ops)
@@ -457,7 +457,7 @@ object Unit
 
   def op_type(ic1: StdType, ic2: StdType): ValType = {
     val stdTypes = ic1.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
     (ic1, ic2) match {
       case (_, Double) | (Double, _) => Double
       case (Float, _) | (_, Float) => Float

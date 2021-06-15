@@ -3,7 +3,7 @@ package debugger
 package renderers
 
 import com.intellij.debugger.settings.NodeRendererSettings
-import com.intellij.debugger.ui.tree.render._
+import com.intellij.debugger.ui.tree.render.*
 import org.jetbrains.plugins.scala.debugger.ui.ScalaCollectionRenderer
 import org.junit.experimental.categories.Category
 
@@ -72,7 +72,7 @@ abstract class ScalaCollectionRendererTestBase extends RendererTestBase {
                                        collectionLength: Int,
                                        checkChildren: Boolean)
                                       (implicit timeout: Duration = DefaultTimeout): Unit = {
-    import org.junit.Assert._
+    import org.junit.Assert.*
     runDebugger() {
       waitForBreakpoint()
       val (label, children) = renderLabelAndChildren(collectionName, _.getLabel, checkChildren, collectionLength)(timeout)
@@ -111,7 +111,7 @@ abstract class ScalaCollectionRendererTestBase extends RendererTestBase {
                                        expectedChildrenLabels: Seq[String])
                                       (implicit timeout: Duration): Unit = {
 
-    import org.junit.Assert._
+    import org.junit.Assert.*
     runDebugger() {
       waitForBreakpoint()
       val (label, childrenLabels) =

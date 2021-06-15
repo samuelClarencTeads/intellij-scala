@@ -15,13 +15,13 @@ import javax.swing.{DefaultListModel, JComponent, JPanel, ListSelectionModel}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.bsp.{BspBundle, BspUtil}
 import org.jetbrains.bsp.project.importing.BspSetupConfigStep.ConfigSetupTask
-import org.jetbrains.bsp.project.importing.bspConfigSteps._
+import org.jetbrains.bsp.project.importing.bspConfigSteps.*
 import org.jetbrains.bsp.project.importing.setup.{BspConfigSetup, FastpassConfigSetup, NoConfigSetup, SbtConfigSetup}
 import org.jetbrains.bsp.protocol.BspConnectionConfig
-import org.jetbrains.bsp.settings.BspProjectSettings._
+import org.jetbrains.bsp.settings.BspProjectSettings.*
 import org.jetbrains.plugins.scala.build.IndicatorReporter
 import org.jetbrains.plugins.scala.project.Version
-import org.jetbrains.sbt.SbtUtil._
+import org.jetbrains.sbt.SbtUtil.*
 import org.jetbrains.sbt.project.SbtProjectImportProvider
 
 object bspConfigSteps {

@@ -3,15 +3,15 @@ package overrideImplement
 
 import com.intellij.codeInsight.generation.PsiElementClassMember
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.extensions.{PsiNamedElementExt, PsiTypeExt}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiPresentationUtils
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 trait Ttt {
   type Alias

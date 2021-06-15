@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
  */
 class ScalaGoToClassContributor extends GotoClassContributor {
 
-  import ScalaIndexKeys._
+  import ScalaIndexKeys.*
 
   override def getNames(project: Project, includeNonProjectItems: Boolean): Array[String] = {
     implicit val projectCopy: Project = project

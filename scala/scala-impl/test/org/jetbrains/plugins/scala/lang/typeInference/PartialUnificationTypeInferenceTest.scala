@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.typeInference
 
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 class PartialUnificationTypeInferenceTest extends TypeInferenceTestBase {
   override protected def setUp(): Unit = {

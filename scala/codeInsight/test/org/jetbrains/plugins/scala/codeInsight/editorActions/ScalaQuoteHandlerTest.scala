@@ -3,11 +3,11 @@ package codeInsight
 package editorActions
 
 import com.intellij.openapi.util.text.StringUtil.convertLineSeparators
-import com.intellij.testFramework.EditorTestUtil.{CARET_TAG => Caret}
+import com.intellij.testFramework.EditorTestUtil.{CARET_TAG as Caret}
 
 class ScalaQuoteHandlerTest extends base.ScalaLightCodeInsightFixtureTestAdapter {
 
-  import ScalaQuoteHandlerTest._
+  import ScalaQuoteHandlerTest.*
 
   def testScalaFile(): Unit = doTest(
     s"""class Foo {

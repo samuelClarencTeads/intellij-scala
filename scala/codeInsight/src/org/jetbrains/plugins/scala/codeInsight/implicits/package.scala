@@ -7,13 +7,13 @@ import com.intellij.openapi.util.{Key, TextRange}
 import javax.swing.KeyStroke
 import org.jetbrains.plugins.scala.annotator.hints.Hint
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 package object implicits {
   private val ScalaImplicitHintKey = Key.create[Boolean]("SCALA_IMPLICIT_HINT")
 
-  private[implicits] type Inlay = com.intellij.openapi.editor.Inlay[_ <: EditorCustomElementRenderer]
+  private[implicits] type Inlay = com.intellij.openapi.editor.Inlay[? <: EditorCustomElementRenderer]
 
   implicit class Model(private val model: InlayModel) extends AnyVal {
     def inlaysIn(range: TextRange): collection.Seq[Inlay] =
@@ -27,7 +27,7 @@ package object implicits {
   }
 
   class ShortcutManager {
-    case class ManagedShortcut private(shortCut: Shortcut)
+    case class ManagedShortcut(shortCut: Shortcut)
 
     private val allShortCuts = mutable.Buffer.empty[Shortcut]
 

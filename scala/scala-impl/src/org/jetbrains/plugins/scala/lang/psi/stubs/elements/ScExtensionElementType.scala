@@ -16,10 +16,10 @@ class ScExtensionElementType extends ScStubElementType[ScExtensionStub, ScExtens
 
   override def serialize(stub: ScExtensionStub, dataStream: StubOutputStream): Unit = ()
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScExtensionStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScExtensionStub =
     new ScExtensionStubImpl(parentStub, this)
 
-  override def createStubImpl(extension: ScExtension, parentStub: StubElement[_ <: PsiElement]) =
+  override def createStubImpl(extension: ScExtension, parentStub: StubElement[? <: PsiElement]) =
     new ScExtensionStubImpl(parentStub, this)
 
   override def createElement(node: ASTNode): ScExtension = new ScExtensionImpl(null, node)

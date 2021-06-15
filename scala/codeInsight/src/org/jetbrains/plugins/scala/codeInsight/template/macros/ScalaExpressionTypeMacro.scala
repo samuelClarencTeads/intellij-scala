@@ -4,7 +4,7 @@ package template
 package macros
 
 import com.intellij.codeInsight.CodeInsightBundle
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 
 /**
  * @author Roman.Shein

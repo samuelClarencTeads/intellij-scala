@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.ScInfixExpr
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.sbt.project.SbtProjectSystem
 import org.jetbrains.sbt.resolvers.{ArtifactInfo, SbtResolver}
 import org.jetbrains.sbt.settings.SbtSettings
@@ -36,7 +36,7 @@ private class AddSbtDependencyFix(refElement: SmartPsiElementPointer[ScReference
   extends IntentionAction
     with LowPriorityAction {
 
-  import AddSbtDependencyUtils._
+  import AddSbtDependencyUtils.*
 
   override def isAvailable(project: Project, editor: Editor, file: PsiFile): Boolean = file match {
     case _: ScalaCodeFragment => false

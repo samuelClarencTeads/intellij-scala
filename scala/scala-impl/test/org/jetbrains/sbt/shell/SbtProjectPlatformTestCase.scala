@@ -14,7 +14,7 @@ import com.intellij.openapi.util.Key
 import com.intellij.testFramework.{HeavyPlatformTestCase, ThreadTracker}
 import com.intellij.util.ui.UIUtil
 import org.jetbrains.plugins.scala.base.libraryLoaders.SmartJDKLoader
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.jetbrains.sbt.Sbt
 import org.jetbrains.sbt.project.SbtProjectSystem
@@ -113,7 +113,7 @@ class ProcessLogger extends ProcessListener {
   override def processTerminated(event: ProcessEvent): Unit =
     termination.success(event.getExitCode)
 
-  override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = {
+  override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = {
     synchronized { logBuilder.append(event.getText) }
     print(event.getText)
   }

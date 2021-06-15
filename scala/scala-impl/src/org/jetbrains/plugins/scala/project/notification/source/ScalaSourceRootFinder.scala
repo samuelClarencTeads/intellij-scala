@@ -15,7 +15,7 @@ import scala.annotation.tailrec
 //noinspection TypeAnnotation
 final class ScalaSourceRootFinder extends JavaSourceRootDetector {
 
-  import ScalaFileType.{INSTANCE => scalaFileType}
+  import ScalaFileType.{INSTANCE as scalaFileType}
 
   override def getLanguageName = scalaFileType.getName
 
@@ -27,9 +27,9 @@ final class ScalaSourceRootFinder extends JavaSourceRootDetector {
 
 object ScalaSourceRootFinder {
 
-  import StringUtil._
+  import StringUtil.*
   import lang.lexer.{ScalaLexer, ScalaTokenType, ScalaTokenTypes}
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   def packageStatement(buf: CharSequence): String = {
     implicit val lexer: ScalaLexer = new ScalaLexer(false, null)

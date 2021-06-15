@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScFile
 class ScalaBytecodeDecompileTask(file: ScFile)
     extends Task.Backgroundable(file.getProject, JavaDecompilerBundle.message("decompile.scala.bytecode")) {
 
-  import ScalaBytecodeDecompileTask._
+  import ScalaBytecodeDecompileTask.*
 
   override def run(indicator: ProgressIndicator): Unit = {
     indicator.setText(JavaDecompilerBundle.message("decompiling.file", file.getName))

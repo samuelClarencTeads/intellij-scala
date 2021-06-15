@@ -13,8 +13,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefin
  * @author ilyas
  */
 final class ScTemplateDefinitionStubImpl[TypeDef <: ScTemplateDefinition](
-  parent:                                        StubElement[_ <: PsiElement],
-  elementType:                                   IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+  parent:                                        StubElement[? <: PsiElement],
+  elementType:                                   IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
   nameRef:                                       String,
   override val getQualifiedName:                 String,
   override val getSourceFileName:                String,

@@ -2,7 +2,7 @@ package org.jetbrains.bsp.project.importing
 
 import java.io.File
 
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.pom.java.LanguageLevel
 import org.jetbrains.bsp.data.JdkData
 import org.jetbrains.bsp.data.{SbtBuildModuleDataBsp, ScalaSdkData}

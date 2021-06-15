@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.tasty.TastyFileType
 
 final class ScClassFileDecompiler extends compiled.ClassFileDecompilers.Full {
 
-  import ScClassFileDecompiler._
+  import ScClassFileDecompiler.*
 
   override def accepts(file: VirtualFile): Boolean =
     isTasty(file) ||
@@ -36,13 +36,13 @@ final class ScClassFileDecompiler extends compiled.ClassFileDecompilers.Full {
 
 object ScClassFileDecompiler {
 
-  import DecompilationResult._
+  import DecompilationResult.*
 
   object ScClsStubBuilder extends compiled.ClsStubBuilder {
 
     override val getStubVersion = 348
 
-    override def buildFileStub(content: FileContent): stubs.PsiFileStubImpl[_ <: PsiFile] =
+    override def buildFileStub(content: FileContent): stubs.PsiFileStubImpl[? <: PsiFile] =
       decompiledScalaFile(content)
         .map((if (isTasty(content.getFile)) stub3Builder else stub2Builder).buildStubTree)
         .orNull
@@ -147,7 +147,7 @@ object ScClassFileDecompiler {
 
   private[this] class PrefixIterator(private val fileName: String) extends Iterator[String] {
 
-    import reflect.NameTransformer._
+    import reflect.NameTransformer.*
 
     private val string = decode(fileName)
     private val stringLength = string.length

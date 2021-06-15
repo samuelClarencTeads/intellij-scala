@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.{ScXmlEndTag, ScXmlStartTag}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 
 
 /**
@@ -27,7 +27,7 @@ class ScalaXmlUnmatchedTagInspection extends LocalInspectionTool{
 
         val endTag = s.getClosingTag
         def register(fixes: LocalQuickFix*): Unit = {
-          holder.registerProblem(s, ScalaBundle.message("xml.no.closing.tag"), fixes: _*)
+          holder.registerProblem(s, ScalaBundle.message("xml.no.closing.tag"), fixes*)
         }
 
         if (endTag == null) {
@@ -40,7 +40,7 @@ class ScalaXmlUnmatchedTagInspection extends LocalInspectionTool{
       override def visitXmlEndTag(s: ScXmlEndTag): Unit = {
         val startTag = s.getOpeningTag
         def register(fixes: LocalQuickFix*): Unit = {
-          holder.registerProblem(s, ScalaBundle.message("xml.no.opening.tag"), fixes: _*)
+          holder.registerProblem(s, ScalaBundle.message("xml.no.opening.tag"), fixes*)
         }
 
         if (startTag == null) {

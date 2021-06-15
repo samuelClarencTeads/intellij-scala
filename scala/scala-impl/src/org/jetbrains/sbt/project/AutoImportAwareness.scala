@@ -6,10 +6,10 @@ import java.util
 import com.intellij.openapi.externalSystem.ExternalSystemAutoImportAware
 import com.intellij.openapi.project.Project
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.sbt._
-import org.jetbrains.sbt.project.AutoImportAwareness._
+import org.jetbrains.sbt.*
+import org.jetbrains.sbt.project.AutoImportAwareness.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin

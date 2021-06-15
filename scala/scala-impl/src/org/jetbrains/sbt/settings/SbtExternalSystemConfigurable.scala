@@ -4,7 +4,7 @@ import com.intellij.openapi.externalSystem.service.settings.AbstractExternalSyst
 import com.intellij.openapi.project.Project
 import org.jetbrains.sbt.project.SbtProjectSystem
 import org.jetbrains.sbt.project.settings.Context.Configuration
-import org.jetbrains.sbt.project.settings._
+import org.jetbrains.sbt.project.settings.*
 
 /**
  * User: Dmitry Naydanov

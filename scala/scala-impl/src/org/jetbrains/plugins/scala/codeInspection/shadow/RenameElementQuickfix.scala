@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.codeInspection.shadow
 
 import com.intellij.injected.editor.EditorWindow
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.actionSystem.impl.SimpleDataContext
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Editor
@@ -12,7 +12,7 @@ import com.intellij.psi.impl.source.tree.injected.InjectedLanguageUtil
 import com.intellij.refactoring.actions.RenameElementAction
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.codeInspection.AbstractFixOnPsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 import scala.annotation.nowarn
 

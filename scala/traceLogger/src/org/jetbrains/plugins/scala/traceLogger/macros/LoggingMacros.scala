@@ -27,7 +27,7 @@ object LoggingMacros {
 
   //noinspection SameParameterValue
   private final case class InContext[Ctx <: Context](c: Ctx) {
-    import c.universe._
+    import c.universe.*
 
     private val traceLoggerFqn: Tree =
       q"_root_.org.jetbrains.plugins.scala.traceLogger.TraceLogger"

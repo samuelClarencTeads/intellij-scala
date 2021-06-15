@@ -4,9 +4,9 @@ package internal
 
 import com.intellij.codeInsight.daemon.impl.HighlightVisitor
 import com.intellij.codeInsight.daemon.impl.analysis.{HighlightInfoHolder, HighlightVisitorImpl}
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.lang.ASTNode
-import com.intellij.lang.annotation._
+import com.intellij.lang.annotation.*
 import com.intellij.lang.injection.InjectedLanguageManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
  */
 final class AnnotatorBasedErrorInspection extends LocalInspectionTool {
 
-  import AnnotatorBasedErrorInspection._
+  import AnnotatorBasedErrorInspection.*
 
   //noinspection TypeAnnotation
   override def buildVisitor(holder: ProblemsHolder,

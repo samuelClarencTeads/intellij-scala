@@ -3,7 +3,7 @@ package lang.refactoring.changeSignature
 
 import java.awt.event.{ItemEvent, ItemListener}
 
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.ScalaBundle
 
 /**

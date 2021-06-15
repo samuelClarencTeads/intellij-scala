@@ -10,7 +10,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.testFramework.UsefulTestCase
 import org.jetbrains.plugins.scala.base.ScalaLightPlatformCodeInsightTestCaseAdapter
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
@@ -31,7 +31,7 @@ abstract class AdjustTypesTestBase extends ScalaLightPlatformCodeInsightTestCase
   protected override def sourceRootPath: String = folderPath
 
   protected def doTest(): Unit = {
-    import _root_.org.junit.Assert._
+    import _root_.org.junit.Assert.*
     val filePath = folderPath + getTestName(false) + ".scala"
     val file = LocalFileSystem.getInstance.refreshAndFindFileByPath(filePath.replace(File.separatorChar, '/'))
     assert(file != null, "file " + filePath + " not found")

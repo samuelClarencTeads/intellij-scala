@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.actions
 
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.editor.ex.EditorEx
@@ -8,10 +8,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.util.FileContentUtil
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.actions.ToggleTypeAwareHighlightingAction.toggleSettingAndRehighlight
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * User: Alexander Podkhalyuzin

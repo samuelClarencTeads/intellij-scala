@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ScTypeDefiniti
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.{JavaArrayType, ParameterizedType}
 
-import scala.util._
+import scala.util.*
 
 package object macros {
 
@@ -44,8 +44,8 @@ package object macros {
 
   private[macros] def resolveScType(typeText: String)(implicit project: Project): Option[ScType] =
     for {
-      te: ScTypeElement <- scTypeElement(typeText)
-      t: ScType <- te.`type`().toOption
+      case te: ScTypeElement <- scTypeElement(typeText)
+      case t: ScType <- te.`type`().toOption
     } yield t
 
   private[macros] def scTypeElement(typeExpression: Expression)(implicit context: ExpressionContext): Option[ScTypeElement] = {
@@ -66,7 +66,7 @@ package object macros {
     scType.canonicalText.startsWith("_root_.scala.Array")
 
   private[macros] def createLookupItem(definition: ScTypeDefinition): ScalaLookupItem = {
-    import ScTypeDefinitionImpl._
+    import ScTypeDefinitionImpl.*
     val name = toQualifiedName(packageName(definition)(Nil, DefaultSeparator) :+ Right(definition))()
 
     val lookupItem = new ScalaLookupItem(definition, name, Option(definition.getContainingClass))

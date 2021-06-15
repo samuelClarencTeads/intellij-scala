@@ -3,17 +3,17 @@ package methodChains
 
 import java.awt.Insets
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.editor._
+import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.{EditorColorsManager, EditorColorsScheme, EditorFontType}
 import com.intellij.openapi.util.Disposer
 import com.intellij.psi.{PsiElement, PsiFile, PsiPackage}
 import org.jetbrains.plugins.scala.annotator.hints.{AnnotatorHints, Text}
-import org.jetbrains.plugins.scala.codeInsight.hints.methodChains.ScalaMethodChainInlayHintsPass._
+import org.jetbrains.plugins.scala.codeInsight.hints.methodChains.ScalaMethodChainInlayHintsPass.*
 import org.jetbrains.plugins.scala.codeInsight.implicits.TextPartsHintRenderer
 import org.jetbrains.plugins.scala.compiler.data.serialization.extensions.EitherExt
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.DesignatorOwner
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.settings.annotations.Expression
@@ -21,7 +21,7 @@ import org.jetbrains.plugins.scala.extensions.PsiFileExt
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private[codeInsight] trait ScalaMethodChainInlayHintsPass {
   private var collectedHintTemplates = Seq.empty[(Seq[AlignedHintTemplate], ScExpression)]
@@ -50,7 +50,7 @@ private[codeInsight] trait ScalaMethodChainInlayHintsPass {
 
       val isAlreadyOccupied = occupiedLines
       for {
-        MethodChain(methodChain) <- Some(elem)
+        case MethodChain(methodChain) <- Some(elem)
         if methodChain.length >= settings.uniqueTypesToShowMethodChains
 
         methodsAtLineEnd = methodChain.filter(isFollowedByLineEnd(_, alsoAfterLambdaArg = settings.alignMethodChainInlayHints))
@@ -74,7 +74,7 @@ private[codeInsight] trait ScalaMethodChainInlayHintsPass {
         if uniqueTypeCount >= settings.uniqueTypesToShowMethodChains
       } {
         val finalSelection = if (settings.alignMethodChainInlayHints) withoutPackagesAndSingletons else filteredMethodAndTypes
-        val group = for ((expr, ty) <- finalSelection)
+        val group = for (case (expr, ty) <- finalSelection)
           yield new AlignedHintTemplate(textFor(expr, ty, editor)) {
             override def endOffset: Int = expr.endOffset
           }

@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala
 package worksheet
 package actions
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.impl.ActionButton
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.editor.{Document, Editor}
-import com.intellij.openapi.fileEditor._
+import com.intellij.openapi.fileEditor.*
 import com.intellij.openapi.project.DumbService.DumbModeListener
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -17,7 +17,7 @@ import com.intellij.psi.{PsiDocumentManager, PsiManager}
 import com.intellij.util.concurrency.annotations.RequiresEdt
 import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.ui.UIUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.worksheet.actions.repl.WorksheetReplRunAction

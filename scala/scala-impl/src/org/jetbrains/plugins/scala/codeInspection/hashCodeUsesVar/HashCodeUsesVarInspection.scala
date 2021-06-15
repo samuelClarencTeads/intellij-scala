@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.codeInspection.hashCodeUsesVar
 
 import com.intellij.codeInspection.ProblemsHolder
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.siyeh.ig.psiutils.MethodUtils
 import org.jetbrains.plugins.scala.codeInspection.{AbstractInspection, ScalaInspectionBundle}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor

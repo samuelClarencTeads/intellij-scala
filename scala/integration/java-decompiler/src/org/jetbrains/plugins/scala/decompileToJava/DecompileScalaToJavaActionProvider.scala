@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package decompileToJava
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.AttachSourcesProvider
 import com.intellij.openapi.roots.LibraryOrderEntry

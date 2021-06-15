@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.codeInsight.template.macros
 
-import org.jetbrains.plugins.scala.codeInsight.template.macros.ImplicitValueClassLiveTemplateTest._
+import org.jetbrains.plugins.scala.codeInsight.template.macros.ImplicitValueClassLiveTemplateTest.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 
 class ImplicitValueClassLiveTemplateTest extends ScalaLiveTemplateTestBase {

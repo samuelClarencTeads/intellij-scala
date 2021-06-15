@@ -51,7 +51,7 @@ final class VersionDialog(parent: JComponent) extends VersionDialogBase(parent) 
       }
 
       withProgressSynchronouslyTry(ScalaBundle.message("downloading.scala.version", scalaVersion), canBeCanceled = true) { manager =>
-        import DependencyManagerBase._
+        import DependencyManagerBase.*
         val dependencyManager = new DependencyManagerBase {
           override def createLogger: MessageLogger = new ProgressIndicatorLogger(manager.getProgressIndicator)
           override val artifactBlackList: Set[String] = Set.empty

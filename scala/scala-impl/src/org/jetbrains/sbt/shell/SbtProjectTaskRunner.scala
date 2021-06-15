@@ -15,13 +15,13 @@ import com.intellij.openapi.externalSystem.model.ProjectKeys
 import com.intellij.openapi.externalSystem.model.execution.ExternalSystemTaskExecutionSettings
 import com.intellij.openapi.externalSystem.model.project.ExternalSystemSourceType
 import com.intellij.openapi.externalSystem.service.project.ProjectDataManager
-import com.intellij.openapi.externalSystem.util.{ExternalSystemUtil, ExternalSystemApiUtil => ES}
+import com.intellij.openapi.externalSystem.util.{ExternalSystemUtil, ExternalSystemApiUtil as ES}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.module.{Module, ModuleType}
 import com.intellij.openapi.progress.{PerformInBackgroundOption, ProgressIndicator, ProgressManager, Task}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
-import com.intellij.task._
+import com.intellij.task.*
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.concurrency.{AsyncPromise, Promise}
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildWarning, IndicatorReporter, TaskRunnerResult}
@@ -30,14 +30,14 @@ import org.jetbrains.plugins.scala.util.ScalaNotificationGroups
 import org.jetbrains.sbt.project.SbtProjectSystem
 import org.jetbrains.sbt.project.module.SbtModuleType
 import org.jetbrains.sbt.settings.SbtSettings
-import org.jetbrains.sbt.shell.SbtShellCommunication._
+import org.jetbrains.sbt.shell.SbtShellCommunication.*
 import org.jetbrains.sbt.{SbtBundle, SbtUtil}
 
 import java.io.File
 import java.util
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.{Failure, Success}
 
 /**
@@ -154,7 +154,7 @@ class SbtProjectTaskRunner extends ProjectTaskRunner {
 private class CommandTask(project: Project, modules: Array[Module], command: String, promise: AsyncPromise[ProjectTaskRunner.Result]) extends
   Task.Backgroundable(project, SbtBundle.message("sbt.shell.sbt.build"), false, PerformInBackgroundOption.ALWAYS_BACKGROUND) {
 
-  import CommandTask._
+  import CommandTask.*
 
   private val shellRunner: SbtShellRunner = SbtProcessManager.forProject(project).acquireShellRunner()
 

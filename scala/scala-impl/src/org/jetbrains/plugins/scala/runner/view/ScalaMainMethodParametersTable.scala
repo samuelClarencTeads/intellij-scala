@@ -10,7 +10,7 @@ import javax.swing.{JComponent, ListSelectionModel}
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.applyTo
 import org.jetbrains.plugins.scala.runner.Scala3MainMethodSyntheticClass.MainMethodParameters.CustomParameter
-import org.jetbrains.plugins.scala.runner.view.ScalaMainMethodParametersTable._
+import org.jetbrains.plugins.scala.runner.view.ScalaMainMethodParametersTable.*
 
 import scala.jdk.CollectionConverters.{IterableHasAsScala, SeqHasAsJava}
 

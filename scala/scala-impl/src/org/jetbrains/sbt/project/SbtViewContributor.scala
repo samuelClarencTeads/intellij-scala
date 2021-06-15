@@ -7,24 +7,24 @@ import com.intellij.openapi.externalSystem.model.{DataNode, Key, ProjectSystemId
 import com.intellij.openapi.externalSystem.view.{ExternalProjectsView, ExternalSystemNode, ExternalSystemViewContributor}
 import com.intellij.util.containers.MultiMap
 import org.jetbrains.sbt.SbtBundle
-import org.jetbrains.sbt.project.SbtViewContributor._
+import org.jetbrains.sbt.project.SbtViewContributor.*
 import org.jetbrains.sbt.project.data.{SbtCommandData, SbtSettingData, SbtTaskData}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by jast on 2017-02-07.
   */
 class SbtViewContributor extends ExternalSystemViewContributor {
 
-  private val keys: List[Key[_]] = List(SbtTaskData.Key, SbtSettingData.Key, SbtCommandData.Key)
+  private val keys: List[Key[?]] = List(SbtTaskData.Key, SbtSettingData.Key, SbtCommandData.Key)
 
   override def getSystemId: ProjectSystemId = SbtProjectSystem.Id
 
-  override def getKeys: util.List[Key[_]] = keys.asJava
+  override def getKeys: util.List[Key[?]] = keys.asJava
 
   override def createNodes(externalProjectsView: ExternalProjectsView,
-                           dataNodes: MultiMap[Key[_], DataNode[_]]): util.List[ExternalSystemNode[_]] = {
+                           dataNodes: MultiMap[Key[?], DataNode[?]]): util.List[ExternalSystemNode[?]] = {
 
     val taskNodes = dataNodes.get(SbtTaskData.Key).asScala
     val settingNodes = dataNodes.get(SbtSettingData.Key).asScala
@@ -52,7 +52,7 @@ class SbtViewContributor extends ExternalSystemViewContributor {
     val commandsNode = new SbtCommandsGroupNode(externalProjectsView)
     commandsNode.addAll(commandViewNodes.asJavaCollection)
 
-    List[ExternalSystemNode[_]](settingsNode, tasksNode, commandsNode).asJava
+    List[ExternalSystemNode[?]](settingsNode, tasksNode, commandsNode).asJava
   }
 }
 

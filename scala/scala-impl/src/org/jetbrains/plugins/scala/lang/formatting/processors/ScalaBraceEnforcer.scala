@@ -7,12 +7,12 @@ import com.intellij.psi.impl.source.codeStyle.{CodeEditUtil, PostFormatProcessor
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.ScalaLanguage
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
 
@@ -141,7 +141,7 @@ class ScalaBraceEnforcer(settings: CodeStyleSettings, scalaSettings: ScalaCodeSt
       if (option == CommonCodeStyleSettings.FORCE_BRACES_ALWAYS ||
         (option == CommonCodeStyleSettings.FORCE_BRACES_IF_MULTILINE &&
           PostFormatProcessorHelper.isMultiline(stmt))) {
-        replaceElementsWithBlock(elements:_*)
+        replaceElementsWithBlock(elements*)
       }
     }
   }

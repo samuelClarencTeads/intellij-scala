@@ -1,8 +1,8 @@
 package org.jetbrains.bsp.project.importing
 
-import ch.epfl.scala.bsp4j.{BuildTargetTag, _}
+import ch.epfl.scala.bsp4j.{BuildTargetTag, *}
 import com.google.gson.{Gson, JsonElement}
-import com.intellij.openapi.externalSystem.model.project._
+import com.intellij.openapi.externalSystem.model.project.*
 import com.intellij.openapi.externalSystem.model.{DataNode, ProjectKeys}
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.module.StdModuleTypes
@@ -13,15 +13,15 @@ import java.io.File
 import java.net.URI
 import java.nio.file.Paths
 import java.util.Collections
-import org.jetbrains.bsp.BspUtil._
-import org.jetbrains.bsp.data._
+import org.jetbrains.bsp.BspUtil.*
+import org.jetbrains.bsp.data.*
 import org.jetbrains.bsp.project.BspSyntheticModuleType
-import org.jetbrains.bsp.project.importing.BspResolverDescriptors._
+import org.jetbrains.bsp.project.importing.BspResolverDescriptors.*
 import org.jetbrains.bsp.{BSP, BspBundle}
 import org.jetbrains.plugins.scala.project.Version
 import org.jetbrains.plugins.scala.project.external.{JdkByHome, JdkByVersion}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 private[importing] object BspResolverLogic {
@@ -171,7 +171,7 @@ private[importing] object BspResolverLogic {
 
   private def sharedSourceDirs(idToSources: Map[BuildTargetIdentifier, Seq[SourceDirectory]]): Map[SourceDirectory, Seq[BuildTargetIdentifier]] = {
     val idToSrc = for {
-      (id, sources) <- idToSources.toSeq
+      case (id, sources) <- idToSources.toSeq
       dir <- sources
     } yield (id, dir)
 
@@ -290,7 +290,7 @@ private[importing] object BspResolverLogic {
                                                      dependencySources: Seq[File],
                                                      languageLevel: Option[LanguageLevel]
                                                ): ModuleDescriptionData = {
-    import BuildTargetTag._
+    import BuildTargetTag.*
 
     val moduleId = target.getId.getUri
     val moduleName = target.getDisplayName
@@ -531,7 +531,7 @@ private[importing] object BspResolverLogic {
                                           moduleFileDirectoryPath: String,
                                           moduleDescription: ModuleDescription,
                                           projectNode: DataNode[ProjectData]): DataNode[ModuleData] = {
-    import ExternalSystemSourceType._
+    import ExternalSystemSourceType.*
 
     val moduleDescriptionData = moduleDescription.data
 

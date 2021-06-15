@@ -12,7 +12,7 @@ import scala.collection.mutable
   */
 final class PrintWithComments private() extends SimplePrintVisitor {
 
-  import ast._
+  import ast.*
 
   private val printedComments = mutable.HashSet.empty[LiteralExpression]
 

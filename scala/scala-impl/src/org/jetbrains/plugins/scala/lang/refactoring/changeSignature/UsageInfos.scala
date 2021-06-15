@@ -4,11 +4,11 @@ package lang.refactoring.changeSignature
 import com.intellij.psi.{PsiElement, PsiMethod, PsiNamedElement, PsiReference}
 import com.intellij.refactoring.changeSignature.{ChangeInfo, JavaChangeInfo}
 import com.intellij.usageView.UsageInfo
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScConstructorPattern, ScInfixPattern, ScPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScPrimaryConstructor, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter, ScParameters}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
@@ -48,7 +48,7 @@ private[changeSignature] object ScalaNamedElementUsageInfo {
     }
   }
 
-  def apply(named: PsiNamedElement): UsageInfo with ScalaNamedElementUsageInfo = {
+  def apply(named: PsiNamedElement): UsageInfo & ScalaNamedElementUsageInfo = {
     val unwrapped = named match {
       case isWrapper(elem) => elem
       case _ => named

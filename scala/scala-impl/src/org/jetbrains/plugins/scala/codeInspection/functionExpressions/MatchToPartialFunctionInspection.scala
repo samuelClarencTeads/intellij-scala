@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package functionExpressions
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
@@ -12,16 +12,16 @@ import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.PsiTreeUtil.{getParentOfType, isAncestor}
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypeExt
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Nikolay.Tropin
@@ -30,7 +30,7 @@ import scala.jdk.CollectionConverters._
 @nowarn("msg=" + AbstractInspection.DeprecationText)
 class MatchToPartialFunctionInspection extends AbstractInspection(MatchToPartialFunctionInspection.ID) {
 
-  import MatchToPartialFunctionInspection._
+  import MatchToPartialFunctionInspection.*
 
   override def actionFor(implicit holder: ProblemsHolder, isOnTheFly: Boolean): PartialFunction[PsiElement, Any] = {
     case function@ScFunctionExpr(Seq(param), Some(statement@ScMatch(ScReferenceExpression(resolved), _)))

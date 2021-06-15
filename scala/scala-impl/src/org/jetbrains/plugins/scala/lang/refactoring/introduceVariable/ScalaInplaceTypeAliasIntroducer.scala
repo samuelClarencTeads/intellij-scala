@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.refactoring.introduceVariable
 import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.command.undo.UndoManager
 import com.intellij.openapi.editor.{Editor, ScrollType}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.RefactoringActionHandler
 import org.jetbrains.plugins.scala.{ScalaBundle, extensions}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAliasDefinition

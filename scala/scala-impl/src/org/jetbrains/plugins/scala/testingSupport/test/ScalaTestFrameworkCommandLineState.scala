@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.testingSupport.test
 
 import java.io.{File, FileOutputStream, IOException, PrintStream}
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.execution.configurations.{JavaCommandLineState, JavaParameters, ParametersList}
 import com.intellij.execution.runners.{ExecutionEnvironment, ProgramRunner}
@@ -18,11 +18,11 @@ import org.jetbrains.annotations.ApiStatus
 import org.jetbrains.plugins.scala.extensions.{IteratorExt, ObjectExt}
 import org.jetbrains.plugins.scala.project.{ModuleExt, PathsListExt, ProjectExt}
 import org.jetbrains.plugins.scala.testingSupport.test.CustomTestRunnerBasedStateProvider.TestFrameworkRunnerInfo
-import org.jetbrains.plugins.scala.testingSupport.test.ScalaTestFrameworkCommandLineState._
+import org.jetbrains.plugins.scala.testingSupport.test.ScalaTestFrameworkCommandLineState.*
 import org.jetbrains.plugins.scala.testingSupport.test.exceptions.executionException
 import org.jetbrains.plugins.scala.testingSupport.test.utils.{JavaParametersModified, RawProcessOutputDebugLogger}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Using
 
 /**
@@ -104,9 +104,9 @@ class ScalaTestFrameworkCommandLineState(
     if (useTestsArgsFile) {
       val argsFile = prepareTempArgsFile(programParameters.testsArgs)
       params.getProgramParametersList.add(s"@${argsFile.getAbsolutePath}")
-      params.getProgramParametersList.addAll(programParameters.otherArgs: _*)
+      params.getProgramParametersList.addAll(programParameters.otherArgs*)
     } else {
-      params.getProgramParametersList.addAll(programParameters.allArgs: _*)
+      params.getProgramParametersList.addAll(programParameters.allArgs*)
     }
 
     params.setShortenCommandLine(configuration.getShortenCommandLine, project)
@@ -158,7 +158,7 @@ class ScalaTestFrameworkCommandLineState(
     }.toSeq
   }
 
-  override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+  override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
     val processHandler = startProcess()
 
     attachExtensionsToProcess(configuration, processHandler)

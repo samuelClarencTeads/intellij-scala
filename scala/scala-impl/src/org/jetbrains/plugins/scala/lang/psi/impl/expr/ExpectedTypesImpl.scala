@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.impl.expr
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.ScalaBundle
@@ -10,28 +10,28 @@ import org.jetbrains.plugins.scala.lang.psi.api.InferUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScConstructorInvocation
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScCaseClause, ScCaseClauses, ScReferencePattern, ScTuplePattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScSequenceArg, ScTupleTypeElement, ScTypeElement}
-import org.jetbrains.plugins.scala.lang.psi.api.expr.ExpectedTypes._
-import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScUnderScoreSectionUtil, _}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.ExpectedTypes.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScUnderScoreSectionUtil, *}
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
-import org.jetbrains.plugins.scala.lang.psi.impl.expr.ExpectedTypesImpl._
+import org.jetbrains.plugins.scala.lang.psi.impl.expr.ExpectedTypesImpl.*
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.TypeDefinitionMembers
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{Parameter, ScMethodType, ScTypePolymorphicType}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
-import org.jetbrains.plugins.scala.lang.psi.types.{api, _}
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
+import org.jetbrains.plugins.scala.lang.psi.types.{api, *}
 import org.jetbrains.plugins.scala.lang.psi.{ElementScope, ScalaPsiUtil}
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
-import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider._
+import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider.*
 import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils.ScExpressionForExpectedTypesEx
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
-import org.jetbrains.plugins.scala.lang.resolve.processor.DynamicResolveProcessor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.DynamicResolveProcessor.*
 import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
 import org.jetbrains.plugins.scala.project.ScalaLanguageLevel.{Scala_2_12, Scala_2_13}
 import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
@@ -92,7 +92,7 @@ class ExpectedTypesImpl extends ExpectedTypes {
 
   /** Returns arity of the functional literal `e`, taking tupling into account. */
   private[this] def aritiesOf(e: PsiElement): Arity = {
-    import Arity._
+    import Arity.*
 
     e match {
       case block: ScBlockExpr if block.isAnonymousFunction => aritiesOf(block.caseClauses.get)
@@ -122,7 +122,7 @@ class ExpectedTypesImpl extends ExpectedTypes {
    * - OR: all overloads expect a SAM type of the same class, but with potentially varying result types (argument types must be =:=)
    *       (this last case is not actually working due to a bug in scalac ¯\_(ツ)_/¯ https://github.com/scala/bug/issues/11703)
    * */
-  import FunctionTypeMarker._
+  import FunctionTypeMarker.*
   case class FunctionLikeTpe(
     marker:    FunctionTypeMarker,
     resTpe:    ScType,
@@ -240,8 +240,8 @@ class ExpectedTypesImpl extends ExpectedTypes {
       e1.textMatches(".") && e2.getErrorDescription == ScalaBundle.message("identifier.expected")
 
     e.nextSiblings.toSeq match {
-      case Seq(e1: LeafPsiElement, e2: PsiErrorElement, _ @_*) if isIncompleteDot(e1, e2) => true
-      case Seq(_: PsiWhiteSpace, e2: LeafPsiElement, e3: PsiErrorElement, _ @_*) if isIncompleteDot(e2, e3) => true
+      case Seq(e1: LeafPsiElement, e2: PsiErrorElement, _*) if isIncompleteDot(e1, e2) => true
+      case Seq(_: PsiWhiteSpace, e2: LeafPsiElement, e3: PsiErrorElement, _*) if isIncompleteDot(e2, e3) => true
       case _ => false
     }
   }
@@ -405,7 +405,7 @@ class ExpectedTypesImpl extends ExpectedTypes {
           }
         }
         if (index >= 0) {
-          for (tp: ScType <- tuple.expectedTypes(fromUnderscore = true)) addType(tp)
+          for (case tp: ScType <- tuple.expectedTypes(fromUnderscore = true)) addType(tp)
         }
         buffer.toArray
       case infix@ScInfixExpr.withAssoc(_, _, `sameInContext`) if !expr.isInstanceOf[ScTuple] =>

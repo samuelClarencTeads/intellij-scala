@@ -6,7 +6,7 @@ import com.intellij.psi.PsiFile
 import org.apache.commons.io.FilenameUtils
 import org.jetbrains.plugins.scala.ScalaFileType
 import org.jetbrains.plugins.scala.extensions.inWriteAction
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.projectHighlighting.AllProjectHighlightingTest.originalDirNameKey
 import org.jetbrains.plugins.scala.util.PsiFileTestUtil
@@ -36,7 +36,7 @@ trait SeveralFilesHighlightingTest {
       .groupBy(f => FilenameUtils.removeExtension(f.getPath))
 
     var idx = 0
-    for ((basePath, files) <- allFiles) {
+    for (case (basePath, files) <- allFiles) {
       if (allFiles.size > 1) {
         reporter.notify(s"$basePath (${idx + 1} of ${allFiles.size})")
       }

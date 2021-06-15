@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.psi.light
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.light.StaticTraitScFunctionWrapper.methodName
 import org.jetbrains.plugins.scala.lang.psi.types.ScType

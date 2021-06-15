@@ -26,7 +26,7 @@ trait TestFrameworkSetupSupportBase extends TestFrameworkSetupSupport {
    * @see [[com.intellij.testIntegration.createTest.CreateTestDialog#myFixLibraryButton]]
    */
   def setupFramework(module: Module): Promise[Void] = {
-    import org.jetbrains.plugins.scala.project._
+    import org.jetbrains.plugins.scala.project.*
     module.scalaSdk match {
       case Some(sdk) =>
         val setupInfo = frameworkSetupInfo(sdk.compilerVersion)

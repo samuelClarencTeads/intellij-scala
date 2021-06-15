@@ -3,7 +3,7 @@ package util
 
 import java.net.URL
 
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.project.Project
 import javax.swing.event.HyperlinkEvent
 import org.jetbrains.annotations.{Nls, NonNls}

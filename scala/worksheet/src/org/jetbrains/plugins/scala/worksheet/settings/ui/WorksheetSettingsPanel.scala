@@ -8,14 +8,14 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.SimpleListCellRenderer
 import com.intellij.ui.components.JBCheckBox
-import javax.swing._
+import javax.swing.*
 import net.miginfocom.layout.CC
 import net.miginfocom.swing.MigLayout
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.util.ui.TextWithMnemonic.AbstractButtonExt
 import org.jetbrains.plugins.scala.worksheet.settings.WorksheetExternalRunType
 import org.jetbrains.plugins.scala.worksheet.settings.ui.WorksheetSettingsPanel.TabTypeData
-import org.jetbrains.plugins.scala.worksheet.settings.ui.WorksheetSettingsPanel.TabTypeData._
+import org.jetbrains.plugins.scala.worksheet.settings.ui.WorksheetSettingsPanel.TabTypeData.*
 import org.jetbrains.plugins.scala.worksheet.{WorksheetBundle, WorksheetUtils}
 
 private final class WorksheetSettingsPanel(
@@ -113,7 +113,7 @@ private final class WorksheetSettingsPanel(
     tabTypeData.is[TabTypeData.DefaultProjectSettingsTab]
 
   private class NullableListCellRenderer(emptySelectionText: String) extends com.intellij.ui.SimpleListCellRenderer[String] {
-    override def customize(list: JList[_ <: String], value: String, index: Int, selected: Boolean, hasFocus: Boolean): Unit = {
+    override def customize(list: JList[? <: String], value: String, index: Int, selected: Boolean, hasFocus: Boolean): Unit = {
       val displayValue = if (value == null) emptySelectionText else value
       setText(displayValue)
     }

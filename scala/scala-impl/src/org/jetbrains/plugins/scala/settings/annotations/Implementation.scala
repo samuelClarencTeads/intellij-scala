@@ -3,12 +3,12 @@ package settings
 package annotations
 
 import com.intellij.psi.{PsiElement, PsiEnumConstant}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.DesignatorOwner
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
@@ -21,7 +21,7 @@ import scala.annotation.tailrec
   */
 sealed abstract class Implementation {
 
-  import Implementation._
+  import Implementation.*
 
   final def containsReturn: Boolean = returnCandidates.exists {
     case _: ScReturn => true

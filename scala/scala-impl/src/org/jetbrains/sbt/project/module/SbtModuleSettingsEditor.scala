@@ -16,7 +16,7 @@ import org.jetbrains.sbt.resolvers.indexes.ResolverIndex
 import org.jetbrains.sbt.resolvers.{SbtIndexesManager, SbtResolver}
 import org.jetbrains.sbt.settings.SbtSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay Obedin
@@ -24,7 +24,7 @@ import scala.jdk.CollectionConverters._
  */
 class SbtModuleSettingsEditor (state: ModuleConfigurationState) extends ModuleElementsEditor(state) {
 
-  import SbtModule._
+  import SbtModule.*
 
   private val myForm = new SbtModuleSettingsForm
   private val modelWrapper = new JListCompatibility.CollectionListModelWrapper(new CollectionListModel[String](Collections.emptyList[String]))

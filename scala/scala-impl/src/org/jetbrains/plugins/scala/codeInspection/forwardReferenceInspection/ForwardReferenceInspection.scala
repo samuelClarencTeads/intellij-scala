@@ -6,14 +6,14 @@ import com.intellij.codeInspection.{InspectionManager, LocalQuickFix, ProblemDes
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.nameContext
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject}
 
 
 class ForwardReferenceInspection extends AbstractRegisteredInspection {
 
-  import ForwardReferenceInspection._
+  import ForwardReferenceInspection.*
 
   override protected def problemDescriptor(element: PsiElement,
                                            maybeQuickFix: Option[LocalQuickFix],

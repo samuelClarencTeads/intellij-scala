@@ -1,6 +1,6 @@
 package org.jetbrains.bsp.protocol.session
 
-import java.io._
+import java.io.*
 import java.lang.reflect.{InvocationHandler, Method}
 import java.nio.file.{Files, Paths}
 import java.time.LocalDateTime
@@ -14,15 +14,15 @@ import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.util.concurrency.AppExecutorUtil
 import org.eclipse.lsp4j.jsonrpc.{Launcher, ResponseErrorException}
-import org.jetbrains.bsp.{BspBundle, _}
-import org.jetbrains.bsp.protocol.BspNotifications._
-import org.jetbrains.bsp.protocol.session.BspSession._
+import org.jetbrains.bsp.{BspBundle, *}
+import org.jetbrains.bsp.protocol.BspNotifications.*
+import org.jetbrains.bsp.protocol.session.BspSession.*
 import org.jetbrains.bsp.protocol.session.jobs.BspSessionJob
 import org.jetbrains.bsp.protocol.{BspCommunication, BspJob}
 
 import scala.annotation.tailrec
-import scala.concurrent._
-import scala.concurrent.duration._
+import scala.concurrent.*
+import scala.concurrent.duration.*
 import scala.io.Source
 import scala.util.control.NonFatal
 import scala.util.{Failure, Success, Try}
@@ -33,15 +33,15 @@ class BspSession private(bspIn: InputStream,
                          initializeBuildParams: bsp4j.InitializeBuildParams,
                          cleanup: ()=>Unit,
                          notificationCallbacks: List[NotificationCallback],
-                         initialJob: BspSessionJob[_, _],
+                         initialJob: BspSessionJob[?, ?],
                          traceLogPredicate: () => Boolean
                         ) {
 
   private val logger = Logger.getInstance(classOf[BspCommunication])
 
-  private val jobs = new LinkedBlockingQueue[BspSessionJob[_,_]]
+  private val jobs = new LinkedBlockingQueue[BspSessionJob[?,?]]
 
-  private var currentJob: BspSessionJob[_,_] = initialJob
+  private var currentJob: BspSessionJob[?,?] = initialJob
 
   private var lastProcessOutput: Long = System.currentTimeMillis()
   private var lastActivity: Long = lastProcessOutput
@@ -195,10 +195,10 @@ class BspSession private(bspIn: InputStream,
   private def cancellationSafeBspServer(bspServer: BspServer): BspServer = {
     val invocationHandler = new InvocationHandler {
       override def invoke(proxy: Any, method: Method, args: Array[AnyRef]): AnyRef = {
-        val resultFromBsp = method.invoke(bspServer, args:_*)
+        val resultFromBsp = method.invoke(bspServer, args*)
         // Some BSP endpoints return CompletableFutures, but other return void
         resultFromBsp match {
-          case future: CompletableFuture[_] => CancellableFuture.from(future)
+          case future: CompletableFuture[?] => CancellableFuture.from(future)
           case x => x
         }
       }
@@ -408,7 +408,7 @@ object BspSession {
      cleanup: ()=>Unit) {
 
     private var notificationCallbacks: List[NotificationCallback] = Nil
-    private var initialJob: BspSessionJob[_,_] = DummyJob
+    private var initialJob: BspSessionJob[?,?] = DummyJob
     private var traceLogPredicate: () => Boolean = () => false
 
     def addNotificationCallback(callback: NotificationCallback): Builder = {
@@ -416,7 +416,7 @@ object BspSession {
       this
     }
 
-    def withInitialJob(job: BspSessionJob[_,_]): Builder = {
+    def withInitialJob(job: BspSessionJob[?,?]): Builder = {
       initialJob = job
       this
     }

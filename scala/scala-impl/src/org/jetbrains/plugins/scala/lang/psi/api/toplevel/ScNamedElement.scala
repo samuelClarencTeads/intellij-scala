@@ -8,7 +8,7 @@ import com.intellij.extapi.psi.StubBasedPsiElementBase
 import com.intellij.navigation.ItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.stubs.{NamedStub, StubElement}
 import com.intellij.psi.util.PsiTreeUtil
 import javax.swing.Icon
@@ -16,10 +16,10 @@ import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.isNameContext
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createIdentifier
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.JavaIdentifier
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
@@ -32,8 +32,8 @@ trait ScNamedElement extends ScalaPsiElement with PsiNameIdentifierOwner with Na
   @Cached(ModTracker.anyScalaPsiChange, this)
   def name: String = {
     this match {
-      case st: StubBasedPsiElementBase[_] =>  st.getGreenStub match {
-        case namedStub: NamedStub[_] => namedStub.getName
+      case st: StubBasedPsiElementBase[?] =>  st.getGreenStub match {
+        case namedStub: NamedStub[?] => namedStub.getName
         case _ => nameInner
       }
       case _ => nameInner
@@ -45,7 +45,7 @@ trait ScNamedElement extends ScalaPsiElement with PsiNameIdentifierOwner with Na
   @Cached(ModTracker.anyScalaPsiChange, this)
   def nameContext: PsiElement = {
     @tailrec
-    def byStub(stub: StubElement[_]): PsiElement = {
+    def byStub(stub: StubElement[?]): PsiElement = {
       if (stub == null) null
       else {
         val psi = stub.getPsi.asInstanceOf[PsiElement]
@@ -61,8 +61,8 @@ trait ScNamedElement extends ScalaPsiElement with PsiNameIdentifierOwner with Na
       else byAST(element.getParent)
 
     this match {
-      case st: StubBasedPsiElementBase[_] =>
-        val stub = st.getStub.asInstanceOf[StubElement[_]]
+      case st: StubBasedPsiElementBase[?] =>
+        val stub = st.getStub.asInstanceOf[StubElement[?]]
 
         if (stub != null) byStub(stub)
         else byAST(this)

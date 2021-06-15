@@ -5,22 +5,22 @@ package api
 package expr
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.{MethodValue, isAnonymousExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.InferUtil.SafeCheckException
-import org.jetbrains.plugins.scala.lang.psi.api.base._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScIntegerLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ExpectedTypes.ParameterType
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.ImportUsed
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.implicits.ScImplicitlyConvertible
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{Parameter, ScMethodType, ScTypePolymorphicType}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 import org.jetbrains.plugins.scala.macroAnnotations.CachedWithRecursionGuard
 import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
@@ -38,7 +38,7 @@ trait ScExpression extends ScBlockStatement
   with ImplicitArgumentsOwner
   with Typeable with Compatibility.Expression {
 
-  import ScExpression._
+  import ScExpression.*
 
   override def `type`(): TypeResult =
     this.getTypeAfterImplicitConversion().tr
@@ -300,7 +300,7 @@ object ScExpression {
       }
 
       val stdTypes = StdTypes.instance
-      import stdTypes._
+      import stdTypes.*
 
       expected.removeAbstracts match {
         case Char if isChar(intLiteralValue)   => success(Char)
@@ -335,7 +335,7 @@ object ScExpression {
       }
 
       val stdTypes = project.stdTypes
-      import stdTypes._
+      import stdTypes.*
 
       (l, r) match {
         case (Byte, Short | Int | Long | Float | Double)        => Some(Right(expected))
@@ -361,7 +361,7 @@ object ScExpression {
     private def getStdType(t: ScType): Option[StdType] = {
       val stdTypes  = project.stdTypes
       val dealiased = t.widenIfLiteral.removeAliasDefinitions()
-      import stdTypes._
+      import stdTypes.*
 
       dealiased match {
         case AnyVal                           => Some(AnyVal)

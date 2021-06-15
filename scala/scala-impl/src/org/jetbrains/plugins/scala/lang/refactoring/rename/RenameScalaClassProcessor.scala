@@ -8,10 +8,10 @@ import com.intellij.refactoring.listeners.RefactoringElementListener
 import com.intellij.refactoring.rename.{RenameDialog, RenameJavaClassProcessor}
 import com.intellij.usageView.UsageInfo
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.light.PsiClassWrapper
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocComment
@@ -91,7 +91,7 @@ class RenameScalaClassProcessor extends RenameJavaClassProcessor with ScalaRenam
       }
     }
 
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
     val elems = allRenames.keySet().asScala.clone()
     elems.foreach(addLightClasses)
 

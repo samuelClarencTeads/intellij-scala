@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.codeInsight.implicits
 
-import java.awt.event._
+import java.awt.event.*
 import java.awt.Cursor
 import java.awt.Point
 
 import com.intellij.openapi.command.CommandProcessor
-import com.intellij.openapi.editor.event._
+import com.intellij.openapi.editor.event.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.project.Project
@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class MouseHandler extends ProjectManagerListener {
 

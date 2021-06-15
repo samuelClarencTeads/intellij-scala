@@ -1,16 +1,16 @@
 package org.jetbrains.plugins.scala.uast
 
-import org.jetbrains.plugins.scala.uast.AbstractUastFixtureTest._
+import org.jetbrains.plugins.scala.uast.AbstractUastFixtureTest.*
 import org.jetbrains.uast.{UAnnotation, UFile, ULiteralExpression}
 import org.junit.Assert
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.postfixOps
 
 class ScalaUastApiTest extends AbstractUastFixtureTest {
   override def check(testName: String, file: UFile): Unit = {}
 
-  import ScalaUastApiTest._
+  import ScalaUastApiTest.*
 
   def testUastAnchors(): Unit =
     doTest("SimpleClass", { (_, file) =>

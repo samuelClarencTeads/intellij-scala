@@ -11,17 +11,17 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.roots.{OrderEntry, OrderEnumerator, OrderRootType}
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScMember, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.MixinNodes
-import org.jetbrains.plugins.scala.testingSupport.test.TestConfigurationUtil._
+import org.jetbrains.plugins.scala.testingSupport.test.TestConfigurationUtil.*
 import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestUtil.{itWordFqns, theyWordFqns}
-import org.scalatest.finders.{MethodInvocation => _, _}
+import org.scalatest.finders.{MethodInvocation as _, *}
 
 import scala.annotation.tailrec
 import scala.collection.mutable.ArrayBuffer
@@ -31,7 +31,7 @@ object ScalaTestAstTransformer {
 
   private val LOG: Logger = Logger.getInstance(ScalaTestAstTransformer.getClass)
 
-  def testSelection(location: Location[_ <: PsiElement]): Option[Selection] = {
+  def testSelection(location: Location[? <: PsiElement]): Option[Selection] = {
     val element = location.getPsiElement
     val typeDef = PsiTreeUtil.getNonStrictParentOfType(element, classOf[ScClass], classOf[ScTrait])
 
@@ -62,7 +62,7 @@ object ScalaTestAstTransformer {
 
           val finderFqn: String = getFinderClassFqn(td, module, "org.scalatest.Style", "org.scalatest.Finders")
           if (finderFqn != null) try {
-            val finderClass: Class[_] = Class.forName(finderFqn)
+            val finderClass: Class[?] = Class.forName(finderFqn)
             return Option(finderClass.getDeclaredConstructor().newInstance().asInstanceOf[Finder])
           } catch {
             case _: ClassNotFoundException =>
@@ -326,7 +326,7 @@ object ScalaTestAstTransformer {
   }
 
   private class StMethodDefinition(val element: PsiElement, pClassName: String, pParamTypes: Seq[String])
-    extends MethodDefinition(pClassName, null, new Array[AstNode](0), getStaticTestName(element).getOrElse(""), pParamTypes: _*) {
+    extends MethodDefinition(pClassName, null, new Array[AstNode](0), getStaticTestName(element).getOrElse(""), pParamTypes*) {
 
     override def parent: AstNode = getParentNode(className, element)
 
@@ -348,7 +348,7 @@ object ScalaTestAstTransformer {
                                    pName: String,
                                    nameSource: PsiElement,
                                    override val args: Array[AstNode])
-    extends org.scalatest.finders.MethodInvocation(pClassName, pTarget, null, new Array[AstNode](0), pName, args: _*) {
+    extends org.scalatest.finders.MethodInvocation(pClassName, pTarget, null, new Array[AstNode](0), pName, args*) {
 
     override def parent: AstNode =  getParentNode(pClassName, invocation)
 

@@ -13,7 +13,7 @@ import com.intellij.testFramework.fixtures.CodeInsightTestFixture
 class ProcedureDefinitionInspectionTest extends ScalaQuickFixTestBase {
 
   import CodeInsightTestFixture.CARET_MARKER
-  protected override val classOfInspection: Class[_ <: LocalInspectionTool] =
+  protected override val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[UnitMethodInspection.ProcedureDefinition]
 
   protected override val description: String =

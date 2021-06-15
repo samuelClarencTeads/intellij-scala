@@ -11,7 +11,7 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.project.external.{AbstractDataService, AbstractImporter}
 import org.jetbrains.sbt.resolvers.{SbtIndexesManager, SbtResolver}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin
@@ -36,7 +36,7 @@ object SbtBuildModuleDataService {
 
   private def importData(sbtModule: Module,
                          data: SbtBuildModuleData): Unit = {
-    import module.SbtModule._
+    import module.SbtModule.*
     val SbtBuildModuleData(imports, resolvers, buildFor) = data
 
     Imports(sbtModule) = imports

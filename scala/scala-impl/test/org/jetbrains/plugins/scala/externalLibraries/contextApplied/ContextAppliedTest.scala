@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.lang.resolve.SimpleResolveTestBase
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 
 class ContextAppliedTest extends ScalaLightCodeInsightFixtureTestAdapter with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   override def setUp(): Unit = {
     super.setUp()

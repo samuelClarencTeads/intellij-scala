@@ -4,7 +4,7 @@ import com.intellij.task.{ProjectTaskContext, ProjectTaskManager}
 import org.jetbrains.plugins.scala.build.TaskManagerResult
 import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestRunConfiguration.SettingEntry
 import org.jetbrains.sbt.shell.SbtShellCommunication.{EventAggregator, ShellEvent, TaskComplete}
-import org.jetbrains.sbt.shell.SettingQueryHandler._
+import org.jetbrains.sbt.shell.SettingQueryHandler.*
 
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.ExecutionContext.Implicits.global

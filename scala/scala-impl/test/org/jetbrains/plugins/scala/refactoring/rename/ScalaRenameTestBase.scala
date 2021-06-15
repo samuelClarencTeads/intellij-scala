@@ -28,7 +28,7 @@ abstract class ScalaRenameTestBase extends ScalaLightPlatformCodeInsightTestCase
   protected def folderPath: String = TestUtils.getTestDataPath + "/rename/"
 
   protected def doTest(): Unit = {
-    import org.junit.Assert._
+    import org.junit.Assert.*
     val filePath = folderPath + getTestName(false) + ".scala"
     val ioFile: File = new File(filePath)
     var fileText: String = FileUtil.loadFile(ioFile, CharsetToolkit.UTF8)

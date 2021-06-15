@@ -6,7 +6,7 @@ package base
 package types
 
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 
 /** 
 * @author Alexander Podkhalyuzin

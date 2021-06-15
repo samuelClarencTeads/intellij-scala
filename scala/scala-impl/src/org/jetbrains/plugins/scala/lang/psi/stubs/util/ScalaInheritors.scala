@@ -11,7 +11,7 @@ import com.intellij.psi.search.{GlobalSearchScope, LocalSearchScope, SearchScope
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.Processor
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.finder.ScalaFilterScope
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScInfixTypeElement, ScParameterizedTypeElement, ScParenthesisedTypeElement, ScSimpleTypeElement, ScTypeElement}
@@ -25,7 +25,7 @@ import org.jetbrains.plugins.scala.util.ScEquivalenceUtil
 import scala.annotation.tailrec
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.reflect.ClassTag
 
 object ScalaInheritors {
@@ -89,7 +89,7 @@ object ScalaInheritors {
 
     val inheritorsBuilder = ArraySeq.newBuilder[ScTemplateDefinition]
 
-    import ScalaIndexKeys._
+    import ScalaIndexKeys.*
     val extendsBlockIterable = SUPER_CLASS_NAME_KEY.elements(name, scope)(clazz.getProject)
     val extendsBlocks = extendsBlockIterable.iterator
 
@@ -165,7 +165,7 @@ object ScalaInheritors {
           false
         }
         inReadAction {
-          import ScalaIndexKeys._
+          import ScalaIndexKeys.*
           for {
             selfTypeElement <- SELF_TYPE_CLASS_NAME_KEY.elements(name, resolveScope)
             typeElement <- selfTypeElement.typeElement

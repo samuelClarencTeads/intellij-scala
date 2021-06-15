@@ -15,9 +15,9 @@ import com.intellij.refactoring.listeners.RefactoringElementListener
 import com.intellij.refactoring.rename.RenameJavaMemberProcessor
 import com.intellij.refactoring.util.RefactoringUtil
 import com.intellij.usageView.UsageInfo
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods._
+import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScValue, ScVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScMember}
@@ -88,7 +88,7 @@ class RenameScalaVariableProcessor extends RenameJavaMemberProcessor with ScalaR
     RenameSuperMembersUtil.prepareSuperMembers(element, newName, allRenames)
   }
   override def findCollisions(element: PsiElement, newName: String,
-                              allRenames: util.Map[_ <: PsiElement, String], result: util.List[UsageInfo]): Unit = {/*todo*/}
+                              allRenames: util.Map[? <: PsiElement, String], result: util.List[UsageInfo]): Unit = {/*todo*/}
 
   override def substituteElementToRename(element: PsiElement, editor: Editor): PsiElement = {
     element match {

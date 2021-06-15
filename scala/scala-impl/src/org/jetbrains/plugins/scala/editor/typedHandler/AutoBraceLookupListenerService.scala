@@ -6,10 +6,10 @@ import com.intellij.codeInsight.lookup.{Lookup, LookupElement, LookupEvent, Look
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.RangeMarker
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.scala.editor.AutoBraceUtils._
-import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceInsertionTools._
+import org.jetbrains.plugins.scala.editor.AutoBraceUtils.*
+import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceInsertionTools.*
 import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceLookupListenerService.AutoBraceLookupListener
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 /**
  * This Service watches for completion popups and interferes in the very rare occasion
@@ -73,7 +73,7 @@ object AutoBraceLookupListenerService {
     }
 
     override def itemSelected(event: LookupEvent): Unit = {
-      for ((info, marker) <- autoBraceInsertionInfo) {
+      for (case (info, marker) <- autoBraceInsertionInfo) {
         val fixedInfo = info.copy(
           closingBraceOffset = try marker.getEndOffset finally marker.dispose(),
           inputOffset = event.getLookup.getEditor.offset,

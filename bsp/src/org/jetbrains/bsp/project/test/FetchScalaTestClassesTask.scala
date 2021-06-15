@@ -4,7 +4,7 @@ import java.nio.file.Paths
 import java.util.UUID
 import java.util.concurrent.CompletableFuture
 
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.progress.{ProgressIndicator, Task}
@@ -17,7 +17,7 @@ import org.jetbrains.bsp.protocol.{BspCommunication, BspJob}
 import org.jetbrains.plugins.scala.build.BuildToolWindowReporter.CancelBuildAction
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildReporter, BuildToolWindowReporter}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.Promise
 import scala.util.{Failure, Success, Try}
 

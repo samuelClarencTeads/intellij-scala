@@ -175,7 +175,7 @@ trait IntegrationTestTreeViewAssertions {
       fail(s"Test tree contains unexpected node '${root.getName}'")
     else if (!root.isLeaf) {
       val children = root.getChildren.asScala
-      children.foreach(assertResultTreeDoesNotHaveNodes(_, nodeNames: _*))
+      children.foreach(assertResultTreeDoesNotHaveNodes(_, nodeNames*))
     }
 
   protected def getExactNamePathFromResultTree(

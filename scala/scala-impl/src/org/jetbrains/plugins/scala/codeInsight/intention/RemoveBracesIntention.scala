@@ -11,7 +11,7 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiComment, PsiElement, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScPatternDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createBlockExpressionWithoutBracesFromText
 import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker
@@ -21,7 +21,7 @@ import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker
   */
 final class RemoveBracesIntention extends PsiElementBaseIntentionAction {
 
-  import RemoveBracesIntention._
+  import RemoveBracesIntention.*
 
   override def getFamilyName: String = ScalaBundle.message("family.name.remove.braces")
 

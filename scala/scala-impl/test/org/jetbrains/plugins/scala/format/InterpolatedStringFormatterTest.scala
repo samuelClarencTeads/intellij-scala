@@ -4,7 +4,7 @@ package format
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Pavel Fatin
@@ -40,8 +40,8 @@ class InterpolatedStringFormatterTest extends ScalaLightCodeInsightFixtureTestAd
     assertEquals(quoted("$"), formatFull(Text("$")))
 
     val parts = Seq(Text("$ "), Injection(exp("amount"), None))
-    assertEquals("$$ $amount", formatS(parts: _*))
-    assertEquals(quoted("$$ $amount", prefix = "s"), formatFull(parts: _*))
+    assertEquals("$$ $amount", formatS(parts*))
+    assertEquals(quoted("$$ $amount", prefix = "s"), formatFull(parts*))
   }
 
   def testPlainExpression(): Unit = {
@@ -106,7 +106,7 @@ class InterpolatedStringFormatterTest extends ScalaLightCodeInsightFixtureTestAd
 
   def testMixedParts(): Unit = {
     val parts = Seq(Text("foo "), Injection(exp("exp"), None), Text(" bar"))
-    assertEquals(quoted("foo $exp bar", prefix = "s"), formatFull(parts: _*))
+    assertEquals(quoted("foo $exp bar", prefix = "s"), formatFull(parts*))
   }
 
   def testLiterals(): Unit = {

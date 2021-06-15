@@ -6,14 +6,14 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.colors.EditorColorsScheme
 import com.intellij.psi.{PsiElement, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.annotator.hints.{Hint, Text}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition, ScPatternDefinition, ScValueOrVariable, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.ScMethodType
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.settings.annotations.Definition
 import org.jetbrains.plugins.scala.settings.annotations.Definition.{FunctionDefinition, ValueDefinition, VariableDefinition}
-import ScalaTypeHintsPass._
+import ScalaTypeHintsPass.*
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 
 private[codeInsight] trait ScalaTypeHintsPass {
@@ -31,7 +31,7 @@ private[codeInsight] trait ScalaTypeHintsPass {
       for {
         element <- root.elements
         definition = Definition(element) // NB: "definition" might be in fact _any_ PsiElement (e.g. ScalaFile)
-        (tpe, body) <- typeAndBodyOf(definition)
+        case (tpe, body) <- typeAndBodyOf(definition)
         if !(settings.preserveIndents && (!element.textContains('\n') && definition.hasCustomIndents || adjacentDefinitionsHaveCustomIndent(element)))
         if !ScMethodType.hasMethodType(body)
         if settings.showObviousType || !(definition.hasStableType || isTypeObvious(definition.name, tpe, body))

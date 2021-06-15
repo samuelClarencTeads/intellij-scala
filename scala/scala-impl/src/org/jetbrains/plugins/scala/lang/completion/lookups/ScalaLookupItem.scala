@@ -4,12 +4,12 @@ package completion
 package lookups
 
 import com.intellij.codeInsight.completion.{InsertionContext, JavaCompletionUtil}
-import com.intellij.codeInsight.lookup._
+import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
-import com.intellij.psi.util.PsiTreeUtil._
-import org.jetbrains.plugins.scala.autoImport.quickFix._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import com.intellij.psi.util.PsiTreeUtil.*
+import org.jetbrains.plugins.scala.autoImport.quickFix.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.handlers.{ScalaImportingInsertHandler, ScalaInsertHandler}
 import org.jetbrains.plugins.scala.lang.psi.api.ScPackage
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
@@ -22,12 +22,12 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportSelect
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition}
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.ScImportsHolder
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.escapeKeyword
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocResolvableCodeReference
-import org.jetbrains.plugins.scala.settings._
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.settings.*
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 import org.jetbrains.plugins.scala.util.UIFreezingGuard
 
 import scala.annotation.{nowarn, tailrec}
@@ -42,8 +42,8 @@ final class ScalaLookupItem private(override val getPsiElement: PsiNamedElement,
                                     private[completion] val containingClass: PsiClass)
   extends LookupItem[PsiNamedElement](getPsiElement, getLookupString) {
 
-  import ScalaInsertHandler._
-  import ScalaLookupItem._
+  import ScalaInsertHandler.*
+  import ScalaLookupItem.*
 
   def this(element: PsiNamedElement,
            name: String,
@@ -204,7 +204,7 @@ final class ScalaLookupItem private(override val getPsiElement: PsiNamedElement,
     }
   }
 
-  private def typeParametersText(typeParameters: Seq[_ <: PsiTypeParameter])
+  private def typeParametersText(typeParameters: Seq[? <: PsiTypeParameter])
                                 (implicit project: Project,
                                  context: TypePresentationContext): String =
     if (typeParameters.isEmpty)
@@ -344,7 +344,7 @@ object ScalaLookupItem {
 
   @tailrec
   def delegate(element: LookupElement): LookupElement = element match {
-    case decorator: LookupElementDecorator[_] => delegate(decorator.getDelegate)
+    case decorator: LookupElementDecorator[?] => delegate(decorator.getDelegate)
     case _ => element
   }
 

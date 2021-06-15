@@ -4,12 +4,12 @@ package psi
 package api
 package toplevel
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.extensions.{StubBasedExt, ToNullSafe}
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiModifierListOwnerAdapter
-import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotationsHolder, _}
+import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotationsHolder, *}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.macroAnnotations.Cached
 

@@ -5,7 +5,7 @@ package api
 package expr
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 
 trait ScFor extends ScExpression {
   /**

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testingSupport.test.testdata
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.execution.configurations.RuntimeConfigurationException
 import com.intellij.execution.{CommonProgramRunConfigurationParameters, ExternalizablePath, ShortenCommandLine}
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.{AbstractTestRunConfigura
 import org.jetbrains.plugins.scala.util.JdomExternalizerMigrationHelper
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * NOTE: when changing constructor params do not forget to edit TestConfigurationData.serializeIntoSkippingDefaults
@@ -171,8 +171,8 @@ object TestConfigurationData {
       val defaultValue = accessor.read(defaultData)
 
       val skip = (value, defaultValue) match {
-        case (list1: ju.List[_], list2: ju.List[_])   => list1.asScala == list2.asScala
-        case (map1: ju.Map[_, _], map2: ju.Map[_, _]) => map1.asScala == map2.asScala
+        case (list1: ju.List[?], list2: ju.List[?])   => list1.asScala == list2.asScala
+        case (map1: ju.Map[?, ?], map2: ju.Map[?, ?]) => map1.asScala == map2.asScala
         case _                                        => value == defaultValue
       }
       !skip

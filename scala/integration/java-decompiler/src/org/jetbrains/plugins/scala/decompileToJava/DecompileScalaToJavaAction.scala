@@ -15,12 +15,12 @@ class DecompileScalaToJavaAction extends AnAction(JavaDecompilerBundle.message("
   }
 
   private[this] def getClassfile(event: AnActionEvent): Option[ScFile] = {
-    import CommonDataKeys._
+    import CommonDataKeys.*
     findClassFile(event, NAVIGATABLE)
       .orElse(findClassFile(event, PSI_FILE))
   }
 
-  private[this] def findClassFile(event: AnActionEvent, key: DataKey[_]): Option[ScFile] =
+  private[this] def findClassFile(event: AnActionEvent, key: DataKey[?]): Option[ScFile] =
     event.getData(key) match {
       case file: ScFile if file.isCompiled => Option(file)
       case _ => None

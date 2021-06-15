@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.testingSupport.test.CustomTestRunnerBasedStateProvider.TestFrameworkRunnerInfo
-import org.jetbrains.plugins.scala.testingSupport.test._
+import org.jetbrains.plugins.scala.testingSupport.test.*
 
 class UTestRunConfiguration(
   project: Project,

@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScTypedExpression
 import org.jetbrains.plugins.scala.lang.psi.types.result.Failure
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
-import org.junit.Assert._
+import org.junit.Assert.*
 
 // TODO Work in progress
 class TypeDiffTest extends ScalaFixtureTestCase {
@@ -572,7 +572,7 @@ class TypeDiffTest extends ScalaFixtureTestCase {
   private def assertParsedAs(context: String, tpe: String, structure: String): Unit = {
     def asString(diff: Tree[TypeDiff]): String = diff match {
       case Leaf(Match(text, _)) => text
-      case Node(diffs @_*) => "<" + diffs.map(asString).mkString + ">"
+      case Node(diffs*) => "<" + diffs.map(asString).mkString + ">"
       case _ => ???
     }
     assertEquals(structure, asString(TypeDiff.parse(typesIn(context, tpe).head)(TypePresentationContext.emptyContext)))

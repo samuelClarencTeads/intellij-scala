@@ -5,15 +5,15 @@ package parsing
 package base
 
 import com.intellij.psi.tree.{IElementType, TokenSet}
-import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier._
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier.*
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaModifier, ScalaModifierTokenType, ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
 
 // See https://dotty.epfl.ch/docs/reference/soft-modifier.html
 sealed abstract class SoftModifier(modifiers: ScalaModifier*) extends ParsingRule {
 
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = builder.getTokenType match {
     case IsSoftModifier(tokenType) if isAllowed(tokenType) =>

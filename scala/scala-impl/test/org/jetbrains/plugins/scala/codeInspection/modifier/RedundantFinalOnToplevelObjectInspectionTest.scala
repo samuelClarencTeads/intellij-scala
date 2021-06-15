@@ -7,7 +7,7 @@ import org.jetbrains.plugins.scala.codeInspection.modifiers.RedundantFinalOnTopl
 
 class RedundantFinalOnToplevelObjectInspectionTest extends ScalaInspectionTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[RedundantFinalOnToplevelObjectInspection]
 
   override protected val description: String =

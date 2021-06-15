@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.psi.uast.declarations
 
 import _root_.java.util
 
-import com.intellij.psi.util.PsiTreeUtil._
+import com.intellij.psi.util.PsiTreeUtil.*
 import com.intellij.psi.{PsiAnnotation, PsiClass, PsiElement, PsiField, PsiLocalVariable, PsiModifier, PsiType, PsiVariable}
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScModifierList
@@ -14,12 +14,12 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScPatternDefinition,
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.ScUElement
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 import org.jetbrains.plugins.scala.lang.psi.uast.psi.LightVariableWithGivenAnnotationsBuilder
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 trait ScUVariableCommon extends ScUElement with UAnchorOwner with UAnnotated {
@@ -103,8 +103,8 @@ object ScUVariable {
     isVal: Boolean,
     containingTypeDef: ScTemplateDefinition,
     modifiersList: Option[ScModifierList],
-    typeable: Typeable with PsiElement
-  ): PsiField with PsiLocalVariable = {
+    typeable: Typeable & PsiElement
+  ): PsiField & PsiLocalVariable = {
 
     val javaModifiers = mutable.ArrayBuffer.empty[String]
 
@@ -213,7 +213,7 @@ object ScUVariable {
                                           containingClass: PsiClass,
                                           annotations: Array[PsiAnnotation],
                                           modifiers: Array[String],
-                                          typeable: Typeable with PsiElement)
+                                          typeable: Typeable & PsiElement)
     extends LightVariableWithGivenAnnotationsBuilder(name, UastErrorType.INSTANCE, containingClass, annotations, modifiers) {
 
     override lazy val getType: PsiType = {

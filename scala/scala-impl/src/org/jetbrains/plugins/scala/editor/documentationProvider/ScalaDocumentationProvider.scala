@@ -7,17 +7,17 @@ import com.intellij.codeInsight.javadoc.JavaDocUtil
 import com.intellij.lang.documentation.CodeDocumentationProvider
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.Pair
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.editor.ScalaEditorBundle
-import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocumentationProvider._
+import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocumentationProvider.*
 import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocumentationUtils.EmptyDoc
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.lang.psi.light.{PsiClassWrapper, ScFunctionWrapper}
@@ -117,7 +117,7 @@ class ScalaDocumentationProvider extends CodeDocumentationProvider {
       case _ => super.generateRenderedDoc(comment)
     }
 
-  override final def collectDocComments(file: PsiFile, sink: Consumer[_ >: PsiDocCommentBase]): Unit = {
+  override final def collectDocComments(file: PsiFile, sink: Consumer[? >: PsiDocCommentBase]): Unit = {
     val scalaFile: ScalaFile = file match {
       case sf: ScalaFile => sf
       case _             => return

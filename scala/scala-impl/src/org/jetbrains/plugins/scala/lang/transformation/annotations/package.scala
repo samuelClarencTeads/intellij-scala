@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.ScType
   */
 package object annotations {
 
-  import AddOnlyStrategy._
+  import AddOnlyStrategy.*
 
   def appendTypeAnnotation(`type`: ScType, anchor: PsiElement): Unit =
     appendTypeAnnotation(`type`) {

@@ -32,7 +32,7 @@ final class ScalaGenerateToStringWizard(classMembers: Seq[ScNamedElement])
     project
   ) {
 
-  import ScalaGenerateToStringWizard._
+  import ScalaGenerateToStringWizard.*
 
   private val toStringPanel = new Panel(classMembers)((_: TableModelEvent) => updateButtons())
 

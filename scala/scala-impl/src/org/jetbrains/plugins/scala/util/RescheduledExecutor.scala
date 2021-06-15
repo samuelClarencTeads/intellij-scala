@@ -15,7 +15,7 @@ class RescheduledExecutor(name: String, parentDisposable: Disposable)
 
   Disposer.register(parentDisposable, this)
 
-  private val lastScheduledTask = new AtomicReference[ScheduledFuture[_]]
+  private val lastScheduledTask = new AtomicReference[ScheduledFuture[?]]
   private val scheduler = AppExecutorUtil.createBoundedScheduledExecutorService(name, 1)
 
   /**

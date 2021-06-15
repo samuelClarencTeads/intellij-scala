@@ -8,10 +8,10 @@ import java.util.zip.ZipEntry
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.testFramework.UsefulTestCase
 import org.jetbrains.plugins.scala.DependencyManager
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.buildinfo.BuildInfo
-import org.jetbrains.sbt.SbtUtil._
-import org.junit.Assert._
+import org.jetbrains.sbt.SbtUtil.*
+import org.junit.Assert.*
 
 import scala.util.Using
 

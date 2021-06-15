@@ -7,8 +7,8 @@ package typedef
 
 import com.intellij.extapi.psi.StubBasedPsiElementBase
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
-import com.intellij.psi.util._
+import com.intellij.psi.*
+import com.intellij.psi.util.*
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, StubBasedExt}
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameterClause}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScExtendsBlock, ScTemplateBody}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaFileImpl
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScMemberOrLocal
 import org.jetbrains.plugins.scala.macroAnnotations.Cached
@@ -59,7 +59,7 @@ trait ScMember extends ScalaPsiElement with ScModifierListOwner with PsiMember {
   @Nullable
   def containingClass: ScTemplateDefinition = {
     this match {
-      case stub: StubBasedPsiElementBase[_] =>
+      case stub: StubBasedPsiElementBase[?] =>
         stub.getGreenStub match {
           case member: ScMemberOrLocal if member.isLocal => return null
           case _ =>
@@ -131,7 +131,7 @@ trait ScMember extends ScalaPsiElement with ScModifierListOwner with PsiMember {
     def thisAccessModifier = getModifierList.accessModifier
       .filter(_.isThis)
 
-    import PsiModifier._
+    import PsiModifier.*
     name match {
       case STATIC => containingClass.isInstanceOf[ScObject]
       case PUBLIC =>

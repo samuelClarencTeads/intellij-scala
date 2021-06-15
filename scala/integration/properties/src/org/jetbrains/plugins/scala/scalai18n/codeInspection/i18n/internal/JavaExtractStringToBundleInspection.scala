@@ -4,12 +4,12 @@ package codeInspection
 package i18n
 package internal
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import org.jetbrains.plugins.scala.codeInsight.intention.AbstractIntention
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.scalai18n.codeInspection.i18n.internal.JavaExtractStringToBundleInspection._
-import BundleExtraction._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.scalai18n.codeInspection.i18n.internal.JavaExtractStringToBundleInspection.*
+import BundleExtraction.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 
 import scala.annotation.tailrec

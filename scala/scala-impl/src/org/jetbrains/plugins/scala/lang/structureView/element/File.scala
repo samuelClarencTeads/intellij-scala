@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.structureView.element
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 
 /**

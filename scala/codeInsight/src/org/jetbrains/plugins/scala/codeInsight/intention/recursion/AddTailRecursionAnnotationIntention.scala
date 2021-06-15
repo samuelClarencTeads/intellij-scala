@@ -9,14 +9,14 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.annotator.FunctionAnnotator
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 
 /**
   * Pavel Fatin
   */
 final class AddTailRecursionAnnotationIntention extends PsiElementBaseIntentionAction {
 
-  import AddTailRecursionAnnotationIntention._
+  import AddTailRecursionAnnotationIntention.*
 
   override def isAvailable(project: Project,
                            editor: Editor,
@@ -37,7 +37,7 @@ final class AddTailRecursionAnnotationIntention extends PsiElementBaseIntentionA
 
 object AddTailRecursionAnnotationIntention {
 
-  import FunctionAnnotator._
+  import FunctionAnnotator.*
 
   object CanBeTailRecursive {
 

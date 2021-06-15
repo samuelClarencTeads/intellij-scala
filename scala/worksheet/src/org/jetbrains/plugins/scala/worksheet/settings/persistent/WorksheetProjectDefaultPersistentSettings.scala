@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.worksheet.settings.persistent
 
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.project.Project
 import com.intellij.util.xmlb.XmlSerializerUtil
 import com.intellij.util.xmlb.annotations.OptionTag

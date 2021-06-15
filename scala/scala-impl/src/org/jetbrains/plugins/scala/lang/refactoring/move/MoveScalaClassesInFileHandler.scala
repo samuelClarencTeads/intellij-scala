@@ -3,8 +3,8 @@ package lang
 package refactoring
 package move
 
-import java.lang.{Boolean => JBoolean}
-import java.{util => ju}
+import java.lang.{Boolean as JBoolean}
+import java.{util as ju}
 
 import com.intellij.psi.{PsiClass, PsiElement}
 import com.intellij.refactoring.move.moveClassesOrPackages.MoveAllClassesInFileHandler

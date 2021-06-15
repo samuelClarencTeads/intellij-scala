@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package parser
 
-import IndentationWidth._
+import IndentationWidth.*
 
 final class IndentationWidth(private val width: String) extends Ordered[IndentationWidth] {
   assert(width.forall(isIndentationChar))

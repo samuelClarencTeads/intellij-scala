@@ -5,11 +5,11 @@ package types
 
 import gnu.trove.{THashMap, TObjectHashingStrategy}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScTypeParam, TypeParamId}
-import org.jetbrains.plugins.scala.lang.psi.types.api._
-import org.jetbrains.plugins.scala.lang.psi.types.nonvalue._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
+import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate.{ProcessSubtypes, ReplaceWith, Stop}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 import scala.annotation.tailrec
 

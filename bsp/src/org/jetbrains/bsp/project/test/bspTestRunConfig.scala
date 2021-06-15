@@ -2,10 +2,10 @@ package org.jetbrains.bsp.project.test
 
 import java.net.URI
 import java.util.Collections
-import java.{util => j}
+import java.{util as j}
 
 import com.intellij.execution.Executor
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.openapi.options.{ConfigurationException, SettingsEditor}
 import com.intellij.openapi.project.Project
@@ -13,10 +13,10 @@ import com.intellij.util.xmlb.XmlSerializer
 import javax.swing.Icon
 import org.jdom.Element
 import org.jetbrains.bsp.{BspBundle, Icons}
-import org.jetbrains.bsp.project.test.BspTestConfigurationForm._
+import org.jetbrains.bsp.project.test.BspTestConfigurationForm.*
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class BspTestRunType extends ConfigurationType {
   override def getDisplayName: String = BspBundle.message("bsp.test")
@@ -68,7 +68,7 @@ class BspTestRunConfiguration(val project: Project, val configurationFactory: Co
     XmlSerializer.serializeInto(this, element)
   }
 
-  override def getConfigurationEditor: SettingsEditor[_ <: RunConfiguration] = new BspTestConfigurationForm(getProject)
+  override def getConfigurationEditor: SettingsEditor[? <: RunConfiguration] = new BspTestConfigurationForm(getProject)
 
   override def getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState = {
     val scalaMap = matchedTestClasses.asScala.map { case (uri, list) => (URI.create(uri), list.asScala.toList) }.toMap

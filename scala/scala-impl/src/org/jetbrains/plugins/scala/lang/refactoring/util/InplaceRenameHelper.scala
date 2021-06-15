@@ -3,7 +3,7 @@ package lang.refactoring.util
 
 import com.intellij.codeInsight.CodeInsightUtilCore
 import com.intellij.codeInsight.highlighting.HighlightManager
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.codeInsight.template.impl.{TemplateImpl, TemplateManagerImpl, TemplateState, TextExpression}
 import com.intellij.openapi.editor.colors.{EditorColors, EditorColorsManager, TextAttributesKey}
 import com.intellij.openapi.editor.markup.{RangeHighlighter, TextAttributes}
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Nikolay.Tropin
@@ -73,7 +73,7 @@ class InplaceRenameHelper(parent: PsiElement) {
     val templateVariables = template.getVariables
     val stopAtVariables = templateVariables.asScala.filter(_.isAlwaysStopAt)
     val primarySortedVariables = primaries.flatMap(p => stopAtVariables.find(_.getName == primaryNames(p)))
-    for ((v, idx) <- primarySortedVariables.zipWithIndex) {
+    for (case (v, idx) <- primarySortedVariables.zipWithIndex) {
       templateVariables.set(idx, v)
     }
     val myHighlighters = mutable.ArrayBuffer[RangeHighlighter]()
@@ -100,7 +100,7 @@ class InplaceRenameHelper(parent: PsiElement) {
 
       private def addHighlights(ranges: mutable.HashMap[RangeMarker, TextAttributesKey], editor: Editor,
                                 highlighters: ArrayBuffer[RangeHighlighter], highlightManager: HighlightManager): Unit = {
-        for ((range, attributes) <- ranges) {
+        for (case (range, attributes) <- ranges) {
           highlightManager.addOccurrenceHighlight(editor, range.getStartOffset, range.getEndOffset,
             attributes, 0, highlighters.asJava)
         }

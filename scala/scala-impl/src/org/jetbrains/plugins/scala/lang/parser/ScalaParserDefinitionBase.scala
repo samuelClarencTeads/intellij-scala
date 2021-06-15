@@ -25,7 +25,7 @@ abstract class ScalaParserDefinitionBase protected() extends ParserDefinition {
 
   override def createFile(viewProvider: FileViewProvider): ScalaFile
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   override def getCommentTokens = COMMENTS_TOKEN_SET
 
@@ -39,7 +39,7 @@ abstract class ScalaParserDefinitionBase protected() extends ParserDefinition {
       case importStatement => importStatement.getTextRange.getEndOffset == rightNode.getTextRange.getStartOffset
     }
 
-    import ParserDefinition.SpaceRequirements._
+    import ParserDefinition.SpaceRequirements.*
     rightNode.getElementType match {
       case `tWHITE_SPACE_IN_LINE` if rightNode.textContains('\n') => MAY
       case _ if isNeighbour => MUST_LINE_BREAK

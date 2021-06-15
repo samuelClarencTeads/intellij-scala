@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala.lang.scaladoc.psi.impl
 
 import java.util
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LazyParseablePsiElement
 import com.intellij.psi.javadoc.PsiDocTag
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.tree.IElementType
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaElementVisitor, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType

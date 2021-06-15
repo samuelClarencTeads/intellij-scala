@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.editor.documentationProvider
 import com.intellij.lang.documentation.DocumentationMarkup
 import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.psi.PsiFile
-import org.junit.Assert._
+import org.junit.Assert.*
 
 trait ScalaDocumentationsSectionsTesting {
   self: DocumentationTesting =>

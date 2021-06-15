@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package testingSupport.test.scalatest
 
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.search.ProjectScope
 import com.intellij.psi.{PsiClass, PsiModifier}
@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.lang.psi.types.{ScParameterizedType, ScTypeExt, ScalaType}
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.testingSupport.test.CustomTestRunnerBasedStateProvider.TestFrameworkRunnerInfo
-import org.jetbrains.plugins.scala.testingSupport.test._
+import org.jetbrains.plugins.scala.testingSupport.test.*
 import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestRunConfiguration.DoNotDiscoverAnnotationFqn
 
 class ScalaTestRunConfiguration(

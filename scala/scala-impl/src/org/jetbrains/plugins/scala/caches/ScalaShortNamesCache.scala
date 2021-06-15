@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package caches
 
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{GlobalSearchScope, PsiShortNamesCache}
 import com.intellij.util.{ArrayUtil, Processor}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
@@ -63,13 +63,13 @@ class ScalaShortNamesCache(implicit project: Project) extends PsiShortNamesCache
     res.toArray
   }
 
-  override def processMethodsWithName(name: String, scope: GlobalSearchScope, processor: Processor[_ >: PsiMethod]): Boolean = {
+  override def processMethodsWithName(name: String, scope: GlobalSearchScope, processor: Processor[? >: PsiMethod]): Boolean = {
     //todo:
     true
   }
 
   override def getAllClassNames: Array[String] = {
-    import ScalaIndexKeys._
+    import ScalaIndexKeys.*
     ALL_CLASS_NAMES.allKeys.toArray
   }
 

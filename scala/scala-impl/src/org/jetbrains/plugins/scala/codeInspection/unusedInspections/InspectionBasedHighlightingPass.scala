@@ -6,18 +6,18 @@ import java.util.Collections
 
 import com.intellij.codeHighlighting.TextEditorHighlightingPass
 import com.intellij.codeInsight.daemon.HighlightDisplayKey
-import com.intellij.codeInsight.daemon.impl._
+import com.intellij.codeInsight.daemon.impl.*
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightingLevelManager
 import com.intellij.lang.annotation.{Annotation, HighlightSeverity}
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.profile.codeInspection.InspectionProjectProfileManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.codeInspection.suppression.ScalaInspectionSuppressor
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 abstract class InspectionBasedHighlightingPass(file: ScalaFile, document: Option[Document], inspection: HighlightingPassInspection)

@@ -3,15 +3,15 @@ package lang.dependency
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.util.{Key, TextRange}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.scope.NameHint
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScReferencePattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeProjection
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScConstructorInvocation, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateParents
@@ -80,7 +80,7 @@ object Dependency {
 
     for {
       references <- groupedReferences
-      Dependency(target, path) <- dependenciesFor(references.head)
+      case Dependency(target, path) <- dependenciesFor(references.head)
       if ApplicationManager.getApplication.isUnitTestMode || !isInternal(target, range)
     } yield (path, references)
   }

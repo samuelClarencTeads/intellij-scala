@@ -3,24 +3,24 @@ package lang
 package parser
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi.tree._
+import com.intellij.psi.tree.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScNamingPattern, ScReferencePattern, ScSeqWildcardPattern, ScTypedPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScNewTemplateDefinition}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.impl.base._
-import org.jetbrains.plugins.scala.lang.psi.impl.base.literals._
-import org.jetbrains.plugins.scala.lang.psi.impl.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.impl.base.types._
-import org.jetbrains.plugins.scala.lang.psi.impl.expr._
-import org.jetbrains.plugins.scala.lang.psi.impl.expr.xml._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.impl.base.*
+import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.*
+import org.jetbrains.plugins.scala.lang.psi.impl.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.impl.base.types.*
+import org.jetbrains.plugins.scala.lang.psi.impl.expr.*
+import org.jetbrains.plugins.scala.lang.psi.impl.expr.xml.*
 import org.jetbrains.plugins.scala.lang.psi.impl.statements.params.ScParameterTypeImpl
 import org.jetbrains.plugins.scala.lang.psi.impl.statements.{ScEnumCaseImpl, ScEnumCasesImpl}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.imports.{ScExportStmtImpl, ScImportStmtImpl}
-import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.stubs.elements._
+import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.stubs.elements.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.{ScImportStmtStub, ScTemplateDefinitionStub}
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.impl.ScDocResolvableCodeReferenceImpl
 

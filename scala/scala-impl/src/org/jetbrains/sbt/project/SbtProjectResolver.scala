@@ -3,8 +3,8 @@ package project
 
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.externalSystem.model.project.{ProjectData => ESProjectData, _}
-import com.intellij.openapi.externalSystem.model.task.event._
+import com.intellij.openapi.externalSystem.model.project.{ProjectData as ESProjectData, *}
+import com.intellij.openapi.externalSystem.model.task.event.*
 import com.intellij.openapi.externalSystem.model.task.{ExternalSystemTaskId, ExternalSystemTaskNotificationListener}
 import com.intellij.openapi.externalSystem.model.{DataNode, ExternalSystemException}
 import com.intellij.openapi.externalSystem.service.project.ExternalSystemProjectResolver
@@ -13,28 +13,28 @@ import com.intellij.openapi.project.{Project, ProjectManager}
 import com.intellij.openapi.roots.DependencyScope
 import com.intellij.openapi.util.io.FileUtil
 import org.jetbrains.annotations.{NonNls, Nullable}
-import org.jetbrains.plugins.scala._
-import org.jetbrains.plugins.scala.build._
+import org.jetbrains.plugins.scala.*
+import org.jetbrains.plugins.scala.build.*
 import org.jetbrains.plugins.scala.compiler.data.serialization.extensions.EitherExt
 import org.jetbrains.plugins.scala.project.Version
 import org.jetbrains.plugins.scala.project.external.{AndroidJdk, JdkByHome, JdkByName, SdkReference}
 import org.jetbrains.plugins.scala.util.ScalaNotificationGroups
-import org.jetbrains.sbt.SbtUtil._
-import org.jetbrains.sbt.project.SbtProjectResolver._
-import org.jetbrains.sbt.project.data._
+import org.jetbrains.sbt.SbtUtil.*
+import org.jetbrains.sbt.project.SbtProjectResolver.*
+import org.jetbrains.sbt.project.data.*
 import org.jetbrains.sbt.project.module.SbtModuleType
-import org.jetbrains.sbt.project.settings._
-import org.jetbrains.sbt.project.structure._
+import org.jetbrains.sbt.project.settings.*
+import org.jetbrains.sbt.project.structure.*
 import org.jetbrains.sbt.resolvers.{SbtMavenResolver, SbtResolver}
-import org.jetbrains.sbt.structure.XmlSerializer._
+import org.jetbrains.sbt.structure.XmlSerializer.*
 import org.jetbrains.sbt.structure.{BuildData, ConfigurationData, DependencyData, DirectoryData, JavaData, ProjectData}
-import org.jetbrains.sbt.{structure => sbtStructure}
+import org.jetbrains.sbt.{structure as sbtStructure}
 
 import java.io.{File, FileNotFoundException}
 import java.util.{Locale, UUID}
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.{Failure, Random, Success, Try}
 import scala.xml.{Elem, XML}
 

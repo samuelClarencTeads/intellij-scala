@@ -15,8 +15,8 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createRe
   * User: Alexander Podkhalyuzin
   * Date: 20.06.2009
   */
-class ScImportExprStubImpl(parent: StubElement[_ <: PsiElement],
-                           elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScImportExprStubImpl(parent: StubElement[? <: PsiElement],
+                           elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                            override val referenceText: Option[String],
                            override val hasWildcardSelector: Boolean)
   extends StubBase[ScImportExpr](parent, elementType) with ScImportExprStub with PsiOwner[ScImportExpr] {

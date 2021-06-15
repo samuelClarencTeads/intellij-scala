@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScTemplateDefi
   */
 final class ScTemplateDeclarationRangeHandler extends DeclarationRangeHandler[ScTemplateDefinition] {
 
-  import ScTemplateDeclarationRangeHandler._
+  import ScTemplateDeclarationRangeHandler.*
 
   override def getDeclarationRange(template: ScTemplateDefinition): TextRange =
     template match {

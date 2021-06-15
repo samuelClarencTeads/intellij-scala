@@ -8,13 +8,13 @@ import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.extensions.{&&, Parent, PsiElementExt}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScTuplePattern
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScArguments
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTypeDefinition}
 import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer.CreateFromContextInfo
-import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer.CreateFromContextInfo._
-import org.jetbrains.plugins.scala.testingSupport.test._
+import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer.CreateFromContextInfo.*
+import org.jetbrains.plugins.scala.testingSupport.test.*
 import org.jetbrains.plugins.scala.testingSupport.test.structureView.TestNodeProvider
 
 // TODO: there are to many redundant TestNodeProvider.* method calls that actually check the same thing on same elements
@@ -113,7 +113,7 @@ final class UTestConfigurationProducer extends AbstractTestConfigurationProducer
     if (!suitePaths.exists(suitePath => TestConfigurationUtil.isInheritor(containingObject, suitePath)))
       return None
 
-    import TestNodeProvider._
+    import TestNodeProvider.*
     val nameContainer = ScalaPsiUtil.getParentWithProperty(element, strict = false, p => {
         isUTestInfixExpr(p) ||
         isUTestSuiteApplyCall(p) ||

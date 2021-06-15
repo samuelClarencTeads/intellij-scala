@@ -4,13 +4,13 @@ package template
 package macros
 
 import com.intellij.codeInsight.lookup.LookupElement
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.api.ExtractClass
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Roman.Shein

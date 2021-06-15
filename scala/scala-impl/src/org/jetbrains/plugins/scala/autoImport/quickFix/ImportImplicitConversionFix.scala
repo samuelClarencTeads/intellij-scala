@@ -26,7 +26,7 @@ class ImportImplicitConversionFix private (ref: ScReferenceExpression,
   override protected def findElementsToImport(): Seq[MemberToImport] =
     computation.conversions
 
-  override def createAddImportAction(editor: Editor): ScalaAddImportAction[_, _] =
+  override def createAddImportAction(editor: Editor): ScalaAddImportAction[?, ?] =
     ScalaAddImportAction.importImplicitConversion(editor, elements, ref)
 
   override def isAddUnambiguous: Boolean = false
@@ -64,7 +64,7 @@ private class ConversionToImportComputation(ref: ScReferenceExpression) {
 
     for {
       qualifier                 <- qualifier(ref).toSeq
-      (conversion, application) <- ImplicitConversionData.getPossibleConversions(qualifier).toSeq
+      case (conversion, application) <- ImplicitConversionData.getPossibleConversions(qualifier).toSeq
 
       if !isExcluded(conversion.qualifiedName, ref.getProject) &&
         CompletionProcessor.variantsWithName(application.resultType, qualifier, ref.refName).nonEmpty
@@ -122,7 +122,7 @@ object ImportImplicitConversionFixes {
       }
   }
 
-  def apply(ref: ScReferenceExpression): Seq[ScalaImportElementFix[_ <: ElementToImport]] = {
+  def apply(ref: ScReferenceExpression): Seq[ScalaImportElementFix[? <: ElementToImport]] = {
     val computation = new ConversionToImportComputation(ref)
     Seq(ImportImplicitConversionFix(ref, computation), ImportImplicitInstanceFix(() => computation.missingImplicits, ref))
   }

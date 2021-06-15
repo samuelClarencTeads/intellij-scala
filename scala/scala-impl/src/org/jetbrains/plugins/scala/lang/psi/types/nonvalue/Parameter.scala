@@ -3,8 +3,8 @@ package org.jetbrains.plugins.scala.lang.psi.types.nonvalue
 import com.intellij.psi.PsiParameter
 import org.jetbrains.plugins.scala.extensions.PsiParameterExt
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
   * Generalized parameter. It's not psi element. So can be used in any place.

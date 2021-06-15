@@ -7,7 +7,7 @@ import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScCaseClause, ScPattern}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScParameterOwner, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -100,7 +100,7 @@ class ScalaControlFlowBuilder(startInScope: ScalaPsiElement,
         // remove registered pending edges
         for (k <- ab) myPending.remove(k)
       case None =>
-        for ((from, _) <- myPending) addEdge(from, instruction)
+        for (case (from, _) <- myPending) addEdge(from, instruction)
         myPending.clear()
     }
   }
@@ -117,7 +117,7 @@ class ScalaControlFlowBuilder(startInScope: ScalaPsiElement,
 
   private def advancePendingEdges(fromScope: ScalaPsiElement, toScope: ScalaPsiElement): Unit = {
     for {
-      ((instr, scope), idx) <- myPending.zipWithIndex
+      case ((instr, scope), idx) <- myPending.zipWithIndex
       if scope != null && PsiTreeUtil.isAncestor(fromScope, scope, false)
     } {
       myPending.update(idx, (instr, toScope))
@@ -533,7 +533,7 @@ class ScalaControlFlowBuilder(startInScope: ScalaPsiElement,
         processCatch(null)
       } else {
         startNode(Some(fBlock)) {finInstr =>
-          for (p@(instr, info) <- myTransitionInstructions; if info.elem eq fBlock) {
+          for (case p@(instr, info) <- myTransitionInstructions; if info.elem eq fBlock) {
             addEdge(instr, finInstr)
             myTransitionInstructions -= p
           }

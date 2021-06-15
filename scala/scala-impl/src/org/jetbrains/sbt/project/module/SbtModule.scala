@@ -3,14 +3,14 @@ package project.module
 
 import java.net.URI
 
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.module.Module
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.sbt.resolvers.SbtResolver
 
 import scala.annotation.nowarn
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin

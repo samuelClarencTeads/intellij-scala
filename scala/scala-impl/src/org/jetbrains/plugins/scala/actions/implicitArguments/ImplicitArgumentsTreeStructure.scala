@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.actions.implicitArguments.ImplicitArgumentNodes.resolveResultNode
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ImplicitArgumentsTreeStructure(project: Project,
                                      results: Iterable[ScalaResolveResult])
@@ -28,8 +28,8 @@ class ImplicitArgumentsTreeStructure(project: Project,
     }
   }
 
-  override def createDescriptor(obj: Any, parent: NodeDescriptor[_]): NodeDescriptor[_] = {
-    obj.asInstanceOf[NodeDescriptor[_]]
+  override def createDescriptor(obj: Any, parent: NodeDescriptor[?]): NodeDescriptor[?] = {
+    obj.asInstanceOf[NodeDescriptor[?]]
   }
 
   override def hasSomethingToCommit: Boolean = false
@@ -37,7 +37,7 @@ class ImplicitArgumentsTreeStructure(project: Project,
   override def commit(): Unit = {}
 
   private class RootNode extends AbstractTreeNode[Any](project, ()) {
-    override def getChildren: util.Collection[_ <: AbstractTreeNode[_]] =
+    override def getChildren: util.Collection[? <: AbstractTreeNode[?]] =
       results.map(resolveResultNode).asJavaCollection
 
     override def update(presentation: PresentationData): Unit = {}

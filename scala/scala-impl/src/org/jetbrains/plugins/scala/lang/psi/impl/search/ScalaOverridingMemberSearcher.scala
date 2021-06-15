@@ -4,13 +4,13 @@ package psi
 package impl
 package search
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.SearchScope
 import com.intellij.psi.search.searches.OverridingMethodsSearch.SearchParameters
 import com.intellij.psi.search.searches.{ClassInheritorsSearch, OverridingMethodsSearch}
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.{Processor, QueryExecutor}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
@@ -30,7 +30,7 @@ import scala.collection.mutable
  * This class is required for Ctrl+Alt+B action for cases when not PsiMethod overrides not PsiMethod (one of two cases)
  */
 class MethodImplementationsSearch extends QueryExecutor[PsiElement, PsiElement] {
-  override def execute(sourceElement: PsiElement, consumer: Processor[_ >: PsiElement]): Boolean = {
+  override def execute(sourceElement: PsiElement, consumer: Processor[? >: PsiElement]): Boolean = {
     sourceElement match {
       case namedElement: ScNamedElement =>
         for (implementation <- ScalaOverridingMemberSearcher.getOverridingMethods(namedElement)
@@ -51,7 +51,7 @@ class MethodImplementationsSearch extends QueryExecutor[PsiElement, PsiElement] 
  *  That's why we need to stop processing, to avoid showing wrappers in Scala.
  */
 class ScalaOverridingMemberSearcher extends QueryExecutor[PsiMethod, OverridingMethodsSearch.SearchParameters] {
-  override def execute(queryParameters: SearchParameters, consumer: Processor[_ >: PsiMethod]): Boolean = {
+  override def execute(queryParameters: SearchParameters, consumer: Processor[? >: PsiMethod]): Boolean = {
     val method = queryParameters.getMethod
     method match {
       case namedElement: ScNamedElement =>

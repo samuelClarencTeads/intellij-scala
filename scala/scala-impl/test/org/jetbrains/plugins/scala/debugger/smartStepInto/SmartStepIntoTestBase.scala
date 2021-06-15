@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.extensions.inReadAction
 import org.junit.Assert
 import org.junit.experimental.categories.Category
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay.Tropin

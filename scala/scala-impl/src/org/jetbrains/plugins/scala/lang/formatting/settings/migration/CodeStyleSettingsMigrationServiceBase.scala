@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala.lang.formatting.settings.migration
 
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.diagnostic.Logger
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
-import org.jetbrains.plugins.scala.lang.formatting.settings.migration.CodeStyleSettingsMigrationServiceBase._
+import org.jetbrains.plugins.scala.lang.formatting.settings.migration.CodeStyleSettingsMigrationServiceBase.*
 
 import scala.annotation.nowarn
 import scala.beans.BeanProperty
@@ -54,8 +54,8 @@ object CodeStyleSettingsMigrationServiceBase {
   object Migrations {
     @nowarn("cat=deprecation")
     val DecomposeMultilineStringSupportSettings: MigrationItem = MigrationItem(1, scalaSettings => {
-      import ScalaCodeStyleSettings._
-      import scalaSettings._
+      import ScalaCodeStyleSettings.*
+      import scalaSettings.*
       MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE = MULTILINE_STRING_SUPORT >= MULTILINE_STRING_QUOTES_AND_INDENT
       MULTILINE_STRING_INSERT_MARGIN_ON_ENTER = MULTILINE_STRING_SUPORT >= MULTILINE_STRING_INSERT_MARGIN_CHAR
     })

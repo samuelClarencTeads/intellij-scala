@@ -33,7 +33,7 @@ class ScalaNewClassInstanceEvaluator(val myClassTypeEvaluator: Evaluator, val my
       case _ =>
         throw createEvaluateException(JavaDebuggerBundle.message("evaluation.error.cannot.resolve.constructor", myConstructorSignature.getDisplayName(debugProcess)))
     }
-    val arguments: util.List[_ <: Value] = if (myParamsEvaluators != null) {
+    val arguments: util.List[? <: Value] = if (myParamsEvaluators != null) {
       val buffer = new util.ArrayList[Value]()
       myParamsEvaluators.map(x => x.evaluate(context) match {
         case Some(result:Value) => buffer.add(result)

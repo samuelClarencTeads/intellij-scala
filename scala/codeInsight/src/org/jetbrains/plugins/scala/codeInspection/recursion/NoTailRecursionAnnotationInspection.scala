@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package recursion
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.annotator.FunctionAnnotator
@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 
 final class NoTailRecursionAnnotationInspection extends AbstractRegisteredInspection {
 
-  import intention.recursion.AddTailRecursionAnnotationIntention._
+  import intention.recursion.AddTailRecursionAnnotationIntention.*
 
   override protected def problemDescriptor(element: PsiElement,
                                            maybeQuickFix: Option[LocalQuickFix],

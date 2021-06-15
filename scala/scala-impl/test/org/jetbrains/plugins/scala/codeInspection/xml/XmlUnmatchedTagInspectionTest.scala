@@ -3,7 +3,7 @@ package codeInspection
 package xml
 
 import com.intellij.codeInspection.LocalInspectionTool
-import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG => END, SELECTION_START_TAG => START}
+import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG as END, SELECTION_START_TAG as START}
 
 /**
   * User: Dmitry Naydanov
@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG => END, SELE
   */
 abstract class XmlUnmatchedTagInspectionTest extends ScalaInspectionTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ScalaXmlUnmatchedTagInspection]
 }
 

@@ -27,11 +27,11 @@ import java.io.File
 import java.nio.file.{Path, Paths}
 import java.util
 import java.util.Collections
-import javax.swing._
-import org.jetbrains.bsp._
+import javax.swing.*
+import org.jetbrains.bsp.*
 import org.jetbrains.bsp.protocol.BspConnectionConfig
-import org.jetbrains.bsp.settings.BspProjectSettings._
-import org.jetbrains.bsp.settings._
+import org.jetbrains.bsp.settings.BspProjectSettings.*
+import org.jetbrains.bsp.settings.*
 import org.jetbrains.sbt.project.SbtProjectImportProvider
 
 class BspProjectImportBuilder

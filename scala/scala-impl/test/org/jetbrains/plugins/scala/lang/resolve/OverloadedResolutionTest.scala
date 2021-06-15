@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
   * @author Nikolay.Tropin

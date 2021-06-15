@@ -25,11 +25,11 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.CommonUtils.remapRawStrin
  */
 object Literal extends ParsingRule {
 
-  import ScalaElementType._
+  import ScalaElementType.*
   import builder.ScalaPsiBuilder
-  import lang.lexer._
-  import ScalaTokenType._
-  import ScalaTokenTypes._
+  import lang.lexer.*
+  import ScalaTokenType.*
+  import ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     val marker = builder.mark()

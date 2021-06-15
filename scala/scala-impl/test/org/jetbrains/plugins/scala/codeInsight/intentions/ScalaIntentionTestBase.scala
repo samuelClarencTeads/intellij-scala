@@ -9,11 +9,11 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.testFramework.EditorTestUtil
 import org.jetbrains.plugins.scala.base.{ScalaLightCodeInsightFixtureTestAdapter, SharedTestProjectToken}
-import org.jetbrains.plugins.scala.editor._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.editor.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.junit.Assert.{assertFalse, assertTrue}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class ScalaIntentionTestBase  extends ScalaLightCodeInsightFixtureTestAdapter {
 
@@ -29,7 +29,7 @@ abstract class ScalaIntentionTestBase  extends ScalaLightCodeInsightFixtureTestA
                        resultText: String,
                        expectedIntentionText: Option[String] = None,
                        fileType: FileType = fileType): Unit = {
-    import org.junit.Assert._
+    import org.junit.Assert.*
     implicit val project: Project = getProject
 
     findIntention(text, fileType) match {

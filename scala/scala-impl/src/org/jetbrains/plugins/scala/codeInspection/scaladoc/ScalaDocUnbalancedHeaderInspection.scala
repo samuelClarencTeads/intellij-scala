@@ -2,13 +2,13 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package scaladoc
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.{PsiDocumentManager, PsiElement, PsiElementVisitor}
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocSyntaxElement
 
@@ -63,7 +63,7 @@ class ScalaDocUnbalancedHeaderInspection extends LocalInspectionTool {
 
 object ScalaDocUnbalancedHeaderInspection {
   def isApplicable(openTag: PsiElement, closeTag: PsiElement): Boolean = {
-    import ScalaDocTokenType._
+    import ScalaDocTokenType.*
     (openTag.getNode.getElementType, closeTag.getNode.getElementType) match {
       case (VALID_DOC_HEADER, VALID_DOC_HEADER | DOC_HEADER) => true
       case _ => false

@@ -17,10 +17,10 @@ import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScParamClausesStubImpl
   * Date: 19.10.2008
   */
 class ScParamClausesElementType extends ScStubElementType[ScParamClausesStub, ScParameters]("parameter clauses") {
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScParamClausesStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScParamClausesStub =
     new ScParamClausesStubImpl(parentStub, this)
 
-  override def createStubImpl(psi: ScParameters, parentStub: StubElement[_ <: PsiElement]): ScParamClausesStub =
+  override def createStubImpl(psi: ScParameters, parentStub: StubElement[? <: PsiElement]): ScParamClausesStub =
     new ScParamClausesStubImpl(parentStub, this)
 
   override def createPsi(stub: ScParamClausesStub): ScParameters = new ScParametersImpl(stub)

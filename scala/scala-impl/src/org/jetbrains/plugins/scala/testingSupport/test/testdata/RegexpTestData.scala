@@ -1,14 +1,14 @@
 package org.jetbrains.plugins.scala.testingSupport.test.testdata
 
 import java.util.regex.{Pattern, PatternSyntaxException}
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.execution.configurations.RuntimeConfigurationException
 import com.intellij.psi.search.GlobalSearchScopesCore
 import com.intellij.psi.search.searches.AllClassesSearch
 import org.jdom.Element
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.testingSupport.test.structureView.TestNodeProvider
 import org.jetbrains.plugins.scala.testingSupport.test.ui.TestRunConfigurationForm
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.util.JdomExternalizerMigrationHelper
 import scala.annotation.tailrec
 import scala.beans.BeanProperty
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class RegexpTestData(config: AbstractTestRunConfiguration) extends TestConfigurationData(config) {
 
@@ -38,7 +38,7 @@ class RegexpTestData(config: AbstractTestRunConfiguration) extends TestConfigura
     val patterns = zippedRegexps
     if (patterns.isEmpty) return Left(noPatternException)
 
-    for ((classString, testString) <- patterns) {
+    for (case (classString, testString) <- patterns) {
       try {
         Pattern.compile(classString)
       } catch {

@@ -4,8 +4,8 @@ import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.externalSystem.importing.ImportSpecBuilder
 import com.intellij.openapi.externalSystem.util.ExternalSystemUtil
 import com.intellij.openapi.fileEditor.FileDocumentManager
-import com.intellij.openapi.module.{Module => IJModule}
-import com.intellij.openapi.project.{Project => IJProject}
+import com.intellij.openapi.module.{Module as IJModule}
+import com.intellij.openapi.project.{Project as IJProject}
 import com.intellij.openapi.vcs.changes.{CurrentContentRevision, SimpleContentRevision}
 import com.intellij.openapi.vfs.{VfsUtil, VfsUtilCore, VirtualFile}
 import com.intellij.testFramework.LightVirtualFile
@@ -93,7 +93,7 @@ trait BuildFileModifier {
   def applyChanges(changes: List[VirtualFile], project: IJProject, vfsFileToCopy: mutable.Map[VirtualFile,
       LightVirtualFile]): Unit = {
     val manager = FileDocumentManager.getInstance()
-    for ((originalFile, changedFile) <- vfsFileToCopy) {
+    for (case (originalFile, changedFile) <- vfsFileToCopy) {
       if (changes.contains(changedFile)) {
         //we only want to rewrite files that actually changed
         val changedDocument = manager.getDocument(changedFile)

@@ -6,7 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.impl.DebugUtil
 import com.intellij.psi.{PsiElement, PsiFile, PsiFileFactory}
 import org.intellij.lang.annotations.Language
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.junit.Assert.assertEquals
 
 /**
@@ -16,7 +16,7 @@ abstract class TransformationTest extends base.ScalaLightCodeInsightFixtureTestA
   @Language("Scala")
   protected val header: String = ""
 
-  import TransformationTest._
+  import TransformationTest.*
 
   protected def transform(element: PsiElement, file: PsiFile, reformat: Transformer.ReformatAction): Unit
 

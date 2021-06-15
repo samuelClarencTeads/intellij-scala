@@ -5,7 +5,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
 import com.intellij.testFramework.EditorTestUtil
 import org.jetbrains.plugins.scala.util.MarkersUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
 trait DocumentationTesting extends HtmlAssertions {
 

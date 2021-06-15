@@ -1,6 +1,8 @@
 package org.jetbrains.plugins.scala.dfa
 package lattice
 
+import DfaOps.join
+
 class DfAnyValLatticeSpec extends LatticeSpec[DfAnyVal] {
   override protected lazy val lattice: Lattice[DfAnyVal] = DfAnyVal.lattice
 

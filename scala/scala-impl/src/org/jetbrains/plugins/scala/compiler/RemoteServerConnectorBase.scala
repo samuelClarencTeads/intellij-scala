@@ -5,7 +5,7 @@ import java.io.File
 
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.roots.OrderEnumerator
-import org.jetbrains.plugins.scala.compiler.data._
+import org.jetbrains.plugins.scala.compiler.data.*
 import org.jetbrains.plugins.scala.compiler.data.worksheet.WorksheetArgs
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.project.{ModuleExt,ProjectContext,VirtualFileExt}

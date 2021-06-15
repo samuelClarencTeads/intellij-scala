@@ -3,19 +3,19 @@ package lang
 package refactoring
 package delete
 
-import java.util.{List => JList}
+import java.util.{List as JList}
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Condition
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.safeDelete.{JavaSafeDeleteProcessor, NonCodeUsageSearchInfo}
 import com.intellij.usageView.UsageInfo
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.jetbrains.plugins.scala.lang.refactoring.delete.SafeDeleteProcessorUtil._
+import org.jetbrains.plugins.scala.lang.refactoring.delete.SafeDeleteProcessorUtil.*
 
 class ScalaSafeDeleteProcessorDelegate extends JavaSafeDeleteProcessor {
   override def handlesElement(element: PsiElement): Boolean =

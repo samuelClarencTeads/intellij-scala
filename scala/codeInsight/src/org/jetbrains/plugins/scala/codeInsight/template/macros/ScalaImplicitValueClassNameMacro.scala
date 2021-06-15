@@ -10,7 +10,7 @@ final class ScalaImplicitValueClassNameMacro extends ScalaMacro {
 
   override def getPresentableName: String = ScalaCodeInsightBundle.message("macro.implicit.value.class.name")
 
-  import ScalaCodeStyleSettings.{DEFAULT_IMPLICIT_VALUE_CLASS_SUFFIX => DefaultSuffix}
+  import ScalaCodeStyleSettings.{DEFAULT_IMPLICIT_VALUE_CLASS_SUFFIX as DefaultSuffix}
 
   override def calculateResult(params: Array[Expression], context: ExpressionContext): Result = {
     val targetTypeName = params match {

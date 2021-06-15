@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScDo, ScExpression}
  */
 class WhileFilter extends ElementFilter {
 
-  import ScalaCompletionUtil._
+  import ScalaCompletionUtil.*
 
   override def isAcceptable(element: Object, context: PsiElement): Boolean = {
     if (context.isInstanceOf[PsiComment]) return false
@@ -48,7 +48,7 @@ class WhileFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = true
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = true
 
   @NonNls
   override def toString: String = "'while' after 'do' keyword filter"

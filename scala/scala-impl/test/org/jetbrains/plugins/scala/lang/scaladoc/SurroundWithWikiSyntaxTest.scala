@@ -6,7 +6,7 @@ import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.extensions.executeWriteActionCommand
 import org.jetbrains.plugins.scala.lang.surroundWith.descriptors.ScalaSurroundDescriptors
-import org.jetbrains.plugins.scala.lang.surroundWith.surrounders.scaladoc._
+import org.jetbrains.plugins.scala.lang.surroundWith.surrounders.scaladoc.*
 import org.junit.Assert.{assertFalse, assertTrue}
 
 /**
@@ -16,7 +16,7 @@ import org.junit.Assert.{assertFalse, assertTrue}
 class SurroundWithWikiSyntaxTest extends ScalaLightCodeInsightFixtureTestAdapter {
 
   import ScalaLightCodeInsightFixtureTestAdapter.normalize
-  import SurroundWithWikiSyntaxTest._
+  import SurroundWithWikiSyntaxTest.*
 
   private def configureByText(text: String, stripTrailingSpaces: Boolean): Seq[PsiElement] = {
     val normalizedText = normalize(text, stripTrailingSpaces)

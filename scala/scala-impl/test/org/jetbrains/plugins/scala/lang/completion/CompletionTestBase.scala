@@ -12,7 +12,7 @@ import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.{CharsetToolkit, LocalFileSystem}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
 
@@ -36,7 +36,7 @@ abstract class CompletionTestBase extends base.ScalaLightPlatformCodeInsightTest
    * @return Expected result string
    */
   protected final def getExpectedResult: String = {
-    import lang.lexer.ScalaTokenTypes._
+    import lang.lexer.ScalaTokenTypes.*
 
     val scalaFile = getFileAdapter.asInstanceOf[ScalaFile]
     val lastPsi = scalaFile.findElementAt(scalaFile.getText.length - 1)

@@ -13,7 +13,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.util.io.BaseDataReader.SleepingPolicy
 import com.intellij.util.io.BaseOutputReader
 import org.jetbrains.plugins.scala.extensions.invokeLater
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.worksheet.actions.WorksheetFileHook
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompiler.{EvaluationCallback, WorksheetCompilerResult}
 import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinter
@@ -113,7 +113,7 @@ private object WorksheetCompilerLocalEvaluator {
 
   private def processListener(callback: EvaluationCallback, worksheetPrinter: WorksheetEditorPrinter): ProcessAdapter =
     new ProcessAdapter {
-      override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = {
+      override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = {
         val isStdOutput = ConsoleViewContentType.getConsoleViewType(outputType) == ConsoleViewContentType.NORMAL_OUTPUT
         if (isStdOutput) {
           val text = event.getText

@@ -4,7 +4,7 @@ package annotator
 
 import org.intellij.lang.annotations.Language
 import org.jetbrains.plugins.scala.annotator.element.ElementAnnotator
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.types.Compatibility

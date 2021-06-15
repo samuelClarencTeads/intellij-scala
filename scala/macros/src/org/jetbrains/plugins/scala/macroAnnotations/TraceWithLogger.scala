@@ -12,7 +12,7 @@ class TraceWithLogger extends StaticAnnotation {
 object TraceWithLoggerMacro {
 
   def impl(c: whitebox.Context)(annottees: c.Tree*): c.Expr[Any] = {
-    import c.universe._
+    import c.universe.*
 
     annottees.toList match {
       case DefDef(mods, name, tpParams, paramss, retTp, rhs) :: Nil =>

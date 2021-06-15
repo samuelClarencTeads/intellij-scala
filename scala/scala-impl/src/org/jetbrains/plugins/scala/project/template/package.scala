@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package project
 
-import java.io._
+import java.io.*
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path}
@@ -19,7 +19,7 @@ import scala.util.Using
  */
 package object template {
 
-  import io.FileUtil._
+  import io.FileUtil.*
 
   def usingTempFile[T](prefix: String, suffix: String = null)(block: File => T): T = {
     val file = createTempFile(prefix, suffix, true)

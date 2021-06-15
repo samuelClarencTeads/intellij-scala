@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod.getter
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod.setter
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil._
+import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.isBacktickedName.withoutBackticks
 
 object PropertyMethods extends Enumeration {

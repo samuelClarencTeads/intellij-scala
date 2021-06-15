@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.top.template.{Body, EnumB
 
 sealed abstract class Template extends ParsingRule {
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   protected def parentsRule: Parents = ClassParents
 

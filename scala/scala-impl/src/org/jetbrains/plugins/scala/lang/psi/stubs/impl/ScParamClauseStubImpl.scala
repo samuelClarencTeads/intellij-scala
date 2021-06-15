@@ -13,8 +13,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterCla
   * User: Alexander Podkhalyuzin
   * Date: 19.10.2008
   */
-class ScParamClauseStubImpl(parent: StubElement[_ <: PsiElement],
-                            elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScParamClauseStubImpl(parent: StubElement[? <: PsiElement],
+                            elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                             override val isImplicit: Boolean,
                             override val isUsing: Boolean)
   extends StubBase[ScParameterClause](parent, elementType) with ScParamClauseStub

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.codeInspection.functionExpressions
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiElement, PsiWhiteSpace}
-import org.jetbrains.plugins.scala.codeInspection.functionExpressions.UnnecessaryPartialFunctionQuickFix._
+import org.jetbrains.plugins.scala.codeInspection.functionExpressions.UnnecessaryPartialFunctionQuickFix.*
 import org.jetbrains.plugins.scala.codeInspection.{AbstractFixOnPsiElement, ScalaInspectionBundle}
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes

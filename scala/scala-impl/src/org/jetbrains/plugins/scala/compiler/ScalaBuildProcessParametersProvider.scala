@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.compiler.data.SbtData
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 import org.jetbrains.plugins.scala.util.JvmOptions
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Nikolay.Tropin

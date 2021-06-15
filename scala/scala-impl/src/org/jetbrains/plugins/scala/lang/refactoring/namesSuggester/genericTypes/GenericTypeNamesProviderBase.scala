@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 
 abstract class GenericTypeNamesProviderBase extends GenericTypeNamesProvider {
 
-  import NameSuggester._
+  import NameSuggester.*
 
   override def names(`type`: ScParameterizedType): Seq[String] =
     if (isValid(`type`)) {

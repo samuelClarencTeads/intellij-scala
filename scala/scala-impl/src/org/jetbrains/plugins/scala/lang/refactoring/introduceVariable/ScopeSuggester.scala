@@ -1,12 +1,12 @@
 package org.jetbrains.plugins.scala.lang.refactoring.introduceVariable
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.{GlobalSearchScope, GlobalSearchScopesCore, PsiSearchHelper}
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.Processor
@@ -14,19 +14,19 @@ import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScExtendsBlock, ScTemplateBody}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScPackaging, ScTypeParametersOwner}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScPackageImpl
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScProjectionType
-import org.jetbrains.plugins.scala.lang.refactoring._
+import org.jetbrains.plugins.scala.lang.refactoring.*
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
-import org.jetbrains.plugins.scala.lang.refactoring.util._
+import org.jetbrains.plugins.scala.lang.refactoring.util.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.util.ScalaUtil
 
 import scala.annotation.tailrec
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Created by Kate Ustyuzhanina
@@ -34,7 +34,7 @@ import scala.jdk.CollectionConverters._
  */
 object ScopeSuggester {
 
-  import PsiTreeUtil._
+  import PsiTreeUtil.*
   
   def suggestScopes(conflictsReporter: ConflictsReporter,
                     project: Project,
@@ -111,7 +111,7 @@ object ScopeSuggester {
     //forbid to use typeParameter type outside the class
     if ((scPackage != null) && owners.isEmpty && !noContinue) {
       val allPackages = getAllAvailablePackages(scPackage.fullPackageName, currentElement)
-      for ((resultPackage, resultDirectory) <- allPackages) {
+      for (case (resultPackage, resultDirectory) <- allPackages) {
         val suggested = NameSuggester.suggestNamesByType(currentElement.calcType).map(_.capitalize).head
         result += PackageScopeItem(resultPackage.getQualifiedName, resultDirectory, needDirectoryCreating = false, ju.Collections.singleton(suggested))
       }

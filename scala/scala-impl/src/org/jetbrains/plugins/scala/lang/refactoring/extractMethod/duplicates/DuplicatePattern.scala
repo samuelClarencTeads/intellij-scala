@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ExtractMethodParameter
-import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.duplicates.DuplicatesUtil._
+import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.duplicates.DuplicatesUtil.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.collection.mutable

@@ -36,7 +36,7 @@ abstract class OptimizeImportsTestBase extends ScalaLightPlatformCodeInsightTest
   }
 
   protected def doTest(): Unit = {
-    import _root_.org.junit.Assert._
+    import _root_.org.junit.Assert.*
 
     val filePath = folderPath + getTestName(false) + ".scala"
     val file = LocalFileSystem.getInstance.refreshAndFindFileByPath(filePath.replace(File.separatorChar, '/'))

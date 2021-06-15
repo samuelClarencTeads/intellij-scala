@@ -9,8 +9,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypePresentation
-import org.jetbrains.plugins.scala.lang.psi.types.result._
-import org.junit.Assert._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
+import org.junit.Assert.*
 
 /**
   * Created by Svyatoslav Ilinskiy on 01.07.16.

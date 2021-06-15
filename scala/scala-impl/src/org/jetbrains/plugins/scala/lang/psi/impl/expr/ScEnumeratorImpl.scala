@@ -3,11 +3,11 @@ package org.jetbrains.plugins.scala.lang.psi.impl.expr
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.{PsiElement, PsiPolyVariantReference, PsiReference, ResolveResult}
 import com.intellij.util.IncorrectOperationException
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClauses
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScEnumerator.withDesugared
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 trait ScEnumeratorImpl extends ScEnumerator {
 

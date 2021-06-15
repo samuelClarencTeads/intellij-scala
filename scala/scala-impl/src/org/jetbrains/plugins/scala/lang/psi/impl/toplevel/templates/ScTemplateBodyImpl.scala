@@ -9,17 +9,17 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, ResolveState}
-import org.jetbrains.plugins.scala.JavaArrayFactoryUtil._
+import org.jetbrains.plugins.scala.JavaArrayFactoryUtil.*
 import org.jetbrains.plugins.scala.caches.ModTracker
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
-import org.jetbrains.plugins.scala.lang.TokenSets._
+import org.jetbrains.plugins.scala.lang.TokenSets.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.{SELF_TYPE, TEMPLATE_BODY}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSelfTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScDeclaredElementsHolder, ScEnumCases, ScFunction, ScTypeAlias, ScValueOrVariable}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTemplateDefinition, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ScTemplateDefinitionImpl
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScTemplateBodyStub
@@ -80,7 +80,7 @@ class ScTemplateBodyImpl private (stub: ScTemplateBodyStub, node: ASTNode)
                                    state: ResolveState,
                                    lastParent: PsiElement,
                                    place: PsiElement): Boolean = {
-    val td = PsiTreeUtil.getContextOfType(this, classOf[ScTemplateDefinitionImpl[_]])
+    val td = PsiTreeUtil.getContextOfType(this, classOf[ScTemplateDefinitionImpl[?]])
     if (td != null) {
       td.desugaredElement match {
         case Some(td: ScTemplateDefinition) =>

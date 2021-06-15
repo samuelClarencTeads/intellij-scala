@@ -10,7 +10,7 @@ import com.intellij.openapi.ui.DialogWrapper
 import org.jetbrains.plugins.scala.project.settings.{ScalaCompilerConfigurable, ScalaCompilerProfilesPanel}
 import org.jetbrains.plugins.scala.worksheet.WorksheetBundle
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private final class ShowCompilerProfileSettingsButton(
   selectedProfileProvider: () => String,

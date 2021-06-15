@@ -9,7 +9,7 @@ import com.intellij.openapi.externalSystem.test.ExternalSystemImportingTestCase
 import com.intellij.openapi.projectRoots.impl.JavaAwareProjectJdkTableImpl
 import com.intellij.openapi.vfs.LocalFileSystem
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.jetbrains.sbt.project.ProjectStructureDsl._
+import org.jetbrains.sbt.project.ProjectStructureDsl.*
 import org.jetbrains.sbt.project.settings.SbtProjectSettings
 import org.junit.Assert.assertNotNull
 

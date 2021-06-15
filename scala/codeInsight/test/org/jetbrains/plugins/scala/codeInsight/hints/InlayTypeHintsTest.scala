@@ -6,8 +6,8 @@ import com.intellij.openapi.util.Setter
 
 class InlayTypeHintsTest extends InlayHintsTestBase {
 
-  import Hint.{End => E, Start => S}
-  import ScalaCodeInsightSettings.{getInstance => settings}
+  import Hint.{End as E, Start as S}
+  import ScalaCodeInsightSettings.{getInstance as settings}
 
   def testFunctionReturnTypeHint(): Unit = doTest(
     s"""  def foo()$S: List[String]$E = List.empty[String]""",

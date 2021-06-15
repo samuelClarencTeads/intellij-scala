@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScFieldId
   * User: Alexander Podkhalyuzin
   * Date: 19.07.2009
   */
-class ScFieldIdStubImpl(parent: StubElement[_ <: PsiElement],
-                        elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScFieldIdStubImpl(parent: StubElement[? <: PsiElement],
+                        elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                         name: String)
   extends ScNamedStubBase[ScFieldId](parent, elementType, name) with ScFieldIdStub

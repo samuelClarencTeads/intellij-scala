@@ -4,7 +4,7 @@ package completion3
 
 import com.intellij.codeInsight.completion.JavaCompletionUtil.getAllMethods
 import org.jetbrains.plugins.scala.base.libraryLoaders.{LibraryLoader, SourcesLoader}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
 import org.junit.Assert.assertEquals
 
@@ -13,7 +13,7 @@ import org.junit.Assert.assertEquals
  */
 class ScalaGlobalMemberCompletionTest extends ScalaCodeInsightTestBase {
 
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
 
   override def getTestDataPath: String =
     s"${super.getTestDataPath}globalMember"

@@ -9,12 +9,12 @@ import com.intellij.util.concurrency.annotations.RequiresEdt
 import javax.swing.Timer
 import org.apache.commons.lang3.StringUtils
 import org.jetbrains.annotations.{CalledInAwt, TestOnly}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetDefaultSourcePreprocessor
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetDefaultSourcePreprocessor.ServiceMarkers
 import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinterBase.InputOutputFoldingInfo
-import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinterPlain._
+import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinterPlain.*
 
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable.ArrayBuffer

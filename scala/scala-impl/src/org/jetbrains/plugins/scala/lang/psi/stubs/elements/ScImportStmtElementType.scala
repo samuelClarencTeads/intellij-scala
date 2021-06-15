@@ -22,14 +22,14 @@ abstract class ScImportStmtElementType(debugName: String)
   }
 
   override final def deserialize(dataStream: StubInputStream,
-                                 parentStub: StubElement[_ <: PsiElement]) = new ScImportStmtStubImpl(
+                                 parentStub: StubElement[? <: PsiElement]) = new ScImportStmtStubImpl(
     parentStub,
     this,
     importText = dataStream.readNameString
   )
 
   override final def createStubImpl(statement: ScImportStmt,
-                                    parentStub: StubElement[_ <: PsiElement]) = new ScImportStmtStubImpl(
+                                    parentStub: StubElement[? <: PsiElement]) = new ScImportStmtStubImpl(
     parentStub,
     this,
     importText = statement.getText

@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTy
  */
 
 class ScalaClassObjectWeigher extends ProximityWeigher {
-  override def weigh(element: PsiElement, location: ProximityLocation): Comparable[_] = {
+  override def weigh(element: PsiElement, location: ProximityLocation): Comparable[?] = {
     val position = location.getPosition
     if (position == null || !position.getContainingFile.isInstanceOf[ScalaFile]) 0
     else

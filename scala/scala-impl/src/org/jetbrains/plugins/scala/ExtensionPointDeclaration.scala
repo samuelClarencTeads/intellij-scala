@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 
 import com.intellij.openapi.extensions.ExtensionPointName
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Handy base class for declaring extension points.

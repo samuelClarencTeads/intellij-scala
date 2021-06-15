@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.traceLogViewer.selection
 
 import com.intellij.openapi.diagnostic.Logger
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.traceLogger.TraceLogger
 import org.jetbrains.plugins.scala.util.UnloadAwareDisposable
 
@@ -22,7 +22,7 @@ object LogDirWatcher {
     }
 
     try {
-      import java.nio.file.StandardWatchEventKinds._
+      import java.nio.file.StandardWatchEventKinds.*
 
       Files.createDirectories(dir)
 

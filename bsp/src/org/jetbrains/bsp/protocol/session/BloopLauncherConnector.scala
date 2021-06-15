@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.build.BuildReporter
 import org.jetbrains.plugins.scala.buildinfo.BuildInfo
 import org.jetbrains.sbt.SbtUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class BloopLauncherConnector(base: File, compilerOutput: File, capabilities: BspCapabilities) extends BspServerConnector {
 
@@ -26,7 +26,7 @@ class BloopLauncherConnector(base: File, compilerOutput: File, capabilities: Bsp
       ("ch.epfl.scala" % "bloop-launcher_2.12" % bloopVersion).transitive(),
       "org.scala-lang" % "scala-library" % "2.12.12"
     )
-    val launcherClasspath = DependencyManager.resolve(dependencies: _*)
+    val launcherClasspath = DependencyManager.resolve(dependencies*)
       .map(_.file.getCanonicalPath)
       .asJava
 

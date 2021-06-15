@@ -8,7 +8,7 @@ import com.intellij.execution.{JavaRunConfigurationExtensionManager, Location, R
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.util.{NlsSafe, Ref}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import org.apache.commons.lang3.StringUtils
@@ -18,15 +18,15 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinitio
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.project.ModuleExt
 import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer.CreateFromContextInfo.{AllInPackage, ClassWithTestName}
-import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer._
-import org.jetbrains.plugins.scala.testingSupport.test.testdata.{SingleTestData, _}
+import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestConfigurationProducer.*
+import org.jetbrains.plugins.scala.testingSupport.test.testdata.{SingleTestData, *}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class AbstractTestConfigurationProducer[T <: AbstractTestRunConfiguration]
   extends LazyRunConfigurationProducer[T] {
 
-  final type PsiElementLocation = Location[_ <: PsiElement]
+  final type PsiElementLocation = Location[? <: PsiElement]
 
   protected def suitePaths: Seq[String]
 
@@ -74,7 +74,7 @@ abstract class AbstractTestConfigurationProducer[T <: AbstractTestRunConfigurati
   private def ensure(bool: Boolean, errorMessage: => String): Either[String, Unit] =
     if (bool) Right(()) else Left(errorMessage)
 
-  private def extendCreatedConfiguration(configuration: RunConfigurationBase[_], location: PsiElementLocation): Unit = {
+  private def extendCreatedConfiguration(configuration: RunConfigurationBase[?], location: PsiElementLocation): Unit = {
     val instance = JavaRunConfigurationExtensionManager.getInstance
     instance.extendCreatedConfiguration(configuration, location)
   }
@@ -234,7 +234,7 @@ abstract class AbstractTestConfigurationProducer[T <: AbstractTestRunConfigurati
 
 object AbstractTestConfigurationProducer {
 
-  private final val Log: Logger = Logger.getInstance(classOf[AbstractTestConfigurationProducer[_]])
+  private final val Log: Logger = Logger.getInstance(classOf[AbstractTestConfigurationProducer[?]])
 
   // do not display backticks in test class/package name
   private def sanitize(qualifiedName: String): String = qualifiedName.replace("`", "")

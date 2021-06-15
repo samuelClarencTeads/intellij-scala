@@ -8,8 +8,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.{CompilerModuleExtension, ModuleRootManager}
 import com.intellij.openapi.ui.Messages
 import org.jetbrains.jps.model.java.JavaSourceRootType
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.project.*
 
 /**
  * Checks whether all modules have different output directories for production files.

@@ -1,14 +1,14 @@
 package org.jetbrains.sbt.shell
 
-import java.util.concurrent._
+import java.util.concurrent.*
 
 import com.intellij.execution.process.{AnsiEscapeDecoder, OSProcessHandler, ProcessAdapter, ProcessEvent}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.ide.PooledThreadExecutor
-import org.jetbrains.sbt.shell.SbtProcessUtil._
-import org.jetbrains.sbt.shell.SbtShellCommunication._
+import org.jetbrains.sbt.shell.SbtProcessUtil.*
+import org.jetbrains.sbt.shell.SbtShellCommunication.*
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.{Duration, DurationLong}
@@ -24,7 +24,7 @@ final class SbtShellCommunication(project: Project) {
 
   private val communicationActive = new Semaphore(1)
   private val shellQueueReady = new Semaphore(1)
-  private val commands = new LinkedBlockingQueue[(String, CommandListener[_])]()
+  private val commands = new LinkedBlockingQueue[(String, CommandListener[?])]()
 
   /** Queue an sbt command for execution in the sbt shell, returning a Future[String] containing the entire shell output. */
   def command(cmd: String): Future[String] =
@@ -225,10 +225,10 @@ private[shell] abstract class LineListener extends ProcessAdapter with AnsiEscap
 
   def onLine(line: String): Unit
 
-  override def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit =
+  override def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit =
     updateLine(event.getText)
 
-  override def coloredTextAvailable(text: String, attributes: Key[_]): Unit =
+  override def coloredTextAvailable(text: String, attributes: Key[?]): Unit =
     updateLine(text)
 
   private[this] val builder = new StringBuilder

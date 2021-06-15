@@ -3,7 +3,7 @@ package debugger
 package evaluation
 package evaluator
 
-import java.{lang => jl}
+import java.{lang as jl}
 
 import com.intellij.debugger.engine.evaluation.{EvaluationContextImpl, expression}
 import org.jetbrains.plugins.scala.ScalaBundle
@@ -23,7 +23,7 @@ final class ScalaLiteralEvaluator private(value: AnyRef,
     case _ =>
       val vm = context.getDebugProcess.getVirtualMachineProxy
       val types = `type`.projectContext.stdTypes
-      import types._
+      import types.*
 
 
       value match {

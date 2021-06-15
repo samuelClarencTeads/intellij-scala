@@ -7,7 +7,7 @@ import org.jetbrains.plugins.scala.project.ScalaLanguageLevel
 import org.jetbrains.plugins.scala.project.maven.ScalaMavenImporter.RichFile
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.jetbrains.plugins.scala.{ScalaVersion, SlowTests}
-import org.jetbrains.sbt.project.ProjectStructureDsl._
+import org.jetbrains.sbt.project.ProjectStructureDsl.*
 import org.jetbrains.sbt.project.{ExactMatch, ProjectStructureMatcher}
 import org.junit.Assert.{assertNotNull, assertTrue}
 import org.junit.experimental.categories.Category

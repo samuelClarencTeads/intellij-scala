@@ -16,7 +16,7 @@ class PartiallyQualifySimpleReferenceTest extends TransformerTest(new PartiallyQ
      object O {
        def f: A = _
      }
-     import O._
+     import O.*
     """)
 
   def testQualified(): Unit = check(
@@ -27,7 +27,7 @@ class PartiallyQualifySimpleReferenceTest extends TransformerTest(new PartiallyQ
      object O {
        def f: A = _
      }
-     import O._
+     import O.*
     """)
 
   def testIndirect(): Unit = check(
@@ -39,6 +39,6 @@ class PartiallyQualifySimpleReferenceTest extends TransformerTest(new PartiallyQ
        def f: A = _
      }
      object O extends T
-     import O._
+     import O.*
     """)
 }

@@ -6,7 +6,7 @@ package base
 
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.plugins.scala.extensions.PsiNamedElementExt
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
@@ -27,7 +27,7 @@ import scala.collection.mutable
 final class ScAccessModifierImpl private(stub: ScAccessModifierStub, node: ASTNode)
   extends ScalaStubBasedElementImpl(stub, ScalaElementType.ACCESS_MODIFIER, node) with ScAccessModifier {
 
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   def this(node: ASTNode) = this(null, node)
 

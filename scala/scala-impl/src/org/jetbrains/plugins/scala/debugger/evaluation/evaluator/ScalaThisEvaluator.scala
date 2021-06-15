@@ -5,12 +5,12 @@ import com.intellij.debugger.engine.evaluation.EvaluationContextImpl
 import com.intellij.debugger.engine.evaluation.expression.Evaluator
 import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.debugger.jdi.{LocalVariableProxyImpl, StackFrameProxyImpl}
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * User: Alefas

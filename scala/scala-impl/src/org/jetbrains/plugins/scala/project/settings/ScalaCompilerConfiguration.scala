@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package project
 package settings
 
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.module.{Module, ModuleManager}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
@@ -13,7 +13,7 @@ import org.jetbrains.annotations.TestOnly
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration.DefaultProfileName
 
 import scala.annotation.{nowarn, tailrec}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Pavel Fatin

@@ -8,7 +8,7 @@ import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.testFramework.UsefulTestCase
 import com.intellij.util.Consumer
 import org.jetbrains.plugins.scala.SlowTests
-import org.jetbrains.plugins.scala.annotator.{Error, _}
+import org.jetbrains.plugins.scala.annotator.{Error, *}
 import org.jetbrains.plugins.scala.base.libraryLoaders.{HeavyJDKLoader, LibraryLoader, SmartJDKLoader}
 import org.jetbrains.plugins.scala.project.Version
 import org.jetbrains.sbt.project.module.SbtModuleType
@@ -18,7 +18,7 @@ import org.junit.Ignore
 import org.junit.experimental.categories.Category
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class SbtAnnotatorTestBase extends org.jetbrains.sbt.annotator.AnnotatorTestBase with MockSbtBase {
 
@@ -57,7 +57,7 @@ abstract class SbtAnnotatorTestBase extends org.jetbrains.sbt.annotator.Annotato
   protected def runTest(sbtVersion: Version, expectedMessages: Seq[Message]): Unit = {
     setSbtVersion(sbtVersion)
     val actualMessages = annotate().asJava
-    UsefulTestCase.assertSameElements(actualMessages, expectedMessages: _*)
+    UsefulTestCase.assertSameElements(actualMessages, expectedMessages*)
   }
 
   protected def setSbtVersion(sbtVersion: Version): Unit = {

@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.externalHighlighters.ExternalHighlighting.Pos
 import org.jetbrains.plugins.scala.settings.ProblemSolverUtils
 import org.jetbrains.plugins.scala.extensions.inReadAction
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 object ExternalHighlighters {
 

@@ -3,13 +3,13 @@ package lang
 package resolve
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
-import com.intellij.psi.util.PsiTreeUtil._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import com.intellij.psi.util.PsiTreeUtil.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.dependency.Dependency.DependencyProcessor
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScSelfTypeElement, ScTypeElement}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ConstructorInvocationLike, ScConstructorInvocation, ScMethodLike}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameters}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
@@ -27,11 +27,11 @@ import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{ScMethodType, ScType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaType}
-import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil._
+import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
 import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils.ScExpressionForExpectedTypesEx
-import org.jetbrains.plugins.scala.lang.resolve.processor.DynamicResolveProcessor._
-import org.jetbrains.plugins.scala.lang.resolve.processor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.DynamicResolveProcessor.*
+import org.jetbrains.plugins.scala.lang.resolve.processor.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.tailrec
@@ -386,7 +386,7 @@ class ReferenceExpressionResolver(implicit projectContext: ProjectContext) {
                             (isTargetClass: ScClass => Boolean)
                             (isAcceptableConstructor: ScFunction => Boolean): Unit = for {
         scType <- typeable.`type`().toOption
-        (clazz, subst) <- scType.extractClassType
+        case (clazz, subst) <- scType.extractClassType
       } {
         if (!clazz.isInstanceOf[ScTemplateDefinition] && clazz.isAnnotationType) {
           baseProcessor match {

@@ -7,7 +7,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.ImportUs
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.TypeParameter
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.resolve.ResolveStateOps._
+import org.jetbrains.plugins.scala.lang.resolve.ResolveStateOps.*
 
 object ScalaResolveState extends ResolveStateOps {
 

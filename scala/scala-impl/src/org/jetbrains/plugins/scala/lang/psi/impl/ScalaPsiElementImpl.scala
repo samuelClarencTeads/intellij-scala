@@ -74,7 +74,7 @@ abstract class ScalaStubBasedElementImpl[T <: PsiElement, S <: StubElement[T]](@
     with StubBasedPsiElement[S]
     with ScalaPsiElement {
 
-  override final def getElementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement] = super.getElementType
+  override final def getElementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement] = super.getElementType
 
   override def getStartOffsetInParent: Int = this.child match {
     case null => super.getStartOffsetInParent
@@ -125,7 +125,7 @@ abstract class ScalaStubBasedElementImpl[T <: PsiElement, S <: StubElement[T]](@
   override def copyCopyableDataTo(clone: UserDataHolderBase): Unit = {
     super.copyCopyableDataTo(clone)
 
-    val stubbed = clone.asInstanceOf[ScalaStubBasedElementImpl[_, _]]
+    val stubbed = clone.asInstanceOf[ScalaStubBasedElementImpl[?, ?]]
     stubbed.context = this.context
     stubbed.child = this.child
   }

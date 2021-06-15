@@ -1,38 +1,38 @@
 package org.jetbrains.plugins.scala
 package annotator
 
-import com.intellij.codeInspection._
-import com.intellij.lang.annotation._
+import com.intellij.codeInspection.*
+import com.intellij.lang.annotation.*
 import com.intellij.openapi.project.{DumbAware, Project}
 import com.intellij.openapi.roots.{ProjectFileIndex, ProjectRootManager}
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightElement
 import com.intellij.psi.impl.source.JavaDummyHolder
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.annotator.AnnotatorUtils._
+import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.*
 import org.jetbrains.plugins.scala.annotator.annotationHolder.ScalaAnnotationHolderAdapter
 import org.jetbrains.plugins.scala.annotator.element.ElementAnnotator
 import org.jetbrains.plugins.scala.annotator.modifiers.ModifierChecker
-import org.jetbrains.plugins.scala.annotator.template._
-import org.jetbrains.plugins.scala.annotator.usageTracker.UsageTracker._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.annotator.template.*
+import org.jetbrains.plugins.scala.annotator.usageTracker.UsageTracker.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.externalHighlighters.ScalaHighlightingMode
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression.ExpressionTypeResult
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScTypeParam}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateParents
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaElementVisitor, ScalaFile, ScalaPsiElement}
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.AfterUpdate.ProcessSubtypes
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaType}
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectContextOwner, ProjectPsiElementExt}
@@ -69,7 +69,7 @@ abstract class ScalaAnnotator protected()(implicit private val project: Project)
 
     if (isInSources && (element eq element.getContainingFile)) {
       Stats.trigger {
-        import FeatureKey._
+        import FeatureKey.*
         if (typeAware) annotatorTypeAware
         else annotatorNotTypeAware
       }
@@ -319,7 +319,7 @@ abstract class ScalaAnnotator protected()(implicit private val project: Project)
   }
 
   def checkValueAndVariableVariance(toCheck: ScDeclaredElementsHolder, variance: Variance,
-                                    declaredElements: Seq[Typeable with ScNamedElement])
+                                    declaredElements: Seq[Typeable & ScNamedElement])
                                    (implicit holder: ScalaAnnotationHolder): Unit = {
     if (!modifierIsThis(toCheck)) {
       for (element <- declaredElements) {

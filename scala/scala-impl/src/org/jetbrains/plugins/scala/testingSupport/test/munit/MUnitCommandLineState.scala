@@ -79,7 +79,7 @@ private class MUnitCommandLineState(
         testData.getTestMap
     }
 
-    import exceptions._
+    import exceptions.*
     if (suitesToTestsMap.isEmpty)
       throw configurationException(ScalaBundle.message("munit.command.line.state.no.tests.found"))
 
@@ -110,7 +110,7 @@ private class MUnitCommandLineState(
     javaParameters
   }
 
-  override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+  override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
     val result = super.execute(executor, runner)
     RawProcessOutputDebugLogger.maybeAddListenerTo(result.getProcessHandler)
     result

@@ -5,10 +5,10 @@ package hints
 
 class ScalaAlignedMethodChainInlayHintsTest extends ScalaMethodChainInlayHintsTestBase {
 
-  import Hint.{End => E, Start => S}
+  import Hint.{End as E, Start as S}
   val empty: String = S + "  " + E
 
-  override protected def doTest(text: String, settings: Setting[_]*): Unit = {
+  override protected def doTest(text: String, settings: Setting[?]*): Unit = {
     super.doTest(text, alignMethodChainInlayHints(true) +: uniqueTypesToShowMethodChains(2) +: settings: _*)
   }
 

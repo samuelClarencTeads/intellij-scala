@@ -9,7 +9,7 @@ import com.intellij.psi.util.ClassUtil
 import com.intellij.psi.{PsiClass, PsiElement, PsiField, PsiFile, PsiFunctionalExpression, PsiMember, PsiMethod}
 import org.jetbrains.jps.backwardRefs.{CompilerRef, NameEnumerator}
 import org.jetbrains.plugins.scala.ScalaFileType
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.inNameContext
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
@@ -21,7 +21,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 
 private class ScalaCompilerRefAdapter extends JavaCompilerRefAdapterCompat {
-  import ScalaCompilerRefAdapter._
+  import ScalaCompilerRefAdapter.*
 
   override def getFileTypes: util.Set[FileType] =
     new util.HashSet[FileType](

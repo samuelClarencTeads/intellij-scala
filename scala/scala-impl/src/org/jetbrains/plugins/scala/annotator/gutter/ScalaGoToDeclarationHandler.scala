@@ -8,10 +8,10 @@ import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.annotator.gutter.ScalaGoToDeclarationHandler._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.annotator.gutter.ScalaGoToDeclarationHandler.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType.IsTemplateDefinition
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
@@ -21,11 +21,11 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScAssignment, ScEnumerator
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScEnumCase}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportSelectors
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 import org.jetbrains.plugins.scala.lang.resolve.processor.DynamicResolveProcessor
 import org.jetbrains.plugins.scala.macroAnnotations.Measure
-import org.jetbrains.plugins.scala.tasty._
+import org.jetbrains.plugins.scala.tasty.*
 
 import scala.annotation.tailrec
 
@@ -135,7 +135,7 @@ object ScalaGoToDeclarationHandler {
   private def targetElementByTasty(project: Project, sourceElement: PsiElement, caretOffset: Int): Option[PsiElement] = {
     for (tastyPath <- TastyPath(sourceElement);
          tastyFile <- TastyReader.read(tastyPath); // IDEA shows "Resolving Reference..." modal progress
-         (file, offset) <- referenceTargetAt(caretOffset, tastyFile);
+         case (file, offset) <- referenceTargetAt(caretOffset, tastyFile);
          virtualFile <- Option(VfsUtil.findFileByIoFile(new File(project.getBasePath, file), false));
          psiFile <- Option(PsiManager.getInstance(project).findFile(virtualFile));
          targetElement <- Option(psiFile.findElementAt(offset)))

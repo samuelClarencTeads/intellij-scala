@@ -12,9 +12,9 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettin
   */
 class ReferenceMustBePrefixedInspectionTest extends ScalaQuickFixTestBase {
 
-  import ReferenceMustBePrefixedInspection._
+  import ReferenceMustBePrefixedInspection.*
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ReferenceMustBePrefixedInspection]
 
   override protected val description: String = ScalaInspectionBundle.message("reference.must.be.prefixed")

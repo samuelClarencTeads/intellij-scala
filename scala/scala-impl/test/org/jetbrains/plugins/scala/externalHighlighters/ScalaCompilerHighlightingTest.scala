@@ -17,7 +17,7 @@ import org.junit.Assert.assertThat
 import org.junit.experimental.categories.Category
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @Category(Array(classOf[SlowTests]))
 class ScalaCompilerHighlightingTest_2_13 extends ScalaCompilerHighlightingTestBase {

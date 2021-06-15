@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 
 class TopLevelMembersResolveTest extends ScalaLightCodeInsightFixtureTestAdapter with SimpleResolveTestBase {
 
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   override protected def supportedIn(version: ScalaVersion): Boolean = version >= LatestScalaVersions.Scala_3_0
 

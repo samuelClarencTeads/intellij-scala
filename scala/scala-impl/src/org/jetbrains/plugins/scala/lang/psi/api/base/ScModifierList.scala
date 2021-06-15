@@ -6,7 +6,7 @@ package base
 
 import com.intellij.psi.PsiModifierList
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier
-import org.jetbrains.plugins.scala.util.EnumSet._
+import org.jetbrains.plugins.scala.util.EnumSet.*
 
 /**
   * @author Alexander Podkhalyuzin
@@ -24,7 +24,7 @@ object ScModifierList {
 
   implicit class ScModifierListExt(private val list: ScModifierList) extends AnyVal {
 
-    import ScalaModifier._
+    import ScalaModifier.*
 
     def isFinal: Boolean = hasModifier(Final)
 

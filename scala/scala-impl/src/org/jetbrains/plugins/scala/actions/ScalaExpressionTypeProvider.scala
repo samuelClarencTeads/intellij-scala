@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.actions
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.documentation.DocumentationComponent
 import com.intellij.lang.ExpressionTypeProvider
@@ -8,7 +8,7 @@ import com.intellij.openapi.util.text.StringUtil
 import com.intellij.psi.PsiElement
 import com.intellij.ui.ColorUtil
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScCaseClause}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScArgumentExprList, ScBlock, ScExpression}
@@ -17,11 +17,11 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBod
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaExpressionTypeProvider extends ExpressionTypeProvider[PsiElement] {
 
-  import ScalaExpressionTypeProvider._
+  import ScalaExpressionTypeProvider.*
 
   override def getErrorHint: String = ScalaBundle.message("no.expression.found")
 

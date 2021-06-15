@@ -7,7 +7,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 import com.intellij.testFramework.EditorTestUtil
 
 class OverrideAbstractMemberInspectionTest extends ScalaQuickFixTestBase with ForceInspectionSeverity {
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[OverrideAbstractMemberInspection]
 
   override protected def forcedInspectionSeverity: HighlightDisplayLevel =

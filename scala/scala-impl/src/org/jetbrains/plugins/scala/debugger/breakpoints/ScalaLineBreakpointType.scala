@@ -1,16 +1,16 @@
 package org.jetbrains.plugins.scala.debugger.breakpoints
 
-import java.util.{Collections, List => JList}
+import java.util.{Collections, List as JList}
 
 import com.intellij.debugger.SourcePosition
-import com.intellij.debugger.ui.breakpoints._
+import com.intellij.debugger.ui.breakpoints.*
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.{DumbService, Project}
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.Processor
 import com.intellij.xdebugger.breakpoints.{XLineBreakpoint, XLineBreakpointType}
@@ -23,7 +23,7 @@ import org.jetbrains.concurrency.{AsyncPromise, Promise}
 import org.jetbrains.java.debugger.breakpoints.properties.JavaLineBreakpointProperties
 import org.jetbrains.plugins.scala.debugger.ScalaPositionManager
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScInfixPattern}
@@ -34,7 +34,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, Sc
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaLanguage}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay.Tropin
@@ -72,8 +72,8 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
 
   private type JavaBPVariant = JavaLineBreakpointType#JavaBreakpointVariant
 
-  override def computeVariantsAsync(project: Project, position: XSourcePosition): Promise[JList[_ <: BreakpointVariant]] = {
-    val promise = new AsyncPromise[JList[_ <: BreakpointVariant]]()
+  override def computeVariantsAsync(project: Project, position: XSourcePosition): Promise[JList[? <: BreakpointVariant]] = {
+    val promise = new AsyncPromise[JList[? <: BreakpointVariant]]()
     executeOnPooledThread { inReadAction {
       val variants = computeVariants(project, position)
       promise.setResult(variants)
@@ -108,7 +108,7 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
       res = res :+ new ExactScalaBreakpointVariant(position, startMethod, -1)
     }
 
-    for ((lambda, ordinal) <- lambdas.zipWithIndex) {
+    for (case (lambda, ordinal) <- lambdas.zipWithIndex) {
       res = res :+ new ExactScalaBreakpointVariant(XSourcePositionImpl.createByElement(lambda), lambda, ordinal)
     }
 
@@ -116,7 +116,7 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
     else (new JavaBreakpointVariant(position) +: res).asJava //adding all variants
   }
 
-  override def matchesPosition(@NotNull breakpoint: LineBreakpoint[_], @NotNull position: SourcePosition): Boolean = {
+  override def matchesPosition(@NotNull breakpoint: LineBreakpoint[?], @NotNull position: SourcePosition): Boolean = {
     val method = getContainingMethod(breakpoint)
     if (method == null) return false
 
@@ -130,7 +130,7 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
   }
 
   @Nullable
-  override def getContainingMethod(@NotNull breakpoint: LineBreakpoint[_]): PsiElement = {
+  override def getContainingMethod(@NotNull breakpoint: LineBreakpoint[?]): PsiElement = {
     val position: SourcePosition = breakpoint.getSourcePosition
     if (position == null || position.getElementAt == null) return null
 
@@ -143,11 +143,11 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
 
   override def getHighlightRange(breakpoint: XLineBreakpoint[JavaLineBreakpointProperties]): TextRange = {
     BreakpointManager.getJavaBreakpoint(breakpoint) match {
-      case lineBp: LineBreakpoint[_] if isLambda(lineBp) =>
+      case lineBp: LineBreakpoint[?] if isLambda(lineBp) =>
         val dumbService = DumbService.getInstance(lineBp.getProject)
         if (dumbService.isDumb) {
           breakpoint match {
-            case breakpointImpl: XLineBreakpointImpl[_] =>
+            case breakpointImpl: XLineBreakpointImpl[?] =>
               dumbService.smartInvokeLater { () =>
                 executeOnPooledThread {
                   if (lineBp.isValid) {
@@ -171,7 +171,7 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
 
   }
 
-  private def lambdaOrdinal(breakpoint: LineBreakpoint[_]): Integer = {
+  private def lambdaOrdinal(breakpoint: LineBreakpoint[?]): Integer = {
     val xBreakpoint = breakpoint.getXBreakpoint
     if (xBreakpoint != null) {
       xBreakpoint.getProperties match {
@@ -182,12 +182,12 @@ class ScalaLineBreakpointType extends JavaLineBreakpointType("scala-line", Scala
     else null
   }
 
-  private def isLambda(breakpoint: LineBreakpoint[_]): Boolean = {
+  private def isLambda(breakpoint: LineBreakpoint[?]): Boolean = {
     val ordinal = lambdaOrdinal(breakpoint)
     ordinal != null && ordinal >= 0
   }
 
-  private def isMatchAll(breakpoint: LineBreakpoint[_]): Boolean = lambdaOrdinal(breakpoint) == null
+  private def isMatchAll(breakpoint: LineBreakpoint[?]): Boolean = lambdaOrdinal(breakpoint) == null
 
   override def getPriority: Int = super.getPriority + 1
 

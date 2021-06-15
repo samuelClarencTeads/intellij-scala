@@ -4,7 +4,7 @@ import java.awt.GridLayout
 
 import com.intellij.openapi.options.{BeanConfigurable, SearchableConfigurable}
 import com.intellij.util.ui.JBUI
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 

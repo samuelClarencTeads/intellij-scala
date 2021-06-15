@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.scaladoc.generate
 
 import com.intellij.CommonBundle
 import com.intellij.analysis.{AnalysisScope, BaseAnalysisAction, BaseAnalysisActionDialog}
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.executors.DefaultRunExecutor
 import com.intellij.execution.impl.{RunManagerImpl, RunnerAndConfigurationSettingsImpl}
 import com.intellij.execution.runners.{ExecutionEnvironment, ExecutionEnvironmentBuilder, ProgramRunner}
@@ -44,7 +44,7 @@ class ScaladocAction extends BaseAnalysisAction(ScalaBundle.message("generate.sc
       try {
         val runConfig = new ScaladocRunConfiguration(project, configurationDialog, config)
 
-        val runner: ProgramRunner[_ <: RunnerSettings] =
+        val runner: ProgramRunner[? <: RunnerSettings] =
           ProgramRunner.getRunner(DefaultRunExecutor.EXECUTOR_ID, config)
         val builder: ExecutionEnvironmentBuilder =
           new ExecutionEnvironmentBuilder(project, DefaultRunExecutor.getRunExecutorInstance)
@@ -96,7 +96,7 @@ object ScaladocAction {
     extends RunConfigurationBase[Unit](project, ScaladocRunConfigurationFactory, "Generate Scaladoc") {
     override def checkConfiguration(): Unit = {}
 
-    override def getConfigurationEditor: SettingsEditor[_ <: ScaladocRunConfiguration] = new SettingsEditor[ScaladocRunConfiguration]() {
+    override def getConfigurationEditor: SettingsEditor[? <: ScaladocRunConfiguration] = new SettingsEditor[ScaladocRunConfiguration]() {
       override def createEditor(): JComponent = dialog.createCenterPanel()
 
       override def resetEditorFrom(s: ScaladocRunConfiguration): Unit = {}

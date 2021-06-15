@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.formatting.scalafmt
 
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.util.{ScalaCollectionsUtil, ScalaNotificationGroups}
 

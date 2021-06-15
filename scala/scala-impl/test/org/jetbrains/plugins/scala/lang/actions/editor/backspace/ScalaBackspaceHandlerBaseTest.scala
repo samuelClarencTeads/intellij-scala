@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.actions.editor.backspace
 
 import com.intellij.testFramework.EditorTestUtil
 import org.jetbrains.plugins.scala.base.EditorActionTestBase
-import org.jetbrains.plugins.scala.extensions.{StringExt => StringExt1}
+import org.jetbrains.plugins.scala.extensions.{StringExt as StringExt1}
 import org.jetbrains.plugins.scala.lang.actions.editor.backspace.ScalaBackspaceHandlerBaseTest.StringExt
 import org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3.Scala3TestDataBracelessCode
 import org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3.Scala3TestDataBracelessCode.{CodeWithDebugName, WrapperCodeContexts, injectCodeWithIndentAdjust}
@@ -45,7 +45,7 @@ abstract class ScalaBackspaceHandlerBaseTest extends EditorActionTestBase with S
    * Note, that if we place caret at the INJECTED_CODE_MARKER and press Backspace, we will jump to the previous line
    */
   protected val WrapperContextsWithJumpToPreviousLine: Seq[CodeWithDebugName] = {
-    import Scala3TestDataBracelessCode.WrapperCodeContexts._
+    import Scala3TestDataBracelessCode.WrapperCodeContexts.*
     AllContexts_TopLevel ++ AllContexts_WithBracesOrEndMarkerAtDeepestPosition
   }
 

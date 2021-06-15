@@ -17,7 +17,7 @@ import org.jetbrains.jps.incremental.scala.Client
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.compiler.CompileServerLauncher
 import org.jetbrains.plugins.scala.extensions.ObjectExt
-import org.jetbrains.plugins.scala.externalHighlighters.compiler._
+import org.jetbrains.plugins.scala.externalHighlighters.compiler.*
 import org.jetbrains.plugins.scala.macroAnnotations.Cached
 import org.jetbrains.plugins.scala.util.RescheduledExecutor
 

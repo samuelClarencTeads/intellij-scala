@@ -85,7 +85,7 @@ object ScStringLiteralAnnotator extends ElementAnnotator[ScStringLiteral] {
   private def annotateTooLongString(literal: ScStringLiteral)
                                    (implicit holder: ScalaAnnotationHolder): Boolean = {
     val isTooLong = literal match {
-      case interpolated: ScInterpolatedStringLiteral => isTooLongLiteral(interpolated, interpolated.getStringParts: _*)
+      case interpolated: ScInterpolatedStringLiteral => isTooLongLiteral(interpolated, interpolated.getStringParts*)
       case ScStringLiteral(string)                   => isTooLongLiteral(literal, string)
       case _                                         => false
     }

@@ -25,14 +25,14 @@ class ScModifiersElementType(debugName: String)
   }
 
   override def deserialize(dataStream: StubInputStream,
-                           parentStub: StubElement[_ <: PsiElement]) = new ScModifiersStubImpl(
+                           parentStub: StubElement[? <: PsiElement]) = new ScModifiersStubImpl(
     parentStub,
     this,
     modifiers = EnumSet.readFromInt[ScalaModifier](dataStream.readInt)
   )
 
   override def createStubImpl(list: ScModifierList,
-                              parentStub: StubElement[_ <: PsiElement]) = new ScModifiersStubImpl(
+                              parentStub: StubElement[? <: PsiElement]) = new ScModifiersStubImpl(
     parentStub,
     this,
     modifiers = list.modifiers

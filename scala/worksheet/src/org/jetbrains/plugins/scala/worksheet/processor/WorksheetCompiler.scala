@@ -22,13 +22,13 @@ import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 import org.jetbrains.plugins.scala.worksheet.WorksheetBundle
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompiler.WorksheetCompilerResult.{CompileServerIsNotRunningError, Precondition, PreconditionError}
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompilerUtil.WorksheetCompileRunRequest
-import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompilerUtil.WorksheetCompileRunRequest._
+import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompilerUtil.WorksheetCompileRunRequest.*
 import org.jetbrains.plugins.scala.worksheet.runconfiguration.WorksheetCache
 import org.jetbrains.plugins.scala.worksheet.server.RemoteServerConnector.Args.{CompileOnly, PlainModeArgs, ReplModeArgs}
-import org.jetbrains.plugins.scala.worksheet.server.RemoteServerConnector._
-import org.jetbrains.plugins.scala.worksheet.server._
+import org.jetbrains.plugins.scala.worksheet.server.RemoteServerConnector.*
+import org.jetbrains.plugins.scala.worksheet.server.*
 import org.jetbrains.plugins.scala.worksheet.settings.WorksheetExternalRunType.WorksheetPreprocessError
-import org.jetbrains.plugins.scala.worksheet.settings.{WorksheetFileSettings, _}
+import org.jetbrains.plugins.scala.worksheet.settings.{WorksheetFileSettings, *}
 import org.jetbrains.plugins.scala.worksheet.ui.printers.{WorksheetEditorPrinter, WorksheetEditorPrinterRepl}
 
 import scala.collection.mutable
@@ -46,7 +46,7 @@ class WorksheetCompiler(
   worksheetFile: ScalaFile
 ) {
 
-  import worksheet.processor.WorksheetCompiler._
+  import worksheet.processor.WorksheetCompiler.*
 
   private implicit val project: Project = worksheetFile.getProject
 
@@ -85,8 +85,8 @@ class WorksheetCompiler(
   }
 
   private def logCompileOnlyError(error: WorksheetCompilerResult.WorksheetCompilerError): Unit = {
-    import WorksheetCompiler.{WorksheetCompilerResult => WCR}
-    import RemoteServerConnector.{RemoteServerConnectorResult => RSCR}
+    import WorksheetCompiler.{WorksheetCompilerResult as WCR}
+    import RemoteServerConnector.{RemoteServerConnectorResult as RSCR}
     val exception = error match {
       case WCR.UnknownError(cause)                                     => Some(cause)
       case WCR.RemoteServerConnectorError(RSCR.UnexpectedError(cause)) => Some(cause)

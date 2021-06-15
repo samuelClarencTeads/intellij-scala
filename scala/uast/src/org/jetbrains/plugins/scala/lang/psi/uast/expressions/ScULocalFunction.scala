@@ -8,15 +8,15 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockStatement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.ScUElement
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.declarations.{ScUVariable, ScUVariableCommon}
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 
-import java.{util => ju}
-import org.jetbrains.uast._
+import java.{util as ju}
+import org.jetbrains.uast.*
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Local [[ScFunctionDefinition]] adapter for the [[UDeclarationsExpression]]

@@ -5,8 +5,8 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.extensions.ElementText
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScMethodCall
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
-import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
+import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions.*
 import org.junit.Assert.{assertEquals, fail}
 
 /**

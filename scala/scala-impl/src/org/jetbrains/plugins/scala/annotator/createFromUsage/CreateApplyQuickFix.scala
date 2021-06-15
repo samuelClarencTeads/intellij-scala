@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala.annotator.createFromUsage
 
 import com.intellij.codeInsight.template.TemplateBuilder
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.annotator.createFromUsage.CreateFromUsageUtil._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.annotator.createFromUsage.CreateFromUsageUtil.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypeExt

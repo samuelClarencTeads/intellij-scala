@@ -9,7 +9,7 @@ import javax.swing.border.Border
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.InlayModel.Listener
-import com.intellij.openapi.editor._
+import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.EditorColorsScheme
 import com.intellij.openapi.editor.event.{EditorMouseEventArea, EditorMouseListener, EditorMouseMotionListener}
 import com.intellij.openapi.editor.markup.MarkupModel
@@ -112,15 +112,15 @@ class EditorStub extends Editor {
 
     override def addListener(listener: Listener, disposable: Disposable): Unit = {}
 
-    override def getInlineElementsInRange(i: Int, i1: Int): util.List[Inlay[_]] = util.Arrays.asList()
+    override def getInlineElementsInRange(i: Int, i1: Int): util.List[Inlay[?]] = util.Arrays.asList()
 
-    override def getElementAt(point: Point): Inlay[_] = null
+    override def getElementAt(point: Point): Inlay[?] = null
 
-    override def getInlineElementAt(visualPosition: VisualPosition): Inlay[_] = null
+    override def getInlineElementAt(visualPosition: VisualPosition): Inlay[?] = null
 
-    override def getBlockElementsInRange(i: Int, i1: Int): util.List[Inlay[_]] = new util.ArrayList[Inlay[_]](0)
+    override def getBlockElementsInRange(i: Int, i1: Int): util.List[Inlay[?]] = new util.ArrayList[Inlay[?]](0)
 
-    override def getBlockElementsForVisualLine(i: Int, b: Boolean): util.List[Inlay[_]] = new util.ArrayList[Inlay[_]](0)
+    override def getBlockElementsForVisualLine(i: Int, b: Boolean): util.List[Inlay[?]] = new util.ArrayList[Inlay[?]](0)
 
     override def addInlineElement[T <: EditorCustomElementRenderer](offset: Int, relatesToPrecedingText: Boolean, renderer: T): Inlay[T] = null
 
@@ -130,9 +130,9 @@ class EditorStub extends Editor {
 
     override def addAfterLineEndElement[T <: EditorCustomElementRenderer](offset: Int, relatesToPrecedingText: Boolean, renderer: T): Inlay[T] = null
 
-    override def getAfterLineEndElementsInRange(startOffset: Int, endOffset: Int): util.List[Inlay[_ <: EditorCustomElementRenderer]] = null
+    override def getAfterLineEndElementsInRange(startOffset: Int, endOffset: Int): util.List[Inlay[? <: EditorCustomElementRenderer]] = null
 
-    override def getAfterLineEndElementsForLogicalLine(logicalLine: Int): util.List[Inlay[_ <: EditorCustomElementRenderer]] = null
+    override def getAfterLineEndElementsForLogicalLine(logicalLine: Int): util.List[Inlay[? <: EditorCustomElementRenderer]] = null
 
     override def execute(batchMode: Boolean, operation: Runnable): Unit = {}
 

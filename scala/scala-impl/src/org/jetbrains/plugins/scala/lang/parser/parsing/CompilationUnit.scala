@@ -19,9 +19,9 @@ import scala.annotation.tailrec
  */
 object CompilationUnit {
 
-  import ParserState._
+  import ParserState.*
   import lexer.ScalaTokenType.ObjectKeyword
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   def parse()(implicit builder: ScalaPsiBuilder): ParserState = {
     var parseState: ParserState = EMPTY_STATE

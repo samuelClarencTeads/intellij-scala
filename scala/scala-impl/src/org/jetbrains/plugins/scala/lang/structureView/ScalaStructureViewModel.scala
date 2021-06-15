@@ -6,7 +6,7 @@ import java.util.Comparator
 import com.intellij.icons.AllIcons
 import com.intellij.ide.IdeBundle
 import com.intellij.ide.structureView.{StructureViewModel, StructureViewTreeElement, TextEditorBasedStructureViewModel}
-import com.intellij.ide.util.treeView.smartTree._
+import com.intellij.ide.util.treeView.smartTree.*
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.ScalaFileType
 import org.jetbrains.plugins.scala.console.ScalaLanguageConsole
@@ -63,7 +63,7 @@ class ScalaStructureViewModel(myRootElement: ScalaFile, console: Option[ScalaLan
       override def isVisible: Boolean = true
 
       // TODO move to the implemenation of testing support
-      override def getComparator: Comparator[_] =
+      override def getComparator: Comparator[?] =
         (o1: AnyRef, o2: AnyRef) => (o1, o2) match {
           case (_: Test, _: Test) => 0
           case (_, _: Test) => -1
@@ -87,7 +87,7 @@ class ScalaStructureViewModel(myRootElement: ScalaFile, console: Option[ScalaLan
       override def getPresentation: ActionPresentation =
         new ActionPresentationData("Sort.actually", "Sort By Position", AllIcons.ObjectBrowser.Sorted)
 
-      override def getComparator: Comparator[_] = (o1: AnyRef, o2: AnyRef) => (o1, o2) match {
+      override def getComparator: Comparator[?] = (o1: AnyRef, o2: AnyRef) => (o1, o2) match {
         case (e1: Element, e2: Element) if !e1.inherited && !e2.inherited =>
           e1.element.getTextOffset - e2.element.getTextOffset
         case _ => 0
@@ -96,7 +96,7 @@ class ScalaStructureViewModel(myRootElement: ScalaFile, console: Option[ScalaLan
     res
   }
 
-  override def getNodeProviders: util.Collection[NodeProvider[_ <: TreeElement]] = {
+  override def getNodeProviders: util.Collection[NodeProvider[? <: TreeElement]] = {
     if (myRootElement.getFileType == ScalaFileType.INSTANCE)
       util.Arrays.asList(new ScalaInheritedMembersNodeProvider, new TestNodeProvider)
     else

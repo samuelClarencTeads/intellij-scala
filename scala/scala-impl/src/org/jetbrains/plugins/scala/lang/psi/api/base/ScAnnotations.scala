@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.lang.psi.api.base
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.types.api.ParameterizedType
@@ -18,7 +18,7 @@ trait ScAnnotations extends ScalaPsiElement with PsiReferenceList {
 
   override def getReferenceElements: Array[PsiJavaCodeReferenceElement] = Array[PsiJavaCodeReferenceElement]()
 
-  def foldFuns(initial: Any)(fail: Any)(l: List[PartialFunction[Any, _]]): Any = l match {
+  def foldFuns(initial: Any)(fail: Any)(l: List[PartialFunction[Any, ?]]): Any = l match {
     case h :: t => if (h.isDefinedAt(initial)) foldFuns(h(initial))(fail)(t) else fail
     case Nil => initial
   }

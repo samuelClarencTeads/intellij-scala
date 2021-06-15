@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package editor
 package typedHandler
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.completion.CompletionType
@@ -13,13 +13,13 @@ import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.{CodeStyleManager, CodeStyleSettings}
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceInsertionTools._
-import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler._
-import org.jetbrains.plugins.scala.extensions.{CharSeqExt, PsiFileExt, _}
+import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceInsertionTools.*
+import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler.*
+import org.jetbrains.plugins.scala.extensions.{CharSeqExt, PsiFileExt, *}
 import org.jetbrains.plugins.scala.highlighter.ScalaCommenter
 import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionConfidence
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
@@ -29,9 +29,9 @@ import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolatedStringLiteral, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.expr.xml._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScVariable, _}
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScVariable, *}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameterClause
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.lang.scaladoc.ScalaIsCommentComplete
@@ -248,7 +248,7 @@ final class ScalaTypedHandler extends TypedHandlerDelegate
     insertAndCommit(offset, "  " + docEnd, editor.getDocument, editor.getProject)
   }
 
-  private def isInPlace(element: PsiElement, place: Class[_ <: PsiElement]*): Boolean = {
+  private def isInPlace(element: PsiElement, place: Class[? <: PsiElement]*): Boolean = {
     if (element == null || place == null) return false
 
     var nextParent = element.getParent
@@ -296,7 +296,7 @@ final class ScalaTypedHandler extends TypedHandlerDelegate
   private def completeInterpolatedStringBraces(document: Document, project: Project, element: PsiElement, offset: Int): Unit = {
     if (element == null)
       return
-    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+    import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
 
     val needInsert = CodeInsightSettings.getInstance.AUTOINSERT_PAIR_BRACKET &&
       element.elementType == tLBRACE &&

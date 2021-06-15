@@ -3,7 +3,7 @@ package base
 package libraryLoaders
 
 import java.io.File
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.roots.libraries.LibraryTablesRegistrar
@@ -13,7 +13,7 @@ import com.intellij.openapi.vfs.{JarFileSystem, VirtualFile}
 import com.intellij.testFramework.PsiTestUtil
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.project.{ModuleExt, ScalaLanguageLevel, ScalaLibraryProperties, ScalaLibraryType, template}
-import org.junit.Assert._
+import org.junit.Assert.*
 
 case class ScalaSDKLoader(includeScalaReflect: Boolean = false) extends LibraryLoader {
 
@@ -21,8 +21,8 @@ case class ScalaSDKLoader(includeScalaReflect: Boolean = false) extends LibraryL
     override protected val artifactBlackList: Set[String] = Set.empty
   }
 
-  import DependencyManagerBase._
-  import ScalaSDKLoader._
+  import DependencyManagerBase.*
+  import ScalaSDKLoader.*
   import template.Artifact
 
   protected def binaryDependencies(implicit version: ScalaVersion): List[DependencyDescription] =
@@ -61,7 +61,7 @@ case class ScalaSDKLoader(includeScalaReflect: Boolean = false) extends LibraryL
 
   override final def init(implicit module: Module, version: ScalaVersion): Unit = {
     val dependencies = binaryDependencies
-    val resolved = dependencyManager.resolve(dependencies: _*)
+    val resolved = dependencyManager.resolve(dependencies*)
 
     if (version.languageLevel == ScalaLanguageLevel.Scala_3_0 || version.languageLevel == ScalaLanguageLevel.Dotty)
       assertTrue(
@@ -92,7 +92,7 @@ case class ScalaSDKLoader(includeScalaReflect: Boolean = false) extends LibraryL
     }
 
     val classesRoots = {
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       compilerClasspath.map(findJarFile).asJava
     }
 

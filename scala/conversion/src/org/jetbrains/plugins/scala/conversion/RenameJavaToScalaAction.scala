@@ -8,7 +8,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.{PsiDocumentManager, PsiJavaFile}
 import org.jetbrains.plugins.scala.extensions.executeWriteActionCommand
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.util.NotificationUtil
 
 import scala.annotation.nowarn

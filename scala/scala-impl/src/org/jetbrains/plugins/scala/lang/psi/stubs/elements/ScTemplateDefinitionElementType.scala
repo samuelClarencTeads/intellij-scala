@@ -10,9 +10,9 @@ import com.intellij.psi.stubs.{IndexSink, StubElement, StubInputStream, StubOutp
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiClass, PsiElement}
 import com.intellij.util.ArrayUtil.EMPTY_STRING_ARRAY
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotation
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScTemplateDefinitionStubImpl
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 
@@ -42,7 +42,7 @@ abstract class ScTemplateDefinitionElementType[TypeDef <: ScTemplateDefinition](
     dataStream.writeOptionName(stub.topLevelQualifier)
   }
 
-  override final def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]) =
+  override final def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]) =
     new ScTemplateDefinitionStubImpl(
       parentStub,
       this,
@@ -65,7 +65,7 @@ abstract class ScTemplateDefinitionElementType[TypeDef <: ScTemplateDefinition](
     )
 
   override final def createStubImpl(definition: TypeDef,
-                                    parent: StubElement[_ <: PsiElement]): ScTemplateDefinitionStub[TypeDef] = {
+                                    parent: StubElement[? <: PsiElement]): ScTemplateDefinitionStub[TypeDef] = {
     val fileName = definition.containingVirtualFile.map(_.getName).orNull
 
     val (isDeprecated, additionalJavaName, isPackageObject) = definition match {
@@ -135,7 +135,7 @@ abstract class ScTemplateDefinitionElementType[TypeDef <: ScTemplateDefinition](
   }
 
   override final def indexStub(stub: ScTemplateDefinitionStub[TypeDef], sink: IndexSink): Unit = {
-    import index.ScalaIndexKeys._
+    import index.ScalaIndexKeys.*
 
     if (stub.isScriptFileClass) return
     val scalaName = stub.getName

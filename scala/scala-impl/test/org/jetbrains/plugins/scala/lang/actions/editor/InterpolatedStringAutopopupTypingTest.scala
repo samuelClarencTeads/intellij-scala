@@ -7,7 +7,7 @@ import com.intellij.testFramework.{EdtTestUtil, TestModeFlags}
 import com.intellij.testFramework.fixtures.CompletionAutoPopupTester
 import com.intellij.util.TimeoutUtil
 import org.jetbrains.plugins.scala.base.EditorActionTestBase
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.concurrent.duration.{Duration, DurationInt}
 

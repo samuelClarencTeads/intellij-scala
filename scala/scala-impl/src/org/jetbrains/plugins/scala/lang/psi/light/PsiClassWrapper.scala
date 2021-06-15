@@ -6,7 +6,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.util.{Pair, TextRange}
 import com.intellij.pom.java.LanguageLevel
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.PsiClassImplUtil.MemberType
 import com.intellij.psi.impl.light.LightElement
 import com.intellij.psi.impl.{PsiClassImplUtil, PsiSuperMethodImplUtil}
@@ -15,13 +15,13 @@ import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.scope.processor.MethodsProcessor
 import com.intellij.psi.search.{GlobalSearchScope, SearchScope}
 import com.intellij.psi.util.PsiUtil
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiClassAdapter
-import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods._
+import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotationsHolder
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTemplateDefinition, ScTrait}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.TypeDefinitionMembers

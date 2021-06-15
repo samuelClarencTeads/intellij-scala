@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class NestedStatefulMonadsInspectionTest extends ScalaInspectionTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[NestedStatefulMonadsInspection]
 
   override protected val description: String =

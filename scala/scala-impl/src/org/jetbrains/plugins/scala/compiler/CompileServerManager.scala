@@ -18,9 +18,9 @@ import com.intellij.ui.awt.RelativePoint
 import com.intellij.util.Consumer
 import javax.swing.{Icon, Timer}
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.compiler.CompileServerManager._
+import org.jetbrains.plugins.scala.compiler.CompileServerManager.*
 import org.jetbrains.plugins.scala.icons.Icons
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.plugins.scala.settings.ShowSettingsUtilImplExt
 
 /**

@@ -24,7 +24,7 @@ import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
   */
 abstract class PostfixTemplateTest extends ScalaLightCodeInsightFixtureTestAdapter {
 
-  import PostfixTemplateTest._
+  import PostfixTemplateTest.*
 
   def testPath(): String = TestUtils.getTestDataPath + "/postfixTemplate/"
 

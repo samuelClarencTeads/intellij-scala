@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.findUsages.compilerReferences
 package compilation
 
-import java.io._
+import java.io.*
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path, Paths}
 import java.util.UUID
@@ -11,15 +11,15 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.{ModuleListener, Project}
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.ScalaCompilerReferenceService.CompilerIndicesState
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.SbtCompilationListener.ProjectIdentifier
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.SbtCompilationListener.ProjectIdentifier._
-import org.jetbrains.plugins.scala.indices.protocol.IdeaIndicesJsonProtocol._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.SbtCompilationListener.ProjectIdentifier.*
+import org.jetbrains.plugins.scala.indices.protocol.IdeaIndicesJsonProtocol.*
 import org.jetbrains.plugins.scala.indices.protocol.sbt.Locking.FileLockingExt
-import org.jetbrains.plugins.scala.indices.protocol.sbt._
+import org.jetbrains.plugins.scala.indices.protocol.sbt.*
 import org.jetbrains.plugins.scala.project.ProjectExt
-import spray.json._
+import spray.json.*
 
 import scala.util.{Try, Using}
 import scala.util.control.NonFatal
@@ -29,7 +29,7 @@ private[compilerReferences] class SbtCompilationWatcher(
   override val transactionGuard: TransactionGuard[CompilerIndicesState],
   val indexVersion:              Int
 ) extends CompilationWatcher[CompilerMode.SBT.type] {
-  import SbtCompilationWatcher._
+  import SbtCompilationWatcher.*
 
   private[this] val projectBase: Path = Paths.get(project.getBasePath)
 

@@ -7,7 +7,7 @@ import com.intellij.openapi.util.io.FileUtil.getNameWithoutExtension
 import com.intellij.ui.SimpleTextAttributes
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
-import extensions._
+import extensions.*
 
 private[projectView] class PackageObjectNode(definition: ScTypeDefinition)
                                             (implicit project: Project, settings: ViewSettings)

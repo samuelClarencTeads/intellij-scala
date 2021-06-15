@@ -8,16 +8,16 @@ import com.intellij.openapi.projectRoots.{JavaSdk, ProjectJdkTable, Sdk}
 import com.intellij.openapi.roots.{LanguageLevelProjectExtension, ProjectRootManager}
 import com.intellij.pom.java.LanguageLevel
 import com.intellij.testFramework.{IdeaTestUtil, UsefulTestCase}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.external.{JdkByName, SdkReference, SdkUtils}
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.plugins.scala.project.{IncrementalityType, external}
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
-import org.jetbrains.sbt.project.data._
+import org.jetbrains.sbt.project.data.*
 import org.jetbrains.sbt.project.settings.SbtProjectSettings
 import org.jetbrains.sbt.project.sources.SharedSourcesModuleType
 import org.jetbrains.sbt.settings.SbtSettings
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import java.io.File
 import java.net.URI
@@ -28,7 +28,7 @@ import java.net.URI
  */
 class SbtProjectDataServiceTest extends ProjectDataServiceTestCase {
 
-  import ExternalSystemDataDsl._
+  import ExternalSystemDataDsl.*
 
   override def setUp(): Unit = {
     super.setUp()
@@ -142,7 +142,7 @@ class SbtProjectDataServiceTest extends ProjectDataServiceTestCase {
 
   private def doTestBasePackages(basePackages: Seq[String]): Unit = {
     importProjectData(generateProject(basePackages, None, ""))
-    UsefulTestCase.assertContainsElements(ScalaProjectSettings.getInstance(getProject).getCustomBasePackages.values(), basePackages:_*)
+    UsefulTestCase.assertContainsElements(ScalaProjectSettings.getInstance(getProject).getCustomBasePackages.values(), basePackages*)
   }
 
   private def mostRecentJdk: Sdk =

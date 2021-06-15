@@ -19,8 +19,8 @@ import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
  */
 object BlockExpr extends ParsingRule {
 
-  import lexer.ScalaTokenType._
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenType.*
+  import lexer.ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     if (builder.skipExternalToken()) return true

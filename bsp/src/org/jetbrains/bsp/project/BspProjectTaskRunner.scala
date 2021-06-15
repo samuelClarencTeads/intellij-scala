@@ -10,13 +10,13 @@ import com.intellij.openapi.compiler.{CompilerPaths, CompilerTopics}
 import com.intellij.openapi.externalSystem.model.project.{ExternalSystemSourceType, ModuleData}
 import com.intellij.openapi.externalSystem.model.{DataNode, ProjectKeys}
 import com.intellij.openapi.externalSystem.service.project.ProjectDataManager
-import com.intellij.openapi.externalSystem.util.{ExternalSystemApiUtil => ES}
+import com.intellij.openapi.externalSystem.util.{ExternalSystemApiUtil as ES}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.module.ModuleType
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
-import com.intellij.task._
+import com.intellij.task.*
 import org.jetbrains.bsp.data.BspMetadata
 import org.jetbrains.bsp.project.BspTask.BspTarget
 import org.jetbrains.bsp.project.test.BspTestRunConfiguration
@@ -25,7 +25,7 @@ import org.jetbrains.concurrency.{AsyncPromise, Promise}
 import org.jetbrains.plugins.scala.build.BuildMessages
 import org.jetbrains.plugins.scala.extensions
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
 

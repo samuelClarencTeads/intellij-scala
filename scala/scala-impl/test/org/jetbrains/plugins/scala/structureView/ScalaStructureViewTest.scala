@@ -2,22 +2,22 @@ package org.jetbrains.plugins.scala.structureView
 
 import java.util.Comparator
 
-import com.intellij.icons.AllIcons.Nodes._
+import com.intellij.icons.AllIcons.Nodes.*
 import com.intellij.ide.structureView.StructureViewTreeElement
 import com.intellij.ide.util.treeView.smartTree.TreeElement
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFileFactory
 import com.intellij.psi.impl.ElementBase
 import com.intellij.ui.LayeredIcon
-import com.intellij.util.PlatformIcons._
+import com.intellij.util.PlatformIcons.*
 import javax.swing.Icon
 import org.intellij.lang.annotations.Language
 import org.jetbrains.plugins.scala.ScalaFileType
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.icons.Icons._
+import org.jetbrains.plugins.scala.icons.Icons.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.structureView.ScalaStructureViewModel
-import org.jetbrains.plugins.scala.structureView.ScalaStructureViewTest._
+import org.jetbrains.plugins.scala.structureView.ScalaStructureViewTest.*
 import org.junit.Assert
 
 import scala.util.matching.Regex
@@ -773,7 +773,7 @@ class ScalaStructureViewTest extends ScalaLightCodeInsightFixtureTestAdapter {
       Node(model.getRoot, sorter)
     }
 
-    val expected = new Node(ScalaFileType.INSTANCE.getIcon, "foo.scala", nodes: _*).toString
+    val expected = new Node(ScalaFileType.INSTANCE.getIcon, "foo.scala", nodes*).toString
 
     Assert.assertEquals(expected, actualNode.toString)
   }
@@ -790,15 +790,15 @@ private object ScalaStructureViewTest {
 
   object Node {
     def apply(baseIcon: Icon, visibilityIcon: Icon, name: String, children: Node*): Node =
-      new Node(ElementBase.buildRowIcon(baseIcon, visibilityIcon), name, children: _*)
+      new Node(ElementBase.buildRowIcon(baseIcon, visibilityIcon), name, children*)
 
     def apply(icon: Icon, name: String, children: Node*): Node =
-      Node(icon, PUBLIC_ICON, name, children: _*)
+      Node(icon, PUBLIC_ICON, name, children*)
 
     def apply(element: StructureViewTreeElement, sorter: Seq[TreeElement] => Seq[TreeElement]): Node = {
       val presentation = element.getPresentation
       val children = sorter(element.getChildren.toSeq).map { case element: StructureViewTreeElement => Node(element, sorter) }
-      new Node(presentation.getIcon(false), presentation.getPresentableText, children: _*)
+      new Node(presentation.getIcon(false), presentation.getPresentableText, children*)
     }
   }
 

@@ -3,7 +3,7 @@ package lang
 package psi
 package compiled
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.lang.Language
 import com.intellij.openapi.fileTypes.FileType
@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaFileImpl
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 final class ScClsFileViewProvider(decompilationResult: ScalaDecompilationResult)
                                  (manager: PsiManager, file: VirtualFile, eventSystemEnabled: Boolean, language: Language)

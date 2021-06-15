@@ -4,7 +4,7 @@ package psi
 package api
 package base
 
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 
 /** 
 * @author Alexander Podkhalyuzin

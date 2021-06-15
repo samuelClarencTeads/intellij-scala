@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.decompiler.scalasig
 
-import scala.reflect.internal.pickling.PickleFormat._
+import scala.reflect.internal.pickling.PickleFormat.*
 
 /**
   * Nikolay.Tropin

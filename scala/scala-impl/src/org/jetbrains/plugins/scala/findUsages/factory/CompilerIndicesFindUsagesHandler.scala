@@ -10,7 +10,7 @@ import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.psi.{PsiClass, PsiElement, PsiMethod, PsiNamedElement}
 import com.intellij.usageView.UsageInfo
 import com.intellij.util.Processor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.CompilerIndicesReferencesSearch
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 
@@ -33,7 +33,7 @@ class CompilerIndicesFindUsagesHandler(
 
   private[this] def searchInCompilerIndices(
     e:         PsiNamedElement,
-    processor: Processor[_ >: UsageInfo]
+    processor: Processor[? >: UsageInfo]
   ): Boolean =
     CompilerIndicesReferencesSearch
       .search(e)
@@ -41,7 +41,7 @@ class CompilerIndicesFindUsagesHandler(
 
   override def processElementUsages(
     element:   PsiElement,
-    processor: Processor[_ >: UsageInfo],
+    processor: Processor[? >: UsageInfo],
     options:   FindUsagesOptions
   ): Boolean = element match {
     case (named: PsiNamedElement) && ContainingClass(cls: ScTypeDefinition) if isInLibrary(element) =>
@@ -64,7 +64,7 @@ class CompilerIndicesFindUsagesHandler(
 
   override def processUsagesInText(
     element:     PsiElement,
-    processor:   Processor[_ >: UsageInfo],
+    processor:   Processor[? >: UsageInfo],
     searchScope: GlobalSearchScope
   ): Boolean = true
 

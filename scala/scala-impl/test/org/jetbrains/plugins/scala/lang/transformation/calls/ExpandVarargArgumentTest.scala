@@ -18,17 +18,17 @@ class ExpandVarargArgumentTest extends TransformerTest(new ExpandVarargArgument(
 
   def testEmpty(): Unit = check(
     before = "O.f()",
-    after = "O.f(Array(): _*)"
+    after = "O.f(Array()*)"
   )()
 
   def testMultiple(): Unit = check(
     before = "O.f(A, A)",
-    after = "O.f(Array(A, A): _*)"
+    after = "O.f(Array(A, A)*)"
   )()
 
   def testTail(): Unit = check(
     before = "O.g(A, B, B)",
-    after = "O.g(A, Array(B, B): _*)"
+    after = "O.g(A, Array(B, B)*)"
   )()
 
   // TODO
@@ -45,7 +45,7 @@ class ExpandVarargArgumentTest extends TransformerTest(new ExpandVarargArgument(
 
   def testSynthetic(): Unit = check(
     before = "T.apply(A, A)",
-    after = "T.apply(Array(A, A): _*)"
+    after = "T.apply(Array(A, A)*)"
   )(header = "case class T(v: A*)")
 
   // TODO
@@ -55,8 +55,8 @@ class ExpandVarargArgumentTest extends TransformerTest(new ExpandVarargArgument(
   //  )(header = "class T(v: A*)")
 
   def testExplicit(): Unit = check(
-    before = "O.f(Array(A, A): _*)",
-    after = "O.f(Array(A, A): _*)"
+    before = "O.f(Array(A, A)*)",
+    after = "O.f(Array(A, A)*)"
   )()
 
   // the transformation is is infinitely recusive, as there's no Object[] {} equivalent in Scala

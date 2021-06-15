@@ -6,7 +6,7 @@ package rename
 import java.awt.{BorderLayout, GridLayout}
 import java.util
 
-import javax.swing._
+import javax.swing.*
 import com.intellij.CommonBundle
 import com.intellij.ide.IdeBundle
 import com.intellij.openapi.application.ApplicationManager
@@ -20,7 +20,7 @@ import com.intellij.refactoring.listeners.RefactoringElementListener
 import com.intellij.refactoring.rename.{RenameJavaMethodProcessor, RenamePsiElementProcessor}
 import com.intellij.usageView.UsageInfo
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod
@@ -103,7 +103,7 @@ class PrepareRenameScalaMethodProcessor extends RenamePsiElementProcessor {
           else if (newSuffix != "" && oldSuffix == "") newName.stripSuffix(newSuffix) //for renaming getters
           else newName
         }
-        import scala.jdk.CollectionConverters._
+        import scala.jdk.CollectionConverters.*
         for (elem <- allRenames.keySet.asScala ++ buff) {
           val oldName = ScalaNamesUtil.scalaName(elem)
           allRenames.put(elem, nameWithSetterSuffix(oldName, newName))

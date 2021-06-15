@@ -5,8 +5,8 @@ import com.intellij.codeInspection.{ProblemHighlightType, ProblemsHolder}
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.codeInspection.{AbstractInspection, ScalaInspectionBundle}
-import org.jetbrains.plugins.scala.format.Injection._
-import org.jetbrains.plugins.scala.format.{Injection, Span, _}
+import org.jetbrains.plugins.scala.format.Injection.*
+import org.jetbrains.plugins.scala.format.{Injection, Span, *}
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 
 import scala.annotation.nowarn

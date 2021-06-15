@@ -3,9 +3,9 @@ package org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs
 import _root_.org.jetbrains.plugins.scala.lang.psi.api.ScControlFlowOwner
 import com.intellij.codeInsight.PsiEquivalenceUtil
 import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.psi.util.PsiTreeUtil._
+import com.intellij.psi.util.PsiTreeUtil.*
 import com.intellij.psi.{PsiElement, PsiMethod, PsiNamedElement, PsiPackage}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFun, ScFunction, ScTypeAlias, ScValueDeclaration}
@@ -13,11 +13,11 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTy
 import org.jetbrains.plugins.scala.lang.psi.controlFlow.Instruction
 import org.jetbrains.plugins.scala.lang.psi.controlFlow.impl.{DefinitionInstruction, ReadWriteVariableInstruction}
 import org.jetbrains.plugins.scala.lang.psi.dataFlow.DfaEngine
-import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs.ReachingDefinitions._
+import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs.ReachingDefinitions.*
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.SyntheticNamedElement
 
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 object ReachingDefinitionsCollector {
 
@@ -93,9 +93,9 @@ object ReachingDefinitionsCollector {
                                      dfaResult: mutable.Map[Instruction, RDSet]): Seq[VariableInfo] = {
     val result = mutable.SortedSet.empty[PsiNamedElement](Ordering.by(_.getTextRange.getStartOffset))
     for {
-      (read@ReadWriteVariableInstruction(_, _, Some(definitionToRead), false), rdset) <- dfaResult
+      case (read@ReadWriteVariableInstruction(_, _, Some(definitionToRead), false), rdset) <- dfaResult
       if !innerInstructions.contains(read)
-      reaching@DefinitionInstruction(_, named, _) <- rdset
+      case reaching@DefinitionInstruction(_, named, _) <- rdset
       if named == definitionToRead
       if innerInstructions.contains(reaching)
     } {

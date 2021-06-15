@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package psi
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.AnnotationUtil
 import com.intellij.extapi.psi.{ASTDelegatePsiElement, StubBasedPsiElementBase}
@@ -13,48 +13,48 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.{ProjectFileIndex, ProjectRootManager}
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.light.LightModifierList
 import com.intellij.psi.impl.source.PsiFileImpl
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.stubs.StubElement
 import com.intellij.psi.tree.TokenSet
-import com.intellij.psi.util._
+import com.intellij.psi.util.*
 import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, PsiNamedElementExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, PsiNamedElementExt, *}
 import org.jetbrains.plugins.scala.externalLibraries.bm4.Implicit0Binding
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.parsing.Associativity
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils
-import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods._
+import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScCaseClause, ScPatternArgumentList}
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.ScXmlExpr
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.ImportUsed
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScPackageLike, ScalaFile, ScalaPsiElement, ScalaRecursiveElementVisitor}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScPackageImpl
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ApplyOrUpdateInvocation
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.TypeDefinitionMembers
 import org.jetbrains.plugins.scala.lang.psi.types.Compatibility.Expression
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{Parameter, ScTypePolymorphicType}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
-import org.jetbrains.plugins.scala.lang.resolve.processor._
+import org.jetbrains.plugins.scala.lang.resolve.processor.*
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectPsiElementExt}
 import org.jetbrains.plugins.scala.util.{SAMUtil, ScEquivalenceUtil}
 
@@ -520,14 +520,14 @@ object ScalaPsiUtil {
     container.fold(if (next) element.getNextSibling else element.getPrevSibling)(_.orNull)
   }
 
-  def at(stubs: ju.List[StubElement[_ <: PsiElement]])
+  def at(stubs: ju.List[StubElement[? <: PsiElement]])
         (index: Int = stubs.size - 1): Option[PsiElement] =
     if (index < 0 || index >= stubs.size) None
     else Some(stubs.get(index).getPsi)
 
-  def stub(element: PsiElement): NullSafe[StubElement[_]] = NullSafe {
+  def stub(element: PsiElement): NullSafe[StubElement[?]] = NullSafe {
     element match {
-      case stubbed: StubBasedPsiElementBase[_] => stubbed.getStub.asInstanceOf[StubElement[_]]
+      case stubbed: StubBasedPsiElementBase[?] => stubbed.getStub.asInstanceOf[StubElement[?]]
       case file: PsiFileImpl => file.getStub
       case _ => null
     }
@@ -709,7 +709,7 @@ object ScalaPsiUtil {
   /**
     * For one classOf use PsiTreeUtil.getContextOfType instead
    */
-  def getContextOfType(element: PsiElement, strict: Boolean, classes: Class[_ <: PsiElement]*): PsiElement = {
+  def getContextOfType(element: PsiElement, strict: Boolean, classes: Class[? <: PsiElement]*): PsiElement = {
     var el: PsiElement = if (!strict) element else {
       if (element == null) return null
       element.getContext
@@ -835,7 +835,7 @@ object ScalaPsiUtil {
              _: ScParameterClause | _: ScTypeParamClause => false
         case caseClause: ScCaseClause =>
 
-          import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+          import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
 
           val funTypeToken = caseClause.findLastChildByType(TokenSet.create(tFUNTYPE, tFUNTYPE_ASCII, ScalaTokenType.ImplicitFunctionArrow))
           if (funTypeToken.exists(element.getTextOffset < _.getTextOffset)) false
@@ -880,7 +880,7 @@ object ScalaPsiUtil {
   def needParentheses(from: ScExpression, expr: ScExpression): Boolean = {
     def infixInInfixParentheses(parent: ScInfixExpr, child: ScInfixExpr): Boolean = {
 
-      import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils._
+      import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils.*
 
       if (parent.left == from) {
         val lid = parent.operation.getText
@@ -1311,7 +1311,7 @@ object ScalaPsiUtil {
     val contextBounds: Seq[ContextBoundInfo] = for {
       owner         <- maybeOwner.toSeq
       typeParameter <- owner.typeParameters
-      (bound, idx)  <- typeParameter.contextBoundTypeElement.zipWithIndex
+      case (bound, idx) <- typeParameter.contextBoundTypeElement.zipWithIndex
     } yield ContextBoundInfo(typeParameter, bound, idx)
 
     contextBounds.find { case ContextBoundInfo(typeParameter, typeElement, index) =>
@@ -1355,8 +1355,8 @@ object ScalaPsiUtil {
     }
 
     val bounds = for {
-      (typeParameter, name) <- namedTypeParameters
-      (typeElement, index) <- typeParameter.contextBoundTypeElement.zipWithIndex
+      case (typeParameter, name) <- namedTypeParameters
+      case (typeElement, index) <- typeParameter.contextBoundTypeElement.zipWithIndex
     } yield ParameterDescriptor(typeParameter, name, typeElement, index)
 
     val boundsTexts = bounds.map {

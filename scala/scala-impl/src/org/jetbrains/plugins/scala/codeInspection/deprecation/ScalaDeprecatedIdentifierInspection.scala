@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
  * @author Nikolay.Tropin
  */
 class ScalaDeprecatedIdentifierInspection extends AbstractRegisteredInspection {
-  import ScalaDeprecatedIdentifierInspection._
+  import ScalaDeprecatedIdentifierInspection.*
 
   override protected def problemDescriptor(
     element:             PsiElement,

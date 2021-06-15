@@ -4,18 +4,18 @@ package findUsages
 
 import com.intellij.psi.util.PsiTreeUtil.{getParentOfType, isAncestor}
 import com.intellij.psi.{PsiClass, PsiElement}
-import com.intellij.usages.impl.rules.UsageType._
+import com.intellij.usages.impl.rules.UsageType.*
 import com.intellij.usages.impl.rules.{UsageType, UsageTypeProviderEx}
 import com.intellij.usages.{PsiElementUsageTarget, UsageTarget}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.MethodValue
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScSelfTypeElement, ScTypeArgs, ScTypeElement}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAccessModifier, ScAnnotation, ScAnnotationExpr, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScTemplateBody, ScTemplateParents}
@@ -23,14 +23,14 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefin
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScEarlyDefinitions, ScPackaging}
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScInterpolatedExpressionPrefix
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
-import org.jetbrains.plugins.scala.util.ImplicitUtil._
-import org.jetbrains.plugins.scala.util.SAMUtil._
+import org.jetbrains.plugins.scala.util.ImplicitUtil.*
+import org.jetbrains.plugins.scala.util.SAMUtil.*
 
 import scala.language.implicitConversions
 
 final class ScalaUsageTypeProvider extends UsageTypeProviderEx {
 
-  import ScalaUsageTypeProvider._
+  import ScalaUsageTypeProvider.*
 
   override def getUsageType(element: PsiElement): UsageType =
     getUsageType(element, UsageTarget.EMPTY_ARRAY)

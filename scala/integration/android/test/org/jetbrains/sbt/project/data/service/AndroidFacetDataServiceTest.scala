@@ -9,9 +9,9 @@ import com.intellij.openapi.externalSystem.model.project.ProjectData
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.util.io.FileUtil
 import org.jetbrains.android.facet.AndroidFacet
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.sbt.project.data.{AndroidFacetData, AndroidFacetNode, ModuleNode}
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.Ignore
 
 import scala.io.Source
@@ -24,7 +24,7 @@ import scala.util.Using
 @Ignore
 class AndroidFacetDataServiceTest extends ProjectDataServiceTestCase {
 
-  import ExternalSystemDataDsl._
+  import ExternalSystemDataDsl.*
 
   private def generateProject(proguardConfig: Seq[String]): DataNode[ProjectData] =
     new project {
@@ -75,7 +75,7 @@ class AndroidFacetDataServiceTest extends ProjectDataServiceTestCase {
     assertEquals(proguardConfig.nonEmpty, properties.RUN_PROGUARD)
 
     if (proguardConfig.nonEmpty) {
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       val proguardConfigPath = FileUtil.toSystemDependentName(getProject.getBasePath + "/proguard-sbt.txt")
       assertEquals(Seq(proguardConfigPath), properties.myProGuardCfgFiles.asScala)
       val actualProguardConfig = Using.resource(Source.fromFile(proguardConfigPath))(_.getLines().toVector)

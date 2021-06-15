@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala.lang.psi.api
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions.{ElementText, _}
+import org.jetbrains.plugins.scala.extensions.{ElementText, *}
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScInfixPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScReference, ScStableCodeReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -62,7 +62,7 @@ package object statements {
     }
 
     private def quickCheck(reference: ScReference): Boolean = {
-      import ScFunction._
+      import ScFunction.*
       val refName = reference.refName
       reference match {
         case _: ScStableCodeReference =>

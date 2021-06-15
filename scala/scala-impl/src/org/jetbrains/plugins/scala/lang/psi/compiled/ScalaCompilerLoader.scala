@@ -8,9 +8,9 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.StartupActivity
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition}
-import org.jetbrains.plugins.scala.lang.psi.compiled.ScalaCompilerLoader._
+import org.jetbrains.plugins.scala.lang.psi.compiled.ScalaCompilerLoader.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 
 class ScalaCompilerLoader extends StartupActivity.DumbAware {

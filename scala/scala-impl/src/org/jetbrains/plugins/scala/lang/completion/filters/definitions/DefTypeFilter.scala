@@ -4,15 +4,15 @@ package completion
 package filters
 package definitions
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.filters.ElementFilter
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
 import org.jetbrains.plugins.scala.lang.psi.ScDeclarationSequenceHolder
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.*
 
 /** 
 * @author Alexander Podkhalyuzin
@@ -41,7 +41,7 @@ class DefTypeFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = {
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = {
     true
   }
 

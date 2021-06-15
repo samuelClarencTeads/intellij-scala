@@ -8,18 +8,18 @@ import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.arrangement.`match`.{ArrangementSectionRule, StdArrangementEntryMatcher, StdArrangementMatchRule}
 import com.intellij.psi.codeStyle.arrangement.group.ArrangementGroupingRule
 import com.intellij.psi.codeStyle.arrangement.model.{ArrangementAtomMatchCondition, ArrangementCompositeMatchCondition, ArrangementMatchCondition}
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Grouping._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Order._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens._
-import com.intellij.psi.codeStyle.arrangement.std._
-import com.intellij.psi.codeStyle.arrangement.{ArrangementSettings, _}
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Grouping.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Order.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.*
+import com.intellij.psi.codeStyle.arrangement.std.*
+import com.intellij.psi.codeStyle.arrangement.{ArrangementSettings, *}
 import org.jetbrains.plugins.scala.ScalaLanguage
-import org.jetbrains.plugins.scala.lang.rearranger.RearrangerUtils._
+import org.jetbrains.plugins.scala.lang.rearranger.RearrangerUtils.*
 import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
@@ -27,7 +27,7 @@ class ScalaRearranger extends Rearranger[ScalaArrangementEntry] with Arrangement
   override def parseWithNew(
     root:     PsiElement,
     document: Document,
-    ranges:   util.Collection[_ <: TextRange],
+    ranges:   util.Collection[? <: TextRange],
     element:  PsiElement,
     settings: ArrangementSettings
   ): Pair[ScalaArrangementEntry, util.List[ScalaArrangementEntry]] = {
@@ -48,7 +48,7 @@ class ScalaRearranger extends Rearranger[ScalaArrangementEntry] with Arrangement
   override def parse(
     root:     PsiElement,
     document: Document,
-    ranges:   util.Collection[_ <: TextRange],
+    ranges:   util.Collection[? <: TextRange],
     settings: ArrangementSettings
   ): util.List[ScalaArrangementEntry] = {
     Stats.trigger(FeatureKey.rearrange)

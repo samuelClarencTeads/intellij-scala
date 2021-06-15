@@ -7,7 +7,7 @@ package api
 import java.util.concurrent.atomic.AtomicReference
 
 import com.intellij.openapi.Disposable
-import com.intellij.psi.CommonClassNames._
+import com.intellij.psi.CommonClassNames.*
 import org.jetbrains.plugins.scala.extensions.PsiClassExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.{ScSyntheticClass, SyntheticClasses}

@@ -6,8 +6,8 @@ package annotator
   */
 trait OverridingAnnotatorTestBase extends AnnotatorSimpleTestCase {
 
-  import lang.psi.api._
-  import statements._
+  import lang.psi.api.*
+  import statements.*
 
   def messages(code: String): List[Message] = {
     val annotator = new OverridingAnnotator() {}

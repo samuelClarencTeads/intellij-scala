@@ -12,10 +12,10 @@ import com.intellij.psi.PsiElement
 import com.intellij.testFramework.fixtures.LightJavaCodeInsightFixtureTestCase
 import com.intellij.testFramework.fixtures.impl.JavaCodeInsightTestFixtureImpl
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.io.Source
 import scala.util.Using
 
@@ -48,7 +48,7 @@ abstract class LineMarkerTestBase extends LightJavaCodeInsightFixtureTestCase {
   }
 
   def getSeparatorsFrom(text: String) = for {
-    (line, i) <- text.split("\n").zipWithIndex
+    case (line, i) <- text.split("\n").zipWithIndex
     if line.contains(marker)
   } yield i + 1
 

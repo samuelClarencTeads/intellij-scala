@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.scaladoc.psi.impl
 import com.intellij.lang.ASTNode
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.impl.base.ScStableCodeReferenceImpl
-import org.jetbrains.plugins.scala.lang.resolve.StdKinds._
+import org.jetbrains.plugins.scala.lang.resolve.StdKinds.*
 import org.jetbrains.plugins.scala.lang.resolve.{ResolveTargets, ScalaResolveResult}
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocResolvableCodeReference
 

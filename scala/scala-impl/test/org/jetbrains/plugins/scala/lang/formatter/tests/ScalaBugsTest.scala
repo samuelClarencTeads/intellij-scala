@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettin
 
 class ScalaBugsTest extends AbstractScalaFormatterTestBase {
 
-  import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotes => Quotes}
+  import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotes as Quotes}
 
   def testSCL2424(): Unit =
     doTextTest(

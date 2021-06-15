@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.codeInspection.specs2
 
-import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG => END, SELECTION_START_TAG => START}
+import com.intellij.testFramework.EditorTestUtil.{SELECTION_END_TAG as END, SELECTION_START_TAG as START}
 import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQuickFixTestBase}
 
 class BuiltinMatcherExistsInspectionTest extends ScalaQuickFixTestBase {

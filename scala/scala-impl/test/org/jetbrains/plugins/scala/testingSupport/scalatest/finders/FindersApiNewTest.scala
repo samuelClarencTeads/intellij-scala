@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testingSupport.scalatest.finders
 
-import org.jetbrains.plugins.scala.testingSupport.scalatest.generators._
+import org.jetbrains.plugins.scala.testingSupport.scalatest.generators.*
 
 // from 3.1.0
 trait FindersApiNewTest extends FindersApiBaseTest

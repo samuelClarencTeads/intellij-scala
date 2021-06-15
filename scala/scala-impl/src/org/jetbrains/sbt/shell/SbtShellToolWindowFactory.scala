@@ -10,7 +10,7 @@ import com.intellij.openapi.actionSystem.KeyboardShortcut
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.keymap.KeymapManager
 import com.intellij.openapi.project.{DumbAware, Project}
-import com.intellij.openapi.wm._
+import com.intellij.openapi.wm.*
 import com.intellij.openapi.wm.impl.ToolWindowImpl
 import javax.swing.{Icon, KeyStroke}
 import org.jetbrains.annotations.Nls

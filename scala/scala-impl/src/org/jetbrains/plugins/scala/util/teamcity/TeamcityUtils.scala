@@ -6,7 +6,7 @@ import org.jetbrains.annotations.ApiStatus
 object TeamcityUtils {
 
   sealed trait Status {
-    import Status._
+    import Status.*
     def value: String = this match {
       case Normal  => "NORMAL"
       case Warning => "WARNING"

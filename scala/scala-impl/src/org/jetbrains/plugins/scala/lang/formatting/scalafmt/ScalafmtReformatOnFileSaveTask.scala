@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala.lang.formatting.scalafmt
 
 import com.intellij.AppTopics
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.command.CommandProcessor.{getInstance => CommandProcessor}
+import com.intellij.openapi.command.CommandProcessor.{getInstance as CommandProcessor}
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.fileEditor.{FileDocumentManager, FileDocumentManagerListener}
 import com.intellij.openapi.project.{Project, ProjectManagerListener}
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{PsiDocumentManager, PsiFile}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile

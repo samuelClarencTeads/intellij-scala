@@ -18,7 +18,7 @@ sealed abstract class UnitMethodInspection extends AbstractMethodSignatureInspec
 
 object UnitMethodInspection {
 
-  import quickfix._
+  import quickfix.*
 
   final class Parameterless extends UnitMethodInspection {
 

@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.actionSystem.EditorActionHandler
 import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.openapi.util.{Ref, TextRange}
 import com.intellij.psi.PsiFile
-import org.jetbrains.plugins.scala.editor.enterHandler.PackageSplitEnterHandler._
+import org.jetbrains.plugins.scala.editor.enterHandler.PackageSplitEnterHandler.*
 
 import scala.util.matching.Regex
 

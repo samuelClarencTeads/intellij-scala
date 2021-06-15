@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package syntacticSimplification
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiClass, PsiElement, PsiElementVisitor}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScConstructorInvocation
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScFunctionalTypeElement, ScInfixTypeElement, ScParameterizedTypeElement, ScSimpleTypeElement}
@@ -30,7 +30,7 @@ class FunctionTupleSyntacticSugarInspection extends LocalInspectionTool {
       }
     }
 
-    import org.jetbrains.plugins.scala.codeInspection.syntacticSimplification.FunctionTupleSyntacticSugarInspection._
+    import org.jetbrains.plugins.scala.codeInspection.syntacticSimplification.FunctionTupleSyntacticSugarInspection.*
 
     new ScalaElementVisitor {
       override def visitScalaElement(elem: ScalaPsiElement): Unit = {
@@ -68,7 +68,7 @@ object FunctionTupleSyntacticSugarInspection {
   val FunctionN: Regex = raw"${FunctionType.TypeName}(\d)".r
   val TupleN: Regex = raw"${TupleType.TypeName}(\d)".r
   
-  import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+  import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 
   class TupleTypeSyntacticSugarQuickFix(te: ScParameterizedTypeElement)
           extends AbstractFixOnPsiElement(ScalaBundle.message("replace.tuple.type"), te) {

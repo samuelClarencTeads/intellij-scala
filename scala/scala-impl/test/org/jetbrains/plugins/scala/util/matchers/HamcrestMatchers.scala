@@ -2,19 +2,19 @@ package org.jetbrains.plugins.scala.util.matchers
 
 import org.hamcrest.Matcher
 
-import scala.math.Ordering.Implicits._
+import scala.math.Ordering.Implicits.*
 
 trait HamcrestMatchers {
 
-  def hasSize(size: Int): Matcher[Iterable[_]] = new ScalaBaseMatcher[Iterable[_]] {
-    override protected def valueMatches(actualValue: Iterable[_]): Boolean =
+  def hasSize(size: Int): Matcher[Iterable[?]] = new ScalaBaseMatcher[Iterable[?]] {
+    override protected def valueMatches(actualValue: Iterable[?]): Boolean =
       actualValue.size == size
 
     override protected def description: String =
       s"collection of size $size"
   }
 
-  def emptyCollection: Matcher[Iterable[_]] =
+  def emptyCollection: Matcher[Iterable[?]] =
     hasSize(0)
 
   /**

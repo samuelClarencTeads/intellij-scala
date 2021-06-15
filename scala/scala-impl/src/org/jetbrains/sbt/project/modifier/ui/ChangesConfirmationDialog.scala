@@ -3,14 +3,14 @@ package org.jetbrains.sbt.project.modifier.ui
 import java.awt.BorderLayout
 
 import com.intellij.openapi.actionSystem.{ActionManager, IdeActions}
-import com.intellij.openapi.project.{Project => IJProject}
+import com.intellij.openapi.project.{Project as IJProject}
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vcs.changes.Change
 import com.intellij.openapi.vfs.VirtualFile
 import javax.swing.{JComponent, JPanel}
 import org.jetbrains.sbt.SbtBundle
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 

@@ -2,8 +2,8 @@ package org.jetbrains.plugins.scala.build
 
 import java.io.File
 
-import com.intellij.build._
-import com.intellij.build.events._
+import com.intellij.build.*
+import com.intellij.build.events.*
 import org.jetbrains.annotations.{Nls, NotNull}
 import org.jetbrains.plugins.scala.build.BuildMessages.EventId
 

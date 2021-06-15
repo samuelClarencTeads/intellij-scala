@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class ExpandBooleanIntentionTest extends intentions.ScalaIntentionTestBase {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   override val familyName = ScalaCodeInsightBundle.message("family.name.expand.boolean")
 

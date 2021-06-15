@@ -5,10 +5,10 @@ package types
 
 import com.intellij.openapi.editor.Editor
 import org.jetbrains.plugins.scala.ScalaBundle.message
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScUnderscoreSection
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 
 /**
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
   */
 class ToggleTypeAnnotation extends AbstractTypeAnnotationIntention {
 
-  import ToggleTypeAnnotation._
+  import ToggleTypeAnnotation.*
 
   override def getFamilyName: String = FamilyName
 

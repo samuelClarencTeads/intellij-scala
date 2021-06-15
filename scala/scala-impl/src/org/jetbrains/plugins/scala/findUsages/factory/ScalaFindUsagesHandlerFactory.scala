@@ -6,9 +6,9 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.psi.{PsiElement, PsiNamedElement}
 import com.intellij.util.containers.ContainerUtil
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.SearchTargetExtractors.{ShouldBeSearchedInBytecode, UsageType}
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.CompilerIndicesReferencesSearcher._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.CompilerIndicesReferencesSearcher.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.CompilerIndicesSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
@@ -16,10 +16,10 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScNamedElement, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiMethod
-import org.jetbrains.plugins.scala.lang.psi.light._
+import org.jetbrains.plugins.scala.lang.psi.light.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.FunctionType
 import org.jetbrains.plugins.scala.lang.refactoring.rename.RenameSuperMembersUtil
-import org.jetbrains.plugins.scala.util.ImplicitUtil._
+import org.jetbrains.plugins.scala.util.ImplicitUtil.*
 
 /**
  * User: Alexander Podkhalyuzin
@@ -39,7 +39,7 @@ class ScalaFindUsagesHandlerFactory(project: Project) extends FindUsagesHandlerF
       case _: ScPrimaryConstructor   => true
       case _: ScTypeParam            => true
       case _: PsiClassWrapper        => true
-      case _: PsiMethodWrapper[_]    => true
+      case _: PsiMethodWrapper[?]    => true
       case contextBoundElement(_, _) => true
       case _                         => false
     }

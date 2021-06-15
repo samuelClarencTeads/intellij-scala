@@ -10,13 +10,13 @@ import com.intellij.codeInsight.completion.{CodeCompletionHandlerBase, Completio
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.psi.PsiNamedElement
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 import scala.collection.mutable
 
 class ScalaElementFeatureProviderTest extends ScalaLightCodeInsightFixtureTestAdapter {
 
-  import MLFeatureValue._
+  import MLFeatureValue.*
 
   def testPostfix(): Unit = {
 
@@ -145,7 +145,7 @@ class ScalaElementFeatureProviderTest extends ScalaLightCodeInsightFixtureTestAd
   }
 
   def testKind(): Unit = {
-    import CompletionItem._
+    import CompletionItem.*
 
     assertElement("kind", "type", categorical(KEYWORD))(
       s"""object X {
@@ -228,7 +228,7 @@ class ScalaElementFeatureProviderTest extends ScalaLightCodeInsightFixtureTestAd
   }
 
   def testKeyword(): Unit = {
-    import Keyword._
+    import Keyword.*
 
     assertElement("keyword", "import", categorical(IMPORT))(
       s"""$CARET

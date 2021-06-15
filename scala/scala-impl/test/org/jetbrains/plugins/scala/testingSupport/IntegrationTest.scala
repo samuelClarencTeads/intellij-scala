@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.search.GlobalSearchScope
 import org.jetbrains.plugins.scala.extensions.{PsiNamedElementExt, inReadAction}
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
 

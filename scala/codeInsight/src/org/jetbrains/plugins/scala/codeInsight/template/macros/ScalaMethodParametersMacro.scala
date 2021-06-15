@@ -4,11 +4,11 @@ package template
 package macros
 
 import com.intellij.codeInsight.CodeInsightBundle
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.util.PsiTreeUtil.getParentOfType
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Roman.Shein

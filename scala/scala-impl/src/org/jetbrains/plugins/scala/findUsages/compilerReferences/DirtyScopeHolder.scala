@@ -10,17 +10,17 @@ import com.intellij.openapi.roots.ProjectFileIndex
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.{ModificationTracker, UserDataHolderBase}
 import com.intellij.openapi.vfs.newvfs.BulkFileListener
-import com.intellij.openapi.vfs.newvfs.events._
+import com.intellij.openapi.vfs.newvfs.events.*
 import com.intellij.openapi.vfs.{VirtualFile, VirtualFileManager}
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.{CachedValueProvider, CachedValuesManager, PsiModificationTracker}
 import com.intellij.util.containers.ContainerUtil
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.project.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Mostly copy-pasted from [[com.intellij.compiler.backwardRefs.DirtyScopeHolder]], but modified to be able
@@ -58,7 +58,7 @@ abstract class DirtyScopeHolder[Scope](
     indexingPhases = 0
   }
 
-  override def after(events: util.List[_ <: VFileEvent]): Unit = events.forEach {
+  override def after(events: util.List[? <: VFileEvent]): Unit = events.forEach {
     case e @ (_: VFileCreateEvent | _: VFileMoveEvent | _: VFileCopyEvent) => onFileChange(e.getFile)
     case pce: VFilePropertyChangeEvent =>
       val propertyName = pce.getPropertyName
@@ -67,7 +67,7 @@ abstract class DirtyScopeHolder[Scope](
     case _ => ()
   }
 
-  override def before(events: util.List[_ <: VFileEvent]): Unit = events.forEach {
+  override def before(events: util.List[? <: VFileEvent]): Unit = events.forEach {
     case e @ (_: VFileDeleteEvent | _: VFileMoveEvent | _: VFileContentChangeEvent) => onFileChange(e.getFile)
     case pce: VFilePropertyChangeEvent =>
       val propertyName = pce.getPropertyName

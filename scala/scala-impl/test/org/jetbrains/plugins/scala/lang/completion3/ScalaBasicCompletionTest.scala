@@ -58,7 +58,7 @@ abstract class ScalaBasicCompletionTestBase extends ScalaCodeInsightTestBase {
 
 class ScalaBasicCompletionTest extends ScalaBasicCompletionTestBase {
 
-  import ScalaCodeInsightTestBase._
+  import ScalaCodeInsightTestBase.*
 
   def testInImportSelector(): Unit = doCompletionTest(
     fileText = s"import scala.collection.immutable.{VBuil$CARET}",

@@ -6,7 +6,7 @@ package xml.pattern
 
 import org.jetbrains.plugins.scala.lang.lexer.ScalaXmlTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
-import org.jetbrains.plugins.scala.lang.parser.parsing.xml._
+import org.jetbrains.plugins.scala.lang.parser.parsing.xml.*
 
 import scala.annotation.tailrec
 

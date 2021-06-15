@@ -31,7 +31,7 @@ abstract class ScTypeAliasElementType[Func <: ScTypeAlias](debugName: String)
     dataStream.writeOptionName(stub.topLevelQualifier)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScTypeAliasStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScTypeAliasStub =
     new ScTypeAliasStubImpl(
       parentStub.asInstanceOf[StubElement[PsiElement]],
       this,
@@ -47,7 +47,7 @@ abstract class ScTypeAliasElementType[Func <: ScTypeAlias](debugName: String)
       topLevelQualifier = dataStream.readOptionName
     )
 
-  override def createStubImpl(alias: ScTypeAlias, parentStub: StubElement[_ <: PsiElement]): ScTypeAliasStub = {
+  override def createStubImpl(alias: ScTypeAlias, parentStub: StubElement[? <: PsiElement]): ScTypeAliasStub = {
     val maybeAlias = Option(alias)
 
     val aliasedTypeText = maybeAlias.collect {

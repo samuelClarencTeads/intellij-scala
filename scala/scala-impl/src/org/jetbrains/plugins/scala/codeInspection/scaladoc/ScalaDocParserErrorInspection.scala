@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package scaladoc
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.psi.{PsiElement, PsiElementVisitor, PsiErrorElement}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor

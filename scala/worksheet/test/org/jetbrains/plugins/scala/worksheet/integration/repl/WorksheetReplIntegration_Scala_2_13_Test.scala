@@ -3,8 +3,8 @@ package org.jetbrains.plugins.scala.worksheet.integration.repl
 import com.intellij.openapi.editor.Editor
 import org.jetbrains.plugins.scala.{DependencyManager, WorksheetEvaluationTests}
 import org.jetbrains.plugins.scala.compilation.CompilerTestUtil.withModifiedRegistryValue
-import org.jetbrains.plugins.scala.util.assertions.StringAssertions._
-import org.jetbrains.plugins.scala.util.runners._
+import org.jetbrains.plugins.scala.util.assertions.StringAssertions.*
+import org.jetbrains.plugins.scala.util.runners.*
 import org.jetbrains.plugins.scala.worksheet.WorksheetUtils
 import org.jetbrains.plugins.scala.worksheet.actions.topmenu.RunWorksheetAction.RunWorksheetActionResult.WorksheetRunError
 import org.jetbrains.plugins.scala.worksheet.integration.WorksheetIntegrationBaseTest.TestRunResult
@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.worksheet.integration.util.{EditorRobot, MyUi
 import org.jetbrains.plugins.scala.worksheet.processor.WorksheetCompiler.WorksheetCompilerResult
 import org.jetbrains.plugins.scala.worksheet.runconfiguration.WorksheetCache
 import org.jetbrains.plugins.scala.worksheet.ui.printers.WorksheetEditorPrinterRepl
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
 import scala.concurrent.duration.DurationInt

@@ -11,7 +11,7 @@ abstract class LiteralTypesHighlightingTestBase extends ScalaHighlightingTestBas
   def folderPath = TestUtils.getTestDataPath + "/annotator/literalTypes/"
 
   override def errorsFromScalaCode(scalaFileText: String): List[Message] = {
-    import org.jetbrains.plugins.scala.project._
+    import org.jetbrains.plugins.scala.project.*
     val profile = myFixture.getModule.scalaCompilerSettingsProfile
     val newSettings = profile.getSettings.copy(
       additionalCompilerOptions = Seq("-Yliteral-types")
@@ -27,6 +27,6 @@ abstract class LiteralTypesHighlightingTestBase extends ScalaHighlightingTestBas
       FileUtil.loadFile(ioFile, CharsetToolkit.UTF8)
     }
     val errors = if (settingOn) errorsFromScalaCode(text) else super.errorsFromScalaCode(text)
-    assertMessages(errors)(expectedErrors: _*)
+    assertMessages(errors)(expectedErrors*)
   }
 }

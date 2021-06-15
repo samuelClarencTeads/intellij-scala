@@ -3,7 +3,7 @@ package annotator
 package gutter
 
 import java.util.function.Supplier
-import java.{util => ju}
+import java.{util as ju}
 
 import com.android.tools.idea.rendering.GutterIconRenderer
 import com.intellij.codeInsight.daemon.{LineMarkerInfo, LineMarkerProvider}
@@ -15,10 +15,10 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 
 final class RecursiveCallLineMarkerProvider extends LineMarkerProvider {
 
-  import RecursiveCallLineMarkerProvider._
-  import icons.Icons._
+  import RecursiveCallLineMarkerProvider.*
+  import icons.Icons.*
 
-  override def getLineMarkerInfo(element: PsiElement): LineMarkerInfo[_ <: PsiElement] = {
+  override def getLineMarkerInfo(element: PsiElement): LineMarkerInfo[? <: PsiElement] = {
     if (!GutterUtil.RecursionOption.isEnabled) {
       return null
     }

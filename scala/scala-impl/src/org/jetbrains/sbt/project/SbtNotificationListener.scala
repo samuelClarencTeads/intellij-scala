@@ -1,7 +1,7 @@
 package org.jetbrains.sbt
 package project
 
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.externalSystem.model.task.{ExternalSystemTaskId, ExternalSystemTaskNotificationListenerAdapter}
 
 /**

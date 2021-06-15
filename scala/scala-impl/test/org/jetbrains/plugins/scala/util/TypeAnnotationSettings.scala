@@ -14,7 +14,7 @@ object TypeAnnotationSettings {
   def set(project: Project, newSettings: ScalaCodeStyleSettings): Unit ={
     val settings: ScalaCodeStyleSettings = ScalaCodeStyleSettings.getInstance(project)
 
-    import settings._
+    import settings.*
 
     TYPE_ANNOTATION_PUBLIC_MEMBER = newSettings.TYPE_ANNOTATION_PUBLIC_MEMBER
     TYPE_ANNOTATION_PROTECTED_MEMBER = newSettings.TYPE_ANNOTATION_PROTECTED_MEMBER
@@ -42,7 +42,7 @@ object TypeAnnotationSettings {
   def alwaysAddType(settings: ScalaCodeStyleSettings): ScalaCodeStyleSettings ={
     val coppedSettings = settings.clone().asInstanceOf[ScalaCodeStyleSettings]
 
-    import coppedSettings._
+    import coppedSettings.*
 
     TYPE_ANNOTATION_PUBLIC_MEMBER = true
     TYPE_ANNOTATION_PROTECTED_MEMBER = true

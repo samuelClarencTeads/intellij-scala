@@ -6,7 +6,7 @@ package statements
 package params
 
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 
 /** 
 * @author Alexander Podkhalyuzin

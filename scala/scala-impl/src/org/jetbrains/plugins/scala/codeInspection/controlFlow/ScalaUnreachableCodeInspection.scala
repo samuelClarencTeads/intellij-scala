@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package controlFlow
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiElement, PsiElementVisitor}
 import org.jetbrains.annotations.Nls
@@ -16,7 +16,7 @@ import scala.collection.mutable
 
 final class ScalaUnreachableCodeInspection extends LocalInspectionTool {
 
-  import ScalaUnreachableCodeInspection._
+  import ScalaUnreachableCodeInspection.*
 
   protected def problemDescriptors(element: PsiElement,
                                    @Nls descriptionTemplate: String,

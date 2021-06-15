@@ -10,7 +10,7 @@ class SimpleRendererTest extends RendererTestBase {
     runDebugger() {
       waitForBreakpoint()
       for {
-        (variable, expected) <- variableToExpectedLabel
+        case (variable, expected) <- variableToExpectedLabel
       } {
         val (label, _) = renderLabelAndChildren(variable, _.getLabel, renderChildren = false, -1)
         assertEquals(expected, label)

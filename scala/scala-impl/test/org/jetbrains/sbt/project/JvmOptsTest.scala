@@ -5,7 +5,7 @@ import java.io.File
 import com.intellij.openapi.util.io.FileUtil
 import org.jetbrains.sbt.project.structure.{JvmOpts, SbtOpts}
 import org.junit.Test
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class JvmOptsTest {
 

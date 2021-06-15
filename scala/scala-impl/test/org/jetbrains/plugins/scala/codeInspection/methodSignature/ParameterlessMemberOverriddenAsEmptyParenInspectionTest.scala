@@ -7,8 +7,8 @@ import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaQ
 
 class ParameterlessMemberOverriddenAsEmptyParenInspectionTest extends ScalaQuickFixTestBase {
 
-  import CodeInsightTestFixture.{CARET_MARKER => CARET}
-  protected override val classOfInspection: Class[_ <: LocalInspectionTool] =
+  import CodeInsightTestFixture.{CARET_MARKER as CARET}
+  protected override val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[EmptyParenOverrideInspection.ParameterlessMemberOverriddenAsEmptyParenInspection]
 
   protected override val description: String =

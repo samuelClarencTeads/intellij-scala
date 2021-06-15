@@ -5,7 +5,7 @@ package api
 package base
 package types
 
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 
 /** 
 * @author Alexander Podkhalyuzin

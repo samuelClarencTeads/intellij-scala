@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils.parseRuleInBlock
  */
 sealed abstract class Body(indentationCanStartWithoutColon: Boolean = false) extends ParsingRule {
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   protected def statementRule: Stat
 

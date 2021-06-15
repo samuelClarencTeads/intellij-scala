@@ -2,16 +2,16 @@ package org.jetbrains.plugins.scala.codeInspection.scalastyle
 
 import java.io.File
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.ProjectUtil
 import com.intellij.openapi.roots.ProjectFileIndex
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{PsiDocumentManager, PsiElement, PsiFile}
-import org.jetbrains.plugins.scala.codeInspection.scalastyle.ScalastyleCodeInspection._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.scalastyle.ScalastyleCodeInspection.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.project.template.FileExt
-import org.scalastyle._
+import org.scalastyle.*
 
 import scala.collection.mutable
 

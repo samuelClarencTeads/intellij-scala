@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package testingSupport.test
 
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.{OptionExt, PsiElementExt}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
@@ -62,7 +62,7 @@ object TestConfigurationUtil {
   }
 
   private def getStaticTestNameElement(element: PsiElement, allowSymbolLiterals: Boolean): Option[Any] = {
-    import StringMethodNames._
+    import StringMethodNames.*
 
     def processNoArgMethod(refExpr: ScReferenceExpression): Option[String] = {
       val methodName = refExpr.refName

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.editor.documentationProvider
 
 import com.intellij.openapi.util.TextRange
 import org.jetbrains.plugins.scala.util.MarkersUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
 trait HtmlAssertions {
 

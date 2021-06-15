@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package worksheet.server
 
-import java.io._
+import java.io.*
 import com.intellij.openapi.compiler.{CompilerMessage, CompilerPaths}
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.module.Module
@@ -22,7 +22,7 @@ import org.jetbrains.plugins.scala.project.settings.ScalaCompilerSettings
 import org.jetbrains.plugins.scala.util.ScalaPluginJars
 import org.jetbrains.plugins.scala.worksheet.{WorksheetCompilerExtension, WorksheetUtils}
 import org.jetbrains.plugins.scala.worksheet.actions.WorksheetFileHook
-import org.jetbrains.plugins.scala.worksheet.server.RemoteServerConnector._
+import org.jetbrains.plugins.scala.worksheet.server.RemoteServerConnector.*
 import org.jetbrains.plugins.scala.worksheet.settings.WorksheetFileSettings
 
 // TODO: split to REPL and PLAIN args, change serialization format

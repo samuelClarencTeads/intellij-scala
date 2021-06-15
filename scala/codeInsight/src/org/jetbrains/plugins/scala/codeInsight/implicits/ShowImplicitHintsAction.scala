@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.codeInsight.implicits
 
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
 
 class ShowImplicitHintsAction extends ToggleAction(

@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.util
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.caches.ModTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ElementScope
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.MethodValue
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.api.{FunctionType, Parameteriz
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
 import org.jetbrains.plugins.scala.lang.psi.types.{PhysicalMethodSignature, ScExistentialArgument, ScExistentialType, ScParameterizedType, ScType}
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 
 object SAMUtil {
@@ -116,7 +116,7 @@ object SAMUtil {
           if (!hasValidConstructorAndSelfType(cls)) None
           else {
             for {
-              (method, methodSubst) <- cls.singleAbstractMethodWithSubstitutor
+              case (method, methodSubst) <- cls.singleAbstractMethodWithSubstitutor
               funType               <- method.functionType
             } yield {
               val substituted = methodSubst.followed(subst)(funType)

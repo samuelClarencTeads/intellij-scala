@@ -7,7 +7,7 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
 import com.intellij.psi.impl.source.tree.LeafPsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.macros.expansion.MacroExpansionLineMarkerProvider
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotation, ScAnnotationsHolder}
@@ -21,7 +21,7 @@ class MetaExpansionLineMarkerProvider extends MacroExpansionLineMarkerProvider {
   private val LOG = Logger.getInstance(getClass)
 
   override protected def getExpandMarker(element: PsiElement): Option[Marker] = {
-    import intellij.psi._
+    import intellij.psi.*
 
     val maybeAnnotation = element.getParent match {
       case holder: ScAnnotationsHolder => holder.annotations.find(_.isMetaMacro)

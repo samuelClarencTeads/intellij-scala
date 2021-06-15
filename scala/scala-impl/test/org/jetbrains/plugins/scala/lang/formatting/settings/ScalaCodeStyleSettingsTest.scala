@@ -8,7 +8,7 @@ import java.io.IOException
 import java.io.StringReader
 
 import org.jdom.input.SAXBuilder
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class ScalaCodeStyleSettingsTest extends TestCase {
 

@@ -12,8 +12,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSelfTypeElement
   * User: Alexander Podkhalyuzin
   * Date: 19.06.2009
   */
-class ScSelfTypeElementStubImpl(parent: StubElement[_ <: PsiElement],
-                                elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScSelfTypeElementStubImpl(parent: StubElement[? <: PsiElement],
+                                elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                                 name: String,
                                 override val typeText: Option[String],
                                 override val classNames: Array[String])

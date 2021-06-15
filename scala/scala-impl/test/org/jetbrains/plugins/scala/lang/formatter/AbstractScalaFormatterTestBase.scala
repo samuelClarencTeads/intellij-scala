@@ -17,11 +17,11 @@ import com.intellij.testFramework.LightIdeaTestCase
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.plugins.scala.ScalaLanguage
 import org.jetbrains.plugins.scala.extensions.{CharSeqExt, IteratorExt, PsiElementExt, StringExt}
-import org.jetbrains.plugins.scala.lang.formatter.AbstractScalaFormatterTestBase._
+import org.jetbrains.plugins.scala.lang.formatter.AbstractScalaFormatterTestBase.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.util.{MarkersUtils, TestUtils}
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Base class for java formatter tests that holds utility methods.
@@ -65,7 +65,7 @@ abstract class AbstractScalaFormatterTestBase extends LightIdeaTestCase {
     super.tearDown()
   }
 
-  import scala.jdk.CollectionConverters._
+  import scala.jdk.CollectionConverters.*
 
   private val Actions: Map[Action, TestFormatAction] = Map(
     Action.Reformat -> ((file, ranges) => {

@@ -3,7 +3,7 @@ package lang
 package formatting
 package settings
 
-import java.awt._
+import java.awt.*
 import java.awt.event.{FocusEvent, FocusListener}
 import java.io.File
 import java.util.Collections.emptyList
@@ -19,7 +19,7 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory.getSyntaxHighlighter
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui._
+import com.intellij.openapi.ui.*
 import com.intellij.openapi.ui.popup.{Balloon, JBPopupFactory}
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.codeStyle.CodeStyleSettings
@@ -28,11 +28,11 @@ import com.intellij.ui.components.panels.HorizontalLayout
 import com.intellij.ui.components.{JBCheckBox, JBTextField}
 import com.intellij.uiDesigner.core.{GridConstraints, GridLayoutManager, Spacer}
 
-import javax.swing._
+import javax.swing.*
 import javax.swing.event.ChangeEvent
 import org.apache.commons.lang.StringUtils
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService.ConfigResolveError
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService.ConfigResolveError.{ConfigError, ConfigScalafmtResolveError}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicService.{DefaultVersion, ScalafmtVersion}
@@ -44,7 +44,7 @@ import scala.annotation.nowarn
 
 final class ScalaFmtSettingsPanel(settings: CodeStyleSettings) extends ScalaCodeStylePanelBase(settings, "Scalafmt") {
 
-  import ScalaFmtSettingsPanel._
+  import ScalaFmtSettingsPanel.*
 
   private val Log = Logger.getInstance(getClass)
 
@@ -158,7 +158,7 @@ final class ScalaFmtSettingsPanel(settings: CodeStyleSettings) extends ScalaCode
   }
 
   private def reportConfigResolveError(configResolveError: ConfigResolveError): Unit = {
-    import ConfigResolveError._
+    import ConfigResolveError.*
     configResolveError match {
       case ConfigFileNotFound(configPath)      => reportConfigFileNotFound(configPath)
       case ConfigParseError(_, exception)      => reportConfigParseError(exception.getMessage)
@@ -282,7 +282,7 @@ final class ScalaFmtSettingsPanel(settings: CodeStyleSettings) extends ScalaCode
     }
 
   private def buildInnerPanel: JPanel = {
-    import GridConstraints._
+    import GridConstraints.*
 
     def constraint(row: Int, column: Int, rowSpan: Int, colSpan: Int, anchor: Int, fill: Int, HSizePolicy: Int, VSizePolicy: Int) =
       new GridConstraints(row, column, rowSpan, colSpan, anchor, fill, HSizePolicy, VSizePolicy, null, null, null, 0, false)

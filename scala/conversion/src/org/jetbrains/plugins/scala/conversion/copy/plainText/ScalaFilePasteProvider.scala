@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.conversion.copy.plainText
 
 import java.awt.datatransfer.DataFlavor
 import java.io.File
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.ide.{IdeView, PasteProvider}
 import com.intellij.openapi.actionSystem.{CommonDataKeys, DataContext, LangDataKeys}
@@ -11,15 +11,15 @@ import com.intellij.openapi.ide.CopyPasteManager
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages.showErrorDialog
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.plugins.scala.conversion.ScalaConversionBundle
-import org.jetbrains.plugins.scala.conversion.copy.plainText.ScalaFilePasteProvider._
+import org.jetbrains.plugins.scala.conversion.copy.plainText.ScalaFilePasteProvider.*
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, ToNullSafe, inWriteCommandAction, startCommand}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.project.ModuleExt
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 final class ScalaFilePasteProvider extends PasteProvider {
@@ -80,8 +80,8 @@ final class ScalaFilePasteProvider extends PasteProvider {
 
 private object ScalaFilePasteProvider {
 
-  import CommonDataKeys._
-  import LangDataKeys._
+  import CommonDataKeys.*
+  import LangDataKeys.*
 
   implicit class DataContextExt(private val context: DataContext) extends AnyVal {
     def maybeIdeView: Option[IdeView] = Option(IDE_VIEW.getData(context))

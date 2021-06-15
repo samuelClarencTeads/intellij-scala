@@ -10,7 +10,7 @@ import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.util.execution.ParametersListUtil
 
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.extensions.Binding
 
 /**
@@ -18,12 +18,12 @@ import org.jetbrains.plugins.scala.extensions.Binding
   */
 final class TypeAnnotationsPanel(settings: CodeStyleSettings) extends TypeAnnotationsPanelBase(settings) {
 
-  import TypeAnnotationsPanel._
+  import TypeAnnotationsPanel.*
 
-  private def bindingsFor(settings: CodeStyleSettings): Seq[Binding[_]] = {
+  private def bindingsFor(settings: CodeStyleSettings): Seq[Binding[?]] = {
     val scalaSettings = settings.getCustomSettings(classOf[ScalaCodeStyleSettings])
 
-    import scalaSettings._
+    import scalaSettings.*
 
     Seq(
       new Binding(

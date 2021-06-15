@@ -3,7 +3,7 @@ package annotator
 package element
 
 import org.jetbrains.plugins.scala.annotator.template.PrivateBeanProperty
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.macros.expansion.RecompileAnnotationAction
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotation, ScAnnotationsHolder}
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
@@ -28,7 +28,7 @@ object ScAnnotationAnnotator extends ElementAnnotator[ScAnnotation] {
                                  (implicit holder: ScalaAnnotationHolder): Unit = {
     import ScalaProjectSettings.ScalaMetaMode
 
-    import scala.meta.intellij.psi._
+    import scala.meta.intellij.psi.*
     if (element.isMetaMacro) {
       if (!MetaExpansionsManager.isUpToDate(element)) {
         val warning = holder.createWarningAnnotation(element, ScalaBundle.message("scala.meta.recompile"))

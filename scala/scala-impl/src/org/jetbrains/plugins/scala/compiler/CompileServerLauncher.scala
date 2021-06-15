@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils
 import org.jetbrains.annotations.Nls
 import org.jetbrains.jps.api.GlobalOptions
 import org.jetbrains.jps.cmdline.ClasspathBootstrap
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.plugins.scala.server.{CompileServerProperties, CompileServerToken}
 import org.jetbrains.plugins.scala.util.teamcity.TeamcityUtils
@@ -28,9 +28,9 @@ import java.util.UUID
 import javax.swing.event.HyperlinkEvent
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
-import scala.util.control.Exception._
+import scala.util.control.Exception.*
 
 object CompileServerLauncher {
 

@@ -123,7 +123,7 @@ object RunWorksheetAction {
   }
 
   private def reportError(project: Project, error: RunWorksheetActionResult.Error): Unit = {
-    import RunWorksheetActionResult._
+    import RunWorksheetActionResult.*
     error match {
       case NoModuleError                    => WorksheetEvaluationErrorReporter.showConfigErrorNotification(project, WorksheetBundle.message("worksheet.config.error.no.module.classpath.specified"))
       case AlreadyRunning                   => // skip, there already exists icon representation that WS is running

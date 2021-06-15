@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef
 
 import com.intellij.psi.{PsiClass, PsiMember, PsiMethod, PsiNamedElement}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.{PropertyMethods, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods.{DefinitionRole, EQ, SETTER, isApplicable, methodName}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
@@ -75,7 +75,7 @@ object TypesCollector extends SignatureProcessor[TypeSignature] {
   }
 
   override def processRefinement(cp: ScCompoundType, sink: Sink): Unit = {
-    for ((_, aliasSig) <- cp.typesMap) {
+    for (case (_, aliasSig) <- cp.typesMap) {
       process(TypeSignature(aliasSig.typeAlias, aliasSig.substitutor), sink)
     }
   }
@@ -136,7 +136,7 @@ abstract class TermsCollector extends SignatureProcessor[TermSignature] {
   }
 
   override def processRefinement(cp: ScCompoundType, sink: Sink): Unit = {
-    for ((sign, _) <- cp.signatureMap) {
+    for (case (sign, _) <- cp.signatureMap) {
       process(sign, sink)
     }
   }

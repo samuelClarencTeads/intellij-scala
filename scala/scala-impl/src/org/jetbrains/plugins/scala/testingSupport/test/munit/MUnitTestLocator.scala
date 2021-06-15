@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBod
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.testingSupport.locationProvider.PsiLocationWithName
-import org.jetbrains.plugins.scala.testingSupport.test.munit.MUnitTestLocator._
+import org.jetbrains.plugins.scala.testingSupport.test.munit.MUnitTestLocator.*
 
 import scala.jdk.CollectionConverters.SeqHasAsJava
 
@@ -30,7 +30,7 @@ final class MUnitTestLocator extends SMTestLocator {
     path: String,
     project: Project,
     scope: GlobalSearchScope
-  ): util.List[Location[_ <: PsiElement]] =
+  ): util.List[Location[? <: PsiElement]] =
     protocol match {
       case JavaTestLocator.SUITE_PROTOCOL =>
         // delegate GoTo for test class to java implementation, cause it already works fine
@@ -64,7 +64,7 @@ object MUnitTestLocator {
     testLocationUrl: String,
     project: Project,
     scope: GlobalSearchScope
-  ): Option[Location[_ <: PsiElement]] =
+  ): Option[Location[? <: PsiElement]] =
     parseLocationUrl(testLocationUrl) match {
       case Some((clazzName, testName)) =>
         findTestLocationByStaticTestName(clazzName, testName, project, scope)
@@ -77,7 +77,7 @@ object MUnitTestLocator {
     testName: String,
     project: Project,
     scope: GlobalSearchScope
-  ): Option[Location[_ <: PsiElement]] = {
+  ): Option[Location[? <: PsiElement]] = {
     val clazzOpt = ScalaPsiManager.instance(project).getCachedClass(scope, clazzName)
     val templateBody = clazzOpt.filterByType[ScClass].flatMap(_.extendsBlock.templateBody)
     templateBody.flatMap(findTestLocationByStaticTestName(_, testName))
@@ -86,7 +86,7 @@ object MUnitTestLocator {
   private def findTestLocationByStaticTestName(
     templateBody: ScTemplateBody,
     testName: String,
-  ): Option[Location[_ <: PsiElement]] = {
+  ): Option[Location[? <: PsiElement]] = {
     val methodCalls = templateBody.children.filterByType[ScMethodCall].toArray // TODO
     val testMethodCalls = methodCalls.flatMap(testRefWithTestName)
     val found = testMethodCalls.find(_._2 == testName)

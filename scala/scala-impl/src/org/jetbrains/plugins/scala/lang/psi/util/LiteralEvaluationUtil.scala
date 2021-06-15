@@ -138,7 +138,7 @@ object LiteralEvaluationUtil {
   def evaluateConstInfix(left: Any, right: Any,
                          name: String,
                          allowToStringConversion: Boolean = false): Any = {
-    import SyntheticClasses._
+    import SyntheticClasses.*
     val isNumericComp = numeric_comp_ops.contains(name)
     val isArithOp = numeric_arith_ops.contains(name)
     val isBitwiseOp = bitwise_bin_ops.contains(name)

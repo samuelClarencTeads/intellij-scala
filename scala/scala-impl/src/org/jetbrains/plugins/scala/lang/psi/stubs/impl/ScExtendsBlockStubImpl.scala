@@ -13,7 +13,7 @@ import scala.collection.immutable.ArraySeq
 /**
   * @author ilyas
   */
-class ScExtendsBlockStubImpl(parent: StubElement[_ <: PsiElement],
-                             elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScExtendsBlockStubImpl(parent: StubElement[? <: PsiElement],
+                             elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                              override val baseClasses: ArraySeq[String])
   extends StubBase[ScExtendsBlock](parent, elementType) with ScExtendsBlockStub

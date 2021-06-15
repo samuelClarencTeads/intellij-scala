@@ -27,8 +27,8 @@ class CachedWithoutModificationCount(valueWrapper: ValueWrapper,
 
 object CachedWithoutModificationCount {
   def cachedWithoutModificationCountImpl(c: whitebox.Context)(annottees: c.Tree*): c.Expr[Any] = {
-    import CachedMacroUtil._
-    import c.universe._
+    import CachedMacroUtil.*
+    import c.universe.*
     implicit val x: c.type = c
 
     def parameters: (ValueWrapper, Tree, Seq[Tree]) = {

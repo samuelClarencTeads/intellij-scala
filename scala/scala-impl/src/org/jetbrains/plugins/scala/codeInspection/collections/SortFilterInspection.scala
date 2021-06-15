@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package collections
 
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 import scala.collection.immutable.ArraySeq
 

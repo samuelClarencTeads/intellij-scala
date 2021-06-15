@@ -11,21 +11,21 @@ import com.intellij.openapi.externalSystem.util.ExternalSystemUtil
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.{Project, ProjectUtil}
 import com.intellij.openapi.vfs.VfsUtil
-import org.jetbrains.bsp._
+import org.jetbrains.bsp.*
 import org.jetbrains.bsp.project.BspExternalSystemManager
-import org.jetbrains.bsp.protocol.BspCommunication._
+import org.jetbrains.bsp.protocol.BspCommunication.*
 import org.jetbrains.bsp.protocol.BspNotifications.BspNotification
-import org.jetbrains.bsp.protocol.session.BspServerConnector._
-import org.jetbrains.bsp.protocol.session.BspSession._
-import org.jetbrains.bsp.protocol.session._
+import org.jetbrains.bsp.protocol.session.BspServerConnector.*
+import org.jetbrains.bsp.protocol.session.BspSession.*
+import org.jetbrains.bsp.protocol.session.*
 import org.jetbrains.bsp.protocol.session.jobs.BspSessionJob
 import org.jetbrains.bsp.settings.BspProjectSettings.BspServerConfig
 import org.jetbrains.bsp.settings.{BspExecutionSettings, BspProjectSettings, BspSettings}
 import org.jetbrains.plugins.scala.build.BuildReporter
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.Future
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.Try
 
 class BspCommunication private[protocol](base: File, config: BspServerConfig) extends Disposable {
@@ -45,7 +45,7 @@ class BspCommunication private[protocol](base: File, config: BspServerConfig) ex
     }
     argvExitCommands
   }
-  private def acquireSessionAndRun(job: BspSessionJob[_,_])(implicit reporter: BuildReporter):
+  private def acquireSessionAndRun(job: BspSessionJob[?,?])(implicit reporter: BuildReporter):
   Either[BspError, BspSession] = session.synchronized {
     session.get() match {
       case Some(currentSession) =>
@@ -57,7 +57,7 @@ class BspCommunication private[protocol](base: File, config: BspServerConfig) ex
     }
   }
 
-  private def openSession(job: BspSessionJob[_,_])(implicit reporter: BuildReporter): Either[BspError, BspSession] = {
+  private def openSession(job: BspSessionJob[?,?])(implicit reporter: BuildReporter): Either[BspError, BspSession] = {
     val sessionBuilder = prepareSession(base, config)
 
     sessionBuilder match {

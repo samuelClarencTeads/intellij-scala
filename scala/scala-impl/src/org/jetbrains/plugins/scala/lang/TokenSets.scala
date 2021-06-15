@@ -6,9 +6,9 @@ package lang
   */
 
 import com.intellij.psi.tree.{IElementType, TokenSet}
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType._
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
-import org.jetbrains.plugins.scala.lang.parser.ScalaElementType._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType.*
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
+import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.*
 import org.jetbrains.plugins.scala.util.MemberElementTypesExtension
 
 object TokenSets {
@@ -77,10 +77,10 @@ object TokenSets {
 
   implicit class TokenSetExt(private val set: TokenSet) extends AnyVal {
     def ++ (other: TokenSet): TokenSet = TokenSet.orSet(set, other)
-    def ++ (other: IElementType*): TokenSet = TokenSet.orSet(set, TokenSet.create(other: _*))
+    def ++ (other: IElementType*): TokenSet = TokenSet.orSet(set, TokenSet.create(other*))
     def + (other: IElementType): TokenSet = TokenSet.orSet(set, TokenSet.create(other))
     def -- (other: TokenSet): TokenSet = TokenSet.andNot(set, other)
-    def -- (other: IElementType*): TokenSet = TokenSet.andNot(set, TokenSet.create(other: _*))
+    def -- (other: IElementType*): TokenSet = TokenSet.andNot(set, TokenSet.create(other*))
     def - (other: IElementType): TokenSet = set -- TokenSet.create(other)
   }
 }

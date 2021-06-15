@@ -9,7 +9,7 @@ import com.intellij.testFramework.EditorTestUtil
  */
 class SizeToLengthTest extends OperationsOnCollectionInspectionTest {
 
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[SizeToLengthInspection]
 
   override protected val hint: String =

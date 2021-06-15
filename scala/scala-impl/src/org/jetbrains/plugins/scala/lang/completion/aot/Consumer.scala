@@ -5,7 +5,7 @@ package aot
 import com.intellij.codeInsight.completion.{CompletionParameters, CompletionResult, CompletionResultSet}
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementDecorator, LookupElementPresentation}
 import com.intellij.openapi.util.text.StringUtil.{capitalize, decapitalize}
-import com.intellij.util.{Consumer => IJConsumer}
+import com.intellij.util.{Consumer as IJConsumer}
 
 import scala.collection.mutable
 
@@ -29,7 +29,7 @@ private[completion] sealed abstract class Consumer(originalResultSet: Completion
   }
 
   protected def consume(lookupElement: LookupElement, itemText: String): Unit = {
-    import LookupElementDecorator._
+    import LookupElementDecorator.*
 
     val decoratedLookupElement = withInsertHandler(
       withRenderer(lookupElement, createRenderer(itemText)),

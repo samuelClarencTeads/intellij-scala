@@ -42,7 +42,7 @@ package object hints {
 
   private[hints] def textPartsOf(tpe: ScType, maxChars: Int)(implicit scheme: EditorColorsScheme, context: TypePresentationContext): Seq[Text] = {
     def toText(diff: Tree[TypeDiff]): Text = diff match {
-      case Node(diffs @_*) =>
+      case Node(diffs*) =>
         Text(foldedString,
           foldedAttributes(error = false),
           expansion = Some(() => diffs.map(toText)))

@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
 import com.intellij.psi.PsiReference
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
   * Created by katejim on 5/26/16.

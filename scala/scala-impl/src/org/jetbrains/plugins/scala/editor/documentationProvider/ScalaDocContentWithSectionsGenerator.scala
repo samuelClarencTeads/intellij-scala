@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScDocCommentOwner, ScTemplateDefinition}
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing
-import org.jetbrains.plugins.scala.lang.scaladoc.psi.api._
+import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.*
 
 import scala.collection.immutable.ArraySeq
 
@@ -114,7 +114,7 @@ private class ScalaDocContentWithSectionsGenerator(
 
   private def appendSections(sections: Seq[Section], result: StringBuilder): Unit =
     sections.foreach { section =>
-      import DocumentationMarkup._
+      import DocumentationMarkup.*
       result
         .append(SECTION_HEADER_START)
         .append(section.title)

@@ -4,7 +4,7 @@ import java.net.URI
 import java.util.concurrent.CompletableFuture
 
 import ch.epfl.scala.bsp4j
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.build.FilePosition
 import com.intellij.build.events.impl.{FailureResultImpl, SkippedResultImpl, SuccessResultImpl}
 import com.intellij.execution.process.AnsiEscapeDecoder.ColoredTextAcceptor
@@ -12,20 +12,20 @@ import com.intellij.execution.process.{AnsiEscapeDecoder, ProcessOutputTypes}
 import com.intellij.openapi.progress.{PerformInBackgroundOption, ProcessCanceledException, ProgressIndicator, Task}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
-import mercator._
+import mercator.*
 import org.eclipse.lsp4j.jsonrpc.ResponseErrorException
 import org.jetbrains.bsp.BspBundle
-import org.jetbrains.bsp.BspUtil._
+import org.jetbrains.bsp.BspUtil.*
 import org.jetbrains.bsp.project.BspTask.{BspTarget, TextCollector}
 import org.jetbrains.bsp.protocol.BspJob.CancelCheck
 import org.jetbrains.bsp.protocol.session.BspSession.{BspServer, NotificationAggregator, ProcessLogger}
 import org.jetbrains.bsp.protocol.{BspCommunication, BspJob, BspNotifications}
 import org.jetbrains.plugins.scala.build.BuildMessages.EventId
 import org.jetbrains.plugins.scala.build.BuildToolWindowReporter.CancelBuildAction
-import org.jetbrains.plugins.scala.build._
+import org.jetbrains.plugins.scala.build.*
 import org.jetbrains.plugins.scala.util.CompilationId
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 import scala.concurrent.{Future, Promise}
 import scala.util.Try
@@ -42,7 +42,7 @@ class BspTask[T](project: Project,
 
   private val diagnostics: mutable.Map[URI, List[Diagnostic]] = mutable.Map.empty
 
-  import BspNotifications._
+  import BspNotifications.*
   private def notifications(implicit reporter: BuildReporter): NotificationAggregator[BuildMessages] =
     (messages, notification) => notification match {
     case LogMessage(params) =>
@@ -228,7 +228,7 @@ class BspTask[T](project: Project,
     new AnsiEscapeDecoder().escapeText(text, ProcessOutputTypes.STDOUT, textNoAnsiAcceptor)
     val textNoAnsi = textNoAnsiAcceptor.result
 
-    import bsp4j.MessageType._
+    import bsp4j.MessageType.*
     params.getType match {
       case ERROR =>
         reporter.error(textNoAnsi, None)
@@ -266,7 +266,7 @@ class BspTask[T](project: Project,
           val position = Some(new FilePosition(uri.toFile, start.getLine, start.getCharacter, end.getLine, end.getCharacter))
           val text = s"${diagnostic.getMessage} [${start.getLine + 1}:${start.getCharacter + 1}]"
 
-          import bsp4j.DiagnosticSeverity._
+          import bsp4j.DiagnosticSeverity.*
           Option(diagnostic.getSeverity)
             .map {
               case ERROR =>
@@ -335,7 +335,7 @@ object BspTask {
   private class TextCollector extends ColoredTextAcceptor {
     private val builder = new StringBuilder()
 
-    override def coloredTextAvailable(text: String, attributes: Key[_]): Unit =
+    override def coloredTextAvailable(text: String, attributes: Key[?]): Unit =
       builder.append(text)
 
     def result: String = builder.result()

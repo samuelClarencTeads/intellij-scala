@@ -5,22 +5,22 @@ import java.util.concurrent.CompletableFuture.completedFuture
 import java.{lang, util}
 
 import com.intellij.debugger.engine.DebugProcessImpl.getDefaultRenderer
-import com.intellij.debugger.engine._
+import com.intellij.debugger.engine.*
 import com.intellij.debugger.engine.evaluation.expression.{Evaluator, ExpressionEvaluator, ExpressionEvaluatorImpl, TypeEvaluator}
 import com.intellij.debugger.engine.evaluation.{CodeFragmentKind, EvaluateException, EvaluationContext, TextWithImportsImpl}
 import com.intellij.debugger.impl.DebuggerUtilsAsync
 import com.intellij.debugger.settings.NodeRendererSettings
-import com.intellij.debugger.ui.tree.render._
+import com.intellij.debugger.ui.tree.render.*
 import com.intellij.debugger.ui.tree.{DebuggerTreeNode, NodeDescriptor, ValueDescriptor}
 import com.intellij.debugger.{DebuggerContext, JavaDebuggerBundle}
 import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.psi.PsiElement
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 import org.jetbrains.plugins.scala.debugger.evaluation.evaluator.{ScalaDuplexEvaluator, ScalaFieldEvaluator, ScalaMethodEvaluator, ScalaThisEvaluator}
 import org.jetbrains.plugins.scala.debugger.filters.ScalaDebuggerSettings
-import org.jetbrains.plugins.scala.debugger.ui.ScalaCollectionRenderer._
+import org.jetbrains.plugins.scala.debugger.ui.ScalaCollectionRenderer.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
 
 import scala.collection.mutable
@@ -56,7 +56,7 @@ object ScalaCollectionRenderer {
 
   def instanceOfAsync(tp: Type, baseClassNames: String*): CompletableFuture[Boolean] = {
     val futures = baseClassNames.map(DebuggerUtilsAsync.instanceOf(tp, _).thenApply[Boolean](_.booleanValue()))
-    forallAsync(futures: _*)
+    forallAsync(futures*)
   }
 
   def andAsync(f1: CompletableFuture[Boolean], f2: CompletableFuture[Boolean]): CompletableFuture[Boolean] =
@@ -118,11 +118,11 @@ object ScalaCollectionRenderer {
     evaluateInt(value, evaluationContext, sizeEval(evaluationContext))
 
   private def checkNotCollectionOfKind(tp: Type, shortNames: String*)(baseClassNames: String*) =
-    !shortNames.exists(tp.name().contains(_)) && !instanceOf(tp, baseClassNames: _*)
+    !shortNames.exists(tp.name().contains(_)) && !instanceOf(tp, baseClassNames*)
 
   private def checkNotCollectionOfKindAsync(tp: Type, shortNames: String*)(baseClassNames: String*): CompletableFuture[Boolean] =
     if (shortNames.exists(tp.name().contains(_))) completedFuture(false)
-    else instanceOfAsync(tp, baseClassNames: _*).thenApply(!_)
+    else instanceOfAsync(tp, baseClassNames*).thenApply(!_)
 
   private def notStream(tp: Type): Boolean =
     checkNotCollectionOfKind(tp, "Stream", "LazyList")(streamClassName, lazyList_2_13)

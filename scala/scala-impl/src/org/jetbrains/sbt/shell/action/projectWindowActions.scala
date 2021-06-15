@@ -8,10 +8,10 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.sbt.{SbtBundle, SbtUtil}
 import org.jetbrains.sbt.project.data.{SbtCommandData, SbtNamedKey, SbtSettingData, SbtTaskData}
 import org.jetbrains.sbt.shell.SbtShellCommunication
-import SbtNodeAction._
+import SbtNodeAction.*
 import org.jetbrains.annotations.NonNls
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class SbtNodeAction[T <: SbtNamedKey](c: Class[T]) extends ExternalSystemNodeAction[T](c) {
 
@@ -22,7 +22,7 @@ abstract class SbtNodeAction[T <: SbtNamedKey](c: Class[T]) extends ExternalSyst
      val projectScope = for {
        selected <- ExternalSystemDataKeys.SELECTED_NODES.getData(e.getDataContext).asScala.headOption
        groupNode <- Option(selected.getParent)
-       moduleNode@(_n: ModuleNode) <- Option(groupNode.getParent)
+       case moduleNode@(_n: ModuleNode) <- Option(groupNode.getParent)
        esModuleData <- Option(moduleNode.getData)
        sbtModuleData <- SbtUtil.getSbtModuleData(e.getProject, esModuleData.getId)
      } yield {

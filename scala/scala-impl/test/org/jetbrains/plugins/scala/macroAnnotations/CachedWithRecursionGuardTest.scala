@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.macroAnnotations
 import java.util.concurrent.atomic.AtomicInteger
 
 import com.intellij.psi.util.PsiModificationTracker
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
   * Author: Svyatoslav Ilinskiy

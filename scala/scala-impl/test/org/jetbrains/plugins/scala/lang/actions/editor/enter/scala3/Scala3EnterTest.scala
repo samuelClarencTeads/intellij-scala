@@ -8,7 +8,7 @@ class Scala3EnterTest extends Scala3EnterBaseTest
   with CheckIndentAfterTypingCodeOps
   with DoEditorStateTestOps {
 
-  import Scala3TestDataBracelessCode._
+  import Scala3TestDataBracelessCode.*
 
   private def doTypingTestInAllContexts(
     contextCode: String,

@@ -4,7 +4,7 @@ package psi
 package api
 package statements
 
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 
 /** 
 * @author ilyas

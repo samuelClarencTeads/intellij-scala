@@ -2,23 +2,23 @@ package org.jetbrains.bsp.project.importing
 
 import java.io.File
 import java.nio.file.Path
-import ch.epfl.scala.bsp.testkit.gen.Bsp4jGenerators._
-import ch.epfl.scala.bsp.testkit.gen.bsp4jArbitrary._
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp.testkit.gen.Bsp4jGenerators.*
+import ch.epfl.scala.bsp.testkit.gen.bsp4jArbitrary.*
+import ch.epfl.scala.bsp4j.*
 import com.google.gson.{Gson, GsonBuilder}
 import com.intellij.openapi.externalSystem.model.ProjectKeys
 import com.intellij.pom.java.LanguageLevel
 import org.jetbrains.bsp.project.importing.BspResolverDescriptors.{ModuleDescription, ProjectModules, ScalaModule, SourceDirectory}
-import org.jetbrains.bsp.project.importing.BspResolverLogic._
-import org.jetbrains.bsp.project.importing.Generators._
+import org.jetbrains.bsp.project.importing.BspResolverLogic.*
+import org.jetbrains.bsp.project.importing.Generators.*
 import org.jetbrains.plugins.scala.SlowTests
 import org.junit.experimental.categories.Category
 import org.junit.{Ignore, Test}
 import org.scalacheck.Prop.{forAll, propBoolean}
-import org.scalacheck._
+import org.scalacheck.*
 import org.scalatestplus.junit.AssertionsForJUnit
 import org.scalatestplus.scalacheck.Checkers
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @Category(Array(classOf[SlowTests]))
 class BspResolverLogicProperties extends AssertionsForJUnit with Checkers {

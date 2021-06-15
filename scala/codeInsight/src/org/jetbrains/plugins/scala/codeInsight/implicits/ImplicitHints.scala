@@ -15,7 +15,7 @@ private[codeInsight] object ImplicitHints {
   def enabled: Boolean = _enabled
 
   def enabled_=(b: Boolean): Unit = {
-    import ImplicitShortcuts._
+    import ImplicitShortcuts.*
 
     _enabled = b
     _expanded = false
@@ -29,7 +29,7 @@ private[codeInsight] object ImplicitHints {
   def expanded: Boolean = _expanded
 
   def expanded_=(b: Boolean): Unit = {
-    import ImplicitShortcuts._
+    import ImplicitShortcuts.*
 
     _expanded = b
     removeAllShortcuts(ShowImplicitHintsAction.Id)

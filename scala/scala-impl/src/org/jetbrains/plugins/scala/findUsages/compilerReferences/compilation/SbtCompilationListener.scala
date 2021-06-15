@@ -10,8 +10,8 @@ import com.intellij.util.messages.Topic
  * see also [[SbtCompilationWatcher]]
  */
 trait SbtCompilationListener extends EventListener {
-  import SbtCompilationListener._
-  import ProjectIdentifier._
+  import SbtCompilationListener.*
+  import ProjectIdentifier.*
 
   def beforeCompilationStart(project: ProjectBase, compilationId: UUID): Unit          = ()
   def connectionFailure(project: ProjectIdentifier, compilationId: Option[UUID]): Unit = ()

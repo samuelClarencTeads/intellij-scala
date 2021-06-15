@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.project.ProjectContext
 
-final class ScLiteralType private(val value: ScLiteral.Value[_],
+final class ScLiteralType private(val value: ScLiteral.Value[?],
                                   val allowWiden: Boolean)
                                  (implicit project: Project)
   extends api.ValueType with LeafType {
@@ -34,16 +34,16 @@ object ScLiteralType {
 
   import ScLiteral.Value
 
-  def apply(value: Value[_],
+  def apply(value: Value[?],
             allowWiden: Boolean = true)
            (implicit project: Project) =
     new ScLiteralType(value, allowWiden)
 
-  def unapply(literalType: ScLiteralType): Some[(Value[_], Boolean)] =
+  def unapply(literalType: ScLiteralType): Some[(Value[?], Boolean)] =
     Some(literalType.value, literalType.allowWiden)
 
   def widenRecursive(`type`: ScType): ScType = {
-    import api._
+    import api.*
     import recursiveUpdate.AfterUpdate.{ProcessSubtypes, ReplaceWith, Stop}
 
     def isSingleton(param: ScTypeParam) = param.upperBound.exists {

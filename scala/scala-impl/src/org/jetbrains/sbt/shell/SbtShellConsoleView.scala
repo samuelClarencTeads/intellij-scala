@@ -6,7 +6,7 @@ import com.intellij.execution.actions.ClearConsoleAction
 import com.intellij.execution.configurations.RemoteConnection
 import com.intellij.execution.console.LanguageConsoleImpl
 import com.intellij.execution.filters.UrlFilter.UrlFilterProvider
-import com.intellij.execution.filters._
+import com.intellij.execution.filters.*
 import com.intellij.openapi.actionSystem.{ActionGroup, AnAction, DefaultActionGroup}
 import com.intellij.openapi.editor.actions.ToggleUseSoftWrapsToolbarAction
 import com.intellij.openapi.editor.event.{EditorMouseEvent, EditorMouseListener}
@@ -15,7 +15,7 @@ import com.intellij.openapi.editor.{Editor, EditorFactory}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.IdeFocusManager
 import com.intellij.psi.search.GlobalSearchScope
-import org.jetbrains.sbt.shell.action._
+import org.jetbrains.sbt.shell.action.*
 
 import java.util.Collections
 import scala.collection.mutable
@@ -111,7 +111,7 @@ object SbtShellConsoleView {
   }
 
   private def filePatternFilters(project: Project) = {
-    import PatternHyperlinkPart._
+    import PatternHyperlinkPart.*
 
     def pattern(patternMacro: String) = new RegexpFilter(project, patternMacro).getPattern
 

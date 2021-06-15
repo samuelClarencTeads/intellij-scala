@@ -3,7 +3,7 @@ package codeInspection
 package collections
 
 import com.intellij.psi.PsiMethod
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 
 import scala.collection.immutable.ArraySeq

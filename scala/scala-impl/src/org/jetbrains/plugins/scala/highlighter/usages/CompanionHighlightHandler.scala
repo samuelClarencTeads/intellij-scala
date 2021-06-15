@@ -13,13 +13,13 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinitio
 private class CompanionHighlightHandler(keyword: PsiElement, definition: ScTypeDefinition, editor: Editor, file: PsiFile)
   extends HighlightUsagesHandlerBase[PsiElement](editor, file) {
 
-  override def computeUsages(targets: util.List[_ <: PsiElement]): Unit =
+  override def computeUsages(targets: util.List[? <: PsiElement]): Unit =
     definition.baseCompanion.map(_.nameId.getPrevSiblingNotWhitespace).foreach { companionKeyword =>
       myReadUsages.add(keyword.getTextRange)
       myReadUsages.add(companionKeyword.getTextRange)
     }
 
-  override def selectTargets(targets: util.List[_ <: PsiElement], selectionConsumer: Consumer[_ >: util.List[_ <: PsiElement]]): Unit = {
+  override def selectTargets(targets: util.List[? <: PsiElement], selectionConsumer: Consumer[? >: util.List[? <: PsiElement]]): Unit = {
     selectionConsumer.consume(targets)
   }
 

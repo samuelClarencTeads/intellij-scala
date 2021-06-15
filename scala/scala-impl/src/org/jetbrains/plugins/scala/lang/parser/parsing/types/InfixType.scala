@@ -107,7 +107,7 @@ trait InfixType {
       }
       else {
         markerList.head.drop()
-        for (x: PsiBuilder.Marker <- markerList.tail) x.done(ScalaElementType.INFIX_TYPE)
+        for (case x: PsiBuilder.Marker <- markerList.tail) x.done(ScalaElementType.INFIX_TYPE)
       }
     }
     else {
@@ -115,7 +115,7 @@ trait InfixType {
         infixTypeMarker.drop()
       }
       else {
-        for (x: PsiBuilder.Marker <- markerList) x.drop()
+        for (case x: PsiBuilder.Marker <- markerList) x.drop()
       }
     }
     true

@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
 
 class Scala3DeprecatedPackageObjectInspection extends AbstractRegisteredInspection {
-  import Scala3DeprecatedPackageObjectInspection._
+  import Scala3DeprecatedPackageObjectInspection.*
 
   override protected def problemDescriptor(
     element:             PsiElement,

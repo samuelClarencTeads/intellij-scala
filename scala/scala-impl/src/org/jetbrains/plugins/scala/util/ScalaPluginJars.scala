@@ -48,8 +48,8 @@ object IntellijPlatformJars {
   val jpsBuildersJar = new File(PathUtil.getJarPathForClass(classOf[BuilderService]))
   val utilJar        = new File(PathUtil.getJarPathForClass(classOf[FileUtil]))
   val trove4jJar     = new File(PathUtil.getJarPathForClass(classOf[TByteArrayList]))
-  val fastUtilJar    = new File(PathUtil.getJarPathForClass(classOf[Int2ObjectMap[_]]))
-  val protobufJava   = new File(PathUtil.getJarPathForClass(classOf[GeneratedMessageLite[_, _]]))
+  val fastUtilJar    = new File(PathUtil.getJarPathForClass(classOf[Int2ObjectMap[?]]))
+  val protobufJava   = new File(PathUtil.getJarPathForClass(classOf[GeneratedMessageLite[?, ?]]))
 }
 
 object LibraryJars {

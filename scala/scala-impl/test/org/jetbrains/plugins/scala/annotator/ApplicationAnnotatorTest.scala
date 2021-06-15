@@ -125,7 +125,7 @@ class ApplicationAnnotatorTest extends ApplicationAnnotatorTestBase {
   }
 
   def testIncorrectExpansion(): Unit = {
-    assertMatches(messages("def f(a: Any, b: Any) {}; f(Seq(null): _*, Seq(null): _*)")) {
+    assertMatches(messages("def f(a: Any, b: Any) {}; f(Seq(null)*, Seq(null)*)")) {
       case Error("Seq(null): _*", "Expansion for non-repeated parameter") ::
               Error("Seq(null): _*", "Expansion for non-repeated parameter") :: Nil =>
     }
@@ -232,7 +232,7 @@ class ApplicationAnnotatorTest extends ApplicationAnnotatorTestBase {
 
   val fooDef = "def foo(first: Boolean, int: Int = 3, last: Boolean): Unit = ()\n"
   def assertWithFoo(code: String)(expected: Message*): Unit =
-    assertMessagesSorted(messages(fooDef + code))(expected: _*)
+    assertMessagesSorted(messages(fooDef + code))(expected*)
 
   def testIncompleteCallWithNamedParam_1(): Unit =
     assertWithFoo("foo(last = )")(

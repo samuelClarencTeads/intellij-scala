@@ -7,14 +7,14 @@ import com.intellij.openapi.module.Module
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.{ModuleRootManager, SourceFolder}
 import com.intellij.openapi.ui.Messages
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.PackageWrapper
 import com.intellij.refactoring.move.moveClassesOrPackages.{MoveClassesOrPackagesProcessor, MoveClassesOrPackagesUtil, SingleSourceRootMoveDestination}
 import com.intellij.refactoring.util.RefactoringMessageUtil
 import com.intellij.util.IncorrectOperationException
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.codeInspection.packageNameInspection.ScalaMoveToPackageQuickFix._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.codeInspection.packageNameInspection.ScalaMoveToPackageQuickFix.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.refactoring.move.saveMoveDestination
 

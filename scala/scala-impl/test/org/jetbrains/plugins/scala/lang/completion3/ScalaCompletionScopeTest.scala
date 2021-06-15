@@ -9,7 +9,7 @@ import org.junit.Assert.assertTrue
 
 class ScalaCompletionScopeTest extends ScalaCodeInsightTestBase {
 
-  import extensions._
+  import extensions.*
 
   def testBasicCompletion0(): Unit = checkCompletionsAreInScopeAndAccessible("File", 0)
 

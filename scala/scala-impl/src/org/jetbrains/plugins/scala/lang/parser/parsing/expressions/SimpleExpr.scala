@@ -37,8 +37,8 @@ import scala.annotation.tailrec
  */
 object SimpleExpr extends ParsingRule {
 
-  import lexer.ScalaTokenType._
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenType.*
+  import lexer.ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     val simpleMarker = builder.mark

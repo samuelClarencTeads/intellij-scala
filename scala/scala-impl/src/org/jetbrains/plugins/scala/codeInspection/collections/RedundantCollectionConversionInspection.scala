@@ -5,7 +5,7 @@ package collections
 import com.intellij.codeInspection.ProblemHighlightType
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.types.ScTypeExt
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 import scala.collection.immutable.ArraySeq
 

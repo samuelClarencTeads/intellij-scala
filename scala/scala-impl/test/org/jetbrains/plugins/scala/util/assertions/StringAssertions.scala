@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.util.assertions
 
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.util.matching.Regex
 

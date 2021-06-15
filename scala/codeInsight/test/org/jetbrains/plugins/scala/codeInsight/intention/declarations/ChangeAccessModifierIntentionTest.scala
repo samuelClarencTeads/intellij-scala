@@ -7,10 +7,10 @@ import java.util.regex.Pattern
 
 import com.intellij.refactoring.BaseRefactoringProcessor
 import com.intellij.ui.{ChooserInterceptor, UiInterceptors}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.util.assertions.ExceptionAssertions
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class ChangeAccessModifierIntentionTestBase extends intentions.ScalaIntentionTestBase with ExceptionAssertions {
 

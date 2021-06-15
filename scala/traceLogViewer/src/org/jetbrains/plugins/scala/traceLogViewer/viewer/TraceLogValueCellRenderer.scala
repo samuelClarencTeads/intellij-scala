@@ -32,7 +32,7 @@ class TraceLogValueCellRenderer extends TraceLogBaseCellRenderer {
 
     builder.append("<html><table>")
 
-    for ((name, value) <- currentNode.values) {
+    for (case (name, value) <- currentNode.values) {
       builder.append("<tr style=\"vertical-align:top>")
       builder.append(s"""<td><b style="${anyToHexColor(name)}">""")
       builder.append(wrapHtmlColor(name))

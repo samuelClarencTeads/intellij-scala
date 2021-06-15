@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package decompileToJava
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.openapi.vfs.ex.dummy.DummyFileSystem
 import com.intellij.openapi.vfs.{VirtualFile, WritingAccessProvider}

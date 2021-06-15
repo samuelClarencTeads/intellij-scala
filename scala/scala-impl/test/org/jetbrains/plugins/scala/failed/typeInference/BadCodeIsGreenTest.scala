@@ -12,7 +12,7 @@ abstract class BadCodeIsGreenTest extends ScalaInspectionTestBase {
 
   override protected def shouldPass: Boolean = false
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[AnnotatorBasedErrorInspection]
 }
 

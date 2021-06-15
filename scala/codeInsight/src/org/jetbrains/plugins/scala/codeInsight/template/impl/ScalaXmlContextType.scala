@@ -4,7 +4,7 @@ package template
 package impl
 
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.lang.psi.api._
+import org.jetbrains.plugins.scala.lang.psi.api.*
 
 /**
   * Nikolay.Tropin

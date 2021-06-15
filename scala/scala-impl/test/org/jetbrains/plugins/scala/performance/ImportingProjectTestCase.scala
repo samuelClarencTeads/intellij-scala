@@ -149,7 +149,7 @@ abstract class ImportingProjectTestCase extends ExternalSystemImportingTestCase 
   }
 
   protected def findFile(filename: String): VirtualFile = {
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
     val searchScope = SourceFilterScope(GlobalSearchScopesCore.directoryScope(myProject, myProjectRoot, true))(myProject)
 
     val files: util.Collection[VirtualFile] = FileTypeIndex.getFiles(ScalaFileType.INSTANCE, searchScope)

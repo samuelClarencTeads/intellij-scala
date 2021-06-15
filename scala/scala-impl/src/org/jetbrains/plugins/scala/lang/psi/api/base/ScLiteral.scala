@@ -6,8 +6,8 @@ package base
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScalaType, api}
 
 /**

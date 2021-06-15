@@ -24,7 +24,7 @@ import com.intellij.psi.{PsiDirectory, PsiElement, PsiManager}
 import com.intellij.testFramework.EdtTestUtil
 import com.intellij.util.concurrency.Semaphore
 import org.jetbrains.plugins.scala.base.ScalaSdkOwner
-import org.jetbrains.plugins.scala.debugger._
+import org.jetbrains.plugins.scala.debugger.*
 import org.jetbrains.plugins.scala.extensions.{PsiNamedElementExt, inReadAction}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestRunConfiguration
@@ -32,7 +32,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.specs2.Specs2RunConfigura
 import org.jetbrains.plugins.scala.testingSupport.test.utest.UTestRunConfiguration
 import org.jetbrains.plugins.scala.testingSupport.test.{AbstractTestConfigurationProducer, AbstractTestRunConfiguration}
 import org.jetbrains.plugins.scala.util.assertions.failWithCause
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
 import scala.concurrent.Await
@@ -51,7 +51,7 @@ abstract class ScalaTestingTestCase
     with ScalaSdkOwner
     with TestOutputMarkers {
 
-  protected def configurationProducer: AbstractTestConfigurationProducer[_]
+  protected def configurationProducer: AbstractTestConfigurationProducer[?]
 
   override def runInDispatchThread(): Boolean = false
 
@@ -209,8 +209,8 @@ abstract class ScalaTestingTestCase
 
   private def runProcess(
     runConfiguration: RunnerAndConfigurationSettings,
-    executorClass: Class[_ <: Executor],
-    runner: ProgramRunner[_ <: RunnerSettings],
+    executorClass: Class[? <: Executor],
+    runner: ProgramRunner[? <: RunnerSettings],
     listeners: Seq[ProcessListener],
   ): (ProcessHandler, RunContentDescriptor) = {
     val executionEnvironment = {

@@ -9,14 +9,14 @@ import com.intellij.openapi.externalSystem.model.{DataNode, Key}
 import com.intellij.openapi.module.ModuleManager
 import org.jetbrains.plugins.gradle.model.data.{ScalaCompileOptionsData, ScalaModelData}
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
-import org.jetbrains.plugins.scala.project.{DebuggingInfoLevel, _}
+import org.jetbrains.plugins.scala.project.{DebuggingInfoLevel, *}
 import org.jetbrains.sbt.project.SbtProjectSystem
-import org.jetbrains.sbt.project.data._
-import org.jetbrains.sbt.project.data.service.ExternalSystemDataDsl._
+import org.jetbrains.sbt.project.data.*
+import org.jetbrains.sbt.project.data.service.ExternalSystemDataDsl.*
 import org.jetbrains.sbt.project.data.service.ProjectDataServiceTestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 
 /**
@@ -56,7 +56,7 @@ class ScalaGradleDataServiceTest extends ProjectDataServiceTestCase {
 
           def asSerializableJavaSet[T](scalaSet: Set[T]): util.Set[T] = {
             val classpath = new util.HashSet[T]()
-            util.Collections.addAll(classpath, scalaSet.toSeq:_*)
+            util.Collections.addAll(classpath, scalaSet.toSeq*)
             classpath
           }
 

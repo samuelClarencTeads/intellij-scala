@@ -3,11 +3,11 @@ package org.jetbrains.plugins.scala.findUsages.compilerReferences
 import com.intellij.psi.{PsiClass, PsiElement}
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.SearchTargetExtractors.ShouldBeSearchedInBytecode
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.CompilerIndicesSettings
-import org.junit.Assert._
+import org.junit.Assert.*
 
 
 class CompilerServiceUsagesTest extends ScalaCompilerReferenceServiceFixture {
-  import com.intellij.testFramework.fixtures.CodeInsightTestFixture.{CARET_MARKER => CARET}
+  import com.intellij.testFramework.fixtures.CodeInsightTestFixture.{CARET_MARKER as CARET}
 
   private def searchTarget: PsiElement = {
     val targetExtractor = new ShouldBeSearchedInBytecode(new CompilerIndicesSettings(getProject))

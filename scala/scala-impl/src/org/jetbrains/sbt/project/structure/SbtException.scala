@@ -39,7 +39,7 @@ object SbtException {
     val file = new File(logDir, "sbt.last.log")
     file.createNewFile()
 
-    writeLinesTo(file)(log: _*)
+    writeLinesTo(file)(log*)
     file.getAbsolutePath
   }
 }

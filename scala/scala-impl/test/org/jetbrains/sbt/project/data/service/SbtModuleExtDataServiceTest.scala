@@ -10,19 +10,19 @@ import com.intellij.openapi.projectRoots.ProjectJdkTable
 import com.intellij.openapi.roots.{LanguageLevelModuleExtensionImpl, ModuleRootManager}
 import com.intellij.pom.java.LanguageLevel
 import com.intellij.testFramework.{IdeaTestUtil, UsefulTestCase}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.DebuggingInfoLevel
 import org.jetbrains.plugins.scala.project.external.{JdkByHome, JdkByName, SdkReference, SdkUtils}
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration
 import org.jetbrains.sbt.project.SbtProjectSystem
-import org.jetbrains.sbt.project.data._
+import org.jetbrains.sbt.project.data.*
 import org.jetbrains.sbt.project.data.service.SbtModuleExtDataService.NotificationException
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import java.io.File
 import java.net.URI
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.{Failure, Try}
 
 
@@ -32,7 +32,7 @@ import scala.util.{Failure, Try}
  */
 class SbtModuleExtDataServiceTest extends ProjectDataServiceTestCase {
 
-  import ExternalSystemDataDsl._
+  import ExternalSystemDataDsl.*
 
   override def setUp(): Unit = {
     super.setUp()
@@ -176,7 +176,7 @@ class SbtModuleExtDataServiceTest extends ProjectDataServiceTestCase {
   }
 
   def testScalaSdkForEvictedVersion(): Unit = {
-    import org.jetbrains.plugins.scala.project._
+    import org.jetbrains.plugins.scala.project.*
 
     val evictedVersion = "2.11.2"
     val newVersion = "2.11.6"
@@ -250,7 +250,7 @@ class SbtModuleExtDataServiceTest extends ProjectDataServiceTestCase {
     }.build.toDataNode
 
   private def doTestAndCheckScalaSdk(scalaVersion: String, scalaLibraryVersion: String): Unit = {
-    import org.jetbrains.plugins.scala.project._
+    import org.jetbrains.plugins.scala.project.*
     importProjectData(generateScalaProject(scalaVersion, Some(scalaLibraryVersion), Seq.empty))
     val isLibrarySetUp = getProject.libraries
       .filter(_.getName.contains("scala-library"))

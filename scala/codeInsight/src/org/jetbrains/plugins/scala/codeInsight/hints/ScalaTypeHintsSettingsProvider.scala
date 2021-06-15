@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.codeInsight.hints
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.hints.settings.{InlayProviderSettingsModel, InlaySettingsProvider}
 import com.intellij.lang.Language

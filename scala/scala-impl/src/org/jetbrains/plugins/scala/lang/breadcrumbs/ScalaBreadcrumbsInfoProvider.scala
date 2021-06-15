@@ -7,11 +7,11 @@ import com.intellij.ui.breadcrumbs.BreadcrumbsProvider
 import org.jetbrains.plugins.scala.ScalaLanguage
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScPatternDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, TypePresentationContext}
 import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
 
@@ -21,7 +21,7 @@ import org.jetbrains.plugins.scala.settings.ScalaProjectSettings
   */
 class ScalaBreadcrumbsInfoProvider extends BreadcrumbsProvider {
   override def getElementTooltip(e: PsiElement): String = {
-    import ScalaBreadcrumbsInfoProvider.MyTextRepresentationUtil._
+    import ScalaBreadcrumbsInfoProvider.MyTextRepresentationUtil.*
     
     e match {
       case templ: ScTemplateDefinition => getTemplateDefTooltip(templ)
@@ -34,7 +34,7 @@ class ScalaBreadcrumbsInfoProvider extends BreadcrumbsProvider {
   }
 
   override def getElementInfo(e: PsiElement): String = {
-    import ScalaBreadcrumbsInfoProvider.MyTextRepresentationUtil._
+    import ScalaBreadcrumbsInfoProvider.MyTextRepresentationUtil.*
     
     e match {
       case newDef: ScNewTemplateDefinition => describeNewTemplate(newDef)

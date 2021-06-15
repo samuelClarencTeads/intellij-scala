@@ -6,7 +6,7 @@ import com.intellij.openapi.application.{ApplicationManager, PathManager}
 import com.intellij.openapi.progress.ProgressIndicator
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.project.ProjectContext
-import org.jetbrains.sbt._
+import org.jetbrains.sbt.*
 import org.jetbrains.sbt.resolvers.ArtifactInfo
 
 /**

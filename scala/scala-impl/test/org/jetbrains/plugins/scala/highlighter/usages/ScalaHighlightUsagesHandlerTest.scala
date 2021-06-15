@@ -6,7 +6,7 @@ import com.intellij.codeInsight.highlighting.{HighlightUsagesHandler, HighlightU
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.junit.Assert
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 
 /**

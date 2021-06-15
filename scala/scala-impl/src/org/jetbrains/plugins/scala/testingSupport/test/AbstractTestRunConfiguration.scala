@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.scala
 package testingSupport.test
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.diagnostic.logging.LogConfigurationPanel
-import com.intellij.execution._
-import com.intellij.execution.configurations._
+import com.intellij.execution.*
+import com.intellij.execution.configurations.*
 import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.execution.testframework.actions.ConsolePropertiesProvider
 import com.intellij.execution.testframework.sm.runner.{SMRunnerConsolePropertiesProvider, SMTRunnerConsoleProperties}
@@ -24,12 +24,12 @@ import org.jetbrains.plugins.scala.extensions.LoggerExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.project.{ModuleExt, ProjectExt}
-import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestRunConfiguration._
+import org.jetbrains.plugins.scala.testingSupport.test.AbstractTestRunConfiguration.*
 import org.jetbrains.plugins.scala.testingSupport.test.testdata.{ClassTestData, TestConfigurationData}
 import org.jetbrains.plugins.scala.util.JdomExternalizerMigrationHelper
 
 import scala.beans.BeanProperty
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 //noinspection ConvertNullInitializerToUnderscore
 @ApiStatus.Internal
@@ -53,7 +53,7 @@ abstract class AbstractTestRunConfiguration(
     else new ScalaTestFrameworkConsoleProperties(this, testFramework.getName, executor)
   }
 
-  def configurationProducer: AbstractTestConfigurationProducer[_]
+  def configurationProducer: AbstractTestConfigurationProducer[?]
   def testFramework: AbstractTestFramework
 
   private lazy val suitePaths: Seq[String] = testFramework.baseSuitePaths
@@ -156,7 +156,7 @@ abstract class AbstractTestRunConfiguration(
     JavaRunConfigurationExtensionManager.checkConfigurationIsValid(thisConfiguration)
   }
 
-  override def getConfigurationEditor: SettingsEditor[_ <: RunConfiguration] = {
+  override def getConfigurationEditor: SettingsEditor[? <: RunConfiguration] = {
     val group: SettingsEditorGroup[AbstractTestRunConfiguration] = new SettingsEditorGroup
     group.addEditor(ExecutionBundle.message("run.configuration.configuration.tab.title"), new AbstractTestRunConfigurationEditor(project))
     JavaRunConfigurationExtensionManager.getInstance.appendEditors(thisConfiguration, group)
@@ -164,7 +164,7 @@ abstract class AbstractTestRunConfiguration(
     group
   }
 
-  private def thisConfiguration: RunConfigurationBase[_] = this
+  private def thisConfiguration: RunConfigurationBase[?] = this
 
   protected[test] final def isValidSuite(clazz: PsiClass): Boolean = {
     val suiteClass = getSuiteClass

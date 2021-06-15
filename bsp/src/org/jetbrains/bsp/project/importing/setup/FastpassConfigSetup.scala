@@ -14,7 +14,7 @@ import org.jetbrains.bsp.project.importing.FastpassProjectImportProvider
 import org.jetbrains.bsp.project.importing.setup.FastpassConfigSetup.{FastpassProcessCheckTimeout, logger}
 import org.jetbrains.plugins.scala.build.{BuildMessages, BuildReporter}
 import scala.concurrent.duration.DurationInt
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.{Failure, Success, Try}
 
 object FastpassConfigSetup {

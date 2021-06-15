@@ -3,7 +3,7 @@ package projectView
 
 import com.intellij.ide.IconProvider
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import javax.swing.Icon
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 

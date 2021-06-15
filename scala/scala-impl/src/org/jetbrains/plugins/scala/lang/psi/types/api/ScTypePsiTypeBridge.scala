@@ -1,15 +1,15 @@
 package org.jetbrains.plugins.scala.lang.psi.types.api
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.extensions.PsiTypeExt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 
 import scala.collection.immutable.ArraySeq
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author adkozlov
@@ -66,7 +66,7 @@ trait PsiTypeBridge {
 
   final def stdToPsiType(std: StdType, noPrimitives: Boolean = false): PsiType = {
     val stdTypes = std.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     def javaObject = createJavaObject
 

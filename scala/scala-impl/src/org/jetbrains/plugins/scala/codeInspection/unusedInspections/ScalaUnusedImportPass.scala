@@ -2,9 +2,9 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package unusedInspections
 
-import java.{util => ju}
+import java.{util as ju}
 
-import com.intellij.codeInsight.daemon.impl._
+import com.intellij.codeInsight.daemon.impl.*
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.annotation.{AnnotationSession, HighlightSeverity}
 import com.intellij.openapi.application.ApplicationManager
@@ -13,7 +13,7 @@ import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.util.{DocumentUtil, Processor}
 import org.jetbrains.plugins.scala.annotator.usageTracker.UsageTracker
 import org.jetbrains.plugins.scala.caches.CachesUtil.fileModCount
@@ -132,7 +132,7 @@ object ScalaUnusedImportPass {
           HighlightSeverity.ERROR,
           0,
           document.getTextLength,
-          ((_: HighlightInfo) => false) : Processor[_ >: HighlightInfo] //todo: only unresolved ref issues?
+          ((_: HighlightInfo) => false) : Processor[? >: HighlightInfo] //todo: only unresolved ref issues?
         )
 
     }

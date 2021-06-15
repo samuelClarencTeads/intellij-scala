@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.resolve.StdKinds
 import org.jetbrains.plugins.scala.lang.resolve.processor.ResolveProcessor
 
 class VariablePatternShadowInspection extends AbstractRegisteredInspection {
-  import VariablePatternShadowInspection._
+  import VariablePatternShadowInspection.*
 
   override protected def problemDescriptor(element: PsiElement,
                                            maybeQuickFix: Option[LocalQuickFix],

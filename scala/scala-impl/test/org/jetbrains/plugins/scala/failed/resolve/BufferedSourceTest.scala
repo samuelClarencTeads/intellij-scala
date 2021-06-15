@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.lang.resolve.SimpleResolveTestBase
   * @since 07.04.16.
   */
 class BufferedSourceTest extends ScalaLightCodeInsightFixtureTestAdapter with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   override protected def shouldPass: Boolean = false
 

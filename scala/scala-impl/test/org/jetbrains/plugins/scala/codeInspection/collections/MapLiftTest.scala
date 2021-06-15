@@ -8,7 +8,7 @@ package collections
   */
 class MapLiftTest extends OperationsOnCollectionInspectionTest {
 
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[MapLiftInspection]
 
   override protected val hint: String =

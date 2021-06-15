@@ -5,14 +5,14 @@ package macros
 
 import com.intellij.codeInsight.CodeInsightBundle
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.PsiDocumentManager
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.psi.types.api.{JavaArrayType, ParameterizedType}
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
 
-import scala.util._
+import scala.util.*
 
 /**
   * User: Alexander Podkhalyuzin
@@ -24,7 +24,7 @@ import scala.util._
   */
 final class SuggestScalaVariableNameMacro extends ScalaMacro {
 
-  import SuggestScalaVariableNameMacro._
+  import SuggestScalaVariableNameMacro.*
 
   override def calculateLookupItems(params: Array[Expression], context: ExpressionContext): Array[LookupElement] =
     getNames(params)(context) match {

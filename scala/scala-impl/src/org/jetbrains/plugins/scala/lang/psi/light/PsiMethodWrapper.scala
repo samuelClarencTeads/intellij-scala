@@ -2,9 +2,9 @@ package org.jetbrains.plugins.scala.lang.psi.light
 
 import java.util
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.PsiSuperMethodImplUtil
-import com.intellij.psi.impl.light._
+import com.intellij.psi.impl.light.*
 import com.intellij.psi.util.{MethodSignature, MethodSignatureBackedByPsiMethod}
 import org.jetbrains.plugins.scala.extensions.PsiModifierListOwnerExt
 import org.jetbrains.plugins.scala.lang.psi.ElementScope
@@ -12,9 +12,9 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScObject}
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
-abstract class PsiMethodWrapper[T <: ScalaPsiElement with PsiNamedElement with NavigatablePsiElement](
+abstract class PsiMethodWrapper[T <: ScalaPsiElement & PsiNamedElement & NavigatablePsiElement](
   override val delegate: T,
   methodName: String,
   containingClass: PsiClass
@@ -117,7 +117,7 @@ abstract class PsiMethodWrapper[T <: ScalaPsiElement with PsiNamedElement with N
     PsiSuperMethodImplUtil.getHierarchicalMethodSignature(this)
 
   override def equals(other: Any): Boolean = other match {
-    case that: PsiMethodWrapper[_] =>
+    case that: PsiMethodWrapper[?] =>
       that.getName == getName &&
         that.delegate == delegate &&
         that.getContainingClass == getContainingClass

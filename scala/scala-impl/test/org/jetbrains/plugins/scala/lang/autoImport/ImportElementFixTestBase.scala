@@ -9,13 +9,13 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter.normalize
 import org.junit.Assert.{assertEquals, fail}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.reflect.ClassTag
 
 abstract class ImportElementFixTestBase[Psi <: PsiElement : ClassTag]
   extends ScalaLightCodeInsightFixtureTestAdapter with ScalaFiles {
 
-  def createFix(element: Psi): Option[ScalaImportElementFix[_ <: ElementToImport]]
+  def createFix(element: Psi): Option[ScalaImportElementFix[? <: ElementToImport]]
 
   def checkElementsToImport(fileText: String, expectedQNames: String*): Unit = {
     val fix = configureAndCreateFix(fileText)
@@ -38,7 +38,7 @@ abstract class ImportElementFixTestBase[Psi <: PsiElement : ClassTag]
     assertEquals("Result doesn't match expected text", normalize(expectedText), normalize(getFile.getText))
   }
 
-  private def configureAndCreateFix(fileText: String): ScalaImportElementFix[_ <: ElementToImport] = {
+  private def configureAndCreateFix(fileText: String): ScalaImportElementFix[? <: ElementToImport] = {
     val file = configureFromFileText(fileText, fileType)
     val clazz = implicitly[ClassTag[Psi]].runtimeClass.asInstanceOf[Class[Psi]]
     val element = PsiTreeUtil.findElementOfClassAtOffset(file, getEditorOffset, clazz, false)

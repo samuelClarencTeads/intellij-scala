@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project
 import org.jetbrains.jps.incremental.scala.Client
 import org.jetbrains.jps.incremental.scala.remote.{CompileServerCommand, RemoteResourceOwner}
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.compiler.RemoteServerRunner._
+import org.jetbrains.plugins.scala.compiler.RemoteServerRunner.*
 import org.jetbrains.plugins.scala.server.CompileServerToken
 
 import scala.util.control.NonFatal

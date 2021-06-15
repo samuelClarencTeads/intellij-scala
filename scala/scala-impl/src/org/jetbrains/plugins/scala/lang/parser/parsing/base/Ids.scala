@@ -14,8 +14,8 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
 */
 object Ids extends ParsingRule {
 
-  import ScalaElementType._
-  import lexer.ScalaTokenTypes._
+  import ScalaElementType.*
+  import lexer.ScalaTokenTypes.*
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     val marker = builder.mark()

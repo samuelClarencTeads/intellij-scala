@@ -12,16 +12,16 @@ import com.intellij.openapi.editor.markup.{HighlighterLayer, HighlighterTargetAr
 import com.intellij.openapi.editor.{Editor, EditorFactory, LogicalPosition, ScrollType}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
-import com.intellij.ui._
+import com.intellij.ui.*
 import com.intellij.ui.components.JBList
-import javax.swing._
-import javax.swing.event._
-import org.jetbrains.plugins.scala._
+import javax.swing.*
+import javax.swing.event.*
+import org.jetbrains.plugins.scala.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.project.ProjectExt
 import org.jetbrains.sbt.SbtBundle
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by afonichkin on 7/19/17.
@@ -122,7 +122,7 @@ private class SbtPossiblePlacesPanel(project: Project, wizard: SbtArtifactSearch
   private class PlacesCellRenderer extends ColoredListCellRenderer[DependencyPlaceInfo] {
 
     //noinspection ReferencePassedToNls,ScalaExtractStringToBundle
-    override def customizeCellRenderer(list: JList[_ <: DependencyPlaceInfo],
+    override def customizeCellRenderer(list: JList[? <: DependencyPlaceInfo],
                                        info: DependencyPlaceInfo,
                                        index: Int,
                                        selected: Boolean,

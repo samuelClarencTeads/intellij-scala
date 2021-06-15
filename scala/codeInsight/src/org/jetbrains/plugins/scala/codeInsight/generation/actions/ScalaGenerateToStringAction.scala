@@ -9,7 +9,7 @@ import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import org.jetbrains.plugins.scala.codeInsight.ScalaCodeInsightBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
@@ -29,7 +29,7 @@ object ScalaGenerateToStringAction {
 
   private[generation] final class Handler extends ScalaCodeInsightActionHandler {
 
-    import Handler._
+    import Handler.*
 
     override def invoke(project: Project, editor: Editor, file: PsiFile): Unit = {
       if (!FileDocumentManager.getInstance.requestWriting(editor.getDocument, project)) return
@@ -37,7 +37,7 @@ object ScalaGenerateToStringAction {
       for {
         definition <- findTypeDefinition(editor, file)
 
-        (fields, withFieldNames) <- showWizard(definition)(project)
+        case (fields, withFieldNames) <- showWizard(definition)(project)
 
         fieldsText = fields.map { field =>
           val fieldName = field.name

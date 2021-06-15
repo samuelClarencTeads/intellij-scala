@@ -8,7 +8,7 @@ import java.util.concurrent.Future
 import java.util.concurrent.atomic.AtomicBoolean
 
 import com.intellij.compiler.server.BuildManager
-import com.intellij.execution.process._
+import com.intellij.execution.process.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
@@ -21,7 +21,7 @@ import org.jetbrains.plugins.scala.compiler.NonServerRunner.Log
 import org.jetbrains.plugins.scala.compiler.data.serialization.SerializationUtils
 import org.jetbrains.plugins.scala.util.ScalaPluginJars
 
-import _root_.scala.jdk.CollectionConverters._
+import _root_.scala.jdk.CollectionConverters.*
 
 /**
  * @see [[RemoteServerRunner]]
@@ -142,7 +142,7 @@ class NonServerRunner(project: Project) {
     private val charBuffer = new Array[Char](8192)
     private val text = new StringBuilder
 
-    override def executeOnPooledThread(runnable: Runnable): Future[_] =
+    override def executeOnPooledThread(runnable: Runnable): Future[?] =
       AppExecutorUtil.getAppExecutorService.submit(runnable)
 
     def onTextAvailable(text: String): Unit = {
@@ -204,7 +204,7 @@ class NonServerRunner(project: Project) {
     private val text = new java.lang.StringBuilder
     def getText: String = text.toString
 
-    override def executeOnPooledThread(runnable: Runnable): Future[_] =
+    override def executeOnPooledThread(runnable: Runnable): Future[?] =
       AppExecutorUtil.getAppExecutorService.submit(runnable)
 
     override def close(): Unit = {

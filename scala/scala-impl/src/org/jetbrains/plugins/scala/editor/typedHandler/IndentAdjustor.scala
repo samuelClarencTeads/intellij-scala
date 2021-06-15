@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.{Document, Editor}
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.codeStyle.CodeStyleManager
-import extensions._
+import extensions.*
 import org.jetbrains.plugins.scala.editor.typedHandler.AutoBraceInsertionTools.isBehindPostfixExpr
 
 trait IndentAdjustor {

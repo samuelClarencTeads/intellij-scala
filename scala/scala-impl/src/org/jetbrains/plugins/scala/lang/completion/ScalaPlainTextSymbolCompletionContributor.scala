@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang
 package completion
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.codeInsight.completion.PlainTextSymbolCompletionContributor
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScTy
 
 final class ScalaPlainTextSymbolCompletionContributor extends PlainTextSymbolCompletionContributor {
 
-  import ScalaPlainTextSymbolCompletionContributor._
+  import ScalaPlainTextSymbolCompletionContributor.*
 
   override def getLookupElements(file: PsiFile,
                                  invocationCount: Int,

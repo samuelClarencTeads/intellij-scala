@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.{ImplicitArgumentsOwner, ScalaFi
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
 import org.jetbrains.plugins.scala.macroAnnotations.CachedWithRecursionGuard
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 /**
   * @author Nikolay.Tropin

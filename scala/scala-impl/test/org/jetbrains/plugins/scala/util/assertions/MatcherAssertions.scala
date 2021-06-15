@@ -18,7 +18,7 @@ trait MatcherAssertions extends FailableTest {
       case Some(value) =>
         def message = if (shouldPass) {
           val actualValueFancy = value match {
-            case seq: Seq[_] => seq.mkString(s"${seq.getClass.getSimpleName}(\n  ", ",\n  ", "\n)")
+            case seq: Seq[?] => seq.mkString(s"${seq.getClass.getSimpleName}(\n  ", ",\n  ", "\n)")
             case v                  => v.toString
           }
           "actual: " + actualValueFancy
@@ -39,7 +39,7 @@ trait MatcherAssertions extends FailableTest {
     assertEqualsFailable(expected.mkString("\n"), actual.mkString("\n"))
 
   def assertMessagesSorted(actual: List[Message])(expected: Message*): Unit =
-    assertMessages(actual.sorted)(expected.sorted: _*)
+    assertMessages(actual.sorted)(expected.sorted*)
 
   def assertIsA[T](obj: Object)(implicit classTag: ClassTag[T]): T =
     if (classTag.runtimeClass.isInstance(obj)) {

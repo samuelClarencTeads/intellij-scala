@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.structureView.element
 
-import javax.swing._
+import javax.swing.*
 import com.intellij.navigation.ColoredItemPresentation
 import com.intellij.openapi.editor.colors.{CodeInsightColors, TextAttributesKey}
 import com.intellij.openapi.util.Iconable

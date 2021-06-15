@@ -2,11 +2,11 @@ package org.jetbrains.plugins.scala.lang.structureView.element
 
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.NlsString
-import org.jetbrains.plugins.scala.extensions.{ObjectExt, _}
+import org.jetbrains.plugins.scala.extensions.{ObjectExt, *}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockExpr
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.structureView.element.TypeDefinition.childrenOf
 
 class TypeDefinition(definition: ScTypeDefinition) extends AbstractTreeElement(definition) {

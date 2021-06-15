@@ -8,23 +8,23 @@ import com.intellij.codeInsight.highlighting.BraceMatchingUtil
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.editor.highlighter.HighlighterIterator
 import com.intellij.openapi.editor.{Document, Editor}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
 import org.apache.commons.lang3.StringUtils
-import org.jetbrains.plugins.scala.editor._
+import org.jetbrains.plugins.scala.editor.*
 import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler
 import org.jetbrains.plugins.scala.editor.typedHandler.ScalaTypedHandler.BraceWrapInfo
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenTypes, ScalaXmlTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.api.{ScFile, ScalaFile}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.ScXmlStartTag
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.docsyntax.ScalaDocSyntaxElementType
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.jetbrains.plugins.scala.util.IndentUtil
-import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotesLength => QuotesLength}
+import org.jetbrains.plugins.scala.util.MultilineStringUtil.{MultilineQuotesLength as QuotesLength}
 
 class ScalaBackspaceHandler extends BackspaceHandlerDelegate {
   override def beforeCharDeleted(c: Char, file: PsiFile, editor: Editor): Unit = {
@@ -87,7 +87,7 @@ class ScalaBackspaceHandler extends BackspaceHandlerDelegate {
   // TODO: simplify when parsing of incomplete multiline strings is unified for interpolated and non-interpolated strings
   //  see also ScalaQuoteHandler.startsWithMultilineQuotes
   private def isInsideEmptyMultilineString(offset: Int, hiterator: HighlighterIterator): Boolean = {
-    import ScalaTokenTypes._
+    import ScalaTokenTypes.*
     hiterator.getTokenType match {
       case `tMULTILINE_STRING` =>
         hiterator.tokenLength == 2 * QuotesLength && offset == hiterator.getStart + QuotesLength
@@ -103,7 +103,7 @@ class ScalaBackspaceHandler extends BackspaceHandlerDelegate {
   }
 
   private def deleteMultilineStringClosingQuotes(editor: Editor, hiterator: HighlighterIterator): Unit = {
-    import ScalaTokenTypes._
+    import ScalaTokenTypes.*
     val closingQuotesOffset = hiterator.getStart + (hiterator.getTokenType match {
       case `tMULTILINE_STRING`        => QuotesLength
       case `tINTERPOLATED_STRING_END` => 0
@@ -129,7 +129,7 @@ class ScalaBackspaceHandler extends BackspaceHandlerDelegate {
 
   private def handleLeftBrace(offset: Int, element: PsiElement, file: PsiFile, editor: Editor): Unit = {
     for {
-      BraceWrapInfo(element, _, parent, _) <- ScalaTypedHandler.findElementToWrap(element)
+      case BraceWrapInfo(element, _, parent, _) <- ScalaTypedHandler.findElementToWrap(element)
       if element.is[ScBlockExpr]
       block = element.asInstanceOf[ScBlockExpr]
       rBrace <- block.getRBrace

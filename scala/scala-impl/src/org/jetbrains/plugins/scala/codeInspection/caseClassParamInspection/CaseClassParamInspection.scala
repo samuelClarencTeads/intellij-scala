@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package caseClassParamInspection
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.codeInspection.ex.ProblemDescriptorImpl
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.codeInspection.ScalaInspectionBundle
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.util.EnumSet._
+import org.jetbrains.plugins.scala.util.EnumSet.*
 
 import scala.annotation.nowarn
 
@@ -21,7 +21,7 @@ class CaseClassParamInspection extends AbstractInspection(ScalaInspectionBundle.
     case c: ScClass if c.isCase =>
       for{
         paramClause <- c.allClauses.take(1)
-        classParam@(__ : ScClassParameter) <- paramClause.parameters
+        case classParam@(__ : ScClassParameter) <- paramClause.parameters
         if classParam.isVal && classParam.isCaseClassVal && !hasExplicitModifier(classParam)
       } {
         val descriptor = new ProblemDescriptorImpl(classParam, classParam,

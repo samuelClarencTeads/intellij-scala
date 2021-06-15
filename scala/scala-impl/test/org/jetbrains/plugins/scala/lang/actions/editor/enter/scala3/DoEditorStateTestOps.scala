@@ -7,7 +7,7 @@ trait DoEditorStateTestOps extends CheckIndentAfterTypingCodeOps {
   self: EditorActionTestBase =>
 
   protected def doEditorStateTest(states: (String, TypeText)*): Unit =
-    doEditorStateTest(EditorStates(states: _*))
+    doEditorStateTest(EditorStates(states*))
 
   protected def doEditorStateTest(editorStates: EditorStates): Unit = {
     val states = editorStates.states
@@ -19,7 +19,7 @@ trait DoEditorStateTestOps extends CheckIndentAfterTypingCodeOps {
       performTest(textBefore, textAfter, stripTrailingSpacesAfterAction = true) { () =>
         val lines = linesToType(textToType)
         for {
-          (line, lineIdx) <- lines.zipWithIndex
+          case (line, lineIdx) <- lines.zipWithIndex
         } {
           if (lineIdx > 0) {
             performEnterAction()

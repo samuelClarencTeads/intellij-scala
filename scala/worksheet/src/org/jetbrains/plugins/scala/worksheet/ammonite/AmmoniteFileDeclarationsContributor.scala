@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.worksheet.ammonite.AmmoniteUtil.isAmmoniteFil
   * Date: 02.08.18.
   */
 final class AmmoniteFileDeclarationsContributor extends FileDeclarationsContributor {
-  import AmmoniteFileDeclarationsContributor._
+  import AmmoniteFileDeclarationsContributor.*
   
   override def accept(holder: PsiElement): Boolean = holder match {
     case ammoniteFile: ScalaFile => isAmmoniteFile(ammoniteFile)

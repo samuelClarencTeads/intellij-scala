@@ -21,12 +21,12 @@ class ScImportExprElementType extends ScStubElementType[ScImportExprStub, ScImpo
     dataStream.writeBoolean(stub.hasWildcardSelector)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScImportExprStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScImportExprStub =
     new ScImportExprStubImpl(parentStub, this,
       referenceText = dataStream.readOptionName,
       hasWildcardSelector = dataStream.readBoolean)
 
-  override def createStubImpl(expr: ScImportExpr, parentStub: StubElement[_ <: PsiElement]): ScImportExprStub = {
+  override def createStubImpl(expr: ScImportExpr, parentStub: StubElement[? <: PsiElement]): ScImportExprStub = {
     val referenceText = expr.reference.map {
       _.getText
     }

@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.packagesearch.utils
 import com.intellij.buildsystem.model.unified.{UnifiedDependency, UnifiedDependencyRepository}
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.project.{DumbService, Project}
-import com.intellij.openapi.module.{Module => OpenapiModule}
+import com.intellij.openapi.module.{Module as OpenapiModule}
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.{LocalFileSystem, VirtualFile}
 import com.intellij.psi.{PsiElement, PsiFile, PsiManager}

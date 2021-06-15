@@ -6,12 +6,12 @@ import com.intellij.codeInsight.navigation.NavigationUtil
 import com.intellij.ide.util.EditSourceUtil
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.PsiElementProcessor
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScObject, ScTemplateDefinition}
 
@@ -97,7 +97,7 @@ private object ScalaGoToSuperActionHandler {
           case n: NavigatablePsiElement => Some(n)
           case _ => None
         })
-        val supers = mutable.HashSet[NavigatablePsiElement](superElems: _*)
+        val supers = mutable.HashSet[NavigatablePsiElement](superElems*)
         (Seq(), supers.toSeq)
       case d: ScDeclaredElementsHolder =>
         (Seq(), declaredElementHolderSupers(d))

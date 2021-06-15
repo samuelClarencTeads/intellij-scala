@@ -7,8 +7,8 @@ import java.util
 
 import com.intellij.codeInsight.CodeInsightUtilCore.findElementInRange
 import com.intellij.debugger.SourcePosition
-import com.intellij.debugger.engine._
-import com.intellij.debugger.engine.evaluation._
+import com.intellij.debugger.engine.*
+import com.intellij.debugger.engine.evaluation.*
 import com.intellij.debugger.engine.evaluation.expression.{Evaluator, ExpressionEvaluator, Modifier}
 import com.intellij.debugger.jdi.VirtualMachineProxyImpl
 import com.intellij.openapi.module.Module
@@ -16,21 +16,21 @@ import com.intellij.openapi.module.ModuleUtilCore.findModuleForPsiElement
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.{Key, TextRange}
 import com.intellij.psi.{PsiElement, PsiFile, PsiFileFactory}
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.debugger.evaluation._
+import org.jetbrains.plugins.scala.debugger.evaluation.*
 import org.jetbrains.plugins.scala.debugger.evaluation.evaluator.GeneratedClass.generatedMethodName
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScBlockStatement, ScNewTemplateDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.impl.source.ScalaCodeFragment
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Nikolay.Tropin
@@ -48,7 +48,7 @@ class ScalaCompilingExpressionEvaluator(evaluator: ScalaCompilingEvaluator) exte
 class ScalaCompilingEvaluator(psiContext: PsiElement, fragment: ScalaCodeFragment)
         extends Evaluator {
 
-  import org.jetbrains.plugins.scala.debugger.evaluation.evaluator.ScalaCompilingEvaluator._
+  import org.jetbrains.plugins.scala.debugger.evaluation.evaluator.ScalaCompilingEvaluator.*
 
   private val project = inReadAction(fragment.getProject)
   private val generatedClass = GeneratedClass(fragment, psiContext)

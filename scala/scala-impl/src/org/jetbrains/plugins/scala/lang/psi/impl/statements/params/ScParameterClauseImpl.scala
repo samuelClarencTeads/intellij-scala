@@ -9,15 +9,15 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.PsiImplUtil
 import org.jetbrains.plugins.scala.caches.{BlockModificationTracker, ModTracker}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScModifierList, ScPrimaryConstructor}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScFunctionExpr
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScParamClauseStub
 import org.jetbrains.plugins.scala.macroAnnotations.{Cached, CachedInUserData}
 
@@ -77,7 +77,7 @@ class ScParameterClauseImpl private(stub: ScParamClauseStub, node: ASTNode)
 
   @Cached(ModTracker.anyScalaPsiChange, this)
   override def isImplicit: Boolean = {
-    import ScModifierList._
+    import ScModifierList.*
 
     def hasImplicitKeyword =
       findChildByType(ScalaTokenTypes.kIMPLICIT) != null ||

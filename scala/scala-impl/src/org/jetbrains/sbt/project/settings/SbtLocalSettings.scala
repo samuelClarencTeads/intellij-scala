@@ -1,7 +1,7 @@
 package org.jetbrains.sbt
 package project.settings
 
-import com.intellij.openapi.components._
+import com.intellij.openapi.components.*
 import com.intellij.openapi.externalSystem.settings.AbstractExternalSystemLocalSettings
 import com.intellij.openapi.project.Project
 import org.jetbrains.sbt.project.SbtProjectSystem

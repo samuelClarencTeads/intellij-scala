@@ -9,7 +9,7 @@ import com.intellij.codeInspection.{InspectionManager, InspectionProfile}
 import com.intellij.execution.RunnerAndConfigurationSettings
 import com.intellij.execution.actions.ConfigurationContext
 import com.intellij.ide.startup.impl.StartupManagerImpl
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.actionSystem.impl.ActionManagerImpl
 import com.intellij.openapi.module.{Module, ModuleManager}
 import com.intellij.openapi.progress.EmptyProgressIndicator
@@ -22,20 +22,20 @@ import com.intellij.psi.{PsiFile, PsiManager}
 import com.intellij.testFramework.{HeavyPlatformTestCase, LeakHunter, ThreadTracker}
 import com.intellij.util.ui.UIUtil
 import org.jetbrains.plugins.scala.annotator.{AnnotatorHolderMock, ScalaAnnotator}
-import org.jetbrains.plugins.scala.base.libraryLoaders._
+import org.jetbrains.plugins.scala.base.libraryLoaders.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.util.TestUtils.getTestDataPath
 import org.jetbrains.plugins.scala.util.UnloadAwareDisposable
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.{Ignore, Test}
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * @author Nikolay.Tropin
@@ -44,7 +44,7 @@ import scala.jdk.CollectionConverters._
 @RunWith(classOf[JUnit4])
 class MemoryLeakTest extends HeavyPlatformTestCase {
 
-  import MemoryLeakTest._
+  import MemoryLeakTest.*
 
   private val projectPath = Paths.get(getTestDataPath, "memoryLeaks", "HelloScala")
 
@@ -179,7 +179,7 @@ object MemoryLeakTest {
     }
   }
 
-  private[this] def createInspectionTools(implicit project: ProjectContext): Seq[InspectionToolWrapper[_, _]] = {
+  private[this] def createInspectionTools(implicit project: ProjectContext): Seq[InspectionToolWrapper[?, ?]] = {
     createInspectionProfile.getAllEnabledInspectionTools(project).asScala
       .flatMap(_.getTools.asScala)
       .map(_.getTool)

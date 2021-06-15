@@ -57,7 +57,7 @@ object ScalaCode {
       case (placeholder, element) => element match {
         case e: PsiElement =>
           placeholder.replace(e)
-        case Seq(es @ _*) =>
+        case Seq(es*) =>
           // simplified implementation of "unquote-splicing" (via replacing the parent element)
           placeholder.getParent.replace(es.head.asInstanceOf[PsiElement].getParent)
       }
@@ -95,14 +95,14 @@ object ScalaCode {
 
       val s = interleave(parts, separators).mkString
 
-      format(s, argumetns: _*)
+      format(s, argumetns*)
     }
   }
 
   private def interleave[T](xs: Seq[T], ys: Seq[T]): Seq[T] = (xs, ys) match {
-    case (Seq(x, tx @ _*), Seq(y, ty @ _*)) => Seq(x, y) ++ interleave(tx, ty)
-    case (Seq(x, tx @ _*), Seq()) => x +: interleave(tx, Seq.empty)
-    case (Seq(), Seq(y, ty @ _*)) => y +: interleave(Seq.empty, ty)
+    case (Seq(x, tx*), Seq(y, ty*)) => Seq(x, y) ++ interleave(tx, ty)
+    case (Seq(x, tx*), Seq()) => x +: interleave(tx, Seq.empty)
+    case (Seq(), Seq(y, ty*)) => y +: interleave(Seq.empty, ty)
     case (Seq(), Seq()) => Seq.empty
   }
 

@@ -9,20 +9,20 @@ import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.editor.actionSystem.EditorActionHandler
 import com.intellij.openapi.editor.{Document, Editor, EditorModificationUtil, EditorModificationUtilEx}
 import com.intellij.openapi.util.Ref
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings.IndentOptions
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.DocumentUtil
 import com.intellij.util.text.CharArrayUtil
 import org.jetbrains.annotations.NotNull
-import org.jetbrains.plugins.scala.editor.enterHandler.Scala3IndentationBasedSyntaxEnterHandler._
+import org.jetbrains.plugins.scala.editor.enterHandler.Scala3IndentationBasedSyntaxEnterHandler.*
 import org.jetbrains.plugins.scala.editor.{AutoBraceUtils, DocumentExt, PsiWhiteSpaceOps, ScalaEditorUtils, useIndentationBasedSyntax}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.ScalaBlock
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScCaseClause
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScCommentOwner
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.util.IndentUtil

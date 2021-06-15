@@ -4,7 +4,7 @@ package joinLines
 
 import com.intellij.codeInsight.editorActions.{JoinLinesHandlerDelegate, JoinRawLinesHandlerDelegate}
 import com.intellij.openapi.editor.Document
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
 
 /** `package a\npackageb` => `package a.b` */

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.findUsages.function
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.search.{PsiSearchHelper, TextOccurenceProcessor, UsageSearchContext}
 import com.intellij.util.{Processor, QueryExecutor}
@@ -15,7 +15,7 @@ import scala.collection.mutable
  * @since 28.02.12
  */
 class JavaFunctionUsagesSearcher extends QueryExecutor[PsiReference, ReferencesSearch.SearchParameters] {
-  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[_ >: PsiReference]): Boolean = {
+  override def execute(queryParameters: ReferencesSearch.SearchParameters, consumer: Processor[? >: PsiReference]): Boolean = {
     val scope = inReadAction(queryParameters.getEffectiveSearchScope)
     val element = queryParameters.getElementToSearch
     element match {

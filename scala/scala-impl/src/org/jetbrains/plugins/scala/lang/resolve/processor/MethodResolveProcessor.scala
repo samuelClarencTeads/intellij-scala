@@ -4,28 +4,28 @@ package resolve
 package processor
 
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.isContextAncestor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.base._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScReferencePattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.TypeParamIdOwner
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScMember, ScObject, ScTemplateDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScTypeParametersOwner, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScPackageImpl
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
 import org.jetbrains.plugins.scala.lang.psi.types.Compatibility.{ConformanceExtResult, Expression}
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScProjectionType
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{ScMethodType, ScTypePolymorphicType}
-import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider._
+import org.jetbrains.plugins.scala.lang.resolve.MethodTypeProvider.*
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveState.ResolveStateExt
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectPsiElementExt}
 import org.jetbrains.plugins.scala.util.SAMUtil
@@ -484,7 +484,7 @@ object MethodResolveProcessor {
           }.toSet
 
           var uSubst = undefined
-          for (TypeParameter(tParam, _, lowerType, upperType) <- typeParameters) {
+          for (case TypeParameter(tParam, _, lowerType, upperType) <- typeParameters) {
             val typeParamId = tParam.typeParamId
 
             if (!lowerType.isNothing) {
@@ -550,7 +550,7 @@ object MethodResolveProcessor {
     _input:          Set[ScalaResolveResult],
     useExpectedType: Boolean = true
   ): Set[ScalaResolveResult] = {
-    import proc.{candidates => _, _}
+    import proc.{candidates as _, *}
 
     //We want to leave only fields and properties from inherited classes, this is important, because
     //field in base class is shadowed by private field from inherited class
@@ -692,7 +692,7 @@ object MethodResolveProcessor {
     r:    ScalaResolveResult,
     proc: MethodResolveProcessor
   ): Set[(ScalaResolveResult, Boolean)] = {
-    import proc._
+    import proc.*
 
     def applyMethodsFor(tp: ScType): Set[(ScalaResolveResult, Boolean)] = {
       val (substitutor, cleanTypeArguments) =
@@ -734,7 +734,7 @@ object MethodResolveProcessor {
     checkWithImplicits: Boolean,
     useExpectedType:    Boolean
   ): Set[ScalaResolveResult] = {
-    import proc._
+    import proc.*
 
     val expanded = input.flatMap(expandApplyOrUpdateMethod(_, proc)).iterator
     var builder  = Set.newBuilder[ScalaResolveResult]

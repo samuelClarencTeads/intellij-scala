@@ -11,7 +11,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.apache.commons.lang3.StringUtils
 import org.jetbrains.plugins.scala.extensions.{PsiElementExt, inWriteAction}
-import org.jetbrains.plugins.scala.format._
+import org.jetbrains.plugins.scala.format.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInterpolatedStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createExpressionFromText
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.util.MultilineStringUtil
 
 final class StringToMultilineStringIntention extends PsiElementBaseIntentionAction {
 
-  import StringToMultilineStringIntention._
+  import StringToMultilineStringIntention.*
 
   override def getFamilyName: String = ScalaCodeInsightBundle.message("family.name.regular.multi.line.string.conversion")
 
@@ -55,7 +55,7 @@ final class StringToMultilineStringIntention extends PsiElementBaseIntentionActi
 object StringToMultilineStringIntention {
   private val Quote = "\""
 
-  import MultilineStringUtil.{MultilineQuotes => Quotes}
+  import MultilineStringUtil.{MultilineQuotes as Quotes}
 
   private def stringLiteralParent(element: PsiElement): Option[ScStringLiteral] =
     element.parentOfType(classOf[ScStringLiteral], strict = false)

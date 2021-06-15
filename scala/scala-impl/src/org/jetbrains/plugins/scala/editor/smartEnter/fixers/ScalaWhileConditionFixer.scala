@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package editor.smartEnter.fixers
 
 import com.intellij.openapi.editor.Editor
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.plugins.scala.editor.smartEnter.ScalaSmartEnterProcessor
 import org.jetbrains.plugins.scala.extensions.PsiElementExt

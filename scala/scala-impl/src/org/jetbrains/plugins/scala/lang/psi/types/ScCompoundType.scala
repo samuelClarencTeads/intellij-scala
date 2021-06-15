@@ -4,14 +4,14 @@ package psi
 package types
 
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.project.ProjectContext
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
-final case class ScCompoundType private (
+final case class ScCompoundType(
   components:   Seq[ScType],
   signatureMap: Map[TermSignature, ScType]      = Map.empty,
   typesMap:     Map[String, TypeAliasSignature] = Map.empty

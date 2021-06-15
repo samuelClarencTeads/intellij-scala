@@ -1,40 +1,40 @@
 package org.jetbrains.plugins.scala
 package injection
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.lang.Language
 import com.intellij.lang.injection.{MultiHostInjector, MultiHostRegistrar}
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.util.{Key, TextRange, Trinity}
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.apache.commons.lang3.StringUtils
 import org.intellij.plugins.intelliLang.Configuration
-import org.intellij.plugins.intelliLang.inject._
+import org.intellij.plugins.intelliLang.inject.*
 import org.intellij.plugins.intelliLang.inject.config.BaseInjection
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.readAttribute
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScReferencePattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolatedStringLiteral, ScLiteral, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScPatternDefinition, ScVariableDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScInterpolatedPatternPrefix
-import org.jetbrains.plugins.scala.settings._
+import org.jetbrains.plugins.scala.settings.*
 import org.jetbrains.plugins.scala.util.MultilineStringUtil
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 final class ScalaLanguageInjector extends MultiHostInjector {
 
-  import ScalaLanguageInjector._
+  import ScalaLanguageInjector.*
 
   lazy val myInjectionConfiguration: Configuration = Configuration.getInstance()
 
-  override def elementsToInjectIn: ju.List[_ <: Class[_ <: PsiElement]] = ElementsToInjectIn
+  override def elementsToInjectIn: ju.List[? <: Class[? <: PsiElement]] = ElementsToInjectIn
 
   // TODO: rethink, add caching
   //  this adds significant typing performance overhead if file contains many injected literals
@@ -114,7 +114,7 @@ final class ScalaLanguageInjector extends MultiHostInjector {
                                     mapping: ju.Map[String, String])
                                    (implicit support: ScalaLanguageInjectionSupport,
                                     registrar: MultiHostRegistrar): Boolean = {
-    val interpolatedLiterals = literals.filterByType[ScInterpolatedStringLiteral with PsiLanguageInjectionHost]
+    val interpolatedLiterals = literals.filterByType[ScInterpolatedStringLiteral & PsiLanguageInjectionHost]
     if (interpolatedLiterals.size == literals.size) {
       val languages = for {
         interpolated <- interpolatedLiterals
@@ -171,7 +171,7 @@ final class ScalaLanguageInjector extends MultiHostInjector {
       if (literal.isMultiLineString) {
         val rangesCollected = extractMultiLineStringRanges(literal)
 
-        for ((lineRange, lineIdx) <- rangesCollected.zipWithIndex) {
+        for (case (lineRange, lineIdx) <- rangesCollected.zipWithIndex) {
           val isFirstLine = lineIdx == 0
           val isLastLine = lineIdx == rangesCollected.length - 1
 
@@ -222,7 +222,7 @@ final class ScalaLanguageInjector extends MultiHostInjector {
     } yield (annotation, language)
 
     for {
-      (annotation, language) <- maybePair
+      case (annotation, language) <- maybePair
     } inject(
       host,
       literals,
@@ -260,8 +260,8 @@ object ScalaLanguageInjector {
     classOf[ScInfixExpr]
   )
 
-  private type StringLiteral = ScLiteral with PsiLanguageInjectionHost
-  private type AnnotationOwner = PsiAnnotationOwner with PsiElement
+  private type StringLiteral = ScLiteral & PsiLanguageInjectionHost
+  private type AnnotationOwner = PsiAnnotationOwner & PsiElement
   private type MaybeAnnotationOwner = Option[AnnotationOwner]
 
   private[this] object CachedAnnotationOwner {
@@ -420,7 +420,7 @@ object ScalaLanguageInjector {
   private[this] def parameterOf(argument: ScExpression): MaybeAnnotationOwner = {
     if (shouldAvoidResolve) return None
 
-    def getParameter(methodInv: MethodInvocation, index: Int): Option[PsiElement with PsiAnnotationOwner] = {
+    def getParameter(methodInv: MethodInvocation, index: Int): Option[PsiElement & PsiAnnotationOwner] = {
       if (index == -1) None else {
         val refOpt = methodInv.getEffectiveInvokedExpr.asOptionOf[ScReferenceExpression]
         refOpt.flatMap { ref =>

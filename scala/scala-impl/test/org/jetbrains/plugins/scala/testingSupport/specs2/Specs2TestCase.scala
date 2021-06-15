@@ -11,6 +11,6 @@ import org.jetbrains.plugins.scala.testingSupport.test.specs2.Specs2Configuratio
   * @since 16.10.2014.
   */
 abstract class Specs2TestCase extends ScalaTestingTestCase {
-  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[_] =
+  override protected lazy val configurationProducer: AbstractTestConfigurationProducer[?] =
     RunConfigurationProducer.getInstance(classOf[Specs2ConfigurationProducer])
 }

@@ -1,6 +1,6 @@
 package org.jetbrains.sbt.project.template.techhub
 
-import java.io._
+import java.io.*
 import java.net.HttpURLConnection
 import java.nio.charset.StandardCharsets
 import java.util

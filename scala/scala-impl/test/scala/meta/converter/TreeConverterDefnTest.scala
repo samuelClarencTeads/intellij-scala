@@ -1,7 +1,7 @@
 package scala.meta.converter
 
 import scala.meta.TreeConverterTestBaseWithLibrary
-import scala.meta._
+import scala.meta.*
 
 class TreeConverterDefnTest extends  TreeConverterTestBaseWithLibrary {
 

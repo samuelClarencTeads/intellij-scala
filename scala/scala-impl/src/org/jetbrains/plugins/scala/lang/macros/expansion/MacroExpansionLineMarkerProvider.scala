@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent
 import java.util
 
 import com.intellij.codeHighlighting.Pass
-import com.intellij.codeInsight.daemon._
+import com.intellij.codeInsight.daemon.*
 import com.intellij.icons.AllIcons
 import com.intellij.navigation.GotoRelatedItem
 import com.intellij.notification.NotificationGroup
@@ -18,7 +18,7 @@ import com.intellij.psi.{PsiElement, PsiElementVisitor, PsiManager, PsiWhiteSpac
 import com.intellij.util.Function
 import javax.swing.Icon
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotation
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
@@ -31,8 +31,8 @@ import scala.collection.mutable.ArrayBuffer
 
 abstract class MacroExpansionLineMarkerProvider extends RelatedItemLineMarkerProvider {
 
-  type Marker = RelatedItemLineMarkerInfo[_]
-  type Markers = util.Collection[_ >: Marker]
+  type Marker = RelatedItemLineMarkerInfo[?]
+  type Markers = util.Collection[? >: Marker]
 
   case class UndoExpansionData(original: String, companion: Option[String] = None)
 
@@ -52,7 +52,7 @@ abstract class MacroExpansionLineMarkerProvider extends RelatedItemLineMarkerPro
   protected def getUndoMarker(element: PsiElement): Option[Marker]
 
   protected def createNotCompiledLineMarker(element: PsiElement, annot: ScAnnotation): Marker = {
-    import org.jetbrains.plugins.scala.project._
+    import org.jetbrains.plugins.scala.project.*
     val eltPointer = element.createSmartPointer
     val module = annot.constructorInvocation.reference.get.resolve().module
     if (module.isEmpty)

@@ -4,7 +4,7 @@ package parser
 package parsing
 package expressions
 
-import java.{util => ju}
+import java.{util as ju}
 
 import com.intellij.lang.WhitespacesAndCommentsBinder
 import com.intellij.psi.tree.IElementType
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
 private[parsing] object Annotations extends ParsingRule {
 
   private val LeftEdgeBinder: WhitespacesAndCommentsBinder =
-    (tokens: ju.List[_ <: IElementType], _: Boolean, _: WhitespacesAndCommentsBinder.TokenTextGetter) => tokens.size
+    (tokens: ju.List[? <: IElementType], _: Boolean, _: WhitespacesAndCommentsBinder.TokenTextGetter) => tokens.size
 
   override def apply()(implicit builder: ScalaPsiBuilder): Boolean = {
     parse()

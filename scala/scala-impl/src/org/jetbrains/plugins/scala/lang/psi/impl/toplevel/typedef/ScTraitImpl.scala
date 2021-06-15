@@ -7,13 +7,13 @@ package typedef
 
 import com.intellij.lang.ASTNode
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.icons.Icons
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenType
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypeParametersOwner
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.light.PsiClassWrapper
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScTemplateDefinitionStub
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScTemplateDefinitionElementType
@@ -33,7 +33,7 @@ final class ScTraitImpl(stub: ScTemplateDefinitionStub[ScTrait],
 
   override def additionalClassJavaName: Option[String] = Option(getName).map(withSuffix)
 
-  import com.intellij.psi._
+  import com.intellij.psi.*
   import com.intellij.psi.scope.PsiScopeProcessor
 
   override protected def targetTokenType: ScalaTokenType = ScalaTokenType.TraitKeyword
@@ -42,7 +42,7 @@ final class ScTraitImpl(stub: ScTemplateDefinitionStub[ScTrait],
                                                   state: ResolveState,
                                                   lastParent: PsiElement,
                                                   place: PsiElement): Boolean = desugaredElement match {
-    case Some(td: ScTemplateDefinitionImpl[_]) =>
+    case Some(td: ScTemplateDefinitionImpl[?]) =>
       td.processDeclarationsForTemplateBody(processor, state, getLastChild, place)
       case _ =>
         super[ScTypeParametersOwner].processDeclarations(processor, state, lastParent, place) &&

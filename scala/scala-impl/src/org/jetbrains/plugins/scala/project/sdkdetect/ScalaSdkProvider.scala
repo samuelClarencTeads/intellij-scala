@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.project.template.{ScalaSdkComponent, ScalaSdk
 
 import java.util.function.Consumer
 import scala.collection.immutable.ArraySeq
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 // TODO: use Java -> Scala stream converters from Scala 2.13
 class ScalaSdkProvider(implicit indicator: ProgressIndicator, contextDirectory: VirtualFile) {
@@ -68,7 +68,7 @@ class ScalaSdkProvider(implicit indicator: ProgressIndicator, contextDirectory: 
 
 
   private def resolveErrorMessage(error: ExtraCompilerPathResolveFailure): String = {
-    import ExtraCompilerPathResolveFailure._
+    import ExtraCompilerPathResolveFailure.*
     val Prefix = "Compiler classpath resolve failure."
     error match {
       case NotSupportedForScalaVersion(scalaVersion) => s"$Prefix Not supported for scala version: $scalaVersion"

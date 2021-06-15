@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.compilationCharts.ui
 
-import java.awt._
+import java.awt.*
 import java.awt.geom.Rectangle2D
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.ui.UISettings
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.actionSystem.ex.CustomComponentAction
 import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.util.NlsActions
@@ -22,8 +22,8 @@ import scala.concurrent.duration.DurationInt
 class ActionPanel(setZoom: Zoom => Unit, setLevel: Level => Unit)
   extends BorderLayoutPanel {
 
-  import ActionPanel._
-  import Common._
+  import ActionPanel.*
+  import Common.*
 
   private var currentZoomIndex: Int = DefaultZoomIndex
 

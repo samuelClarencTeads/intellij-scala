@@ -1,20 +1,20 @@
 package org.jetbrains.plugins.scala.actions.implicitConvertions
 
 import com.intellij.codeInsight.CodeInsightBundle
-import com.intellij.openapi.actionSystem._
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.colors.EditorFontType
 import com.intellij.openapi.keymap.KeymapUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.IconLoader
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiUtilBase
 import com.intellij.util.Alarm
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.actions.{MakeExplicitAction, Parameters, ScalaActionUtil}
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaRefactoringUtil.getExpression
@@ -23,7 +23,7 @@ import org.jetbrains.plugins.scala.util.JListCompatibility
 
 import java.awt.Color
 import java.awt.event.{MouseAdapter, MouseEvent}
-import javax.swing._
+import javax.swing.*
 import javax.swing.border.Border
 import javax.swing.event.{ListSelectionEvent, ListSelectionListener}
 
@@ -33,7 +33,7 @@ final class ShowImplicitConversionsAction extends AnAction(
   IconLoader.findIcon("/actions/intentionBulb.png"),
 ) {
 
-  import MakeExplicitAction._
+  import MakeExplicitAction.*
 
   private var hint: LightBulbHint = _
   private val hintAlarm: Alarm = new Alarm

@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.codeInsight.implicits
 
-import java.awt._
+import java.awt.*
 
 import com.intellij.ide.ui.AntialiasingType
 import com.intellij.openapi.editor.Editor
@@ -11,7 +11,7 @@ import com.intellij.openapi.util.Key
 import com.intellij.ui.paint.EffectPainter
 import com.intellij.util.ui.GraphicsUtil
 import org.jetbrains.plugins.scala.annotator.hints.Text
-import org.jetbrains.plugins.scala.codeInsight.implicits.TextPartsHintRenderer._
+import org.jetbrains.plugins.scala.codeInsight.implicits.TextPartsHintRenderer.*
 
 class TextPartsHintRenderer(var parts: Seq[Text], menu: Option[String])
   extends HintRendererProxy(parts.map(_.string).mkString) {

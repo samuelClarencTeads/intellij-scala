@@ -11,7 +11,7 @@ import com.intellij.testFramework.EditorTestUtil
   */
 class HashCodeUsesVarInspectionTest extends ScalaInspectionTestBase {
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[HashCodeUsesVarInspection]
 
   override protected val description: String =

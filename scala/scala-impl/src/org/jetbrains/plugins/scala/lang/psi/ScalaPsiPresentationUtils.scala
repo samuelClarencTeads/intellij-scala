@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.scala.lang.psi
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.{PsiFormatUtil, PsiFormatUtilBase}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
-import org.jetbrains.plugins.scala.lang.psi.types.api.presentation._
+import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.*
 
 // TODO 2: unify with org.jetbrains.plugins.scala.lang.psi.PresentationUtil
 // TODO 4: unify with org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
@@ -17,7 +17,7 @@ object ScalaPsiPresentationUtils {
       case function: ScFunction =>
         FunctionRenderer.simple(_.presentableText(function)).render(function)
       case _ =>
-        import PsiFormatUtilBase._
+        import PsiFormatUtilBase.*
         val pramOptions = SHOW_NAME | SHOW_TYPE | TYPE_AFTER
         PsiFormatUtil.formatMethod(method, PsiSubstitutor.EMPTY, pramOptions | SHOW_PARAMETERS, pramOptions)
     }

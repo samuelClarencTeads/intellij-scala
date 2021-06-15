@@ -11,7 +11,7 @@ import org.jetbrains.plugins.gradle.model.data.{ScalaCompileOptionsData, ScalaMo
 import org.jetbrains.plugins.gradle.model.scala.{ScalaCompileOptions, ScalaForkOptions, ScalaModel}
 import org.jetbrains.plugins.gradle.service.project.AbstractProjectResolverExtension
 import org.jetbrains.plugins.gradle.util.GradleConstants
-import org.jetbrains.plugins.scala.project.gradle.ScalaGradleProjectResolverExtension._
+import org.jetbrains.plugins.scala.project.gradle.ScalaGradleProjectResolverExtension.*
 
 import scala.annotation.nowarn
 
@@ -24,7 +24,7 @@ class ScalaGradleProjectResolverExtension extends AbstractProjectResolverExtensi
     nextResolver.populateModuleExtraModels(gradleModule, ideModule)
   }
 
-  override def getExtraProjectModelClasses: util.Set[Class[_]] = Collections.singleton(classOf[ScalaModel])
+  override def getExtraProjectModelClasses: util.Set[Class[?]] = Collections.singleton(classOf[ScalaModel])
 }
 
 @Order(ExternalSystemConstants.UNORDERED)

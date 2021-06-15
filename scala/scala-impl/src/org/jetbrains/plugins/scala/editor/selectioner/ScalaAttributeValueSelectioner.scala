@@ -7,9 +7,9 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IElementType
-import org.jetbrains.plugins.scala.editor.selectioner.ScalaAttributeValueSelectioner._
+import org.jetbrains.plugins.scala.editor.selectioner.ScalaAttributeValueSelectioner.*
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
-import org.jetbrains.plugins.scala.lang.lexer.ScalaXmlTokenTypes._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaXmlTokenTypes.*
 
 /**
  * @author Pavel Fatin

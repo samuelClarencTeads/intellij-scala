@@ -9,8 +9,8 @@ val sharedSettings = Seq(
 )
 
 lazy val scalaTest = project in file("scalaTest")
-lazy val uTest: Project = project.settings(sharedSettings:_*)
-lazy val specs2: Project = project.settings(sharedSettings:_*)
+lazy val uTest: Project = project.settings(sharedSettings*)
+lazy val specs2: Project = project.settings(sharedSettings*)
 
 //lazy val root = (project in file("."))
 //  .aggregate(uTest, specs2)

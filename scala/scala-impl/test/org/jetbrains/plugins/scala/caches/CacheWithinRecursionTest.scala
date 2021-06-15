@@ -4,7 +4,7 @@ package caches
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 
 class CacheWithinRecursionTest extends ScalaLightCodeInsightFixtureTestAdapter with CacheTestUtils  with AssertionMatchers { self =>
-  import self.{CachedRecursiveFunction => Func}
+  import self.{CachedRecursiveFunction as Func}
 
   def test_simple(): Unit = {
     val a = Func("a")

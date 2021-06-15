@@ -1,14 +1,14 @@
 package org.jetbrains.plugins.scala
 package annotator
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.annotator.quickfix.PullUpQuickFix
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.PropertyMethods
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScFieldId
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScRefinement
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScMember
@@ -25,8 +25,8 @@ import org.jetbrains.plugins.scala.statistics.{FeatureKey, Stats}
   */
 
 trait OverridingAnnotator {
-  import OverridingAnnotator._
-  import lang.psi.ScalaPsiUtil._
+  import OverridingAnnotator.*
+  import lang.psi.ScalaPsiUtil.*
 
   def checkStructural(element: PsiElement, supers: Seq[Any], isInSources: Boolean): Unit = {
     if (!isInSources) return
@@ -98,7 +98,7 @@ trait OverridingAnnotator {
                                        (implicit holder: ScalaAnnotationHolder): Unit = {
     import lang.lexer.{ScalaModifier, ScalaTokenTypes}
     import ScalaModifier.{OVERRIDE, Override}
-    import quickfix.ModifierQuickFix._
+    import quickfix.ModifierQuickFix.*
 
     val memberNameId = namedElement.nameId
     if (superSignaturesWithSelfType.isEmpty) {

@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.psi.impl.base.literals.escapers
 
 import junit.framework.TestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import java.lang
 

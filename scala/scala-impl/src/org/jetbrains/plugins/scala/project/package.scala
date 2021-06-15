@@ -6,9 +6,9 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.externalSystem.ExternalSystemModulePropertyManager
 import com.intellij.openapi.fileEditor.{FileDocumentManager, FileEditorManager}
-import com.intellij.openapi.module._
+import com.intellij.openapi.module.*
 import com.intellij.openapi.project.{DumbService, Project, ProjectUtil}
-import com.intellij.openapi.roots._
+import com.intellij.openapi.roots.*
 import com.intellij.openapi.roots.impl.libraries.LibraryEx
 import com.intellij.openapi.roots.libraries.{Library, LibraryTablesRegistrar}
 import com.intellij.openapi.util.{Key, UserDataHolder, UserDataHolderEx}
@@ -16,7 +16,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{LanguageSubstitutors, PsiElement, PsiFile}
 import com.intellij.util.PathsList
 import org.jetbrains.annotations.TestOnly
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.ScStubElementType
 import org.jetbrains.plugins.scala.lang.resolve.processor.precedence.PrecedenceTypes
@@ -30,7 +30,7 @@ import org.jetbrains.sbt.project.module.SbtModuleType
 
 import java.io.File
 import java.net.URL
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.implicitConversions
 import scala.ref.Reference
 
@@ -48,7 +48,7 @@ package object project {
 
   implicit class LibraryExt(private val library: Library) extends AnyVal {
 
-    import LibraryExt._
+    import LibraryExt.*
 
     def isScalaSdk: Boolean = library match {
       case libraryEx: LibraryEx => libraryEx.isScalaSdk
@@ -395,7 +395,7 @@ package object project {
         isEnabledIn(_.isMetaEnabled)
 
     def isTrailingCommasEnabled: Boolean = {
-      import ScalaProjectSettings.TrailingCommasMode._
+      import ScalaProjectSettings.TrailingCommasMode.*
       ScalaProjectSettings.getInstance(file.getProject).getTrailingCommasMode match {
         case Enabled => true
         case Disabled => false

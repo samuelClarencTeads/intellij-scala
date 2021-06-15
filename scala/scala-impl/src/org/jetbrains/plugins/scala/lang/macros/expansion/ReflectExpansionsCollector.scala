@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.lang.macros.expansion
 
-import java.io._
+import java.io.*
 
 import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
 import com.intellij.openapi.diagnostic.Logger
@@ -22,7 +22,7 @@ import scala.util.Using
   * @since 20.09.16
   */
 class ReflectExpansionsCollector(project: Project) {
-  import ReflectExpansionsCollector._
+  import ReflectExpansionsCollector.*
 
   private val collectedExpansions: mutable.HashMap[Place, MacroExpansion] = mutable.HashMap.empty
   private var parser: ScalaReflectMacroExpansionParser = _

@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Nikolay.Tropin
@@ -26,7 +26,7 @@ final class ScalaGenerateEqualsWizard(clazz: ScClass, needEquals: Boolean, needH
   extends AbstractGenerateEqualsWizard[ScClass, ScNamedElement, ScalaMemberInfo](project,
     new ScalaGenerateEqualsWizard.Builder(clazz, needEquals, needHashCode)) {
 
-  import ScalaGenerateEqualsWizard._
+  import ScalaGenerateEqualsWizard.*
 
   def equalsFields: Iterable[ScNamedElement] = selectedFields(myEqualsPanel)
 
@@ -39,7 +39,7 @@ object ScalaGenerateEqualsWizard {
                         needEquals: Boolean, needHashCode: Boolean)
     extends AbstractGenerateEqualsWizard.Builder[ScClass, ScNamedElement, ScalaMemberInfo] {
 
-    import Builder._
+    import Builder.*
 
     override protected val getClassFields: util.List[ScalaMemberInfo] = {
       extractFields(!isVar(_)).map(_._1).asJava
@@ -53,7 +53,7 @@ object ScalaGenerateEqualsWizard {
       if (needEquals && needHashCode) {
         val result = new HashMap[ScNamedElement, ScalaMemberInfo]: @nowarn("cat=deprecation")
         for {
-          (info, member) <- extractFields(Function.const(true))
+          case (info, member) <- extractFields(Function.const(true))
         } result.put(member, info)
         result
       } else null
@@ -68,7 +68,7 @@ object ScalaGenerateEqualsWizard {
       }
       else null
 
-    override protected def updateHashCodeMemberInfos(equalsMemberInfos: util.Collection[_ <: ScalaMemberInfo]): Unit =
+    override protected def updateHashCodeMemberInfos(equalsMemberInfos: util.Collection[? <: ScalaMemberInfo]): Unit =
       getHashCodePanel match {
         case null =>
         case panel => panel.getTable.setMemberInfos(updateInfos(equalsMemberInfos))
@@ -78,7 +78,7 @@ object ScalaGenerateEqualsWizard {
 
     override protected def getNonNullPanel: AbstractMemberSelectionPanel[ScNamedElement, ScalaMemberInfo] = null
 
-    override protected def updateNonNullMemberInfos(equalsMemberInfos: util.Collection[_ <: ScalaMemberInfo]): Unit = {}
+    override protected def updateNonNullMemberInfos(equalsMemberInfos: util.Collection[? <: ScalaMemberInfo]): Unit = {}
 
     private def extractFields(visibility: ScNamedElement => Boolean) =
       for {
@@ -90,7 +90,7 @@ object ScalaGenerateEqualsWizard {
         (info, member)
       }
 
-    private def updateInfos(infos: util.Collection[_ <: ScalaMemberInfo]) = {
+    private def updateInfos(infos: util.Collection[? <: ScalaMemberInfo]) = {
       infos.asScala.toList.map { info =>
         getFieldsToHashCode.get(info.getMember)
       }.asJava

@@ -2,15 +2,15 @@ package org.jetbrains.plugins.scala.editor.documentationProvider.listeners
 
 import com.intellij.codeInsight.documentation.render.DocRenderManager
 import com.intellij.ide.{BrowserUtil, IdeBundle}
-import com.intellij.notification._
-import com.intellij.openapi.actionSystem._
+import com.intellij.notification.*
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable
 import com.intellij.openapi.fileEditor.{FileEditorManager, FileEditorManagerListener}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.{PsiElement, PsiManager}
 import org.jetbrains.plugins.scala.editor.ScalaEditorBundle
-import org.jetbrains.plugins.scala.editor.documentationProvider.listeners.ScalaDocRenderInEditorAdvertiser._
+import org.jetbrains.plugins.scala.editor.documentationProvider.listeners.ScalaDocRenderInEditorAdvertiser.*
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScDocCommentOwner, ScTypeDefinition}

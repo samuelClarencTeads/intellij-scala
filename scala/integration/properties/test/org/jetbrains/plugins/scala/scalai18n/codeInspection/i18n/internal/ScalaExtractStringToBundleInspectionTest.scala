@@ -8,7 +8,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 import org.jetbrains.plugins.scala.codeInspection.{ScalaInspectionBundle, ScalaInspectionTestBase}
 
 class ScalaExtractStringToBundleInspectionTest extends ScalaInspectionTestBase{
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ScalaExtractStringToBundleInspection]
 
   override protected val description = ScalaInspectionBundle.message("internal.string.should.be.in.bundle")

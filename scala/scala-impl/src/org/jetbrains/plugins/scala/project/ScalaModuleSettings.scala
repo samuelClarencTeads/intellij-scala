@@ -9,7 +9,7 @@ import com.intellij.openapi.util.io.JarUtil.{containsEntry, getJarAttribute}
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.util.CommonProcessors.{CollectProcessor, FindProcessor}
 import org.jetbrains.plugins.scala.macroAnnotations.Cached
-import org.jetbrains.plugins.scala.project.ScalaLanguageLevel._
+import org.jetbrains.plugins.scala.project.ScalaLanguageLevel.*
 import org.jetbrains.plugins.scala.project.ScalaModuleSettings.{ScalaVersionProvider, Yimports, YnoPredefOrNoImports, isMetaParadiseJar}
 import org.jetbrains.plugins.scala.project.settings.{ScalaCompilerConfiguration, ScalaCompilerSettings}
 import org.jetbrains.sbt.settings.SbtSettings

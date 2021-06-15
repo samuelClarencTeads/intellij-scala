@@ -6,11 +6,11 @@ import java.awt.Color
 
 import com.intellij.codeInsight.CodeInsightBundle
 import com.intellij.codeInsight.lookup.LookupElement
-import com.intellij.lang.parameterInfo._
-import com.intellij.psi._
+import com.intellij.lang.parameterInfo.*
+import com.intellij.psi.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
@@ -18,10 +18,10 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPatt
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonNames
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject}
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.UndefinedType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 import scala.collection.mutable.ArrayBuffer
@@ -32,7 +32,7 @@ import scala.collection.mutable.ArrayBuffer
  */
 
 class ScalaPatternParameterInfoHandler extends ScalaParameterInfoHandler[ScPatternArgumentList, Any, ScPattern] {
-  override def getArgListStopSearchClasses: java.util.Set[_ <: Class[_]] = {
+  override def getArgListStopSearchClasses: java.util.Set[? <: Class[?]] = {
     java.util.Collections.singleton(classOf[PsiMethod]) //todo: ?
   }
 
@@ -46,8 +46,8 @@ class ScalaPatternParameterInfoHandler extends ScalaParameterInfoHandler[ScPatte
 
   override def getActualParametersRBraceType: IElementType = ScalaTokenTypes.tRBRACE
 
-  override def getArgumentListAllowedParentClasses: java.util.Set[Class[_]] = {
-    val set = new java.util.HashSet[Class[_]]()
+  override def getArgumentListAllowedParentClasses: java.util.Set[Class[?]] = {
+    val set = new java.util.HashSet[Class[?]]()
     set.add(classOf[ScConstructorPattern])
     set
   }
@@ -189,7 +189,7 @@ class ScalaPatternParameterInfoHandler extends ScalaParameterInfoHandler[ScPatte
                         val undefSubst = ScSubstitutor.bind(typeParameters)(UndefinedType(_))
 
                         val maybeSubstitutor = for {
-                          Typeable(parameterType) <- fun.parameters.headOption
+                          case Typeable(parameterType) <- fun.parameters.headOption
                           substituted = undefSubst(parameterType)
                           expectedType <- constr.expectedType
 

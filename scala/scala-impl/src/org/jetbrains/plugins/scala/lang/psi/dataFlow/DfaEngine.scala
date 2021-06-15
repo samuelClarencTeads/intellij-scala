@@ -17,7 +17,7 @@ final class DfaEngine[E](cfg: Seq[Instruction],
     val after = mutable.HashMap.newBuilder.addAll(initial).result()
     val forward = dfa.isForward
 
-    val workList: java.util.Set[Instruction] = new java.util.HashSet[Instruction](java.util.Arrays.asList(cfg.toArray : _*))
+    val workList: java.util.Set[Instruction] = new java.util.HashSet[Instruction](java.util.Arrays.asList(cfg.toArray*))
     while (!workList.isEmpty) {
       val v = workList.iterator.next
       workList.remove(v)

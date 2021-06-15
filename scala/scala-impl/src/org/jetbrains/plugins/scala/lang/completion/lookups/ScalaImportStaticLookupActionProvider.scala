@@ -22,7 +22,7 @@ final class ScalaImportStaticLookupActionProvider extends LookupActionProvider {
       element.getInsertHandler == null &&
       !element.getPsiElement.isInstanceOf[PsiClass] =>
 
-      import PlatformIcons.{CHECK_ICON => checkIcon}
+      import PlatformIcons.{CHECK_ICON as checkIcon}
       val icon = if (element.shouldImport)
         EmptyIcon.create(checkIcon.getIconWidth, checkIcon.getIconHeight)
       else

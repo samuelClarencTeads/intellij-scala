@@ -9,7 +9,7 @@ import org.jetbrains.jps.builders.storage.BuildDataCorruptedException
 import scala.util.control.NonFatal
 
 final case class ScFunExprCompilerRef(line: Int) extends CompilerRef {
-  import ScFunExprCompilerRef._
+  import ScFunExprCompilerRef.*
 
   override def `override`(i: Int): CompilerRef = ???
 

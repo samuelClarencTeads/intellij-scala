@@ -8,7 +8,7 @@ package params
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiTypeParameterAdapter
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotationsHolder
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScNamedElement, ScPolymorphicElement, ScTypeParametersOwner}
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 
 /**
  * @author Alexander Podkhalyuzin

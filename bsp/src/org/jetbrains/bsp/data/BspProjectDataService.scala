@@ -21,7 +21,7 @@ import com.intellij.openapi.vcs.roots.VcsRootDetector
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.pom.java.LanguageLevel
-import org.jetbrains.bsp.data.BspProjectDataService._
+import org.jetbrains.bsp.data.BspProjectDataService.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 import org.jetbrains.plugins.scala.project.external.JdkByHome
 import org.jetbrains.plugins.scala.project.external.SdkReference
@@ -30,7 +30,7 @@ import org.jetbrains.plugins.scala.project.external.AbstractImporter
 import org.jetbrains.plugins.scala.project.external.Importer
 import org.jetbrains.plugins.scala.project.external.SdkUtils
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 
@@ -57,7 +57,7 @@ object BspProjectDataService {
 
     val detectedRoots = {
       val detector = project.getService(classOf[VcsRootDetector])
-      val detected = mutable.Set[VcsRoot](currentVcsRoots.toIndexedSeq: _*)
+      val detected = mutable.Set[VcsRoot](currentVcsRoots.toIndexedSeq*)
       vcsRootsCandidates
         .iterator
         .map(LocalFileSystem.getInstance.findFileByIoFile)

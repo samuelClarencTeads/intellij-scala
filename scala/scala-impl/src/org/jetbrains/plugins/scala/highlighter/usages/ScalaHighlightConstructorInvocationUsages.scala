@@ -9,7 +9,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.psi.search.LocalSearchScope
 import com.intellij.psi.{PsiClass, PsiElement, PsiFile}
 import com.intellij.util.Consumer
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.factory.{ScalaFindUsagesHandler, ScalaFindUsagesHandlerFactory}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScConstructorInvocation, ScStableCodeReference}
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
@@ -26,7 +26,7 @@ class ScalaHighlightConstructorInvocationUsages(invoc: ScConstructorInvocation, 
 
   override def getTargets: util.List[PsiElement] = invoc.reference.fold(util.Collections.emptyList[PsiElement])(util.Collections.singletonList)
 
-  override def selectTargets(targets: util.List[_ <: PsiElement], selectionConsumer: Consumer[_ >: util.List[_ <: PsiElement]]): Unit =
+  override def selectTargets(targets: util.List[? <: PsiElement], selectionConsumer: Consumer[? >: util.List[? <: PsiElement]]): Unit =
     selectionConsumer.consume(targets)
 
   override protected def addOccurrence(element: PsiElement): Unit = {
@@ -37,7 +37,7 @@ class ScalaHighlightConstructorInvocationUsages(invoc: ScConstructorInvocation, 
       })
   }
 
-  override def computeUsages(targets: util.List[_ <: PsiElement]): Unit = elementsToHighlight.foreach { case (classToHighlight, constructor) =>
+  override def computeUsages(targets: util.List[? <: PsiElement]): Unit = elementsToHighlight.foreach { case (classToHighlight, constructor) =>
     val project = file.getProject
     val factory = ScalaFindUsagesHandlerFactory.getInstance(project)
     val manager = new ScalaFindUsagesHandler(classToHighlight, factory)

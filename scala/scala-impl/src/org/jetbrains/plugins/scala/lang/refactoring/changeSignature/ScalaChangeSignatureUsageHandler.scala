@@ -2,23 +2,23 @@ package org.jetbrains.plugins.scala
 package lang.refactoring.changeSignature
 
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.changeSignature.{ChangeInfo, JavaChangeInfo, JavaParameterInfo, ParameterInfo}
 import com.intellij.usageView.UsageInfo
 import org.jetbrains.plugins.scala.codeInsight.intention.types.{AddOnlyStrategy, AddOrRemoveStrategy}
 import org.jetbrains.plugins.scala.extensions.{ChildOf, ElementText, ObjectExt, PsiElementExt, PsiTypeExt}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScModifierListOwner, ScNamedElement}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.{FunctionType, JavaArrayType}
 import org.jetbrains.plugins.scala.lang.psi.{ScalaPsiUtil, TypeAdjuster}
-import org.jetbrains.plugins.scala.lang.refactoring._
+import org.jetbrains.plugins.scala.lang.refactoring.*
 import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.changeInfo.ScalaChangeInfo
 import org.jetbrains.plugins.scala.lang.refactoring.extractMethod.ScalaExtractMethodUtils
 import org.jetbrains.plugins.scala.lang.refactoring.namesSuggester.NameSuggester
@@ -146,7 +146,7 @@ private[changeSignature] trait ScalaChangeSignatureUsageHandler {
       case inv: MethodInvocation =>
         var paramsBuf = Seq[String]()
         for {
-          (arg, param) <- inv.matchedParameters.sortBy(_._2.index)
+          case (arg, param) <- inv.matchedParameters.sortBy(_._2.index)
           if ScUnderScoreSectionUtil.isUnderscore(arg)
         } {
           val paramName =
@@ -307,7 +307,7 @@ private[changeSignature] trait ScalaChangeSignatureUsageHandler {
       var needNamed = false
       val builder = mutable.ListBuffer.empty[String]
       for {
-        (param, idx) <- clause.zipWithIndex
+        case (param, idx) <- clause.zipWithIndex
         if !isRepeated(param)
       } {
         newArgumentExpression(oldArgsInfo, param, manager, isAddDefault, needNamed) match {

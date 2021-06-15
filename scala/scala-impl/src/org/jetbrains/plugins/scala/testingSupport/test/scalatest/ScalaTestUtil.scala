@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.testingSupport.test.scalatest
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
 import org.jetbrains.plugins.scala.testingSupport.test.TestConfigurationUtil.isInheritor
-import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestMigrationUtils.MigrationOps._
+import org.jetbrains.plugins.scala.testingSupport.test.scalatest.ScalaTestMigrationUtils.MigrationOps.*
 
 /**
  * NOTE!!!

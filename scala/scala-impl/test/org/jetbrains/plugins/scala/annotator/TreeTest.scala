@@ -1,15 +1,15 @@
 package org.jetbrains.plugins.scala.annotator
 
 import junit.framework.TestCase
-import org.jetbrains.plugins.scala.annotator.Tree._
-import org.jetbrains.plugins.scala.annotator.TypeDiff._
+import org.jetbrains.plugins.scala.annotator.Tree.*
+import org.jetbrains.plugins.scala.annotator.TypeDiff.*
 import org.junit.Assert.assertEquals
 
 class TreeTest
   extends TestCase {
 
-  import fastparse._
-  import NoWhitespace._
+  import fastparse.*
+  import NoWhitespace.*
 
   private def letterOrDigit[_: P]: P[Unit] = P {
     CharPred(_.isLetterOrDigit)
@@ -24,7 +24,7 @@ class TreeTest
 
   private def group[_: P]: P[Node[TypeDiff]] = P {
     "(" ~~ parser.rep(0) ~~ ")"
-  }.map(Node(_: _*))
+  }.map(Node(_*))
 
   private def parser[_: P]: P[Tree[TypeDiff]] = P {
     (group | element) ~ comma
@@ -96,7 +96,7 @@ class TreeTest
   }
 
   private def asString(diff: Tree[TypeDiff]): String = diff match {
-    case Node(elements @_*) => s"(${elements.map(asString).mkString(", ")})"
+    case Node(elements*) => s"(${elements.map(asString).mkString(", ")})"
     case Leaf(Match(text, _)) => text
     case Leaf(Mismatch(text, _)) => s"~$text~"
   }

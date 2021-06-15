@@ -10,14 +10,14 @@ import org.apache.ivy.util.{DefaultMessageLogger, MessageLogger}
 import org.jetbrains.plugins.scala.DependencyManagerBase.DependencyDescription.scalaArtifact
 import org.jetbrains.plugins.scala.extensions.IterableOnceExt
 import org.jetbrains.plugins.scala.project.ScalaLanguageLevel
-import org.jetbrains.plugins.scala.project.template._
+import org.jetbrains.plugins.scala.project.template.*
 
 import java.io.File
 import java.nio.file.{Files, Paths}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 abstract class DependencyManagerBase {
-  import DependencyManagerBase._
+  import DependencyManagerBase.*
 
   private val homePrefix = sys.props.get("tc.idea.prefix").orElse(sys.props.get("user.home")).map(new File(_)).get
   private val ivyHome = sys.props.get("sbt.ivy.home").map(new File(_)).orElse(Option(new File(homePrefix, ".ivy2"))).get
@@ -222,7 +222,7 @@ object DependencyManagerBase {
     val JAR, SRC = new Type
   }
 
-  import Types._
+  import Types.*
 
   case class DependencyDescription(org: String,
                                    artId: String,

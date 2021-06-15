@@ -6,7 +6,7 @@ package elements
 
 import com.intellij.lang.Language
 import com.intellij.openapi.vfs.{StandardFileSystems, VirtualFile}
-import com.intellij.psi.stubs._
+import com.intellij.psi.stubs.*
 import com.intellij.psi.{PsiClass, PsiElement, PsiFile, tree}
 
 //noinspection TypeAnnotation
@@ -26,7 +26,7 @@ class ScStubFileElementType(override val getExternalId: String,
                                dataStream: StubOutputStream): Unit = {}
 
   override final def deserialize(dataStream: StubInputStream,
-                                 parentStub: StubElement[_ <: PsiElement]) =
+                                 parentStub: StubElement[? <: PsiElement]) =
     new ScFileStubImpl(null)
 
   override final def indexStub(stub: ScFileStub,
@@ -37,9 +37,9 @@ class ScStubFileElementType(override val getExternalId: String,
   protected class ScFileStubBuilderImpl extends DefaultStubBuilder {
 
     override def buildStubTree(file: PsiFile) =
-      super.buildStubTree(file).asInstanceOf[PsiFileStubImpl[_ <: PsiFile]]
+      super.buildStubTree(file).asInstanceOf[PsiFileStubImpl[? <: PsiFile]]
 
-    protected override final def createStubForFile(file: PsiFile): PsiFileStubImpl[_ <: PsiFile] =
+    protected override final def createStubForFile(file: PsiFile): PsiFileStubImpl[? <: PsiFile] =
       file.getViewProvider.getPsi(getLanguage) match {
         case scalaFile: ScalaFile => new ScFileStubImpl(scalaFile)
         case _ => new PsiFileStubImpl(file)

@@ -4,7 +4,7 @@ import java.io.File
 
 import com.intellij.psi.PsiElement
 import com.intellij.testFramework.EqualsToFile
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 import org.jetbrains.uast.test.common.RenderLogTestBase
 import org.jetbrains.uast.visitor.AbstractUastVisitor
 import org.junit.Assert

@@ -3,7 +3,7 @@ package lang
 package completion
 
 import com.intellij.codeInsight.CodeInsightUtilCore.forcePsiPostprocessAndRestoreElement
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementBuilder}
 import com.intellij.codeInsight.template.TemplateBuilderFactory
 import com.intellij.psi.util.PsiTreeUtil.getContextOfType
@@ -11,12 +11,12 @@ import com.intellij.psi.{PsiElement, PsiMember, PsiMethod}
 import com.intellij.ui.LayeredIcon
 import com.intellij.util.ProcessingContext
 import javax.swing.Icon
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.completion.handlers.ScalaInsertHandler.AssignmentText
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.base._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScParameterizedTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScTemplateDefinition}
@@ -31,13 +31,13 @@ import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
  */
 final class SameSignatureCallParametersProvider extends ScalaCompletionContributor {
 
-  import SameSignatureCallParametersProvider._
+  import SameSignatureCallParametersProvider.*
 
   extendBasicAndSmart(classOf[ScMethodCall])(new MethodParametersCompletionProvider)
 
   extendBasicAndSmart(classOf[ScConstructorInvocation])(new ConstructorParametersCompletionProvider)
 
-  private def extendBasicAndSmart(invocationClass: Class[_ <: ScalaPsiElement])
+  private def extendBasicAndSmart(invocationClass: Class[? <: ScalaPsiElement])
                                  (provider: CompletionProvider[CompletionParameters]): Unit = {
     val place = identifierWithParentsPattern(
       classOf[ScReferenceExpression],
@@ -79,7 +79,7 @@ object SameSignatureCallParametersProvider {
                                                 argumentToStart: ArgumentToStart,
                                                 hasSuperQualifier: Boolean,
                                                 invocationCount: Int) = for {
-      ScalaResolveResult(method: ScMethodLike, substitutor) <- reference.completionVariants()
+      case ScalaResolveResult(method: ScMethodLike, substitutor) <- reference.completionVariants()
       if method.name == reference.refName
 
       lookupElement <- createLookupElement(method, argumentToStart, substitutor) {
@@ -91,7 +91,7 @@ object SameSignatureCallParametersProvider {
 
     private def createAssignmentElements(reference: ScReferenceExpression,
                                          argumentToStart: ArgumentToStart) = for {
-      ScalaResolveResult(function: ScFunction, substitutor) <- reference.multiResolveScala(incomplete = true).toSeq
+      case ScalaResolveResult(function: ScFunction, substitutor) <- reference.multiResolveScala(incomplete = true).toSeq
       if function.isApplyMethod
 
       lookupElement <- createLookupElement(function, argumentToStart, substitutor) {
@@ -313,7 +313,7 @@ object SameSignatureCallParametersProvider {
 
   private[this] implicit class LookupElementBuilderExt(private val builder: LookupElementBuilder) extends AnyVal {
 
-    import LookupElementBuilderExt._
+    import LookupElementBuilderExt.*
 
     def withMoveCaretInsertionHandler: LookupElementBuilder =
       builder.withInsertHandler {

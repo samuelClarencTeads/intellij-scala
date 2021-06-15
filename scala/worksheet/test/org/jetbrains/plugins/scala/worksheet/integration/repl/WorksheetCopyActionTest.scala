@@ -5,9 +5,9 @@ import com.intellij.testFramework.PlatformTestUtil
 import org.jetbrains.plugins.scala.WorksheetEvaluationTests
 import org.jetbrains.plugins.scala.editor.DocumentExt
 import org.jetbrains.plugins.scala.extensions.{StringExt, executeWriteActionCommand}
-import org.jetbrains.plugins.scala.util.runners._
+import org.jetbrains.plugins.scala.util.runners.*
 import org.jetbrains.plugins.scala.worksheet.actions.topmenu.{CleanWorksheetAction, CopyWorksheetAction}
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
 import scala.language.postfixOps

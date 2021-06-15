@@ -28,7 +28,7 @@ private object ScalaTestMigrationUtils {
       def withMigrated: Set[String] = {
         val migrated = for {
           fqn <- fqns
-          (oldstyle, newStyle) <- selectMigration(fqn)
+          case (oldstyle, newStyle) <- selectMigration(fqn)
         } yield (fqn, fqn.replace(oldstyle, newStyle))
         fqns ++ migrated.map(_._2)
       }
@@ -38,7 +38,7 @@ private object ScalaTestMigrationUtils {
       def migrated: List[String] = {
         val result = for {
           fqn <- fqns
-          (oldstyle, newStyle) <- selectMigration(fqn)
+          case (oldstyle, newStyle) <- selectMigration(fqn)
         } yield (fqn, fqn.replace(oldstyle, newStyle))
         result.map(_._2)
       }

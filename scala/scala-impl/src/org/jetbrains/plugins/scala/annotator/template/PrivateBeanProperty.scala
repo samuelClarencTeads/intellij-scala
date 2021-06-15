@@ -27,7 +27,7 @@ object PrivateBeanProperty extends AnnotatorPart[ScAnnotation] {
             errorAnnotation = holder.createErrorAnnotation(privateModifier,
               ScalaBundle.message("annotator.error.bean.property.should.not.be.private"))
           } {
-            import quickfix.ModifierQuickFix._
+            import quickfix.ModifierQuickFix.*
             errorAnnotation.registerFix(new MakePublic(property))
             errorAnnotation.registerFix(new MakeProtected(property))
           }

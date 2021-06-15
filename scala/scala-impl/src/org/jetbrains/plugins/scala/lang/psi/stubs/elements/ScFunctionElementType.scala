@@ -38,7 +38,7 @@ abstract class ScFunctionElementType[Fun <: ScFunction](debugName: String,
     dataStream.writeOptionName(stub.topLevelQualifier)
   }
 
-  override def deserialize(dataStream: StubInputStream, parent: StubElement[_ <: PsiElement]) =
+  override def deserialize(dataStream: StubInputStream, parent: StubElement[? <: PsiElement]) =
     new ScFunctionStubImpl(
       parent,
       this,
@@ -56,7 +56,7 @@ abstract class ScFunctionElementType[Fun <: ScFunction](debugName: String,
     )
 
   override def createStubImpl(function: Fun,
-                              parentStub: StubElement[_ <: PsiElement]): ScFunctionStub[Fun] = {
+                              parentStub: StubElement[? <: PsiElement]): ScFunctionStub[Fun] = {
     val returnTypeElement = function.returnTypeElement
 
     val returnTypeText = returnTypeElement.map(_.getText)
@@ -100,7 +100,7 @@ abstract class ScFunctionElementType[Fun <: ScFunction](debugName: String,
   }
 
   override def indexStub(stub: ScFunctionStub[Fun], sink: IndexSink): Unit = {
-    import index.ScalaIndexKeys._
+    import index.ScalaIndexKeys.*
 
     val functionName = stub.getName
     sink.occurrences(METHOD_NAME_KEY, functionName)

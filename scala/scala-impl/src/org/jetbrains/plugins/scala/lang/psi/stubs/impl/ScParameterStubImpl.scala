@@ -12,8 +12,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
   * User: Alexander Podkhalyuzin
   * Date: 19.10.2008
   */
-class ScParameterStubImpl(parent: StubElement[_ <: PsiElement],
-                          elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScParameterStubImpl(parent: StubElement[? <: PsiElement],
+                          elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                           name: String,
                           override val typeText: Option[String],
                           override val isStable: Boolean,

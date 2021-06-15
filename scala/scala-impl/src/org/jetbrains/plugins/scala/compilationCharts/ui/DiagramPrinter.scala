@@ -1,15 +1,15 @@
 package org.jetbrains.plugins.scala.compilationCharts.ui
 
 import org.jetbrains.plugins.scala.compilationCharts.Memory
-import org.jetbrains.plugins.scala.compilationCharts.ui.Common._
+import org.jetbrains.plugins.scala.compilationCharts.ui.Common.*
 import org.jetbrains.plugins.scala.compiler.CompilationUnitId
 import java.awt.{Color, Graphics2D, RenderingHints}
 import java.awt.geom.{Line2D, Point2D, Rectangle2D}
 
-import ProgressDiagramPrinter._
+import ProgressDiagramPrinter.*
 
 import scala.concurrent.duration.{Duration, FiniteDuration}
-import scala.math.Ordering.Implicits._
+import scala.math.Ordering.Implicits.*
 import scala.util.Random
 
 trait DiagramPrinter {

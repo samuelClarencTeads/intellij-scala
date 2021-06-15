@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.testingSupport.scalatest
 
-import org.jetbrains.plugins.scala.testingSupport.scalatest.generators._
+import org.jetbrains.plugins.scala.testingSupport.scalatest.generators.*
 
 trait ScalaTestWholeSuiteTest extends ScalaTestTestCase
   with FeatureSpecGenerator

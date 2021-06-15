@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.scala.conversion.copy.plainText
 
 import com.intellij.codeInsight.daemon.impl.quickfix.ImportClassFix
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable.ArrayBuffer
 
 /**

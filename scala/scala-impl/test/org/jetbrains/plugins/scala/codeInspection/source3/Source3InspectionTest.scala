@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.codeInspection.ScalaQuickFixTestBase
 import org.jetbrains.plugins.scala.util.Source3TestCase
 
 class Source3InspectionTest  extends ScalaQuickFixTestBase with Source3TestCase {
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[Source3Inspection]
 
   override protected val description = "Scala 2 syntax with -Xsource:3"

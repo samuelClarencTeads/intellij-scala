@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala
 package lang.psi.applicability
 
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 /**
  * Pavel.Fatin, 18.05.2010
  */

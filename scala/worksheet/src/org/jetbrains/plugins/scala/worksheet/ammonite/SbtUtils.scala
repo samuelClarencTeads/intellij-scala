@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.worksheet.ammonite
 import com.intellij.execution.process.{OSProcessHandler, ProcessAdapter, ProcessEvent}
 import com.intellij.openapi.util.Key
 import com.intellij.util.{PathUtil, net}
-import org.jetbrains.plugins.scala.project.template._
+import org.jetbrains.plugins.scala.project.template.*
 
 import java.io.{File, FileNotFoundException}
 import scala.collection.mutable
@@ -59,7 +59,7 @@ private object SbtUtils {
 
     protected def onText(text: String): Unit
 
-    override final def onTextAvailable(event: ProcessEvent, outputType: Key[_]): Unit = {
+    override final def onTextAvailable(event: ProcessEvent, outputType: Key[?]): Unit = {
       val text = event.getText.trim
       onText(text)
       buffer += text

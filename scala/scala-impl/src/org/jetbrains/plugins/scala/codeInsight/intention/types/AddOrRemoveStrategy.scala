@@ -5,20 +5,20 @@ package types
 
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScTypedPattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScFunctionExpr, ScUnderscoreSection}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScPatternDefinition, ScVariableDefinition}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 
 /**
   * Pavel.Fatin, 28.04.2010
   */
 class AddOrRemoveStrategy(editor: Option[Editor] = None) extends AddOnlyStrategy(editor) {
 
-  import AddOrRemoveStrategy._
+  import AddOrRemoveStrategy.*
 
   override def functionWithType(function: ScFunctionDefinition,
                                 typeElement: ScTypeElement): Boolean =

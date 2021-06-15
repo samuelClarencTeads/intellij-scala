@@ -4,7 +4,7 @@ package dependency
 
 import org.jetbrains.plugins.scala.TypecheckerTests
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScMethodCall
-import org.junit.Assert._
+import org.junit.Assert.*
 import org.junit.experimental.categories.Category
 
 /**
@@ -13,8 +13,8 @@ import org.junit.experimental.categories.Category
 @Category(Array(classOf[TypecheckerTests]))
 class AddSimpleSbtDependencyTest extends AnnotatorTestBase {
 
-  import AddSbtDependencyUtils._
-  import AddSimpleSbtDependencyTest._
+  import AddSbtDependencyUtils.*
+  import AddSimpleSbtDependencyTest.*
 
   override def testdataPath: String = s"${super.testdataPath}/dependency"
 

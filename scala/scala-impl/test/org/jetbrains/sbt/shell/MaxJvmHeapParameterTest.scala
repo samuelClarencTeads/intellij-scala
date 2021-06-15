@@ -8,7 +8,7 @@ import org.jetbrains.sbt.JvmMemorySize
 import org.jetbrains.sbt.project.settings.SbtExecutionSettings
 
 class MaxJvmHeapParameterTest extends TestCase {
-  import org.junit.Assert._
+  import org.junit.Assert.*
 
   val hiddenDefaultSize = JvmMemorySize.Megabytes(1500)
   val hiddenDefaultParam = "-Xmx" + hiddenDefaultSize

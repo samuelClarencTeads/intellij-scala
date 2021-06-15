@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala.lang.formatting
 
 import com.intellij.application.options.CodeStyle
 import com.intellij.openapi.command.CommandProcessor
-import com.intellij.openapi.compiler._
+import com.intellij.openapi.compiler.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.{PsiFile, PsiManager}
 import org.jetbrains.plugins.scala.ScalaFileType
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicConfigService
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.processors.ScalaFmtPreFormatProcessor
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings

@@ -7,12 +7,12 @@ import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.MethodValue
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlock, ScExpression, ScReturn, ScUnderScoreSectionUtil}
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.{ScUAnnotated, ScUElement, ScUExpression}
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 import org.jetbrains.uast.{UBlockExpression, UBlockExpressionAdapter, UElement, UExpression, ULambdaExpression, UMethod, UVariable}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 trait ScUBlockCommon
     extends UBlockExpressionAdapter
@@ -69,7 +69,7 @@ object ScUBlockExpression {
       for {
         expr <- Option(arg)
         if !expr.isInstanceOf[ScReturn]
-        block @ (_x: ScBlock) <- Option(expr.getParent)
+        case block@(_x: ScBlock) <- Option(expr.getParent)
         lastStmt <- block.lastStatement
         if expr == lastStmt
         scFun <- Option(block.getParent)

@@ -3,7 +3,7 @@ package project.data
 
 import java.net.URI
 
-import com.intellij.openapi.externalSystem.model.project._
+import com.intellij.openapi.externalSystem.model.project.*
 import com.intellij.openapi.externalSystem.model.{DataNode, Key, ProjectKeys}
 import org.jetbrains.sbt.project.SbtProjectSystem
 
@@ -135,23 +135,23 @@ class SbtBuildModuleNode(override val data: SbtBuildModuleData) extends Node[Sbt
 
 
 abstract class Node[T] {
-  private var children = Vector.empty[Node[_]]
+  private var children = Vector.empty[Node[?]]
 
   protected def key: Key[T]
 
   protected def data: T
 
-  def add(node: Node[_]): Unit = {
+  def add(node: Node[?]): Unit = {
     children :+= node
   }
 
-  def addAll(nodes: Iterable[Node[_]]): Unit = {
+  def addAll(nodes: Iterable[Node[?]]): Unit = {
     children ++= nodes
   }
 
   def toDataNode: DataNode[T] = toDataNode(None)
 
-  private def toDataNode(parent: Option[DataNode[_]]): DataNode[T] = {
+  private def toDataNode(parent: Option[DataNode[?]]): DataNode[T] = {
     val node = new DataNode[T](key, data, parent.orNull)
     children.map(_.toDataNode(Some(node))).foreach(node.addChild)
     node

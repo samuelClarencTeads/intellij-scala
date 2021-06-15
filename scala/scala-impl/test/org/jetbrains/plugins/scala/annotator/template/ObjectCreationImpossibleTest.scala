@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.annotator.template
 
 import org.jetbrains.plugins.scala.annotator.element.ScTemplateDefinitionAnnotator
-import org.jetbrains.plugins.scala.annotator.element.ScTemplateDefinitionAnnotator._
+import org.jetbrains.plugins.scala.annotator.element.ScTemplateDefinitionAnnotator.*
 import org.jetbrains.plugins.scala.annotator.{AnnotatorTestBase, Error, ScalaAnnotationHolder}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
 

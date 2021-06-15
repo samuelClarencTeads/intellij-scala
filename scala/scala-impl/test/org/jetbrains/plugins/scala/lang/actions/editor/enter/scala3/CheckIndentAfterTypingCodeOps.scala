@@ -28,7 +28,7 @@ trait CheckIndentAfterTypingCodeOps {
 
     var contextCodeAtCurrentStep = contextCode
     for {
-      (line, lineIdx) <- lines.zipWithIndex
+      case (line, lineIdx) <- lines.zipWithIndex
     } {
       val beforeTyping =
         if (lineIdx > 0) {

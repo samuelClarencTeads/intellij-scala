@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInsight
 package intention
 
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.{PsiDocumentManager, PsiElement}
 

@@ -5,16 +5,16 @@ package impl
 package base
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.{ElementType, StubBasedExt}
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaModifier, ScalaModifierTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScModifiersStub
 import org.jetbrains.plugins.scala.util.EnumSet
-import org.jetbrains.plugins.scala.util.EnumSet._
+import org.jetbrains.plugins.scala.util.EnumSet.*
 
 /**
 * @author Alexander Podkhalyuzin
@@ -103,7 +103,7 @@ class ScModifierListImpl private (stub: ScModifiersStub, node: ASTNode)
         JavaArrayFactoryUtil.ScAnnotationsFactory
       ) match {
         case Array() => PsiAnnotation.EMPTY_ARRAY
-        case Array(head, _@_*) =>
+        case Array(head, _*) =>
           val scAnnotations = head.getAnnotations
           val result = PsiAnnotation.ARRAY_FACTORY.create(scAnnotations.length)
           scAnnotations.copyToArray(result)

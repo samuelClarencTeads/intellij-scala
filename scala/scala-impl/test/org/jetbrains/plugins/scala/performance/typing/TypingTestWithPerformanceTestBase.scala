@@ -8,7 +8,7 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.testFramework.PlatformTestUtil
 import com.intellij.util.ThrowableRunnable
 import org.jetbrains.plugins.scala.base.ScalaFixtureTestCase
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.util.TestUtils
 
 import scala.concurrent.duration.Duration
@@ -34,7 +34,7 @@ abstract class TypingTestWithPerformanceTestBase extends ScalaFixtureTestCase {
 
     myFixture.configureByText(fileName, input.withNormalizedSeparator.trim)
 
-    val testBody: ThrowableRunnable[_] = () => {
+    val testBody: ThrowableRunnable[?] = () => {
       stringsToType.foreach(myFixture.`type`)
       PsiDocumentManager.getInstance(myFixture.getProject).commitAllDocuments()
       if (expectedOutput != null) {

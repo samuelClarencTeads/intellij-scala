@@ -9,7 +9,7 @@ package synthetic
 import java.util.{ArrayList, List}
 import javax.swing.Icon
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.javadoc.PsiDocComment
 import com.intellij.psi.util.MethodSignatureBackedByPsiMethod
 import org.jetbrains.plugins.scala.icons.Icons

@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.extensions.ElementText
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInterpolatedStringLiteral
-import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions._
+import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions.*
 import org.junit.Assert.assertEquals
 
 /**
@@ -96,7 +96,7 @@ class InterpolatedStringParserTest extends ScalaLightCodeInsightFixtureTestAdapt
   }
 
   def testExpressionWithSpecialFormatEscape_1(): Unit = {
-    import SpecialFormatEscape._
+    import SpecialFormatEscape.*
 
     val data: Seq[(String, Seq[StringPart])] = Seq(
       ""            -> Seq(),

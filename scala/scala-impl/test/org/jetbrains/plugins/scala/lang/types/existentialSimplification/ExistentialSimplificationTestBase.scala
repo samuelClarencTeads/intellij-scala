@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package lang.types.existentialSimplification
 
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScExistentialType, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.types.utils.ScPsiElementAssertionTestBase
 

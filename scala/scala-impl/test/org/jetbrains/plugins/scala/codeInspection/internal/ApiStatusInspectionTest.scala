@@ -6,7 +6,7 @@ import com.intellij.codeInspection.LocalInspectionTool
 
 class ApiStatusInspectionTest extends ScalaQuickFixTestBase {
 
-  protected override val classOfInspection: Class[_ <: LocalInspectionTool] =
+  protected override val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[ApiStatusInspection]
 
   override protected val description: String = ""

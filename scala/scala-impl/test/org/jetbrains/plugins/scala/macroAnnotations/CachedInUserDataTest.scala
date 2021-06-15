@@ -4,7 +4,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.UserDataHolder
 import com.intellij.psi.util.PsiModificationTracker
 import org.jetbrains.plugins.scala.caches.ProjectUserDataHolder
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Author: Svyatoslav Ilinskiy

@@ -1,6 +1,7 @@
 package org.jetbrains.plugins.scala.dfa
 package lattice
 
+import org.jetbrains.plugins.scala.dfa.DfaOps.*
 import org.jetbrains.plugins.scala.dfa.testutils.{ForAllChecker, ForAllGenerator}
 import org.scalatest.matchers.should
 import org.scalatest.prop.Whenever

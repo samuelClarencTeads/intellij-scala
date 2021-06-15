@@ -5,7 +5,7 @@ package result
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.NlsString
 import org.jetbrains.plugins.scala.project.ProjectContext
-import org.jetbrains.plugins.scala.util.HashBuilder._
+import org.jetbrains.plugins.scala.util.HashBuilder.*
 
 final class Failure(private[result] val cause: NlsString)
                    (private[result] implicit val context: ProjectContext) {

@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
  */
 trait Import extends ParsingRule {
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   protected def keywordType: IElementType
 
@@ -68,7 +68,7 @@ object Import extends Import {
 //noinspection TypeAnnotation
 object Export extends Import {
 
-  import lexer.ScalaTokenType._
+  import lexer.ScalaTokenType.*
 
   override protected def keywordType = ExportKeyword
 

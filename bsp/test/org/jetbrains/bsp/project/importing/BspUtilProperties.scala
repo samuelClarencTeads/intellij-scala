@@ -1,7 +1,7 @@
 package org.jetbrains.bsp.project.importing
 
-import ch.epfl.scala.bsp.testkit.gen.UtilGenerators._
-import org.jetbrains.bsp.BspUtil._
+import ch.epfl.scala.bsp.testkit.gen.UtilGenerators.*
+import org.jetbrains.bsp.BspUtil.*
 import org.jetbrains.plugins.scala.SlowTests
 import org.junit.experimental.categories.Category
 import org.junit.{Ignore, Test}

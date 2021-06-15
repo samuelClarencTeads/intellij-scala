@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.{LatestScalaVersions, ScalaVersion}
 import org.jetbrains.plugins.scala.codeInspection.ScalaInspectionTestBase
 
 class Scala3DeprecatedPackageObjectInspectionTest extends ScalaInspectionTestBase {
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] =
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] =
     classOf[Scala3DeprecatedPackageObjectInspection]
 
   override protected val description = Scala3DeprecatedPackageObjectInspection.message

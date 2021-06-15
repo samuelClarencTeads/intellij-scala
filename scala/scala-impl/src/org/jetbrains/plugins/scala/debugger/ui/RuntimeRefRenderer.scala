@@ -7,7 +7,7 @@ import java.util.concurrent.CompletableFuture
 import com.intellij.debugger.engine.evaluation.{EvaluateException, EvaluationContext, EvaluationContextImpl}
 import com.intellij.debugger.engine.{DebugProcess, DebugProcessImpl}
 import com.intellij.debugger.ui.impl.watch.ValueDescriptorImpl
-import com.intellij.debugger.ui.tree.render._
+import com.intellij.debugger.ui.tree.render.*
 import com.intellij.debugger.ui.tree.{DebuggerTreeNode, NodeDescriptor, ValueDescriptor}
 import com.intellij.debugger.{DebuggerContext, JavaDebuggerBundle}
 import com.intellij.openapi.project.Project

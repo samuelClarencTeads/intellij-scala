@@ -6,7 +6,7 @@ package toplevel
 package typedef
 
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.extensions.{ifReadAllowed, _}
+import org.jetbrains.plugins.scala.extensions.{ifReadAllowed, *}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameters
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScGivenAlias

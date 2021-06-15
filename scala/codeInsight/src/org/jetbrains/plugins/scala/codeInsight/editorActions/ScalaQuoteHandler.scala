@@ -9,7 +9,7 @@ import com.intellij.openapi.util.{ProperTextRange, TextRange}
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.{IElementType, TokenSet}
 import org.jetbrains.plugins.scala.extensions.childOf
-import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes._
+import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
@@ -18,7 +18,7 @@ import org.jetbrains.plugins.scala.util.MultilineStringUtil.MultilineQuotes
 // TODO: autoinsert single quote like in Java
 final class ScalaQuoteHandler extends JavaLikeQuoteHandler with MultiCharQuoteHandler {
 
-  import ScalaQuoteHandler._
+  import ScalaQuoteHandler.*
 
   override def isClosingQuote(iterator: HighlighterIterator, offset: Int): Boolean =
     iterator.getTokenType match {

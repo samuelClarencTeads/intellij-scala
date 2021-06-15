@@ -14,8 +14,8 @@ import org.jetbrains.plugins.scala.util.TypeAnnotationSettings.{alwaysAddType, s
  */
 class ScalaSmartCompletionTest extends ScalaCodeInsightTestBase {
 
-  import EditorTestUtil.{SELECTION_END_TAG => E, SELECTION_START_TAG => S}
-  import ScalaCodeInsightTestBase._
+  import EditorTestUtil.{SELECTION_END_TAG as E, SELECTION_START_TAG as S}
+  import ScalaCodeInsightTestBase.*
 
   def testAfterPlaceholder(): Unit = doCompletionTest(
     fileText =

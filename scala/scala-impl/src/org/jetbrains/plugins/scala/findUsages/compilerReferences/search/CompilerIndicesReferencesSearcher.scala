@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.findUsages.compilerReferences
 package search
 
-import java.awt.{List => _}
+import java.awt.{List as _}
 import java.util.concurrent.locks.ReentrantLock
 
 import com.intellij.find.FindManager
@@ -11,27 +11,27 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.{DumbService, Project}
 import com.intellij.openapi.roots.ProjectFileIndex
 import com.intellij.openapi.ui.{DialogWrapper, Messages}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.task.ProjectTaskManager
 import com.intellij.util.Processor
 import com.intellij.util.containers.ContainerUtil
 import com.intellij.util.messages.MessageBusConnection
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.SearchTargetExtractors.{SAMType, UsageType}
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.CompilerMode
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.indices.ScalaCompilerIndices
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.ImplicitUsagesSearchDialogs._
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.ImplicitUsagesSearchDialogs.*
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.CompilerIndicesSettings
 import org.jetbrains.plugins.scala.findUsages.factory.{CompilerIndicesFindUsagesHandler, ScalaFindUsagesHandler, ScalaFindUsagesHandlerFactory}
-import org.jetbrains.plugins.scala.project._
-import org.jetbrains.plugins.scala.util.ImplicitUtil._
+import org.jetbrains.plugins.scala.project.*
+import org.jetbrains.plugins.scala.util.ImplicitUtil.*
 import org.jetbrains.sbt.shell.SbtShellCommunication
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 private class CompilerIndicesReferencesSearcher
   extends CompilerIndicesSearcher[
@@ -42,7 +42,7 @@ private class CompilerIndicesReferencesSearcher
 
   override def processQuery(
     parameters: CompilerIndicesReferencesSearch.SearchParameters,
-    consumer:   Processor[_ >: PsiReference]
+    consumer:   Processor[? >: PsiReference]
   ): Unit = {
     val target  = parameters.element
     val project = target.getProject
@@ -56,7 +56,7 @@ private class CompilerIndicesReferencesSearcher
       usage:              UsagesInFile,
       isPossiblyOutDated: Boolean,
       candidates:         ElementsInContext,
-      processor:          Processor[_ >: PsiReference]
+      processor:          Processor[? >: PsiReference]
     ): Boolean = {
       val ElementsInContext(elements, file, doc) = candidates
 
@@ -105,7 +105,7 @@ object CompilerIndicesReferencesSearcher {
         case (CompilerMode.JPS, _) =>
           val manager = ProjectTaskManager.getInstance(project)
           runSearchAfterIndexingFinishedAsync(modules, project, target)
-          manager.build(modules.toArray: _*)
+          manager.build(modules.toArray*)
         case (CompilerMode.SBT, _) =>
           runSearchAfterIndexingFinishedAsync(modules, project, target)
           val shell = SbtShellCommunication.forProject(project)
@@ -125,7 +125,7 @@ object CompilerIndicesReferencesSearcher {
       if (modules.nonEmpty) {
         val manager = ProjectTaskManager.getInstance(project)
         runSearchAfterIndexingFinishedAsync(modules, project, target)
-        manager.build(modules.toArray: _*)
+        manager.build(modules.toArray*)
         false
       } else true
   }

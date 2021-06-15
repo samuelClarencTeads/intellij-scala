@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.components
 
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent}
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.externalSystem.importing.ImportSpecBuilder

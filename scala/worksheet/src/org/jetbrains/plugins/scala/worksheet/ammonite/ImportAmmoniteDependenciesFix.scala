@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.worksheet.ammonite
 
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.progress._
+import com.intellij.openapi.progress.*
 import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.libraries.LibraryTablesRegistrar
@@ -72,7 +72,7 @@ object ImportAmmoniteDependenciesFix {
 
         val files = mutable.ListBuffer.empty[File]
         val e = new AmmoniteUtil.RegexExtractor
-        import e._
+        import e.*
 
         SbtUtils.createTempSbtProject(
           scalaVersion,

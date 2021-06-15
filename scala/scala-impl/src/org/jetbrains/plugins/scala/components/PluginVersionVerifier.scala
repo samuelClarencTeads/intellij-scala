@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.scala
 package components
 
-import com.intellij.ide.plugins._
+import com.intellij.ide.plugins.*
 import com.intellij.ide.plugins.cl.PluginClassLoader
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
@@ -89,7 +89,7 @@ class ScalaPluginVersionVerifierActivity extends RunOnceStartupActivity {
   override protected def doCleanup(): Unit = {}
 
   private def checkVersion(): Unit = {
-    import ScalaPluginVersionVerifier._
+    import ScalaPluginVersionVerifier.*
 
     ScalaPluginVersionVerifier.getPluginVersion match {
       case Some(version) =>

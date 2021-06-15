@@ -3,26 +3,26 @@ package lang
 package completion
 package clauses
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.{LookupElement, LookupElementPresentation}
 import com.intellij.openapi.util.TextRange
 import com.intellij.patterns.{ElementPattern, PlatformPatterns}
 import com.intellij.psi.{PsiClass, PsiElement}
 import com.intellij.util.{Consumer, ProcessingContext}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createPatternFromTextWithContext
 import org.jetbrains.plugins.scala.lang.psi.types.ScType
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
 
 final class CaseClauseCompletionContributor extends ScalaCompletionContributor {
 
-  import CaseClauseCompletionContributor._
+  import CaseClauseCompletionContributor.*
   import PlatformPatterns.psiElement
 
   extend(
@@ -86,14 +86,14 @@ final class CaseClauseCompletionContributor extends ScalaCompletionContributor {
       override def addCompletions(parameters: CompletionParameters,
                                   context: ProcessingContext,
                                   resultSet: CompletionResultSet): Unit = for {
-        ExtractorCompletionProvider(provider) <- positionFromParameters(parameters).parentOfType(classOf[ScReferencePattern]).toSeq
+        case ExtractorCompletionProvider(provider) <- positionFromParameters(parameters).parentOfType(classOf[ScReferencePattern]).toSeq
 
         provider <- AotCompletionProvider :: provider :: Nil
       } provider.addCompletions(parameters, context, resultSet)
     }
   }
 
-  private def extend(place: ElementPattern[_ <: PsiElement])
+  private def extend(place: ElementPattern[? <: PsiElement])
                     (provider: CompletionProvider[CompletionParameters]): Unit =
     extend(CompletionType.BASIC, place, provider)
 
@@ -102,7 +102,7 @@ final class CaseClauseCompletionContributor extends ScalaCompletionContributor {
 object CaseClauseCompletionContributor {
 
   private abstract class SingleClauseCompletionProvider[
-    T <: ScalaPsiElement with Typeable : reflect.ClassTag
+    T <: ScalaPsiElement & Typeable : reflect.ClassTag
   ] extends ClauseCompletionProvider[T] {
 
     override final protected def addCompletions(typeable: T, result: CompletionResultSet)
@@ -184,7 +184,7 @@ object CaseClauseCompletionContributor {
               Some(arrow) = clause.funType
             } yield TextRange.from(clause.getTextOffset, arrow.getStartOffsetInParent)
 
-            reformatAndMoveCaret(clauses, clause, rangesToReformat: _*)
+            reformatAndMoveCaret(clauses, clause, rangesToReformat*)
         }
       }
     }

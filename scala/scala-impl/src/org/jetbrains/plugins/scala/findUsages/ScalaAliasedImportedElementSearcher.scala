@@ -3,11 +3,11 @@ package findUsages
 
 import com.intellij.openapi.application.QueryExecutorBase
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
-import com.intellij.psi.search._
+import com.intellij.psi.*
+import com.intellij.psi.search.*
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.util.Processor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.finder.ScalaFilterScope
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAlias
@@ -18,7 +18,7 @@ import scala.annotation.nowarn
 
 class ScalaAliasedImportedElementSearcher extends QueryExecutorBase[PsiReference, ReferencesSearch.SearchParameters](true) {
 
-  override def processQuery(parameters: ReferencesSearch.SearchParameters, consumer: Processor[_ >: PsiReference]): Unit = {
+  override def processQuery(parameters: ReferencesSearch.SearchParameters, consumer: Processor[? >: PsiReference]): Unit = {
     val data: Option[(PsiNamedElement, String, SearchScope)] = inReadAction {
       parameters.getElementToSearch match {
         case named: PsiNamedElement =>
@@ -51,7 +51,7 @@ class ScalaAliasedImportedElementSearcher extends QueryExecutorBase[PsiReference
       _.importedName
     }
 
-    override def processTextOccurrence(element: PsiElement, offsetInElement: Int, consumer: Processor[_ >: PsiReference]): Boolean = inReadAction {
+    override def processTextOccurrence(element: PsiElement, offsetInElement: Int, consumer: Processor[? >: PsiReference]): Boolean = inReadAction {
       getAlias(element) match {
         case Some(alias) =>
           val reference: PsiReference = element.getReference

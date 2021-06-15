@@ -1,17 +1,17 @@
 package org.jetbrains.plugins.scala.externalLibraries.kindProjector.inspections
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElementVisitor
 import org.jetbrains.plugins.scala.codeInspection.{AbstractFixOnPsiElement, ScalaInspectionBundle}
 import org.jetbrains.plugins.scala.externalLibraries.kindProjector.TypeLambda
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScTypeAliasDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaElementVisitor, ScalaFile}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createTypeElementFromText
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
  * Inspection to simplify a type like:
@@ -34,7 +34,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.result._
  * }}}
  */
 class AppliedTypeLambdaCanBeSimplifiedInspection extends LocalInspectionTool {
-  import AppliedTypeLambdaCanBeSimplifiedInspection._
+  import AppliedTypeLambdaCanBeSimplifiedInspection.*
 
   override def isEnabledByDefault: Boolean = true
   override def getID: String               = inspectionId

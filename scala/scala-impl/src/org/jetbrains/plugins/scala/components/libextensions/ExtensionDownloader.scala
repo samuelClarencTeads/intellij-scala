@@ -12,7 +12,7 @@ import com.intellij.openapi.vfs.{JarFileSystem, VirtualFile}
 import com.intellij.psi.search.{FilenameIndex, GlobalSearchScope}
 import com.intellij.util.download.DownloadableFileService
 import org.jetbrains.plugins.scala.DependencyManagerBase.{DependencyDescription, IvyResolver, MavenResolver}
-import org.jetbrains.plugins.scala.components.libextensions.LibraryExtensionsManager._
+import org.jetbrains.plugins.scala.components.libextensions.LibraryExtensionsManager.*
 import org.jetbrains.plugins.scala.{ScalaBundle, extensions}
 import org.jetbrains.sbt.resolvers.{SbtIvyResolver, SbtMavenResolver, SbtResolver}
 
@@ -24,7 +24,7 @@ class ExtensionDownloader(private val progress: ProgressIndicator, private val s
 
   def getExtensionJars: Seq[File] = {
     val jarsWithProps = findJarsWithProps()
-    for {(jar, prop) <- jarsWithProps} {
+    for {case (jar, prop) <- jarsWithProps} {
       LOG.info(s"${jar.getPath} -> ${prop.artifact}")
     }
     val libraryProps = jarsWithProps.map(_._2).toSet
@@ -52,7 +52,7 @@ class ExtensionDownloader(private val progress: ProgressIndicator, private val s
   }
 
   private def downloadDirect(props: ExtensionProps): Option[File] = {
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
 
     val downloadRoot = new File(PathManager.getSystemPath, "scala/extensionsCache")
     val fileName     = s"${Math.abs(props.hashCode())}.jar"
@@ -90,7 +90,7 @@ class ExtensionDownloader(private val progress: ProgressIndicator, private val s
     }
     val deps = props.map(_.artifact.toDepDescription)
     val resolver = new IvyExtensionsResolver(ivyResolvers, progress)
-    resolver.resolve(deps:_*).map(_.file)
+    resolver.resolve(deps*).map(_.file)
   }
 
   private def findJarsWithProps(): Seq[(VirtualFile, ExtensionProps)] = {
@@ -107,7 +107,7 @@ class ExtensionDownloader(private val progress: ProgressIndicator, private val s
   }
 
   private def extractPropsFromJar(jarFile: VirtualFile): Option[ExtensionProps] = {
-    import com.google.gson._
+    import com.google.gson.*
     val propsVF = jarFile.findFileByRelativePath(s"META-INF/$PROPS_NAME")
     Option(propsVF)
       .flatMap(x =>

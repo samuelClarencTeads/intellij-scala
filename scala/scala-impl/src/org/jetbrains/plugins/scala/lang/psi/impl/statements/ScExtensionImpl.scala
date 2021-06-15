@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.psi.impl.statements
 import com.intellij.lang.ASTNode
 import com.intellij.psi.{PsiClass, PsiModifierList}
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameters}

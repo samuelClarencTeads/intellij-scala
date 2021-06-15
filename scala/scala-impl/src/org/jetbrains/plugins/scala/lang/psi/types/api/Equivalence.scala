@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.caches.stats.CacheCapabilities
 import org.jetbrains.plugins.scala.caches.stats.CacheTracker
 import org.jetbrains.plugins.scala.caches.stats.Tracer
 import org.jetbrains.plugins.scala.extensions.NullSafe
-import org.jetbrains.plugins.scala.lang.psi.types.api.Equivalence._
+import org.jetbrains.plugins.scala.lang.psi.types.api.Equivalence.*
 
 import scala.util.DynamicVariable
 
@@ -22,7 +22,7 @@ trait Equivalence {
   typeSystem: TypeSystem =>
 
   import ConstraintsResult.Left
-  import TypeSystem._
+  import TypeSystem.*
 
   private val guard = RecursionManager.RecursionGuard[Key, ConstraintsResult](s"${typeSystem.name}.equivalence.guard")
 

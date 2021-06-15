@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.scala.lang.formatting.scalafmt
 
 import com.intellij.application.options.codeStyle.CodeStyleSchemesModel
-import com.intellij.notification._
-import com.intellij.openapi.components.{PersistentStateComponent, _}
+import com.intellij.notification.*
+import com.intellij.openapi.components.{PersistentStateComponent, *}
 import com.intellij.openapi.project.Project
 import javax.swing.event.HyperlinkEvent
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.project.ProjectExt
@@ -22,7 +22,7 @@ import scala.beans.BeanProperty
 final class ScalaFmtSuggesterService(private val project: Project)
   extends PersistentStateComponent[ScalaFmtSuggesterService.State] {
 
-  import ScalaFmtSuggesterService._
+  import ScalaFmtSuggesterService.*
 
   def init(): Unit =
     if (needToSuggestScalafmtFormatter(project)) {

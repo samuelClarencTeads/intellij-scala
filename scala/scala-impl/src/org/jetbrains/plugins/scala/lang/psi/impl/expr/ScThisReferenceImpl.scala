@@ -7,15 +7,15 @@ package expr
 import com.intellij.lang.ASTNode
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiTreeUtil.{getContextOfType, isContextAncestor}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScTemplateDefinition, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createTypeFromText
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{DesignatorOwner, ScThisType}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /**
   * @author Alexander Podkhalyuzin
@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.result._
 class ScThisReferenceImpl(node: ASTNode) extends ScExpressionImplBase(node) with ScThisReference {
 
   protected override def innerType: TypeResult = {
-    import scala.meta.intellij.psi._
+    import scala.meta.intellij.psi.*
     refTemplate match {
       case Some(hasInlineAnnotation()) => createTypeFromText("scala.meta.Stat", this, null).asTypeResult
       case Some(td) => ScThisReferenceImpl.getThisTypeForTypeDefinition(td, this)

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package collections
 
-import com.intellij.codeInsight.PsiEquivalenceUtil._
+import com.intellij.codeInsight.PsiEquivalenceUtil.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScMethodCall}
 import org.jetbrains.plugins.scala.util.SideEffectsUtil
 

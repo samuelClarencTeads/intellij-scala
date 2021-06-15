@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.autoImport.quickFix
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.extensions.{PsiClassExt, PsiNamedElementExt}
 import org.jetbrains.plugins.scala.lang.psi.api.ScPackage

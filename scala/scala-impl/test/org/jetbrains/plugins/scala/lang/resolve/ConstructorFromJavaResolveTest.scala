@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
-import org.junit.Assert._
+import org.junit.Assert.*
 
 
 class ConstructorFromJavaResolveTest extends ScalaResolveTestCase {

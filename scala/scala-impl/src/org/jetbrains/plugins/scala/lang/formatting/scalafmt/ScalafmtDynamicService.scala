@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.DependencyManagerBase.Resolver
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtDynamicService.{ResolveResult, ScalafmtResolveError, ScalafmtVersion}
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.ScalafmtNotifications.FmtVerbosity
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader.DownloadProgressListener.NoopProgressListener
-import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader._
+import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtDynamicDownloader.*
 import org.jetbrains.plugins.scala.lang.formatting.scalafmt.dynamic.ScalafmtReflect
 
 trait ScalafmtDynamicService {

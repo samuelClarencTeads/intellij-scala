@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.lang
 package completion
 
-import com.intellij.codeInsight.completion.{InsertionContext, InsertHandler => IJInsertHandler}
-import com.intellij.codeInsight.lookup.{LookupElement, LookupElementDecorator, LookupElementPresentation, LookupElementRenderer => IJLookupElementRenderer}
+import com.intellij.codeInsight.completion.{InsertionContext, InsertHandler as IJInsertHandler}
+import com.intellij.codeInsight.lookup.{LookupElement, LookupElementDecorator, LookupElementPresentation, LookupElementRenderer as IJLookupElementRenderer}
 
 package object aot {
 

@@ -10,7 +10,7 @@ import com.intellij.psi.{PsiElement, PsiFile}
 import com.intellij.refactoring.safeDelete.SafeDeleteProcessor
 import org.jetbrains.plugins.scala.codeInspection.ScalaInspectionBundle
 import org.jetbrains.plugins.scala.codeInspection.unusedInspections.DeleteUnusedElementFix.definitionOfPatternList
-import org.jetbrains.plugins.scala.extensions.{PsiElementExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiElementExt, *}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPatternList
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScNamingPattern, ScReferencePattern, ScTypedPattern}

@@ -4,12 +4,12 @@ package refactoring
 package util
 
 import com.intellij.openapi.util.text.StringUtil.isEmpty
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings.EXCLUDE_PREFIX
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
-import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator._
+import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.*
 
 import scala.reflect.NameTransformer
 
@@ -22,7 +22,7 @@ object ScalaNamesUtil {
   def isOpCharacter(character: Char): Boolean = character match {
     case '~' | '!' | '@' | '#' | '%' | '^' | '*' | '+' | '-' | '<' | '>' | '?' | ':' | '=' | '&' | '|' | '/' | '\\' => true
     case _ =>
-      import Character._
+      import Character.*
       getType(character) match {
         case MATH_SYMBOL | OTHER_SYMBOL => true
         case _ => false

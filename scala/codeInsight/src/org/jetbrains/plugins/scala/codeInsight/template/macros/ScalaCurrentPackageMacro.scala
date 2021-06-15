@@ -4,7 +4,7 @@ package template
 package macros
 
 import com.intellij.codeInsight.CodeInsightBundle
-import com.intellij.codeInsight.template._
+import com.intellij.codeInsight.template.*
 import com.intellij.psi.PsiDocumentManager
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 

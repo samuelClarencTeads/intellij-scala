@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettin
 
 trait ScalaDelegateMethodTestBase {
 
-  import ScalaDelegateMethodTestBase._
+  import ScalaDelegateMethodTestBase.*
   import util.TypeAnnotationSettings.set
 
   protected final def doTest(file: PsiFile, settings: ScalaCodeStyleSettings)
@@ -24,7 +24,7 @@ trait ScalaDelegateMethodTestBase {
 
 object ScalaDelegateMethodTestBase {
 
-  import util.TypeAnnotationSettings.{noTypeAnnotationForPublic => noTypeAnnotation, _}
+  import util.TypeAnnotationSettings.{noTypeAnnotationForPublic as noTypeAnnotation, *}
 
   def defaultSettings(implicit project: Project): ScalaCodeStyleSettings =
     alwaysAddType(codeStyleSettings)

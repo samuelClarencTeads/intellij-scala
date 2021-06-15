@@ -7,7 +7,7 @@ package base
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.LeafElement
 import com.intellij.psi.tree.IElementType
 import org.apache.commons.lang.StringEscapeUtils
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.QuotedLiteralImplBase
 import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.escapers.{ScLiteralEscaper, ScLiteralRawEscaper}
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 
 // todo: move to "literals" subpackage, but check usages
 /**
@@ -27,9 +27,9 @@ class ScStringLiteralImpl(node: ASTNode,
   extends QuotedLiteralImplBase(node, toString)
     with ScStringLiteral {
 
-  import QuotedLiteralImplBase._
-  import ScStringLiteralImpl._
-  import lang.lexer.ScalaTokenTypes._
+  import QuotedLiteralImplBase.*
+  import ScStringLiteralImpl.*
+  import lang.lexer.ScalaTokenTypes.*
 
   override protected def startQuote: String =
     if (isMultiLineString) MultiLineQuote

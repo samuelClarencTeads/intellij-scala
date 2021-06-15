@@ -58,8 +58,8 @@ private object ScalaPsiEventFilter {
 
   private object IgnoreLeafElementsFilter extends ScalaPsiEventFilter {
 
-    import ScalaTokenTypes._
-    import TokenType._
+    import ScalaTokenTypes.*
+    import TokenType.*
 
     private val significantTokens: TokenSet = {
       TokenSet.orSet(IDENTIFIER_TOKEN_SET, KEYWORDS, LITERALS, TokenSet.create(tUNDER))

@@ -1,17 +1,17 @@
 package org.jetbrains.sbt.annotator.dependency.ui
 
 import java.awt.BorderLayout
-import javax.swing._
-import javax.swing.event._
+import javax.swing.*
+import javax.swing.event.*
 
 import com.intellij.icons.AllIcons
 import com.intellij.util.text.VersionComparatorUtil.compare
-import com.intellij.ui._
+import com.intellij.ui.*
 import com.intellij.ui.components.JBList
-import org.jetbrains.sbt.annotator.dependency.ui.SbtArtifactSearchPanel._
+import org.jetbrains.sbt.annotator.dependency.ui.SbtArtifactSearchPanel.*
 import org.jetbrains.sbt.resolvers.ArtifactInfo
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Created by afonichkin on 7/13/17.
@@ -48,7 +48,7 @@ private object SbtArtifactSearchPanel {
 
   class DependencyListCellRenderer extends ColoredListCellRenderer[ArtifactInfo] {
     //noinspection ScalaExtractStringToBundle,ReferencePassedToNls
-    override def customizeCellRenderer(list: JList[_ <: ArtifactInfo], value: ArtifactInfo, index: Int, selected: Boolean, hasFocus: Boolean): Unit = {
+    override def customizeCellRenderer(list: JList[? <: ArtifactInfo], value: ArtifactInfo, index: Int, selected: Boolean, hasFocus: Boolean): Unit = {
       setIcon(AllIcons.Nodes.PpLib)
       append(s"${value.groupId}:", SimpleTextAttributes.GRAY_ATTRIBUTES)
       append(value.artifactId)

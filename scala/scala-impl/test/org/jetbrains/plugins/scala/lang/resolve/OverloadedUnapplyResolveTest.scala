@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 class OverloadedUnapplyResolveTest
     extends ScalaLightCodeInsightFixtureTestAdapter
     with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   def testSCL9437(): Unit = doResolveTest(
     s"""

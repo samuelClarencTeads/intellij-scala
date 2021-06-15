@@ -102,8 +102,8 @@ abstract class PrecedenceClimbingInfixParsingRule extends ParsingRule {
 
   // first-set of Expr()
   private val startsExpression = {
-    import ScalaTokenTypes._
-    import ScalaTokenType._
+    import ScalaTokenTypes.*
+    import ScalaTokenType.*
     Set(
       tLBRACE, tLPARENTHESIS,
       tIDENTIFIER, tUNDER,

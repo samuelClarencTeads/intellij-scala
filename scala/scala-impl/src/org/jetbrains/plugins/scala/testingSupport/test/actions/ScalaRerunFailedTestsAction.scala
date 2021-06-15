@@ -22,7 +22,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.actions.ScalaRerunFailedT
 import org.jetbrains.plugins.scala.testingSupport.test.munit.MUnitTestLocator
 import org.jetbrains.plugins.scala.testingSupport.test.specs2.Specs2RunConfiguration
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @ApiStatus.Internal
 class ScalaRerunFailedTestsAction(

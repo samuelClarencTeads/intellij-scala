@@ -3,7 +3,7 @@ package lang
 package scaladoc
 package completion
 
-import com.intellij.codeInsight.completion._
+import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.util.ProcessingContext

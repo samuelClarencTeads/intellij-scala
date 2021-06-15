@@ -18,11 +18,11 @@ import com.jgoodies.forms.factories.Borders.EmptyBorder
 import net.miginfocom.layout.CC
 import net.miginfocom.swing.MigLayout
 
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaVersion}
 import org.jetbrains.plugins.scala.extensions.JComponentExt.ActionListenersOwner
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.project.{ScalaLanguageLevel, Version, Versions}
 import org.jetbrains.sbt.project.settings.SbtProjectSettings
 import org.jetbrains.sbt.project.template.SbtModuleBuilderUtil.{doSetupModule, getOrCreateContentRootDir}
@@ -36,8 +36,8 @@ class SbtModuleBuilder extends AbstractExternalModuleBuilder[SbtProjectSettings]
   new SbtProjectSettings
 ) {
 
-  import SbtModuleBuilder._
-  import Versions.{SBT => SbtKind, Scala => ScalaKind}
+  import SbtModuleBuilder.*
+  import Versions.{SBT as SbtKind, Scala as ScalaKind}
 
   private val selections = Selections(
     sbtVersion = None,
@@ -62,7 +62,7 @@ class SbtModuleBuilder extends AbstractExternalModuleBuilder[SbtProjectSettings]
     settings.setResolveJavadocs(false)
   }
 
-  override def getModuleType: ModuleType[_ <: ModuleBuilder] = JavaModuleType.getModuleType
+  override def getModuleType: ModuleType[? <: ModuleBuilder] = JavaModuleType.getModuleType
 
   override def createModule(moduleModel: ModifiableModuleModel): Module = {
     val root = new File(getModuleFileDirectory)
@@ -208,7 +208,7 @@ class SbtModuleBuilder extends AbstractExternalModuleBuilder[SbtProjectSettings]
     @throws[ConfigurationException]
     private def validateLanguageLevel(languageLevel: ScalaLanguageLevel, sdk: Sdk): Unit = {
       import JavaSdkVersion.JDK_1_8
-      import ScalaLanguageLevel._
+      import ScalaLanguageLevel.*
 
       def reportMisconfiguration(libraryName: String,
                                  libraryVersion: String) =
@@ -255,7 +255,7 @@ class SbtModuleBuilder extends AbstractExternalModuleBuilder[SbtProjectSettings]
 
 object SbtModuleBuilder {
 
-  import Sbt._
+  import Sbt.*
 
   private final case class Selections(var sbtVersion: Option[String],
                                       var scalaVersion: Option[String],
@@ -263,7 +263,7 @@ object SbtModuleBuilder {
                                       var resolveSbtClassifiers: Boolean,
                                       var packagePrefix: Option[String]) {
 
-    import Versions.{Kind, SBT => SbtKind, Scala => ScalaKind}
+    import Versions.{Kind, SBT as SbtKind, Scala as ScalaKind}
 
     def versionFromKind(kind: Kind): Option[String] = kind match {
       case ScalaKind => scalaVersion

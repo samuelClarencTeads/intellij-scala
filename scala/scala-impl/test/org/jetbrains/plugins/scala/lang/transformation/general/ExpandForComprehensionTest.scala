@@ -40,12 +40,12 @@ class ExpandForComprehensionTest extends ExpandForComprehensionTestBase {
   )()
 
   def testTypedPattern(): Unit = check(
-    before = "for(v: A <- Seq(A)) { ??? }",
+    before = "for(case v: A <- Seq(A)) { ??? }",
     after = "Seq(A).foreach((v: A) => ???)"
   )()
 
   def testTuplePattern(): Unit = check(
-    before = "for((v1, v2) <- Seq(A)) { ??? }",
+    before = "for(case (v1, v2) <- Seq(A)) { ??? }",
     after = "Seq(A).withFilter { case (v1, v2) => true; case _ => false }.foreach { case (v1, v2) => ??? }"
   )()
 
@@ -55,17 +55,17 @@ class ExpandForComprehensionTest extends ExpandForComprehensionTestBase {
   )()
 
   def testPatternMatching(): Unit = check(
-    before = "for((a: A, b) <- Seq((A, B), 4)) a.a()",
+    before = "for(case (a: A, b) <- Seq((A, B), 4)) a.a()",
     after = "Seq((A, B), 4).withFilter { case (a: A, b) => true; case _ => false }.foreach { case (a: A, b) => a.a() }"
   )()
 
   def testPatternMatchingWithYield(): Unit = check(
-    before = "for((a: A, b) <- Seq((A, B), 4)) yield a.a()",
+    before = "for(case (a: A, b) <- Seq((A, B), 4)) yield a.a()",
     after = "Seq((A, B), 4).withFilter { case (a: A, b) => true; case _ => false }.map { case (a: A, b) => a.a() }"
   )()
 
   def testPatternMatchingWithCorrectType(): Unit = check(
-    before = "for((v1, v2) <- Seq((A, B))) yield v1.a()",
+    before = "for(case (v1, v2) <- Seq((A, B))) yield v1.a()",
     after = "Seq((A, B)).map { case (v1, v2) => v1.a() }"
   )()
 
@@ -259,17 +259,17 @@ class ExpandForComprehensionTest_WithBetterMonadicFor extends ExpandForComprehen
 
 
   def testTuplePattern(): Unit = check(
-    before = "for((v1, v2) <- Seq(A)) { ??? }",
+    before = "for(case (v1, v2) <- Seq(A)) { ??? }",
     after = "Seq(A).foreach { case (v1, v2) => ??? }"
   )()
 
   def testPatternMatching(): Unit = check(
-    before = "for((a: A, b) <- Seq((A, B), 4)) a.a()",
+    before = "for(case (a: A, b) <- Seq((A, B), 4)) a.a()",
     after = "Seq((A, B), 4).foreach { case (a: A, b) => a.a() }"
   )()
 
   def testPatternMatchingWithYield(): Unit = check(
-    before = "for((a: A, b) <- Seq((A, B), 4)) yield a.a()",
+    before = "for(case (a: A, b) <- Seq((A, B), 4)) yield a.a()",
     after = "Seq((A, B), 4).map { case (a: A, b) => a.a() }"
   )()
 }

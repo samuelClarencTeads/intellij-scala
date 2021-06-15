@@ -52,7 +52,7 @@ class ConsoleReporter(override val filesWithProblems: Map[String, Set[TextRange]
       s"""  "$fileName" -> Set($errorsSeq)"""
     }
     val errorRanges: Iterable[String] =
-      for ((fileName, fileErrors) <- errors.groupBy(_._1)) yield getEntryText(fileName, fileErrors)
+      for (case (fileName, fileErrors) <- errors.groupBy(_._1)) yield getEntryText(fileName, fileErrors)
 
     s"""
        |Map(

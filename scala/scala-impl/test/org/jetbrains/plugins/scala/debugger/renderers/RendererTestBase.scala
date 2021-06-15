@@ -5,7 +5,7 @@ import java.util
 import com.intellij.debugger.engine.evaluation.{EvaluateException, EvaluationContextImpl}
 import com.intellij.debugger.ui.impl.ThreadsDebuggerTree
 import com.intellij.debugger.ui.impl.watch.{DebuggerTree, LocalVariableDescriptorImpl, NodeDescriptorImpl}
-import com.intellij.debugger.ui.tree._
+import com.intellij.debugger.ui.tree.*
 import com.intellij.debugger.ui.tree.render.{ArrayRenderer, ChildrenBuilder}
 import com.intellij.openapi.util.Disposer
 import com.intellij.ui.SimpleTextAttributes
@@ -17,7 +17,7 @@ import org.jetbrains.plugins.scala.debugger.ScalaDebuggerTestCase
 import scala.collection.mutable
 import scala.concurrent.duration.{Duration, DurationDouble, FiniteDuration}
 import scala.concurrent.{Await, Promise, TimeoutException}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * Nikolay.Tropin
@@ -76,7 +76,7 @@ abstract class RendererTestBase extends ScalaDebuggerTestCase {
             private val result = mutable.LinkedHashSet.empty[DebuggerTreeNode]
 
             // NOTE: from usages of `setChildren` it looks like it's actually ADD children, not SET
-            override def setChildren(children: util.List[_ <: DebuggerTreeNode]): Unit = synchronized {
+            override def setChildren(children: util.List[? <: DebuggerTreeNode]): Unit = synchronized {
               val childrenSeq = children.asScala
               result ++= childrenSeq
               result.result()

@@ -3,7 +3,7 @@ package codeInspection.imports
 
 import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.codeInspection.AbstractFixOnPsiElement
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.TokenTexts
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportExpr
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createImportExprWithContextFromText

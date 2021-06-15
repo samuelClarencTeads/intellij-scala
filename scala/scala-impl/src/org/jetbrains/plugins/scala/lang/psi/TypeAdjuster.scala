@@ -5,9 +5,9 @@ package psi
 import com.intellij.openapi.application.{ApplicationListener, ApplicationManager}
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
@@ -19,7 +19,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorTyp
 import org.jetbrains.plugins.scala.lang.psi.types.{ScalaTypePresentation, TypePresentationContext}
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.isIdentifier
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.{isOperatorName, qualifiedName, splitName}
-import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets._
+import org.jetbrains.plugins.scala.lang.resolve.ResolveTargets.*
 import org.jetbrains.plugins.scala.lang.resolve.processor.BaseProcessor
 import org.jetbrains.plugins.scala.lang.resolve.{ScalaResolveResult, ScalaResolveState}
 import org.jetbrains.plugins.scala.project.ProjectPsiElementExt
@@ -77,7 +77,7 @@ object TypeAdjuster extends ApplicationListener {
 
     val rewrittenInfos = rewriteInfosAsInfix(infos)
     for {
-      (holder, paths) <- replaceAndAddImports(rewrittenInfos, addImports)
+      case (holder, paths) <- replaceAndAddImports(rewrittenInfos, addImports)
     } holder.addImportsForPaths(paths.toSeq, null)
   }
 
@@ -202,7 +202,7 @@ object TypeAdjuster extends ApplicationListener {
   private def shortenReference(info: ReplacementInfo, useTypeAliases: Boolean = true): ReplacementInfo = {
     object hasStableReplacement {
 
-      import ScalaPsiUtil._
+      import ScalaPsiUtil.*
 
       def unapply(info: SimpleInfo): Option[SimpleInfo] = {
         val SimpleInfo(place, _, resolve, _) = info

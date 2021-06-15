@@ -6,16 +6,16 @@ package types
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.compiled.ClsParameterImpl
 import org.jetbrains.annotations.TestOnly
 import org.jetbrains.plugins.scala.caches.BlockModificationTracker
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.MethodValue
 import org.jetbrains.plugins.scala.lang.psi.api.InferUtil.extractImplicitParameterType
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ConstructorInvocationLike, ScPrimaryConstructor}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression.ExpressionTypeResult
-import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScUnderscoreSection, _}
+import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScUnderscoreSection, *}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameterClause}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
@@ -24,7 +24,7 @@ import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorTyp
 import org.jetbrains.plugins.scala.lang.psi.types.api.{FunctionType, UndefinedType, Unit}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
 import org.jetbrains.plugins.scala.macroAnnotations.CachedWithRecursionGuard
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectPsiElementExt}
@@ -245,7 +245,7 @@ object Compatibility {
   }
 
   def clashedAssignmentsIn(exprs: Seq[Expression]): Seq[ScAssignment] = {
-    val pairs = for(Expression(assignment @ ScAssignment.Named(name)) <- exprs) yield (name, assignment)
+    val pairs = for(case Expression(assignment@ScAssignment.Named(name)) <- exprs) yield (name, assignment)
     val names = pairs.map(_._1)
     val clashedNames = names.diff(names.distinct)
     pairs.filter(p => clashedNames.contains(p._1)).map(_._2)
@@ -484,14 +484,14 @@ object Compatibility {
       if (exprs.length == parameters.length - 1 && !namedMode && parameters.last.isRepeated)
         return ConformanceExtResult(Seq.empty, constraintAccumulator, defaultParameterUsed, matched)
 
-      val missed = for ((parameter: Parameter, b) <- parameters.zip(used)
+      val missed = for (case (parameter: Parameter, b) <- parameters.zip(used)
                         if !b && !parameter.isDefault) yield MissedValueParameter(parameter)
       defaultParameterUsed = parameters.zip(used).exists { case (param, bool) => !bool && param.isDefault}
       if (missed.nonEmpty) return ConformanceExtResult(missed, constraintAccumulator, defaultParameterUsed, matched)
       else {
         // inspect types default values
         val pack = parameters.zip(used)
-        for ((param, use) <- pack if param.isDefault && !use) {
+        for (case (param, use) <- pack if param.isDefault && !use) {
           val paramType = param.paramType
           param.defaultType match {
             case Some(defaultTp) if defaultTp.conforms(paramType) =>

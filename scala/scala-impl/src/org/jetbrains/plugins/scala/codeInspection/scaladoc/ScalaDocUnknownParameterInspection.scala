@@ -2,10 +2,10 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package scaladoc
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElementVisitor
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScPrimaryConstructor
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScTypeParam, ScTypeParamClause}
@@ -65,12 +65,12 @@ class ScalaDocUnknownParameterInspection extends LocalInspectionTool {
         }
 
         def registerBadParams(): Unit = {
-          for ((_, badParameter) <- tagParams) {
+          for (case (_, badParameter) <- tagParams) {
             holder.registerProblem(holder.getManager.createProblemDescriptor(
               badParameter.getValueElement, ScalaInspectionBundle.message("unknown.tag.parameter"), true,
               ProblemHighlightType.GENERIC_ERROR_OR_WARNING, isOnTheFly))
           }
-          for ((_, badTypeParameter) <- tagTypeParams) {
+          for (case (_, badTypeParameter) <- tagTypeParams) {
             holder.registerProblem(holder.getManager.createProblemDescriptor(
               badTypeParameter.getValueElement, ScalaInspectionBundle.message("unknown.tag.type.parameter"), true,
               ProblemHighlightType.GENERIC_ERROR_OR_WARNING, isOnTheFly))

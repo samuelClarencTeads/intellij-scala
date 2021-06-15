@@ -21,7 +21,7 @@ class Scala3SettingsPanel(settings: CodeStyleSettings) extends ScalaCodeStyleSub
 
     checkbox = new JBCheckBox(ScalaBundle.message("scala3.panel.use.indentation.based.syntax"))
 
-    import com.intellij.uiDesigner.core.GridConstraints._
+    import com.intellij.uiDesigner.core.GridConstraints.*
     panel.add(checkbox, new GridConstraints(0, 0, 1, 1, ANCHOR_WEST, FILL_NONE, SIZEPOLICY_FIXED, SIZEPOLICY_WANT_GROW, null, null, null, 0, false))
     panel
   }

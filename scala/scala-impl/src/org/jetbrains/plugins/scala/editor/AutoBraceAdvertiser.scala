@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package editor
 
 import com.intellij.ide.BrowserUtil
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
 import org.jetbrains.plugins.scala.settings.{ScalaApplicationSettings, ScalaEditorSmartKeysConfigurable, ShowSettingsUtilImplExt}

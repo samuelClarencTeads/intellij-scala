@@ -19,11 +19,11 @@ import org.jetbrains.plugins.scala.debugger.ScalaCompilerTestBase
 import org.jetbrains.plugins.scala.debugger.ScalaCompilerTestBase.ListCompilerMessageExt
 import org.jetbrains.plugins.scala.extensions.inWriteAction
 import org.jetbrains.plugins.scala.project.ProjectExt
-import org.jetbrains.plugins.scala.util.Metering._
+import org.jetbrains.plugins.scala.util.Metering.*
 import org.jetbrains.plugins.scala.util.runners.{RunWithScalaVersionsFilter, TestScalaVersion}
 import org.junit.Ignore
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.duration.FiniteDuration
 import scala.util.{Failure, Success, Try}
 
@@ -151,7 +151,7 @@ abstract class CompilationBenchmark
 
     var results: Map[Params, BenchmarkResult] = Map.empty
     println("==================Progress==================")
-    for ((params, i) <- paramsList.zipWithIndex) {
+    for (case (params, i) <- paramsList.zipWithIndex) {
       println(s"Performing benchmark ${i + 1}/$benchmarksCount...")
       val resultMessage = benchmark(params) match {
         case Success(result) =>

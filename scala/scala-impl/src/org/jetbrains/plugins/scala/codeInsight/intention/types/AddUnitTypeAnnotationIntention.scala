@@ -19,13 +19,13 @@ import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker
   */
 class AddUnitTypeAnnotationIntention extends PsiElementBaseIntentionAction {
 
-  import AddUnitTypeAnnotationIntention._
+  import AddUnitTypeAnnotationIntention.*
 
   override def invoke(project: Project, editor: Editor, element: PsiElement): Unit = {
     if (!isAvailable(project, editor, element)) return
 
     findDefinition(element).foreach { definition =>
-      import quickfix._
+      import quickfix.*
       implicit val context: ProjectContext = project
 
       removeAssignment(definition)

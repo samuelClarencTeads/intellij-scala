@@ -17,7 +17,7 @@ import com.intellij.openapi.roots.ModifiableRootModel
 import com.intellij.openapi.roots.impl.libraries.LibraryEx
 import com.intellij.openapi.roots.libraries.Library
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Pavel Fatin
@@ -31,7 +31,7 @@ abstract class AbstractDataService[E, I](key: Key[E]) extends AbstractProjectDat
 
   override def getTargetDataKey: Key[E] = key
 
-  override final def importData(toImport: util.Collection[_ <: DataNode[E]],
+  override final def importData(toImport: util.Collection[? <: DataNode[E]],
                                 projectData: ProjectData,
                                 project: Project,
                                 modelsProvider: IdeModifiableModelsProvider): Unit =
@@ -79,7 +79,7 @@ trait Importer[E] {
 
   // Utility methods
 
-  protected def getIdeModuleByNode(node: DataNode[_]): Option[Module] =
+  protected def getIdeModuleByNode(node: DataNode[?]): Option[Module] =
     for {
       moduleData <- Option(node.getData(ProjectKeys.MODULE))
       module <- findIdeModule(moduleData)

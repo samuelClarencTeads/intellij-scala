@@ -5,10 +5,10 @@ package impl
 package base
 package patterns
 
-import _root_.org.jetbrains.plugins.scala.lang.psi.types._
+import _root_.org.jetbrains.plugins.scala.lang.psi.types.*
 import com.intellij.lang.ASTNode
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScPrimaryConstructor, ScStableCodeReference}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScParameter
@@ -16,7 +16,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObj
 import org.jetbrains.plugins.scala.lang.psi.impl.base.types.ScSimpleTypeElementImpl
 import org.jetbrains.plugins.scala.lang.psi.types.api.{Any, Nothing, TypeParameterType, UndefinedType}
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 
 /** 
 * @author Alexander Podkhalyuzin
@@ -62,7 +62,7 @@ class ScConstructorPatternImpl(node: ASTNode) extends ScalaPsiElementImpl (node)
               if (typeParams.isEmpty) substitutor
               else {
                 val maybeSubstitutor = for {
-                  Typeable(parameterType) <- fun.parameters.headOption
+                  case Typeable(parameterType) <- fun.parameters.headOption
                   functionType = bind(typeParams)(UndefinedType(_)).apply(parameterType)
 
                   expectedType <- this.expectedType
@@ -90,7 +90,7 @@ object ScConstructorPatternImpl {
       matchedType <- typeOpt
       unapplyMethod <- resolveUnapplyMethodFromReference(ref)
       caseClass <- Option(unapplyMethod.syntheticCaseClass)
-      (clazz: ScClass, substitutor) <- matchedType.extractClassType
+      case (clazz: ScClass, substitutor) <- matchedType.extractClassType
       if clazz.isCase && clazz == caseClass
       constr <- clazz.constructor
     } yield getTypedParametersOfPrimaryConstructor(constr, substitutor)

@@ -23,14 +23,14 @@ class ScAccessModifierElementType extends ScStubElementType[ScAccessModifierStub
     dataStream.writeOptionName(stub.idText)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScAccessModifierStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScAccessModifierStub =
     new ScAccessModifierStubImpl(parentStub, this,
       isProtected = dataStream.readBoolean,
       isPrivate = dataStream.readBoolean,
       isThis = dataStream.readBoolean,
       idText = dataStream.readOptionName)
 
-  override def createStubImpl(modifier: ScAccessModifier, parentStub: StubElement[_ <: PsiElement]): ScAccessModifierStub =
+  override def createStubImpl(modifier: ScAccessModifier, parentStub: StubElement[? <: PsiElement]): ScAccessModifierStub =
     new ScAccessModifierStubImpl(parentStub, this,
       isProtected = modifier.isProtected,
       isPrivate = modifier.isPrivate,

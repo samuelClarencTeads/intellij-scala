@@ -33,7 +33,7 @@ final class ScSubstitutor private(_substitutions: Array[Update],   //Array is us
                                   _fromIndex: Int = 0)
   extends (ScType => ScType) {
 
-  import ScSubstitutor._
+  import ScSubstitutor.*
 
   private[recursiveUpdate] val substitutions = _substitutions
   private[recursiveUpdate] val fromIndex = _fromIndex

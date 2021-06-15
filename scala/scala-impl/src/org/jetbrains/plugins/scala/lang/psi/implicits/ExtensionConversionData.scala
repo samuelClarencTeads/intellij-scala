@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.psi.implicits
 
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ElementScope
 import org.jetbrains.plugins.scala.lang.psi.api.InferUtil
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
@@ -43,13 +43,13 @@ object ExtensionConversionHelper {
             case _ => None
           }
 
-          (resultType, _) <- FunctionType.unapply(substituted.removeAbstracts)
+          case (resultType, _) <- FunctionType.unapply(substituted.removeAbstracts)
         } yield resultType
     }
 
   def extensionConversionCheck(data: ExtensionConversionData, candidate: ScalaResolveResult): Option[ScalaResolveResult] = {
     ProgressManager.checkCanceled()
-    import data._
+    import data.*
 
     specialExtractParameterType(candidate).filter {
       case _: ValType if isHardCoded => false
@@ -94,7 +94,7 @@ object ExtensionConversionHelper {
   }
 
   private def findInType(tp: ScType, data: ExtensionConversionData, typeParams: Seq[TypeParameter]): Option[ScalaResolveResult] = {
-    import data._
+    import data.*
 
     Option(processor).collect {
       case processor: MethodResolveProcessor => processor
@@ -110,7 +110,7 @@ object ExtensionConversionHelper {
   }
 
   private def checkHasMethodFast(data: ExtensionConversionData, tp: ScType) = {
-    import data._
+    import data.*
 
     val newProc = new ResolveProcessor(kinds, ref, refName)
     newProc.processType(tp, place, ScalaResolveState.empty)

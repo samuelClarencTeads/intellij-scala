@@ -19,7 +19,7 @@ private object ScalaElementPatternImpl {
   def isMethodCallArgument[T <: ScalaPsiElement](
     host: T, context: ProcessingContext,
     index: Int,
-    methodPattern: ElementPattern[_ <: PsiMethod]
+    methodPattern: ElementPattern[? <: PsiMethod]
   ): Boolean = {
     host.getParent match {
       case argsList: ScArgumentExprList =>

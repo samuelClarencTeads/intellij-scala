@@ -4,7 +4,7 @@ package general
 import com.intellij.psi.PsiElement
 import org.jetbrains.plugins.scala.format.{Injection, InterpolatedStringParser, StringPart, Text}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScInterpolatedStringLiteral
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 /**
@@ -30,13 +30,13 @@ class ExpandStringInterpolation extends AbstractTransformer {
   }
 
   private def extractSpecifiersIn(parts: Seq[StringPart]): Seq[StringPart] = parts match {
-    case Seq(Injection(expression, Some(specifier)), Text(s), t @ _*) =>
+    case Seq(Injection(expression, Some(specifier)), Text(s), t*) =>
       Injection(expression, None) +: Text(specifier.format + s) +: extractSpecifiersIn(t)
 
-    case Seq(Injection(expression, Some(specifier)), t @ _*) =>
+    case Seq(Injection(expression, Some(specifier)), t*) =>
       Injection(expression, None) +: Text(specifier.format) +: extractSpecifiersIn(t)
 
-    case Seq(part, t @ _*) =>
+    case Seq(part, t*) =>
       part +: extractSpecifiersIn(t)
 
     case Seq() =>
@@ -44,13 +44,13 @@ class ExpandStringInterpolation extends AbstractTransformer {
   }
 
   private def addTextDelimiters(parts: Seq[StringPart]): Seq[StringPart] = parts match {
-    case Seq(injection1: Injection, injection2: Injection, t @ _*) =>
+    case Seq(injection1: Injection, injection2: Injection, t*) =>
       injection1 +: Text("") +: addTextDelimiters(injection2 +: t)
 
     case Seq(injection: Injection) =>
       Seq(injection, Text(""))
 
-    case Seq(part, t @ _*) =>
+    case Seq(part, t*) =>
       part +: addTextDelimiters(t)
 
     case Seq() =>
@@ -58,7 +58,7 @@ class ExpandStringInterpolation extends AbstractTransformer {
   }
 
   private def addInitialTextDelimiter(parts: Seq[StringPart]): Seq[StringPart] = parts match {
-    case it @ Seq(_: Injection, _ @ _*) => Text("") +: it
+    case it @ Seq(_: Injection, _*) => Text("") +: it
     case Seq() => Seq(Text(""))
     case it => it
   }

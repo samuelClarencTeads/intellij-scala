@@ -8,14 +8,14 @@ import com.intellij.psi.{PsiElement, PsiFile}
 import com.intellij.testFramework.fixtures.InjectionTestFixture
 import org.intellij.plugins.intelliLang
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.injection.AbstractLanguageInjectionTestCase._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.injection.AbstractLanguageInjectionTestCase.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.junit.Assert
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.language.implicitConversions
 
 /** @see AbstractLanguageInjectionTestCase.kt in main IntelliJ repository */

@@ -21,10 +21,10 @@ final class ScAnnotationElementType extends ScStubElementType[ScAnnotationStub, 
     dataStream.writeOptionName(stub.name)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScAnnotationStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScAnnotationStub =
     new ScAnnotationStubImpl(parentStub, this, annotationText = dataStream.readNameString, name = dataStream.readOptionName)
 
-  override def createStubImpl(annotation: ScAnnotation, parentStub: StubElement[_ <: PsiElement]): ScAnnotationStub = {
+  override def createStubImpl(annotation: ScAnnotation, parentStub: StubElement[? <: PsiElement]): ScAnnotationStub = {
     new ScAnnotationStubImpl(parentStub, this,
       annotationText = annotation.getText.stripPrefix("@"),
       name = annotation.constructorInvocation.reference.map(_.refName)
@@ -32,7 +32,7 @@ final class ScAnnotationElementType extends ScStubElementType[ScAnnotationStub, 
   }
 
   override def indexStub(stub: ScAnnotationStub, sink: IndexSink): Unit = {
-    sink.occurrences(index.ScalaIndexKeys.ANNOTATED_MEMBER_KEY, stub.name.toSeq: _*)
+    sink.occurrences(index.ScalaIndexKeys.ANNOTATED_MEMBER_KEY, stub.name.toSeq*)
   }
 
   override def createElement(node: ASTNode): ScAnnotation = new ScAnnotationImpl(node)

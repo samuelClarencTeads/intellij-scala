@@ -8,13 +8,13 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObj
 import org.junit.{Assert, Ignore}
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue, fail}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 @Ignore("Deprecated logic") // TODO remove deprecated logic and test
 class MetaAnnotationBugsTest extends MetaAnnotationTestBase {
 
   def testSCL10965(): Unit = {
-    import intellij.psi._
+    import intellij.psi.*
     compileMetaSource()
     myFixture.configureByText("Foo.scala",
       """
@@ -105,7 +105,7 @@ class MetaAnnotationBugsTest extends MetaAnnotationTestBase {
   }
 
   def testSCL11952(): Unit = {
-    import org.jetbrains.plugins.scala.lang.psi.types.result._
+    import org.jetbrains.plugins.scala.lang.psi.types.result.*
     def fail(msg:String): Nothing = {Assert.fail(msg); ???}
     compileMetaSource()
     myFixture.configureByText(s"${getTestName(false)}.scala",

@@ -7,17 +7,17 @@ import java.util
 
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.{Condition, TextRange}
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.source.javadoc.PsiDocMethodOrFieldRef
 import com.intellij.psi.javadoc.PsiDocTag
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.util.{MethodSignatureUtil, PsiTreeUtil}
-import com.intellij.refactoring.safeDelete._
-import com.intellij.refactoring.safeDelete.usageInfo._
+import com.intellij.refactoring.safeDelete.*
+import com.intellij.refactoring.safeDelete.usageInfo.*
 import com.intellij.usageView.UsageInfo
-import com.intellij.util._
+import com.intellij.util.*
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ImplicitArgumentsOwner
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScConstructorPattern
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScConstructorInvocation, ScPrimaryConstructor, ScStableCodeReference}
@@ -29,7 +29,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.impl.search.ScalaOverridingMemberSearcher
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 /**
@@ -216,7 +216,7 @@ object SafeDeleteProcessorUtil {
         if (validOverriding.contains(overridingMethod)) {
           val overridingReferences: util.Collection[PsiReference] = methodToReferences.get(overridingMethod)
           var anyOverridingRefs: Boolean = false
-          import scala.util.control.Breaks._
+          import scala.util.control.Breaks.*
           breakable {
             overridingReferences.forEach { overridingReference =>
               val element: PsiElement = overridingReference.getElement
@@ -290,7 +290,7 @@ object SafeDeleteProcessorUtil {
     null
   }
 
-  def canBePrivate(method: PsiMethod, references: util.Collection[PsiReference], deleted: util.Collection[_ <: PsiElement], allElementsToDelete: Array[PsiElement]): Boolean = {
+  def canBePrivate(method: PsiMethod, references: util.Collection[PsiReference], deleted: util.Collection[? <: PsiElement], allElementsToDelete: Array[PsiElement]): Boolean = {
     val containingClass: PsiClass = method.containingClass
     if (containingClass == null) {
       return false
@@ -362,7 +362,7 @@ object SafeDeleteProcessorUtil {
           val element: PsiElement = reference.getElement
           for {
             call <- findMethodOrConstructorInvocation(element)
-            (arg, param) <- call.matchedParameters
+            case (arg, param) <- call.matchedParameters
             if param.psiParam.contains(parameter)
           } {
             // named arguments should be deleted in whole
@@ -389,7 +389,7 @@ object SafeDeleteProcessorUtil {
                 case method: PsiMethod =>
                   val newText: StringBuffer = new StringBuffer
                   newText.append("/** @see #").append(method.name).append('(')
-                  val parameters: java.util.List[PsiParameter] = new util.ArrayList[PsiParameter](util.Arrays.asList(method.getParameterList.getParameters: _*))
+                  val parameters: java.util.List[PsiParameter] = new util.ArrayList[PsiParameter](util.Arrays.asList(method.getParameterList.getParameters*))
                   parameters.remove(parameter)
                   newText.append(parameters.asScala.map(_.getType.getCanonicalText).mkString(","))
                   newText.append(")*/")
@@ -468,10 +468,10 @@ object SafeDeleteProcessorUtil {
   }
 
   def isInside(place: PsiElement, ancestors: Array[PsiElement]): Boolean = {
-    isInside(place, util.Arrays.asList(ancestors : _*))
+    isInside(place, util.Arrays.asList(ancestors*))
   }
 
-  def isInside(place: PsiElement, ancestors: util.Collection[_ <: PsiElement]): Boolean = {
+  def isInside(place: PsiElement, ancestors: util.Collection[? <: PsiElement]): Boolean = {
     ancestors.forEach { element =>
       if (isInside(place, element)) return true
     }

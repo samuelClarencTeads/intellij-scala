@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.resolve
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 
 class CustomCopyMethodResolveTest extends ScalaLightCodeInsightFixtureTestAdapter with SimpleResolveTestBase {
-  import SimpleResolveTestBase._
+  import SimpleResolveTestBase.*
 
   def testSCL15809(): Unit = doResolveTest(
     s"""

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.transformation
 package general
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.project.ProjectContext
 
 /**

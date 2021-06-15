@@ -9,9 +9,9 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile}
 import org.jetbrains.plugins.scala.highlighter.DefaultHighlighter
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
@@ -20,7 +20,7 @@ import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.ScDocTagValue
 // support for "Semantic Highlighting" feature of Intellij IDEA
 final class ScalaRainbowVisitor extends RainbowVisitor {
 
-  import ScalaRainbowVisitor._
+  import ScalaRainbowVisitor.*
 
   override def suitableForFile(file: PsiFile): Boolean = file match {
     case _: ScalaFile => true
@@ -65,7 +65,7 @@ private object ScalaRainbowVisitor {
 
   object ColorKey {
 
-    import DefaultHighlighter._
+    import DefaultHighlighter.*
 
     def unapply(element: PsiElement): Option[(PsiElement, TextAttributesKey)] = element match {
       case tagValue: ScDocTagValue => Some(tagValue, SCALA_DOC_TAG_PARAM_VALUE)

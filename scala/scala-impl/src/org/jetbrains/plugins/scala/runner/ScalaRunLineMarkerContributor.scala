@@ -31,7 +31,7 @@ class ScalaRunLineMarkerContributor extends RunLineMarkerContributor {
       case _ => false
     }
     if (isIdentifier && hasMain)
-      new Info(AllIcons.RunConfigurations.TestState.Run, null, ExecutorAction.getActions(0): _*)
+      new Info(AllIcons.RunConfigurations.TestState.Run, null, ExecutorAction.getActions(0)*)
     else null
   }
 }

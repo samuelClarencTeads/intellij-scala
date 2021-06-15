@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.base.SharedTestProjectToken
 import org.jetbrains.plugins.scala.compiler.ScalaCompileServerSettings
 import org.jetbrains.plugins.scala.extensions.StringExt
 import org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3.Scala3BracelessSyntaxEnterHandlerTest_Exhaustive.TestData
-import org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3.Scala3TestDataBracelessCode.{IndentedBlockContexts, _}
+import org.jetbrains.plugins.scala.lang.actions.editor.enter.scala3.Scala3TestDataBracelessCode.{IndentedBlockContexts, *}
 import org.junit.runner.RunWith
 import org.junit.runners.AllTests
 
@@ -28,7 +28,7 @@ import org.junit.runners.AllTests
 //  + with trimmed data & with extra spaces after it
 private object Scala3BracelessSyntaxEnterHandlerTest_Exhaustive {
 
-  import EditorTestUtil.{CARET_TAG => CARET}
+  import EditorTestUtil.{CARET_TAG as CARET}
 
   private val reservedTestNames = scala.collection.mutable.HashMap.empty[String, Int]
   private def uniqueName(name: String): String = reservedTestNames.synchronized {
@@ -46,7 +46,7 @@ private object Scala3BracelessSyntaxEnterHandlerTest_Exhaustive {
     def buildTestName(prefix: Seq[String], indented: String, wrapper: CodeWithDebugName, typed: CodeWithDebugName): String = {
       val lineWithCaret = indented.linesIterator.find(_.contains(CARET)).get
       val nameParts = prefix :+ lineWithCaret :+ wrapper.debugName :+ typed.debugName
-      makeUniqueTestName(nameParts: _*)
+      makeUniqueTestName(nameParts*)
     }
 
     def createTest(indented: String, wrapper: CodeWithDebugName, typed: CodeWithDebugName): MyTest = {
@@ -166,7 +166,7 @@ private object Scala3BracelessSyntaxEnterHandlerTest_Exhaustive {
     // (includes Enter press AND typing of entire case clause)
     //
     locally {
-      import Scala3TestDataCaseClausesEditorStates._
+      import Scala3TestDataCaseClausesEditorStates.*
       rootSuite += (
         "MatchCaseClausesAll",
         MatchCaseClausesAll.flatMap(createEditorStatesTestsInAllWrapperContexts).filterNot(test => {
@@ -192,7 +192,7 @@ private object Scala3BracelessSyntaxEnterHandlerTest_Exhaustive {
 
 
     locally {
-      import CodeToType._
+      import CodeToType.*
       rootSuite += ("Enter in simple nested block", (BlockStatements :: DefDef :: TemplateStat :: BlankLines :: Nil).map { codeToType =>
         createTestWithName(
           s"""{

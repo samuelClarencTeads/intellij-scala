@@ -1,19 +1,19 @@
 package org.jetbrains.plugins.scala.lang.psi.types
 
 import com.intellij.psi.PsiClass
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
-import org.jetbrains.plugins.scala.lang.psi.types.ScalaConformance._
-import org.jetbrains.plugins.scala.lang.psi.types.SmartSuperTypeUtil._
-import org.jetbrains.plugins.scala.lang.psi.types.api.{ParameterizedType, TypeParameter, TypeParameterType, _}
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
+import org.jetbrains.plugins.scala.lang.psi.types.ScalaConformance.*
+import org.jetbrains.plugins.scala.lang.psi.types.SmartSuperTypeUtil.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.{ParameterizedType, TypeParameter, TypeParameterType, *}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.ScTypePolymorphicType
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 
 /**
   * Conformance parts related to HK type-variable unification
   * and related kind-checking infrastructure.
   */
-trait TypeVariableUnification { self: ScalaConformance with ProjectContextOwner =>
-  import TypeVariableUnification._
+trait TypeVariableUnification { self: ScalaConformance & ProjectContextOwner =>
+  import TypeVariableUnification.*
 
   /**
     * Performs subtyping check of the form:

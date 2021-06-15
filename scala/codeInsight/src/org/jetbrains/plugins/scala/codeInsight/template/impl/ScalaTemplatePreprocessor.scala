@@ -18,7 +18,7 @@ import scala.annotation.tailrec
   */
 final class ScalaTemplatePreprocessor extends TemplatePreprocessor {
 
-  import ScalaTemplatePreprocessor._
+  import ScalaTemplatePreprocessor.*
 
   override def preprocessTemplate(editor: Editor, file: PsiFile, caretOffset: Int,
                                   textToInsert: String, templateText: String): Unit =

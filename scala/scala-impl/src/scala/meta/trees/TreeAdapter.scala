@@ -1,21 +1,21 @@
 package scala.meta.trees
 
 import com.intellij.openapi.progress.ProgressManager
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.{api => p, types => ptype}
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.{api as p, types as ptype}
 
 import scala.collection.immutable.Seq
 import scala.language.postfixOps
 import scala.meta.{Defn, ScalaMetaBundle, Type}
-import scala.meta.trees.error._
-import scala.{meta => m}
+import scala.meta.trees.error.*
+import scala.{meta as m}
 
 trait TreeAdapter {
   self: TreeConverter =>
@@ -39,7 +39,7 @@ trait TreeAdapter {
       case t: ScObject                => toObject(t)
       case t: ScAnnotation            => toAnnot(t)
       case t: ScExpression            => expression(Some(t)).get
-      case t: ScImportStmt            => m.Import(List(t.importExprs.map(imports):_*))
+      case t: ScImportStmt            => m.Import(List(t.importExprs.map(imports)*))
 
       case t: PsiClass => toClass(t)
       case t: PsiMethod => t ???
@@ -163,9 +163,9 @@ trait TreeAdapter {
   }
 
   def pattern(pt: patterns.ScPattern): m.Pat = {
-    import p.base.patterns._
+    import p.base.patterns.*
 
-    import m.Pat._
+    import m.Pat.*
     def compose(lst: List[ScPattern]): m.Pat = lst match {
       case x :: Nil => pattern(x)
       case x :: xs  => Alternative(pattern(x), compose(xs))
@@ -195,7 +195,7 @@ trait TreeAdapter {
   }
 
   def template(t: p.toplevel.templates.ScExtendsBlock): m.Template = {
-    val exprs   = t.templateBody.map (it => List(it.exprs.map(expression): _*))
+    val exprs   = t.templateBody.map (it => List(it.exprs.map(expression)*))
     val members = t.templateBody.map (it => it.members.map(ideaToMeta(_).asInstanceOf[m.Stat]).toList)
     val early   = t.earlyDefinitions.map (it => it.members.map(ideaToMeta(_).asInstanceOf[m.Stat]).toList).getOrElse(Nil)
     val ctor = t.templateParents
@@ -263,8 +263,8 @@ trait TreeAdapter {
     m.Mod.Annot(toCtor(annot.constructorInvocation))
 
   def expression(e: ScExpression): m.Term = {
-    import p.expr._
-    import p.expr.xml._
+    import p.expr.*
+    import p.expr.xml.*
     e match {
       case t: ScLiteral =>
         import m.Lit
@@ -458,7 +458,7 @@ trait TreeAdapter {
   }
 
   def literal(literal: ScLiteral): m.Lit = {
-    import m.Lit._
+    import m.Lit.*
 
     literal.getValue match {
       case value: Integer => Int(value)
@@ -517,7 +517,7 @@ trait TreeAdapter {
     val implicitMod = if(t.hasModifierPropertyScala("implicit")) Seq(m.Mod.Implicit()) else Nil
     val sealedMod = if (t.hasModifierPropertyScala("sealed")) Seq(m.Mod.Sealed()) else Nil
     val annotations: Seq[m.Mod.Annot] = t match {
-      case ah: ScAnnotationsHolder => Seq(ah.annotations.filterNot(_ == annotationToSkip).map(toAnnot):_*)
+      case ah: ScAnnotationsHolder => Seq(ah.annotations.filterNot(_ == annotationToSkip).map(toAnnot)*)
       case _ => Seq.empty
     }
     val overrideMod = if (t.hasModifierProperty("override")) Seq(m.Mod.Override()) else Nil

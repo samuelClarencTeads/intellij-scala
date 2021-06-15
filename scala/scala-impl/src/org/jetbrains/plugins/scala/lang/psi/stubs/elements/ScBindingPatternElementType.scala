@@ -6,7 +6,7 @@ package elements
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
-import com.intellij.psi.stubs._
+import com.intellij.psi.stubs.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScNamingPattern, ScReferencePattern, ScSeqWildcardPattern, ScTypedPattern}
 import org.jetbrains.plugins.scala.lang.psi.impl.base.patterns.{ScNamingPatternImpl, ScReferencePatternImpl, ScSeqWildcardPatternImpl, ScTypedPatternImpl}
 import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScBindingPatternStubImpl
@@ -20,11 +20,11 @@ abstract class ScBindingPatternElementType[P <: ScBindingPattern](debugName: Str
     dataStream.writeName(stub.getName)
   }
 
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScBindingPatternStub[P] =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScBindingPatternStub[P] =
     new ScBindingPatternStubImpl[P](parentStub, this, name = dataStream.readNameString)
 
   override protected def createStubImpl(psi: P,
-                                        parentStub: StubElement[_ <: PsiElement]): ScBindingPatternStub[P] =
+                                        parentStub: StubElement[? <: PsiElement]): ScBindingPatternStub[P] =
     new ScBindingPatternStubImpl[P](parentStub, this, psi.name)
 }
 

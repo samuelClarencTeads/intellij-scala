@@ -23,9 +23,9 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinitio
  */
 final class ScalaByNameWeigher extends CompletionWeigher {
 
-  import ScalaByNameWeigher._
+  import ScalaByNameWeigher.*
 
-  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[_] = {
+  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[?] = {
     val parameters = location.getCompletionParameters
     val position = positionFromParameters(parameters)
 

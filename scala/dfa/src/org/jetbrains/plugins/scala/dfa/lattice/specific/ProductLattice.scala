@@ -6,7 +6,7 @@ import scala.reflect.ClassTag
 /**
  * Lattice type class implementation for products of other lattices
  */
-abstract class ProductLattice[T <: AnyRef: ClassTag](_top: => T, override val bottom: T, elementLattices: Array[Lattice[_ <: T]])
+abstract class ProductLattice[T <: AnyRef: ClassTag](_top: => T, override val bottom: T, elementLattices: Array[Lattice[? <: T]])
   extends JoinSemiLattice[T] with MeetSemiLattice[T] {
 
   override lazy val top: T = _top

@@ -14,7 +14,7 @@ import org.jetbrains.plugins.scala.util.EnumSet.EnumSet
   * User: Alexander Podkhalyuzin
   * Date: 21.01.2009
   */
-class ScModifiersStubImpl(parent: StubElement[_ <: PsiElement],
-                          elemType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScModifiersStubImpl(parent: StubElement[? <: PsiElement],
+                          elemType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                           override val modifiers: EnumSet[ScalaModifier])
   extends StubBase[ScModifierList](parent, elemType) with ScModifiersStub

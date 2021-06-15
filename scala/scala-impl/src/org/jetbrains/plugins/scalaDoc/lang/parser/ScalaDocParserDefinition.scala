@@ -14,14 +14,14 @@ import org.jetbrains.plugins.scala.lang.scaladoc.lexer.{ScalaDocLexer, ScalaDocT
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.ScalaDocElementTypes
 import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.{ScDocComment, ScDocInlinedTag, ScDocTag}
-import org.jetbrains.plugins.scala.lang.scaladoc.psi.impl._
+import org.jetbrains.plugins.scala.lang.scaladoc.psi.impl.*
 import org.jetbrains.plugins.scalaDoc.lang.parser.ScalaDocParserDefinition.isInsideJavaLinkTag
 
 final class ScalaDocParserDefinition extends ParserDefinition {
 
-  import ScalaDocElementTypes._
+  import ScalaDocElementTypes.*
   import ScalaDocParserDefinition.isInsideThrowsTag
-  import ScalaDocTokenType._
+  import ScalaDocTokenType.*
 
   override val getFileNodeType = new IFileElementType(ScalaDocLanguage.INSTANCE)
 

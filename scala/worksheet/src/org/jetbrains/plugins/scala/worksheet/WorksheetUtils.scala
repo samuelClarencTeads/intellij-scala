@@ -39,7 +39,7 @@ object WorksheetUtils {
     settings(project).isTreatScratchFilesAsWorksheet
 
   def isAmmoniteEnabled(project: Project, file: VirtualFile): Boolean = {
-    import ScalaProjectSettings.ScFileMode._
+    import ScalaProjectSettings.ScFileMode.*
     settings(project).getScFileMode match {
       case Worksheet => false
       case Ammonite  => true

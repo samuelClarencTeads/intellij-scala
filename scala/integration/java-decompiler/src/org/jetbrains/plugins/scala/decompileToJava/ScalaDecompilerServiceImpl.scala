@@ -18,14 +18,14 @@ import scala.util.{Failure, Success, Try}
 
 private class ScalaDecompilerServiceImpl extends ScalaDecompilerService {
 
-  import ScalaDecompilerServiceImpl._
+  import ScalaDecompilerServiceImpl.*
 
   override def decompile(file: ScFile): Try[String] = if (file.isCompiled) {
     try {
       val mappings = inReadAction { mappingsForClassfile(file.getVirtualFile) }
       val saver    = new ScalaResultSaver
 
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       val options = Map(
         IFernflowerPreferences.REMOVE_BRIDGE -> 0.asInstanceOf[AnyRef]
       ).asJava

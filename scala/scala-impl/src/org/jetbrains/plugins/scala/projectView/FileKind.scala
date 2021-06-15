@@ -7,7 +7,7 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.openapi.util.io.FileUtilRt.getNameWithoutExtension
 import javax.swing.Icon
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil.clean
 import org.jetbrains.plugins.scala.util.BaseIconProvider
 
@@ -15,13 +15,13 @@ sealed trait FileKind {
 
   protected val delegate: ScTypeDefinition
 
-  def node(implicit project: Project, settings: ViewSettings): Option[Node with IconableNode]
+  def node(implicit project: Project, settings: ViewSettings): Option[Node & IconableNode]
 }
 
 object FileKind {
 
-  import extensions._
-  import icons.Icons._
+  import extensions.*
+  import icons.Icons.*
 
   def unapply(file: ScalaFile): Option[FileKind] = Option {
     file.typeDefinitions.toList match {
@@ -57,13 +57,13 @@ object FileKind {
 
   private case class PackageObject(override protected val delegate: ScObject) extends SingleDefinition {
 
-    override def node(implicit project: Project, settings: ViewSettings): Option[Node with IconableNode] =
+    override def node(implicit project: Project, settings: ViewSettings): Option[Node & IconableNode] =
       Some(new PackageObjectNode(delegate))
   }
 
   private case class TypeDefinition(override protected val delegate: ScTypeDefinition) extends SingleDefinition {
 
-    override def node(implicit project: Project, settings: ViewSettings): Option[Node with IconableNode] =
+    override def node(implicit project: Project, settings: ViewSettings): Option[Node & IconableNode] =
       Some(new TypeDefinitionNode(delegate))
   }
 

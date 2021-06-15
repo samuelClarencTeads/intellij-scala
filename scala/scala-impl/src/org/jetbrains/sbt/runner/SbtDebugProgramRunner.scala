@@ -44,7 +44,7 @@ class SbtDebugProgramRunner extends GenericDebuggerRunner with SbtProgramRunnerB
   private class MyTrojanRemoteState(project: Project, connection: RemoteConnection) extends RemoteStateState(project, connection) {
     private var execResult: Option[ExecutionResult] = None
 
-    override def execute(executor: Executor, runner: ProgramRunner[_]): ExecutionResult = {
+    override def execute(executor: Executor, runner: ProgramRunner[?]): ExecutionResult = {
       val er = super.execute(executor, runner)
       execResult = Option(er)
       er

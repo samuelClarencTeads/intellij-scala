@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScMethodCall
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScPatternDefinition
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScTypeExt, TypePresentationContext}
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.junit.Assert.fail
@@ -126,7 +126,7 @@ abstract class TypeConformanceTestBase extends ScalaLightCodeInsightFixtureTestA
   }
 
   def doApplicationConformanceTest(fileText: String, fileName: String = "dummy.scala"): Unit = {
-    import org.junit.Assert._
+    import org.junit.Assert.*
     configureFromFileText(fileText.trim, ScalaFileType.INSTANCE)
     val scalaFile = getFile.asInstanceOf[ScalaFile]
     val caretIndex = scalaFile.getText.indexOf(caretMarker)
@@ -141,7 +141,7 @@ abstract class TypeConformanceTestBase extends ScalaLightCodeInsightFixtureTestA
       case c: PsiComment => c.getText
       case _ => "True"
     }
-    for ((expr, param) <- application.matchedParameters) {
+    for (case (expr, param) <- application.matchedParameters) {
       val exprTp = expr.`type`().getOrElse(throw new RuntimeException(s"Failed to get type of expression(${expr.getText})"))
       val res = exprTp.conforms(param.paramType)
       if (res != expectedResult.toBoolean)

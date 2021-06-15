@@ -4,13 +4,13 @@ package refactoring
 package move
 package members
 
-import java.{util => ju}
+import java.{util as ju}
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.refactoring.move.moveMembers.MoveMembersProcessor.MoveMembersUsageInfo
 import com.intellij.refactoring.move.moveMembers.{MoveJavaMemberHandler, MoveMembersOptions}
 import com.intellij.util.containers.MultiMap
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScReference, ScStableCodeReference}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScReferenceExpression
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportExpr, ScImportSelector}
@@ -112,7 +112,7 @@ final class ScalaMoveMemberHandler extends MoveJavaMemberHandler {
     true
   }
 
-  import ScalaChangeContextUtil._
+  import ScalaChangeContextUtil.*
 
   override def getAnchor(psiMember: PsiMember,
                          targetClass: PsiClass,

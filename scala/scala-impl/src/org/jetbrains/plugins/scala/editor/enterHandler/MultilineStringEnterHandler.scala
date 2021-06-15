@@ -12,7 +12,7 @@ import com.intellij.openapi.util.Ref
 import com.intellij.psi.PsiFile
 import com.intellij.psi.codeStyle.CodeStyleManager
 import org.apache.commons.lang3.StringUtils
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.util.MultilineStringUtil.MultilineQuotes
@@ -87,7 +87,7 @@ class MultilineStringEnterHandler extends EnterHandlerDelegateAdapter {
     val firstMLQuoteLength: Int = firstMLQuote.length
 
     val settings = new MultilineStringSettings(project)
-    import settings._
+    import settings.*
 
     if (!settings.supportMultilineString || offset - literalOffset < firstMLQuoteLength)
       return Result.Continue

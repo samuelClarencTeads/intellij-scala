@@ -9,7 +9,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScFunctionExpr
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTemplateDefinition
-import com.intellij.ui.ColorUtil._
+import com.intellij.ui.ColorUtil.*
 import com.intellij.ui.JBColor
 
 /**
@@ -18,7 +18,7 @@ import com.intellij.ui.JBColor
   */
 class ScalaBreadcrumbsPresentationProvider extends BreadcrumbsPresentationProvider {
   override def getCrumbPresentations(elements: Array[PsiElement]): Array[CrumbPresentation] = {
-    import ScalaBreadcrumbsPresentationProvider._
+    import ScalaBreadcrumbsPresentationProvider.*
     
     if (elements.headOption.exists(!_.isInstanceOf[ScalaPsiElement])) return null
     
@@ -71,7 +71,7 @@ object ScalaBreadcrumbsPresentationProvider {
   }
   
   private def getBaseKey(selected: Boolean, hovered: Boolean, light: Boolean) = {
-    import EditorColors._
+    import EditorColors.*
     if (selected) BREADCRUMBS_CURRENT else if (hovered) BREADCRUMBS_HOVERED else if (light) BREADCRUMBS_INACTIVE else BREADCRUMBS_DEFAULT
   }
   

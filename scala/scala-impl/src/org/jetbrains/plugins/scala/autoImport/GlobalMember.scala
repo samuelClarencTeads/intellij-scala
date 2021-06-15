@@ -26,7 +26,7 @@ abstract class GlobalMember[M <: ScMember](val owner: ScTypedDefinition,
       val maybeSubstitutor =
         for {
           valType        <- td.`type`().toOption
-          (clazz, subst) <- valType.extractClassType
+          case (clazz, subst) <- valType.extractClassType
         } yield MixinNodes.asSeenFromSubstitutor(clazz, member.containingClass).followed(subst)
 
       maybeSubstitutor.getOrElse(ScSubstitutor.empty)

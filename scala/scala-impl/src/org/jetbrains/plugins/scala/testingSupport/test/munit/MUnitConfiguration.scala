@@ -5,7 +5,7 @@ import com.intellij.execution.testframework.sm.runner.{SMRunnerConsoleProperties
 import com.intellij.execution.{Executor, JavaTestFrameworkRunnableState}
 import com.intellij.openapi.project.Project
 import org.jetbrains.annotations.{NotNull, Nullable}
-import org.jetbrains.plugins.scala.testingSupport.test._
+import org.jetbrains.plugins.scala.testingSupport.test.*
 import org.jetbrains.plugins.scala.testingSupport.test.testdata.TestConfigurationData
 
 final class MUnitConfiguration(
@@ -27,7 +27,7 @@ final class MUnitConfiguration(
 
   override val testFramework: MUnitTestFramework = MUnitTestFramework()
 
-  override val configurationProducer: AbstractTestConfigurationProducer[_] = MUnitConfigurationProducer()
+  override val configurationProducer: AbstractTestConfigurationProducer[?] = MUnitConfigurationProducer()
 
   override protected def validityChecker: SuiteValidityChecker = new SuiteValidityCheckerBase
 

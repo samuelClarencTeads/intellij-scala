@@ -5,7 +5,7 @@ package parsing
 
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.ScalaPsiBuilder
-import ParserState._
+import ParserState.*
 import org.jetbrains.plugins.scala.lang.parser.util.ParserUtils.isOutdent
 
 /**

@@ -14,8 +14,8 @@ import org.jetbrains.plugins.scala.util.TypeAnnotationSettings.set
   */
 class ScalaOverrideCompletionTest extends ScalaCodeInsightTestBase {
 
-  import ScalaKeyword._
-  import ScalaOverrideCompletionTest._
+  import ScalaKeyword.*
+  import ScalaOverrideCompletionTest.*
 
   protected override def setUp(): Unit = {
     super.setUp()

@@ -3,7 +3,7 @@ package project
 
 import org.jetbrains.annotations.NonNls
 
-import scala.Ordering.Implicits._
+import scala.Ordering.Implicits.*
 
 /**
  * @author Pavel Fatin
@@ -11,7 +11,7 @@ import scala.Ordering.Implicits._
 // TODO Make universal (it seems that this class is now used in lots of places ourside the "proect" package).
 case class Version(@NonNls presentation: String) extends Ordered[Version] {
 
-  import Version._
+  import Version.*
 
   private val strings = presentation.split('-').toSeq
   private val groups = strings.map(Group(_))

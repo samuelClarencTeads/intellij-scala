@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.dfa
 
-import org.jetbrains.plugins.scala.dfa.BoolLat._
+import org.jetbrains.plugins.scala.dfa.BoolLat.*
 import org.jetbrains.plugins.scala.dfa.lattice.{Lattice, LatticeSpec}
 import org.scalatest.prop.TableFor3
 
@@ -14,14 +14,13 @@ class BoolLatSpec extends LatticeSpec[BoolLat] {
     Table(
       ("A", "B", "A join B"),
       BoolSemiLatSpec.latticeJoinSamples ++ (
-        // pairs with bottom
-        for {
-          a <- latticeElementSamples
-          b <- latticeElementSamples
-          if a == Bottom || b == Bottom
-        } yield (a, b, if (a == Bottom) b else a)
-        )
-        :_*
+              // pairs with bottom
+              for {
+                a <- latticeElementSamples
+                b <- latticeElementSamples
+                if a == Bottom || b == Bottom
+              } yield (a, b, if (a == Bottom) b else a)
+      ): _*
     )
 
 

@@ -3,7 +3,7 @@ package org.jetbrains.plugins.scala.lang.psi.stubs
 import com.intellij.psi.stubs.IndexSink
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ArrayUtil.EMPTY_STRING_ARRAY
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScParameterOwner
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScTypeParam
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
@@ -47,7 +47,7 @@ object ScImplicitStub {
     }
   }
 
-  def conversionParamClass(f: ScParameterOwner with ScTypeParametersOwner): Option[String] =
+  def conversionParamClass(f: ScParameterOwner & ScTypeParametersOwner): Option[String] =
     for {
       param         <- f.parameters.headOption
       paramTypeElem <- param.typeElement

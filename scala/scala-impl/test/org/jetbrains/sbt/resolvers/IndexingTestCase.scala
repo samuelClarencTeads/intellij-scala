@@ -2,7 +2,7 @@ package org.jetbrains.sbt.resolvers
 
 import org.jetbrains.plugins.scala.base.ScalaFixtureTestCase
 import org.jetbrains.sbt.resolvers.indexes.ResolverIndex
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * @author Nikolay Obedin

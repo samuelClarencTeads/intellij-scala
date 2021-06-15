@@ -8,7 +8,7 @@ import com.intellij.ide.util.PsiClassListCellRenderer
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.PsiElementProcessor
 import com.intellij.refactoring.rename.RenamePsiElementProcessor
 import javax.swing.Icon
@@ -71,7 +71,7 @@ object RenameSuperMembersUtil {
     for (elem <- superMembersToRename) {
       allRenames.put(elem, newName)
       superMembersToRename -= elem
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       RenamePsiElementProcessor.allForElement(elem).asScala.foreach(_.prepareRenaming(elem, newName, allRenames))
     }
   }

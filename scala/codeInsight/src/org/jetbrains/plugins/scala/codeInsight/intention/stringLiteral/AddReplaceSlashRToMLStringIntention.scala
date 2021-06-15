@@ -18,7 +18,7 @@ final class AddReplaceSlashRToMLStringIntention extends PsiElementBaseIntentionA
   override def isAvailable(project: Project, editor: Editor, element: PsiElement): Boolean =
     element.getNode.getElementType match {
       case lang.lexer.ScalaTokenTypes.tMULTILINE_STRING if element.getText.contains("\n") =>
-        import util.MultilineStringUtil._
+        import util.MultilineStringUtil.*
         val calls = findAllMethodCallsOnMLString(element, "replace")
         !containsArgs(calls, """"\r"""", "\"\"")
       case _ => false

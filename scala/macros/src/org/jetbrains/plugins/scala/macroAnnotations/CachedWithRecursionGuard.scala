@@ -21,9 +21,9 @@ class CachedWithRecursionGuard(element: Any, defaultValue: => Any, dependecyItem
 }
 
 object CachedWithRecursionGuard {
-  import CachedMacroUtil._
+  import CachedMacroUtil.*
   def cachedWithRecursionGuardImpl(c: whitebox.Context)(annottees: c.Tree*): c.Expr[Any] = {
-    import c.universe._
+    import c.universe.*
     implicit val x: c.type = c
 
     def parameters: (Tree, Tree, Tree, Seq[Tree]) = c.prefix.tree match {

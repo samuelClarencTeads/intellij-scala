@@ -9,8 +9,8 @@ import org.jetbrains.plugins.scala.JavaArrayFactoryUtil.{ScBindingPatternFactory
 import org.jetbrains.plugins.scala.lang.TokenSets.BINDING_PATTERNS
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType.REFERENCE_PATTERN
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.ScPatternListStub
 
 /**

@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package unusedInspections
 
-import com.intellij.codeHighlighting._
+import com.intellij.codeHighlighting.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile

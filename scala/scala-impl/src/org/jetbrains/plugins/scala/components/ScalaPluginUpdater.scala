@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.scala.components
 
-import com.intellij.ide.plugins._
+import com.intellij.ide.plugins.*
 import com.intellij.ide.util.PropertiesComponent
-import com.intellij.notification._
+import com.intellij.notification.*
 import com.intellij.openapi.application.ex.ApplicationInfoEx
 import com.intellij.openapi.application.impl.ApplicationInfoImpl
 import com.intellij.openapi.application.{ApplicationInfo, ApplicationManager, PermanentInstallationID}
@@ -11,7 +11,7 @@ import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.editor.event.{DocumentEvent, DocumentListener}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.ProjectManager
-import com.intellij.openapi.updateSettings.impl._
+import com.intellij.openapi.updateSettings.impl.*
 import com.intellij.openapi.util.{BuildNumber, JDOMUtil, SystemInfo}
 import com.intellij.openapi.vfs.CharsetToolkit
 import com.intellij.util.io.HttpRequests
@@ -19,7 +19,7 @@ import com.intellij.util.io.HttpRequests.Request
 import org.jdom.JDOMException
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings
 import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings.pluginBranch
-import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings.pluginBranch._
+import org.jetbrains.plugins.scala.settings.ScalaApplicationSettings.pluginBranch.*
 import org.jetbrains.plugins.scala.util.{ScalaNotificationGroups, UnloadAwareDisposable}
 import org.jetbrains.plugins.scala.{ScalaBundle, ScalaFileType, extensions}
 
@@ -138,7 +138,7 @@ object ScalaPluginUpdater {
   def upgradeRepo(): Unit = {
     val updateSettings = UpdateSettings.getInstance()
     for {
-      (version, repo) <- knownVersions
+      case (version, repo) <- knownVersions
       if version != currentVersion
     } {
       if (updateSettings.getStoredPluginHosts.contains(repo(EAP))) {

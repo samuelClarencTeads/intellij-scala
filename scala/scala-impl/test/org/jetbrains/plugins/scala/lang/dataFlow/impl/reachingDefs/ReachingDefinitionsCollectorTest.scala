@@ -6,7 +6,7 @@ import org.jetbrains.plugins.scala.ScalaFileType
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.{ScControlFlowOwner, ScalaFile, ScalaPsiElement}
-import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs._
+import org.jetbrains.plugins.scala.lang.psi.dataFlow.impl.reachingDefs.*
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.junit.Assert
 

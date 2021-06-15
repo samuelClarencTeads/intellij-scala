@@ -6,9 +6,9 @@ import com.intellij.lang.surroundWith.{SurroundDescriptor, Surrounder}
 import com.intellij.psi.{PsiElement, PsiFile, PsiWhiteSpace}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.surroundWith.surrounders.expression._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.surroundWith.surrounders.expression.*
 
 import scala.annotation.tailrec
 
@@ -19,7 +19,7 @@ import scala.annotation.tailrec
   */
 final class ScalaExpressionSurroundDescriptor extends SurroundDescriptor {
 
-  import ScalaExpressionSurroundDescriptor._
+  import ScalaExpressionSurroundDescriptor.*
 
   override def getSurrounders: Array[Surrounder] = Surrounders
 
@@ -53,7 +53,7 @@ object ScalaExpressionSurroundDescriptor {
     new ScalaTypeSurrounder,
   )
 
-  import ScalaTokenTypes._
+  import ScalaTokenTypes.*
 
   @tailrec
   private def expressionsInRange(startOffset: Int, endOffset: Int)

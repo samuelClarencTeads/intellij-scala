@@ -9,7 +9,7 @@ class SAMGutterMarkersTest_2_12 extends SAMGutterMarkersTestBase {
   override protected def supportedIn(version: ScalaVersion): Boolean =
     version == ScalaVersion.Latest.Scala_2_12
 
-  import com.intellij.testFramework.EditorTestUtil.{CARET_TAG => caret}
+  import com.intellij.testFramework.EditorTestUtil.{CARET_TAG as caret}
 
   def testLambda1Parameter(): Unit =
     doTestSingleTooltipAtCaret(

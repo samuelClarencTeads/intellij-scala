@@ -27,7 +27,7 @@ abstract class TraceLogReader {
     readLines(text.linesIterator)
 
   final def readLines(lines: Iterator[String]): NodeSeq = {
-    import TraceLoggerEntry._
+    import TraceLoggerEntry.*
 
     val applyStackTraceDiff = {
       var currentStackTrace = List.empty[StackTraceEntry]

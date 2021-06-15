@@ -1,12 +1,12 @@
 package org.jetbrains.plugins.scala.codeInsight.intention
 
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.Nls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockExpr
 
 class InspectionBasedIntention(@Nls family: String, inspection: LocalInspectionTool) extends PsiElementBaseIntentionAction {

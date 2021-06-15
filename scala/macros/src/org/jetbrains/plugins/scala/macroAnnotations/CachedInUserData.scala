@@ -20,8 +20,8 @@ class CachedInUserData(userDataHolder: Any, modificationTracker: Object, tracked
 
 object CachedInUserData {
   def cachedInsideUserDataImpl(c: whitebox.Context)(annottees: c.Tree*): c.Expr[Any] = {
-    import CachedMacroUtil._
-    import c.universe._
+    import CachedMacroUtil.*
+    import c.universe.*
     implicit val x: c.type = c
     def parameters: (Tree, Tree, Seq[Tree]) = {
       c.prefix.tree match {

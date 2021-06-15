@@ -9,8 +9,8 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.{PsiManager, ResolveScopeProvider}
 import org.jetbrains.plugins.scala.ScalaLanguage
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaOutOfSourcesResolveScopeProvider._
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaOutOfSourcesResolveScopeProvider.*
+import org.jetbrains.plugins.scala.project.*
 
 /** see [[com.intellij.psi.impl.file.impl.ResolveScopeManagerImpl]] */
 class ScalaOutOfSourcesResolveScopeProvider extends ResolveScopeProvider {

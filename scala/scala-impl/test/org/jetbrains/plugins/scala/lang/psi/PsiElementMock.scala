@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.psi
 
 import com.intellij.psi.PsiElement
 
-import scala.util.parsing.combinator._
+import scala.util.parsing.combinator.*
 
 /**
  * Pavel.Fatin, 11.05.2010
@@ -19,7 +19,7 @@ class PsiElementMock(val name: String, children: PsiElementMock*) extends Abstra
   for(child <- children) { child.parent = this }
   
   if(children.nonEmpty) {
-    for((a, b) <- children.zip(children.tail)) {
+    for(case (a, b) <- children.zip(children.tail)) {
       a.nextSibling = b
       b.prevSibling = a
     }
@@ -50,12 +50,12 @@ class PsiElementMock(val name: String, children: PsiElementMock*) extends Abstra
 }
 
 object PsiElementMock extends JavaTokenParsers {
-  def apply(name: String, children: PsiElementMock*) = new PsiElementMock(name, children: _*)
+  def apply(name: String, children: PsiElementMock*) = new PsiElementMock(name, children*)
 
   def parse(s: String): PsiElementMock = parse(element, s).get
  
   private def element: Parser[PsiElementMock] = identifier~opt(elements) ^^ {
-      case name~children => PsiElementMock(name, children.getOrElse(Nil): _*)
+      case name~children => PsiElementMock(name, children.getOrElse(Nil)*)
   } 
  
   private def identifier: Parser[String] = """[^,() ]+""".r

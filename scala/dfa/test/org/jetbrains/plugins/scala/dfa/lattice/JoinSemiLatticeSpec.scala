@@ -1,6 +1,7 @@
 package org.jetbrains.plugins.scala.dfa
 package lattice
 
+import org.jetbrains.plugins.scala.dfa.DfaOps.*
 import org.scalatest.prop.{TableDrivenPropertyChecks, TableFor3, TableFor4}
 
 trait JoinSemiLatticeSpec[L] extends SemiLatticeSpec[L] with TableDrivenPropertyChecks {

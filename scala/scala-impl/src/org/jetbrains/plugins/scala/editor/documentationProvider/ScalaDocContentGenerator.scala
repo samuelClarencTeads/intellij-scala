@@ -11,14 +11,14 @@ import com.intellij.psi.{PsiClass, PsiElement}
 import org.apache.commons.lang.StringEscapeUtils.escapeHtml
 import org.apache.commons.lang3.StringUtils
 import org.jetbrains.annotations.{Nls, TestOnly}
-import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocContentGenerator._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocContentGenerator.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScStableCodeReference
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.ScalaDocTokenType
 import org.jetbrains.plugins.scala.lang.scaladoc.lexer.docsyntax.ScalaDocSyntaxElementType
-import org.jetbrains.plugins.scala.lang.scaladoc.psi.api._
+import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.*
 
 import scala.collection.{Map, TraversableOnce, mutable}
 import scala.util.{Failure, Success, Try}
@@ -33,7 +33,7 @@ private class ScalaDocContentGenerator(
   rendered: Boolean
 ) {
 
-  import ApplicationManager.{getApplication => application}
+  import ApplicationManager.{getApplication as application}
 
   private val resolveContext: PsiElement = originalComment
   private var wikiSyntaxNestingLevel = 0
@@ -149,7 +149,7 @@ private class ScalaDocContentGenerator(
     val listItems = list.items
     val firstItem = listItems.head.headToken
 
-    import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocContentGenerator.DocListType._
+    import org.jetbrains.plugins.scala.editor.documentationProvider.ScalaDocContentGenerator.DocListType.*
 
     val listType = listStyles.getOrElse(firstItem.getText, UnorderedList)
 
@@ -415,7 +415,7 @@ object ScalaDocContentGenerator {
     case _ => None
   }
 
-  import DocListType._
+  import DocListType.*
   /** @see [[scala.tools.nsc.doc.base.CommentFactoryBase.WikiParser.listStyles]] */
   private val listStyles: Map[String, DocListType] = Map(
     "-"  -> UnorderedList,

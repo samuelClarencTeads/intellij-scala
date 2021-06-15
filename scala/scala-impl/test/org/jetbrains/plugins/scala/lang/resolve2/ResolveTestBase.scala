@@ -3,10 +3,10 @@ package org.jetbrains.plugins.scala.lang.resolve2
 import _root_.org.jetbrains.plugins.scala.lang.resolve.ScalaResolveTestCase
 import com.intellij.psi.impl.source.resolve.reference.impl.PsiMultiReference
 import com.intellij.psi.{PsiElement, PsiReference}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScTypeDefinition
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * Pavel.Fatin, 02.02.2010
@@ -69,7 +69,7 @@ abstract class ResolveTestBase extends ScalaResolveTestCase {
   }
 
   def assertKnown(parameters: Parameters): Unit = {
-    for ((key, value) <- parameters) {
+    for (case (key, value) <- parameters) {
       assertTrue("Unknown parameter: " + key + "\nAllowed: " + Parameters.mkString(", "),
         Parameters.contains(key))
     }
@@ -77,10 +77,10 @@ abstract class ResolveTestBase extends ScalaResolveTestCase {
 
   def parseParameters(s: String): Parameters = {
     if (s.isEmpty) Map() else Map(s.split("""\s*,\s*""").map(_.trim).map {
-      (it: String) =>
-        val parts = it.split("""\s*:\s*""")
-        (parts(0), parts(1))
-    }.toSeq: _*)
+          (it: String) =>
+            val parts = it.split("""\s*:\s*""")
+            (parts(0), parts(1))
+        }.toSeq*)
   }
 
   def doTest(): Unit =

@@ -13,7 +13,7 @@ trait FunSpecScopeTest extends FunSpecGenerator {
 
     val path1 = TestNodePath("[root]", funSpecClassName, "FunSpecTest", "should launch single test")
     val path2 = TestNodePath("[root]", funSpecClassName, "FunSpecTest", "should not launch other tests")
-    runTestByLocation(loc(funSpecFileName, 3, 15), assertConfigAndSettings(_, funSpecClassName, testNames:_*),
+    runTestByLocation(loc(funSpecFileName, 3, 15), assertConfigAndSettings(_, funSpecClassName, testNames*),
       root => {
         assertResultTreeHasExactNamedPaths(root)(Seq(path1, path2))
         assertResultTreeDoesNotHaveNodes(root, "OtherScope")

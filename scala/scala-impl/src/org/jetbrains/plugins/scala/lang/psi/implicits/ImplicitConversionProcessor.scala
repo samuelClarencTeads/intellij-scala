@@ -3,7 +3,7 @@ package lang
 package psi
 package implicits
 
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.isImplicit
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
@@ -40,7 +40,7 @@ final class ImplicitConversionProcessor(override val getPlace: PsiElement,
   }
 
   private def addIfHasFunctionType(
-    namedElement: PsiNamedElement with Typeable
+    namedElement: PsiNamedElement & Typeable
   )(implicit
     state: ResolveState
   ): Unit = {

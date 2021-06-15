@@ -4,13 +4,13 @@ package completion
 package filters.other
 
 import com.intellij.psi.filters.ElementFilter
-import com.intellij.psi.{PsiElement, _}
+import com.intellij.psi.{PsiElement, *}
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.extensions.PsiFileExt
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 
 /** 
 * @author Alexander Podkhalyuzin
@@ -60,7 +60,7 @@ class WithFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = {
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = {
     true
   }
 

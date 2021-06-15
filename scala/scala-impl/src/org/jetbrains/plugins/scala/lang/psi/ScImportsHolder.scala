@@ -5,14 +5,14 @@ package psi
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.CodeStyleManager
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
-import com.intellij.psi.scope._
+import com.intellij.psi.scope.*
 import com.intellij.psi.util.PsiTreeUtil.getParentOfType
 import org.jetbrains.plugins.scala.JavaArrayFactoryUtil.ScImportStmtFactory
-import org.jetbrains.plugins.scala.editor.importOptimizer._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.editor.importOptimizer.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.usages.{ImportE
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportExpr, ScImportSelector, ScImportStmt}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.*
 import org.jetbrains.plugins.scala.lang.psi.impl.{ScalaFileImpl, ScalaPsiElementFactory, ScalaStubBasedElementImpl}
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.refactoring.util.ScalaNamesUtil
@@ -39,7 +39,7 @@ trait ScImportsHolder extends ScalaPsiElement {
 
   def getImportStatements: Seq[ScImportStmt] = {
     val stub =  this match {
-      case s: ScalaStubBasedElementImpl[_, _] => s.getGreenStub
+      case s: ScalaStubBasedElementImpl[?, ?] => s.getGreenStub
       case f: ScalaFileImpl => f.getStub
       case _ => null
     }
@@ -171,7 +171,7 @@ trait ScImportsHolder extends ScalaPsiElement {
   }
 
   def addImportsForPaths(paths: Seq[String], refsContainer: PsiElement = null): Unit = {
-    import ScalaImportOptimizer._
+    import ScalaImportOptimizer.*
 
     implicit val manager: PsiManager = getManager
     def samePackage(path: String) = {

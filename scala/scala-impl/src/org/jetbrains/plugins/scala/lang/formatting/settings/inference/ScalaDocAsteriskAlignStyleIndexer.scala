@@ -4,15 +4,15 @@ import java.io.{DataInput, DataOutput}
 import java.util.regex.Pattern
 
 import com.intellij.application.options.CodeStyle
-import com.intellij.util.indexing._
+import com.intellij.util.indexing.*
 import com.intellij.util.io.{IntInlineKeyDescriptor, KeyDescriptor}
 import org.apache.commons.lang3.StringUtils
 import org.jetbrains.plugins.scala.ScalaFileType
 import org.jetbrains.plugins.scala.lang.formatting.settings.inference.ScalaDocAsteriskAlignStyleIndexer.AsteriskAlignStyle.{AlignByColumnThree, AlignByColumnTwo}
-import org.jetbrains.plugins.scala.lang.formatting.settings.inference.ScalaDocAsteriskAlignStyleIndexer.{AsteriskAlignStyle, _}
+import org.jetbrains.plugins.scala.lang.formatting.settings.inference.ScalaDocAsteriskAlignStyleIndexer.{AsteriskAlignStyle, *}
 
 import scala.annotation.tailrec
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 // NOTE: low-level imperative style is intentionally used to avoid unnecessary allocations
 // and not to explode indexing time for such a tiny feature

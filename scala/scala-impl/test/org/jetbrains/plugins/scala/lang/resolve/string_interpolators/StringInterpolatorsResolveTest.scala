@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScInterpolatedExpressionPrefix
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveTestCase
 import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions.assertIsA
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class StringInterpolatorsResolveTest extends ScalaResolveTestCase {
 

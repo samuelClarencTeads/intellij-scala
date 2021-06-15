@@ -3,7 +3,7 @@ package org.jetbrains.bsp.project.test.environment
 import java.net.URI
 
 import ch.epfl.scala.bsp4j.JvmEnvironmentItem
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 case class JvmEnvironment(
   classpath: Seq[String],

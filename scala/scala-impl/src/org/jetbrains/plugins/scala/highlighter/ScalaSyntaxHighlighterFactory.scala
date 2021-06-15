@@ -31,7 +31,7 @@ object ScalaSyntaxHighlighterFactory {
       .createLexer(project)
       .asInstanceOf[ScalaLexer]
 
-    import SyntaxHighlighterFactory.{getSyntaxHighlighter => findByLanguage}
+    import SyntaxHighlighterFactory.{getSyntaxHighlighter as findByLanguage}
 
     new ScalaSyntaxHighlighter(
       new ScalaSyntaxHighlighter.CustomScalaLexer(scalaLexer),

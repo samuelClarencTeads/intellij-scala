@@ -1,5 +1,5 @@
 package org.jetbrains.plugins.scala.editor.documentationProvider
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.util.{Failure, Success, Try}
 

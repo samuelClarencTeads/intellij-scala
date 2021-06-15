@@ -4,12 +4,12 @@ package completion
 package filters.expression
 
 import com.intellij.psi.filters.ElementFilter
-import com.intellij.psi.{PsiElement, PsiErrorElement, _}
+import com.intellij.psi.{PsiElement, PsiErrorElement, *}
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil._
-import org.jetbrains.plugins.scala.lang.parser._
+import org.jetbrains.plugins.scala.lang.completion.ScalaCompletionUtil.*
+import org.jetbrains.plugins.scala.lang.parser.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScStableReferencePattern
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 
 /** 
@@ -40,7 +40,7 @@ class StatementFilter extends ElementFilter {
     false
   }
 
-  override def isClassAcceptable(hintClass: java.lang.Class[_]): Boolean = {
+  override def isClassAcceptable(hintClass: java.lang.Class[?]): Boolean = {
     true
   }
 

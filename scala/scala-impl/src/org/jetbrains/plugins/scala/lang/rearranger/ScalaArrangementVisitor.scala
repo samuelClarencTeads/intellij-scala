@@ -4,25 +4,25 @@ package lang.rearranger
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.util.TextRange
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.arrangement.ArrangementUtil
 import com.intellij.psi.codeStyle.arrangement.std.ArrangementSettingsToken
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType._
-import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier._
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.EntryType.*
+import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens.Modifier.*
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.extensions.{OptionExt, PsiElementExt}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScModifierList, ScReference, ScStableCodeReference}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScExpression, ScReferenceExpression}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScTemplateBody
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait, ScTypeDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScModifierListOwner, ScPackaging}
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaElementVisitor, ScalaPsiElement, ScalaRecursiveElementVisitor}
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, api}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.collection.mutable
 
 private class ScalaArrangementVisitor(parseInfo: ScalaArrangementParseInfo,
@@ -160,7 +160,7 @@ private class ScalaArrangementVisitor(parseInfo: ScalaArrangementParseInfo,
   }
 
   private def parseModifiers(modifiers: ScModifierList, entry: ScalaArrangementEntry): Unit = {
-    import org.jetbrains.plugins.scala.util.EnumSet._
+    import org.jetbrains.plugins.scala.util.EnumSet.*
 
     if (modifiers != null) {
       for (modName <- modifiers.modifiers) {
@@ -380,7 +380,7 @@ object ScalaArrangementVisitor {
   private def removeScalaSetterEnding(name: String) = name.substring(0, name.length - 4) //removing _$eq
 
   def getTokenType(psiElement: PsiElement): ArrangementSettingsToken = {
-    import RearrangerUtils._
+    import RearrangerUtils.*
     psiElement match {
       case _: ScTypeAlias                                     => TYPE
       case _: ScMacroDefinition                               => MACRO

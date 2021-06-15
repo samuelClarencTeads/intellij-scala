@@ -7,11 +7,11 @@ import com.intellij.openapi.editor.{Editor, RangeMarker}
 import com.intellij.openapi.project.{DumbService, Project}
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.util.{Ref, TextRange}
-import com.intellij.psi._
-import org.jetbrains.plugins.scala.extensions._
+import com.intellij.psi.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.jetbrains.plugins.scala.lang.refactoring._
-import org.jetbrains.plugins.scala.settings._
+import org.jetbrains.plugins.scala.lang.refactoring.*
+import org.jetbrains.plugins.scala.settings.*
 
 /**
   * Pavel Fatin
@@ -29,17 +29,17 @@ class ScalaCopyPastePostProcessor extends SingularCopyPastePostProcessor[Associa
             case (startOffset, endOffset) => TextRange.create(startOffset, endOffset)
           }
 
-          Option(Associations.collectAssociations(ranges.toSeq: _*)(scalaFile))
+          Option(Associations.collectAssociations(ranges.toSeq*)(scalaFile))
       }
     case _ => None
   }
 
   override def processTransferableData(bounds: RangeMarker, caretOffset: Int,
-                                       ref: Ref[_ >: java.lang.Boolean], value: Associations)
+                                       ref: Ref[? >: java.lang.Boolean], value: Associations)
                                       (implicit project: Project,
                                        editor: Editor,
                                        file: ScalaFile): Unit = {
-    import CodeInsightSettings._
+    import CodeInsightSettings.*
     ScalaApplicationSettings.getInstance.ADD_IMPORTS_ON_PASTE match {
       case _ if DumbService.getInstance(project).isDumb =>
       case NO =>

@@ -6,7 +6,7 @@ import java.util.Collections
 import com.intellij.psi.search.SearchScope
 import com.intellij.psi.{PsiNamedElement, PsiReference}
 import com.intellij.util.{Query, QueryExecutor, QueryFactory}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 
 class CompilerIndicesReferencesSearch private ()
     extends QueryFactory[PsiReference, CompilerIndicesReferencesSearch.SearchParameters] {

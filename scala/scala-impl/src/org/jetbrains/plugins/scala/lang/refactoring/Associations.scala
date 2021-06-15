@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.{Key, Segment, TextRange}
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.{PsiElement, PsiFile}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScImportsHolder
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
@@ -21,7 +21,7 @@ final class Associations private(override val associations: Array[Association])
   extends AssociationsData(associations, Associations)
     with Cloneable {
 
-  import Associations._
+  import Associations.*
 
   override def clone(): Associations = new Associations(associations)
 
@@ -41,7 +41,7 @@ final class Associations private(override val associations: Array[Association])
             (binding.element, binding.path)
           }
 
-          import CollectionConverters._
+          import CollectionConverters.*
           val commonParent = PsiTreeUtil.findCommonParent(elements.asJava)
           val importsHolder = ScImportsHolder(commonParent)(project)
 
@@ -63,7 +63,7 @@ final class Associations private(override val associations: Array[Association])
 
 object Associations extends AssociationsData.Companion(classOf[Associations], "ScalaReferenceData") {
 
-  import dependency._
+  import dependency.*
 
   private val logger = Logger.getInstance(getClass)
 
@@ -113,7 +113,7 @@ object Associations extends AssociationsData.Companion(classOf[Associations], "S
           for {
             range <- ranges
 
-            (path, references) <- Dependency.collect(range)
+            case (path, references) <- Dependency.collect(range)
             reference <- references
 
           } buffer += Association(path, reference.getTextRange.shiftRight(-range.getStartOffset))
@@ -130,7 +130,7 @@ object Associations extends AssociationsData.Companion(classOf[Associations], "S
         val attachments = ranges.zipWithIndex.map {
           case (range, index) => new Attachment(s"Selection-${index + 1}.scala", subText(range))
         }
-        logger.error(e.getMessage, e, attachments: _*)
+        logger.error(e.getMessage, e, attachments*)
     } finally {
       result = Associations(buffer.toArray)
     }

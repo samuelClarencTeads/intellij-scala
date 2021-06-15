@@ -124,7 +124,7 @@ object InterpolatedStringParser extends StringParser {
   }
 
   private def processSpecialFormatEscapes(text: String, matches: Seq[Regex.Match]): Seq[StringPart] = {
-    import SpecialFormatEscape._
+    import SpecialFormatEscape.*
 
     val result = new mutable.ArrayBuffer[StringPart](2 * matches.size + 1)
 

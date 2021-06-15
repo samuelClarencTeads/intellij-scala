@@ -10,7 +10,7 @@ import com.intellij.testFramework.EditorTestUtil
  */
 class SortFilterTest extends OperationsOnCollectionInspectionTest {
 
-  override protected val classOfInspection: Class[_ <: OperationOnCollectionInspection] =
+  override protected val classOfInspection: Class[? <: OperationOnCollectionInspection] =
     classOf[SortFilterInspection]
 
   override protected val hint: String =

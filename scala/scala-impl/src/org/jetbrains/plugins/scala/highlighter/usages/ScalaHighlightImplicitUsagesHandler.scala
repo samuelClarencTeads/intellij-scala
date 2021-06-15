@@ -8,7 +8,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.search.LocalSearchScope
 import com.intellij.psi.{PsiElement, PsiFile, PsiNamedElement, PsiReference, ReferenceRange}
 import com.intellij.util.Consumer
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.highlighter.usages.ScalaHighlightImplicitUsagesHandler.TargetKind
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
@@ -17,9 +17,9 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScTypeParam}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
-import org.jetbrains.plugins.scala.util.ImplicitUtil._
+import org.jetbrains.plugins.scala.util.ImplicitUtil.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class ScalaHighlightImplicitUsagesHandler[T](editor: Editor, file: PsiFile, data: T)
                                             (implicit kind: TargetKind[T])
@@ -27,12 +27,12 @@ class ScalaHighlightImplicitUsagesHandler[T](editor: Editor, file: PsiFile, data
 
   override def getTargets: util.List[PsiElement] = (kind.target(data).toSeq: Seq[PsiElement]).asJava
 
-  override def selectTargets(targets: util.List[_ <: PsiElement], 
-                             selectionConsumer: Consumer[_ >: util.List[_ <: PsiElement]]): Unit =
+  override def selectTargets(targets: util.List[? <: PsiElement],
+                             selectionConsumer: Consumer[? >: util.List[? <: PsiElement]]): Unit =
     selectionConsumer.consume(targets)
 
-  override def computeUsages(targets: util.List[_ <: PsiElement]): Unit = {
-    import ScalaHighlightImplicitUsagesHandler._
+  override def computeUsages(targets: util.List[? <: PsiElement]): Unit = {
+    import ScalaHighlightImplicitUsagesHandler.*
     val usages = targets.asScala
       .flatMap(findUsages(file, _))
       .flatMap(ReferenceRange.getAbsoluteRanges(_).asScala)

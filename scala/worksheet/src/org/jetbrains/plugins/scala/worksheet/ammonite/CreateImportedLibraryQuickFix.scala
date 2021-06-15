@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.worksheet.ammonite
 
 import com.intellij.codeInspection.LocalQuickFixOnPsiElement
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.roots._
+import com.intellij.openapi.roots.*
 import com.intellij.openapi.roots.libraries.{LibraryTable, LibraryTablesRegistrar}
 import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ModuleStructureConfigurable

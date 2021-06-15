@@ -6,20 +6,20 @@ import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInspection.ProblemHighlightType
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.{findCommonContext, findFirstContext}
 import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.{highlightImplicitView, registerTypeMismatchError}
-import org.jetbrains.plugins.scala.annotator.createFromUsage._
+import org.jetbrains.plugins.scala.annotator.createFromUsage.*
 import org.jetbrains.plugins.scala.annotator.quickfix.ReportHighlightingErrorQuickFix
 import org.jetbrains.plugins.scala.annotator.usageTracker.UsageTracker
 import org.jetbrains.plugins.scala.autoImport.quickFix.ScalaImportTypeFix
 import org.jetbrains.plugins.scala.codeInspection.varCouldBeValInspection.ValToVarQuickFix
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScInfixPattern, ScPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScSimpleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScMethodLike, ScReference, ScStableCodeReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameter, ScParameters}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScValue, ScVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypeParametersOwner
@@ -29,7 +29,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.{ScInterpolatedExpressionPrefix, ScInterpolatedPatternPrefix}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.Any
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
@@ -124,7 +124,7 @@ object ScReferenceAnnotator extends ElementAnnotator[ScReference] {
               case call: MethodInvocation =>
                 implicit val tpc: TypePresentationContext = TypePresentationContext(call)
                 val missed =
-                  for (MissedValueParameter(p) <- r.problems) yield p.name + ": " + p.paramType.presentableText
+                  for (case MissedValueParameter(p) <- r.problems) yield p.name + ": " + p.paramType.presentableText
 
                 if (missed.nonEmpty) {
                   val range = if (inDesugaring) call.argsElement.getTextRange else {
@@ -524,7 +524,7 @@ object ScReferenceAnnotator extends ElementAnnotator[ScReference] {
     parenthesise(parts)
   }
 
-  private def parenthesise(items: Seq[_]) = items.mkString("(", ", ", ")")
+  private def parenthesise(items: Seq[?]) = items.mkString("(", ", ", ")")
 
   // some properties cannot be shown because they are synthetic for example.
   // filter these out

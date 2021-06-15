@@ -5,7 +5,7 @@ import javax.swing.event.HyperlinkEvent
 import org.jetbrains.plugins.scala.ScalaBundle
 
 class PopupHelper {
-  import PopupHelper._
+  import PopupHelper.*
   def showEnablePopup(yesCallback: () => Unit, noCallback: () => Unit): Unit = {
     val notification = new Notification(GROUP_ID, ScalaBundle.message("title.extensions.available"),
       ScalaBundle.message("additional.support.has.been.found.popup"),

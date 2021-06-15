@@ -5,7 +5,7 @@ package api
 
 import com.intellij.extapi.psi.PsiFileBase
 import com.intellij.openapi.util.Key
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil.isContextAncestor
 import org.jetbrains.plugins.scala.extensions.Valid
 
@@ -15,7 +15,7 @@ import scala.collection.compat.immutable.ArraySeq
 trait ScalaPsiElement extends PsiElement
   with project.ProjectContextOwner {
 
-  import ScalaPsiElement._
+  import ScalaPsiElement.*
 
   implicit def elementScope: ElementScope = ElementScope(this)
 

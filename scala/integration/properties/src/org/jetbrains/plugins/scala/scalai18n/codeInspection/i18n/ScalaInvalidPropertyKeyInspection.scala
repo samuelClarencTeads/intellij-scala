@@ -6,19 +6,19 @@ import java.util.Objects
 import com.intellij.codeHighlighting.HighlightDisplayLevel
 import com.intellij.codeInsight.daemon.GroupNames
 import com.intellij.codeInsight.{AnnotationUtil, CodeInsightBundle}
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.lang.properties.PropertiesReferenceManager
 import com.intellij.lang.properties.psi.PropertiesFile
 import com.intellij.openapi.module.{Module, ModuleUtilCore}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.{ProjectFileIndex, ProjectRootManager}
 import com.intellij.openapi.util.{Comparing, Ref}
-import com.intellij.psi.{util => _, _}
+import com.intellij.psi.{util as _, *}
 import org.jetbrains.annotations.{NotNull, Nullable}
 import org.jetbrains.plugins.scala.extensions.PsiMethodExt
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolatedStringLiteral, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 
 import scala.annotation.nowarn
 import scala.collection.mutable

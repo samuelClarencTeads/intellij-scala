@@ -2,12 +2,12 @@ package org.jetbrains.plugins.scala
 package util
 package internal
 
-import java.io._
+import java.io.*
 import java.nio.file.{Path, Paths}
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.util.internal.I18nBundleContent._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.util.internal.I18nBundleContent.*
 
 import scala.io.Source
 
@@ -32,7 +32,7 @@ case class I18nBundleContent(entries: Seq[Entry]) {
     writeTo(new PrintWriter(outputStream))
 
   private def writeTo(printWriter: PrintWriter): Unit = try {
-    import printWriter._
+    import printWriter.*
     var path: String = null
     //make println platform-independent
     def println(s: String = ""): Unit = {

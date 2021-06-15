@@ -17,10 +17,10 @@ import org.jetbrains.plugins.scala.base.{ScalaLightPlatformCodeInsightTestCaseAd
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaKeywordLookupItem.KeywordInsertHandler
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.junit.Assert._
+import org.junit.Assert.*
 
 import scala.annotation.nowarn
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Alexander Podkhalyuzin

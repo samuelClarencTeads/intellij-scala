@@ -8,7 +8,7 @@ package packaging
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.DumbService
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.scope.PsiScopeProcessor
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.tree.TokenSet
@@ -37,7 +37,7 @@ final class ScPackagingImpl private[psi](stub: ScPackagingStub,
     with ScPackaging
     with ScImportsHolder // todo: to be removed
     with ScDeclarationSequenceHolder {
-  import ScPackageLike._
+  import ScPackageLike.*
 
   override def toString = "ScPackaging"
 

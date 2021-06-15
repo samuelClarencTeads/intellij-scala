@@ -3,7 +3,7 @@ package testingSupport
 package specs2
 package specs2_2_12_4_0_0
 
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.base.libraryLoaders.{IvyManagedLoader, LibraryLoader}
 
 /**

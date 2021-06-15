@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.codeInsight.intention.comprehension
 
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.codeInsight.intention.AbstractIntention
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScFor
 import org.jetbrains.plugins.scala.lang.transformation.Transformer
 import org.jetbrains.plugins.scala.lang.transformation.general.ExpandForComprehension

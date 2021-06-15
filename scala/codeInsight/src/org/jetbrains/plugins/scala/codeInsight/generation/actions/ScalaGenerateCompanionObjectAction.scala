@@ -26,7 +26,7 @@ object ScalaGenerateCompanionObjectAction {
 
   private[generation] final class Handler extends ScalaCodeInsightActionHandler {
 
-    import Handler._
+    import Handler.*
 
     override def isValidFor(editor: Editor, file: PsiFile): Boolean =
       super.isValidFor(editor, file) &&

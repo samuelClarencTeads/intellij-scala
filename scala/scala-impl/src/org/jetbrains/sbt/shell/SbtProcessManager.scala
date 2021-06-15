@@ -1,7 +1,7 @@
 package org.jetbrains.sbt.shell
 
 import com.intellij.debugger.engine.DebuggerUtils
-import com.intellij.execution.configurations._
+import com.intellij.execution.configurations.*
 import com.intellij.execution.process.ColoredProcessHandler
 import com.intellij.notification.{Notification, NotificationAction, NotificationType}
 import com.intellij.openapi.Disposable
@@ -26,22 +26,22 @@ import com.pty4j.unix.UnixPtyProcess
 import com.pty4j.{PtyProcess, WinSize}
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.plugins.scala.buildinfo.BuildInfo
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.compilation.SbtCompilationSupervisor
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.settings.*
 import org.jetbrains.plugins.scala.macroAnnotations.TraceWithLogger
 import org.jetbrains.plugins.scala.project.Version
 import org.jetbrains.plugins.scala.project.external.{JdkByName, SdkUtils}
 import org.jetbrains.plugins.scala.util.ScalaNotificationGroups
-import org.jetbrains.sbt.SbtUtil._
+import org.jetbrains.sbt.SbtUtil.*
 import org.jetbrains.sbt.project.settings.{SbtExecutionSettings, SbtProjectSettings}
 import org.jetbrains.sbt.project.structure.{JvmOpts, SbtOpts}
 import org.jetbrains.sbt.project.{SbtExternalSystemManager, SbtProjectResolver, SbtProjectSystem}
-import org.jetbrains.sbt.shell.SbtProcessManager._
+import org.jetbrains.sbt.shell.SbtProcessManager.*
 import org.jetbrains.sbt.{JvmMemorySize, Sbt, SbtBundle, SbtUtil}
 
 import java.io.{File, IOException, OutputStreamWriter, PrintWriter}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
   * Manages the sbt shell process instance for the project.

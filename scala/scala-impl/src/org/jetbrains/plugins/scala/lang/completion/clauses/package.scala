@@ -8,16 +8,16 @@ import com.intellij.patterns.{ElementPattern, PatternCondition, PlatformPatterns
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.searches.DirectClassInheritorsSearch
-import com.intellij.psi.{util => _, _}
+import com.intellij.psi.{util as _, *}
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.TypeAdjuster.adjustFor
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScCaseClause, ScPattern, ScTypedPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.{ScSimpleTypeElement, ScTypeElement}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunctionDefinition
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createPatternFromTextWithContext
 import org.jetbrains.plugins.scala.lang.psi.types.api.{FunctionType, PartialFunctionType}
 
@@ -51,7 +51,7 @@ package object clauses {
   private[clauses] def `match`: Capture[ScMatch] =
     psiElement(classOf[ScMatch])
 
-  private[clauses] def leafWithParent(pattern: ElementPattern[_ <: PsiElement]) =
+  private[clauses] def leafWithParent(pattern: ElementPattern[? <: PsiElement]) =
     psiElement(classOf[LeafPsiElement]).withParent(pattern)
 
   private[clauses] def nonQualifiedReference =
@@ -74,8 +74,8 @@ package object clauses {
                                                         (collector: PartialFunction[E, (ScPattern, ScTypeElement)]): Unit = {
     val findTypeElement = collector.lift
     val elements = for {
-      (element, _) <- pairs
-      (_, typeElement) <- findTypeElement(element)
+      case (element, _) <- pairs
+      case (_, typeElement) <- findTypeElement(element)
     } yield typeElement
 
     adjustFor(
@@ -85,8 +85,8 @@ package object clauses {
     )
 
     for {
-      (element, components: ClassPatternComponents) <- pairs
-      (pattern, ScSimpleTypeElement.unwrapped(codeReference)) <- findTypeElement(element)
+      case (element, components: ClassPatternComponents) <- pairs
+      case (pattern, ScSimpleTypeElement.unwrapped(codeReference)) <- findTypeElement(element)
 
       replacement = createPatternFromTextWithContext(
         components.presentablePatternText(Right(codeReference)),
@@ -105,7 +105,7 @@ package object clauses {
   }
 
   private[clauses] def buildLookupElement(lookupString: String,
-                                          insertHandler: ClauseInsertHandler[_])
+                                          insertHandler: ClauseInsertHandler[?])
                                          (presentation: LookupElementRenderer[LookupElement]): LookupElement =
     LookupElementBuilder.create(lookupString)
       .withInsertHandler(insertHandler)
@@ -120,8 +120,8 @@ package object clauses {
 
   object DirectInheritors {
 
-    import CommonClassNames._
-    import util.CommonQualifiedNames._
+    import CommonClassNames.*
+    import util.CommonQualifiedNames.*
 
     val FqnBlockList = Set(
       JAVA_LANG_OBJECT,
@@ -160,7 +160,7 @@ package object clauses {
 
     private def directInheritors(`class`: PsiClass)
                                 (implicit parameters: ClauseCompletionParameters) = {
-      import scala.jdk.CollectionConverters._
+      import scala.jdk.CollectionConverters.*
       DirectClassInheritorsSearch
         .search(`class`, parameters.scope)
         .findAll()

@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture
 import java.util.{Collections, UUID}
 
 import ch.epfl.scala.bsp4j
-import ch.epfl.scala.bsp4j._
+import ch.epfl.scala.bsp4j.*
 import com.intellij.mock.{MockApplication, MockLocalFileSystem}
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.externalSystem.model.task.{ExternalSystemTaskId, ExternalSystemTaskNotificationEvent, ExternalSystemTaskNotificationListener, ExternalSystemTaskType}
@@ -20,9 +20,9 @@ import org.jetbrains.bsp.settings.BspProjectSettings.{AutoConfig, AutoPreImport}
 import org.jetbrains.bsp.settings.{BspExecutionSettings, BspSystemSettings}
 import org.jetbrains.plugins.scala.build.{BuildReporter, ConsoleReporter}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.concurrent.Await
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.io.StdIn
 import scala.language.postfixOps
 

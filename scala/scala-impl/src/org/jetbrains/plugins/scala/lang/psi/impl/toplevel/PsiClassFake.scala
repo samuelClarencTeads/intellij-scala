@@ -8,7 +8,7 @@ import _root_.java.util.{Collection, Collections, List}
 
 import com.intellij.openapi.util.Pair
 import com.intellij.psi.PsiReferenceList.Role
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.meta.PsiMetaData
 import org.jetbrains.plugins.scala.lang.psi.adapters.PsiClassAdapter
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScDocCommentOwner

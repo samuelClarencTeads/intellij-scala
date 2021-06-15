@@ -8,12 +8,12 @@ import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.impl.source.SourceTreeToPsiMap
 import com.intellij.psi.impl.source.codeStyle.{CodeEditUtil, PostFormatProcessor, PostFormatProcessorHelper}
 import com.intellij.psi.{PsiElement, PsiErrorElement, PsiFile}
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings.TrailingCommaMode
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaRecursiveElementVisitor
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTupleTypeElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScArgumentExprList, ScBlockExpr, ScTuple, ScTypedExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScParameterClause, ScTypeParamClause}
@@ -41,7 +41,7 @@ private class ScalaTrailingCommaVisitor(settings: CodeStyleSettings) extends Sca
   private val postProcessor: PostFormatProcessorHelper = new PostFormatProcessorHelper(commonSettings)
   private val scalaSettings = settings.getCustomSettings(classOf[ScalaCodeStyleSettings])
 
-  import scalaSettings._
+  import scalaSettings.*
 
   def processElement(element: PsiElement): PsiElement = {
     if (skipElement(element.getContainingFile)) {

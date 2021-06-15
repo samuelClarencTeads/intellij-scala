@@ -8,7 +8,7 @@ import java.util.regex.Pattern
 
 import org.jetbrains.plugins.scala.util.TestUtils
 import org.jetbrains.plugins.scala.util.internal.I18nBundleContent
-import org.jetbrains.plugins.scala.util.internal.I18nBundleContent._
+import org.jetbrains.plugins.scala.util.internal.I18nBundleContent.*
 
 import scala.io.Source
 

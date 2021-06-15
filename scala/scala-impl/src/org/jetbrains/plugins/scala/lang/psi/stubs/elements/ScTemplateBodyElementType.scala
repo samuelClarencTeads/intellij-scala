@@ -16,10 +16,10 @@ import org.jetbrains.plugins.scala.lang.psi.stubs.impl.ScTemplateBodyStubImpl
   * Date: 17.06.2009
   */
 class ScTemplateBodyElementType extends ScStubElementType[ScTemplateBodyStub, ScTemplateBody]("template body") {
-  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[_ <: PsiElement]): ScTemplateBodyStub =
+  override def deserialize(dataStream: StubInputStream, parentStub: StubElement[? <: PsiElement]): ScTemplateBodyStub =
     new ScTemplateBodyStubImpl(parentStub, this)
 
-  override def createStubImpl(templateBody: ScTemplateBody, parentStub: StubElement[_ <: PsiElement]): ScTemplateBodyStub =
+  override def createStubImpl(templateBody: ScTemplateBody, parentStub: StubElement[? <: PsiElement]): ScTemplateBodyStub =
     new ScTemplateBodyStubImpl(parentStub, this)
 
   override def createElement(node: ASTNode): ScTemplateBody = new ScTemplateBodyImpl(node)

@@ -2,16 +2,16 @@ package org.jetbrains.plugins.scala
 package lang
 package navigation
 
-import com.intellij.ide.util.gotoByName._
+import com.intellij.ide.util.gotoByName.*
 import com.intellij.openapi.application.ModalityState
 import com.intellij.psi.PsiElement
 import com.intellij.testFramework.PlatformTestUtil
 import com.intellij.util.concurrency.Semaphore
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait}
-import org.junit.Assert._
+import org.junit.Assert.*
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Alefas
@@ -63,7 +63,7 @@ class GoToClassAndSymbolTest extends GoToTestBase {
 
   private def checkContainExpected(elements: Set[Any],
                                    expected: (Any => Boolean, String)*): Unit = for {
-    (predicate, expectedName) <- expected
+    case (predicate, expectedName) <- expected
 
     actualNames = elements.filter(predicate).map(actualName)
     if !actualNames.contains(expectedName)

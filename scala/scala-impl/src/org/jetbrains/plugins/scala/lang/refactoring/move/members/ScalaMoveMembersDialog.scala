@@ -10,7 +10,7 @@ import com.intellij.refactoring.RefactoringBundle
 import com.intellij.refactoring.move.moveMembers.{MoveMembersOptions, MoveMembersProcessor}
 import com.intellij.refactoring.ui.RefactoringDialog
 import com.intellij.ui.EditorComboBox
-import javax.swing._
+import javax.swing.*
 import org.jetbrains.plugins.scala.extensions.ObjectExt
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScReference
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScMember, ScObject}

@@ -2,14 +2,14 @@ package org.jetbrains.plugins.scala.codeInspection.functionExpressions
 
 import com.intellij.codeInspection.{ProblemHighlightType, ProblemsHolder}
 import com.intellij.psi.{PsiClass, PsiElement, PsiFile}
-import org.jetbrains.plugins.scala.codeInspection.functionExpressions.UnnecessaryPartialFunctionInspection._
+import org.jetbrains.plugins.scala.codeInspection.functionExpressions.UnnecessaryPartialFunctionInspection.*
 import org.jetbrains.plugins.scala.codeInspection.{AbstractInspection, ScalaInspectionBundle}
 import org.jetbrains.plugins.scala.extensions.PsiElementExt
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElementExt
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockExpr
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiManager
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.psi.types.api.{UndefinedType, ValueType}
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -17,8 +17,8 @@ import org.jetbrains.plugins.scala.project.ProjectContext
 import scala.annotation.nowarn
 
 object UnnecessaryPartialFunctionInspection {
-  private val PartialFunctionClassName = classOf[PartialFunction[_, _]].getCanonicalName
-  private val Function1ClassName       = classOf[(_) => _].getCanonicalName
+  private val PartialFunctionClassName = classOf[PartialFunction[?, ?]].getCanonicalName
+  private val Function1ClassName       = classOf[(?) => ?].getCanonicalName
   val inspectionName: String           = ScalaInspectionBundle.message("unnecessary.partial.function")
 }
 
@@ -37,7 +37,7 @@ class UnnecessaryPartialFunctionInspection
       for {
         expectedExpressionType <- expression.expectedType()
         if isNotPartialFunction(expectedExpressionType)
-        Seq(singleCaseClause) <- expression.caseClauses.map(_.caseClauses)
+        case Seq(singleCaseClause) <- expression.caseClauses.map(_.caseClauses)
         if canBeConvertedToFunction(singleCaseClause, conformsTo(expectedExpressionType))
         caseKeyword <- singleCaseClause.firstChild
       } holder.registerProblem(

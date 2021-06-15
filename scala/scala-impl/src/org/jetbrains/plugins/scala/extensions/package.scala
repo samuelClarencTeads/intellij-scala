@@ -12,10 +12,10 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.RangeMarker
 import com.intellij.openapi.progress.{ProcessCanceledException, ProgressManager}
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.util._
+import com.intellij.openapi.util.*
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.PsiImplUtil
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import com.intellij.psi.impl.source.{PostprocessReformattingAspect, PsiFileImpl}
@@ -29,7 +29,7 @@ import com.intellij.util.text.CharArrayUtil
 import com.intellij.util.{ArrayFactory, ExceptionUtil, Processor}
 import org.jetbrains.annotations.{Nls, NonNls, Nullable}
 import org.jetbrains.plugins.scala.caches.UserDataHolderDelegator
-import org.jetbrains.plugins.scala.extensions.implementation.iterator._
+import org.jetbrains.plugins.scala.extensions.implementation.iterator.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.isInheritorDeep
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
@@ -37,7 +37,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.{Constructor, ScFieldId}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScDeclaredElementsHolder, ScFunction}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScModifierListOwner, ScNamedElement, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.psi.fake.FakePsiParameter
@@ -46,7 +46,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.MixinNodes
 import org.jetbrains.plugins.scala.lang.psi.light.{PsiClassWrapper, PsiTypedDefinitionWrapper, StaticPsiMethodWrapper}
 import org.jetbrains.plugins.scala.lang.psi.types.api.FunctionType
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.psi.types.{ScType, ScTypeExt, TermSignature}
 import org.jetbrains.plugins.scala.lang.psi.{ElementScope, ScalaPsiUtil}
 import org.jetbrains.plugins.scala.project.ProjectContext
@@ -57,15 +57,15 @@ import java.lang.ref.Reference
 import java.lang.reflect.InvocationTargetException
 import java.nio.file.Path
 import java.util.concurrent.atomic.AtomicReference
-import java.util.concurrent.{Callable, ScheduledFuture, TimeUnit, ConcurrentMap => JConcurrentMap, Future => JFuture}
+import java.util.concurrent.{Callable, ScheduledFuture, TimeUnit, ConcurrentMap as JConcurrentMap, Future as JFuture}
 import java.util.regex.Pattern
-import java.util.{Arrays, Set => JSet}
+import java.util.{Arrays, Set as JSet}
 import scala.annotation.{nowarn, tailrec}
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.{ExecutionContext, ExecutionContextExecutorService, Future, Promise}
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.reflect.ClassTag
 import scala.runtime.NonLocalReturnControl
 import scala.util.control.Exception.catching
@@ -81,7 +81,7 @@ package object extensions {
 
   implicit class PsiMethodExt(private val repr: PsiMethod) extends AnyVal {
 
-    import PsiMethodExt._
+    import PsiMethodExt.*
 
     implicit private def project: ProjectContext = repr.getProject
 
@@ -517,19 +517,17 @@ package object extensions {
   }
 
   implicit class StringsExt(private val strings: Iterable[String]) extends AnyVal {
-    def commaSeparated(model: Model.Val = Model.None): String =
+    def commaSeparated(model: Model.MyVal = Model.None): String =
       strings.mkString(model.start, ", ", model.end)
   }
 
   object Model extends Enumeration {
+    class MyVal(val start: String, val end: String) extends super.Val()
 
-    @nowarn("msg=shadowing a nested class of a parent is deprecated")
-    class Val(val start: String, val end: String) extends super.Val()
-
-    val None = new Val("", "")
-    val Parentheses = new Val("(", ")")
-    val Braces = new Val("{", "}")
-    val SquareBrackets = new Val("[", "]")
+    val None = new MyVal("", "")
+    val Parentheses = new MyVal("(", ")")
+    val Braces = new MyVal("{", "}")
+    val SquareBrackets = new MyVal("[", "]")
   }
 
   implicit class TextRangeExt(private val target: TextRange) extends AnyVal {
@@ -611,7 +609,7 @@ package object extensions {
 
     def parent: Option[PsiElement] = Option(element.getParent)
 
-    import PsiTreeUtil._
+    import PsiTreeUtil.*
 
     def parentOfType[Psi <: PsiElement: ClassTag]: Option[Psi] =
       parentOfType(implicitly[ClassTag[Psi]].runtimeClass.asInstanceOf[Class[Psi]])
@@ -619,8 +617,8 @@ package object extensions {
     def parentOfType[Psi <: PsiElement](clazz: Class[Psi], strict: Boolean = true): Option[Psi] =
       Option(getParentOfType(element, clazz, strict))
 
-    def parentOfType(classes: Seq[Class[_ <: PsiElement]]): Option[PsiElement] =
-      Option(getParentOfType(element, classes: _*))
+    def parentOfType(classes: Seq[Class[? <: PsiElement]]): Option[PsiElement] =
+      Option(getParentOfType(element, classes*))
 
     def nonStrictParentOfType[Psi <: PsiElement: ClassTag]: Option[Psi] =
       nonStrictParentOfType(implicitly[ClassTag[Psi]].runtimeClass.asInstanceOf[Class[Psi]])
@@ -628,8 +626,8 @@ package object extensions {
     def nonStrictParentOfType[Psi <: PsiElement](clazz: Class[Psi]): Option[Psi] =
       Option(getNonStrictParentOfType(element, clazz))
 
-    def nonStrictParentOfType(classes: Seq[Class[_ <: PsiElement]]): Option[PsiElement] =
-      Option(getNonStrictParentOfType(element, classes: _*))
+    def nonStrictParentOfType(classes: Seq[Class[? <: PsiElement]]): Option[PsiElement] =
+      Option(getNonStrictParentOfType(element, classes*))
 
 
     def findContextOfType[Psi <: PsiElement](clazz: Class[Psi]): Option[Psi] =
@@ -1077,7 +1075,7 @@ package object extensions {
 
   implicit class PsiModifierListOwnerExt(val member: PsiModifierListOwner) extends AnyVal {
 
-    import PsiModifier._
+    import PsiModifier.*
 
     def hasAbstractModifier: Boolean =
       hasModifierPropertyScala(ABSTRACT)
@@ -1357,7 +1355,7 @@ package object extensions {
       body
     } catch {
       case e: InvocationTargetException => e.getTargetException match {
-        case control: NonLocalReturnControl[_] => throw control
+        case control: NonLocalReturnControl[?] => throw control
         case _ => throw e
       }
     }
@@ -1403,7 +1401,7 @@ package object extensions {
   }
 
   implicit class StubBasedExt(val element: PsiElement) extends AnyVal {
-    def stubOrPsiChildren[Psi <: PsiElement, Stub <: StubElement[_ <: Psi]](elementType: IStubElementType[Stub, _ <: Psi], f: ArrayFactory[Psi]): Array[Psi] = {
+    def stubOrPsiChildren[Psi <: PsiElement, Stub <: StubElement[? <: Psi]](elementType: IStubElementType[Stub, ? <: Psi], f: ArrayFactory[Psi]): Array[Psi] = {
       def findWithNode(): Array[Psi] = {
         val nodes = SharedImplUtil.getChildrenOfType(element.getNode, elementType)
         val length = nodes.length
@@ -1417,10 +1415,10 @@ package object extensions {
       }
 
       element match {
-        case st: StubBasedPsiElementBase[_] => st.getStubOrPsiChildren(elementType, f)
+        case st: StubBasedPsiElementBase[?] => st.getStubOrPsiChildren(elementType, f)
         case file: PsiFileImpl =>
           file.getGreenStub match {
-            case stub: StubElement[_] => stub.getChildrenByType(elementType, f)
+            case stub: StubElement[?] => stub.getChildrenByType(elementType, f)
             case null => findWithNode()
           }
         case _ => findWithNode()
@@ -1441,10 +1439,10 @@ package object extensions {
       }
 
       element match {
-        case st: StubBasedPsiElementBase[_] => st.getStubOrPsiChildren(filter, f)
+        case st: StubBasedPsiElementBase[?] => st.getStubOrPsiChildren(filter, f)
         case file: PsiFileImpl =>
           file.getGreenStub match {
-            case stub: StubElement[_] => stub.getChildrenByType(filter, f)
+            case stub: StubElement[?] => stub.getChildrenByType(filter, f)
             case null => findWithNode()
           }
         case _ => findWithNode()
@@ -1460,18 +1458,18 @@ package object extensions {
       }
 
       element match {
-        case st: StubBasedPsiElementBase[_] => Option(st.getStubOrPsiChild(elementType))
+        case st: StubBasedPsiElementBase[?] => Option(st.getStubOrPsiChild(elementType))
         case file: PsiFileImpl =>
           file.getGreenStub match {
-            case stub: StubElement[_] => Option(stub.findChildStubByType(elementType)).map(_.getPsi)
+            case stub: StubElement[?] => Option(stub.findChildStubByType(elementType)).map(_.getPsi)
             case _ => findWithNode()
           }
         case _ => findWithNode()
       }
     }
 
-    def greenStub: Option[StubElement[_]] = element match {
-      case st: StubBasedPsiElementBase[_] => Option(st.getGreenStub.asInstanceOf[StubElement[_]])
+    def greenStub: Option[StubElement[?]] = element match {
+      case st: StubBasedPsiElementBase[?] => Option(st.getGreenStub.asInstanceOf[StubElement[?]])
       case file: PsiFileImpl => Option(file.getGreenStub)
       case _ => None
     }
@@ -1484,7 +1482,7 @@ package object extensions {
     }
 
     def withNextStubOrAstContextSiblings: Iterator[PsiElement] = element.sameElementInContext match {
-      case st: StubBasedPsiElementBase[_] if st.getStub != null =>
+      case st: StubBasedPsiElementBase[?] if st.getStub != null =>
         val contextSiblings = st.getContext.stubOrPsiChildren.iterator
         contextSiblings.dropWhile(_ != st)
       case elem =>
@@ -1492,7 +1490,7 @@ package object extensions {
     }
 
     def hasOnlyStub: Boolean = element match {
-      case st: StubBasedPsiElementBase[_] => st.getStub != null
+      case st: StubBasedPsiElementBase[?] => st.getStub != null
       case _ => false
     }
   }

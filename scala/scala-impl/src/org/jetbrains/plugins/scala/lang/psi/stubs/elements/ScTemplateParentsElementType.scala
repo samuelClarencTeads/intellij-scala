@@ -28,7 +28,7 @@ final class ScTemplateParentsElementType extends ScStubElementType[ScTemplatePar
   }
 
   override def deserialize(dataStream: StubInputStream,
-                           parentStub: StubElement[_ <: PsiElement]) = new ScTemplateParentsStubImpl(
+                           parentStub: StubElement[? <: PsiElement]) = new ScTemplateParentsStubImpl(
     parentStub,
     this,
     parentTypesTexts = dataStream.readNames,
@@ -36,7 +36,7 @@ final class ScTemplateParentsElementType extends ScStubElementType[ScTemplatePar
   )
 
   override def createStubImpl(templateParents: ScTemplateParents,
-                              parentStub: StubElement[_ <: PsiElement]) = new ScTemplateParentsStubImpl(
+                              parentStub: StubElement[? <: PsiElement]) = new ScTemplateParentsStubImpl(
     parentStub,
     this,
     parentTypesTexts = templateParents.typeElementsWithoutConstructor.asStrings(),

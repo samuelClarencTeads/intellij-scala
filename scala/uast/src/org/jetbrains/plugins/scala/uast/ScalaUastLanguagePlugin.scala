@@ -6,11 +6,11 @@ import com.intellij.openapi.application.{ApplicationManager, Experiments}
 import com.intellij.openapi.fileTypes.ExtensionFileNameMatcher
 import com.intellij.psi.{PsiClassInitializer, PsiElement, PsiMethod, PsiVariable}
 import org.jetbrains.annotations.Nullable
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.utils.NotNothing
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
 import scala.language.postfixOps
 
@@ -19,8 +19,8 @@ import scala.language.postfixOps
  */
 final class ScalaUastLanguagePlugin extends UastLanguagePlugin {
 
-  import ScalaUastLanguagePlugin._
-  import UastLanguagePlugin._
+  import ScalaUastLanguagePlugin.*
+  import UastLanguagePlugin.*
 
   private val fileNameMatcher = new ExtensionFileNameMatcher(ScalaFileType.INSTANCE.getDefaultExtension)
 
@@ -35,7 +35,7 @@ final class ScalaUastLanguagePlugin extends UastLanguagePlugin {
   @Nullable
   override def convertElement(element: PsiElement,
                               @Nullable parent: UElement,
-                              @Nullable requiredType: Class[_ <: UElement]): UElement =
+                              @Nullable requiredType: Class[? <: UElement]): UElement =
     convertTo(element, parent)(
       toClassTag(requiredType),
       implicitly[NotNothing[UElement]]
@@ -43,7 +43,7 @@ final class ScalaUastLanguagePlugin extends UastLanguagePlugin {
 
   @Nullable
   override def convertElementWithParent(element: PsiElement,
-                                        @Nullable requiredType: Class[_ <: UElement]): UElement =
+                                        @Nullable requiredType: Class[? <: UElement]): UElement =
     convertWithParentTo(element)(
       toClassTag(requiredType),
       implicitly[NotNothing[UElement]]
@@ -133,6 +133,6 @@ object ScalaUastLanguagePlugin {
 
   private object DummyDialect extends Language(ScalaLanguage.INSTANCE, "DummyDialect") with DependentLanguage
 
-  private def toClassTag(@Nullable requiredType: Class[_ <: UElement]) =
+  private def toClassTag(@Nullable requiredType: Class[? <: UElement]) =
     reflect.ClassTag[UElement](if (requiredType == null) classOf[UElement] else requiredType)
 }

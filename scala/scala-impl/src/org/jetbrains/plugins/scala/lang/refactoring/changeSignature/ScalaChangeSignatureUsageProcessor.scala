@@ -5,29 +5,29 @@ import java.util
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.search.SearchScope
 import com.intellij.psi.search.searches.{OverridingMethodsSearch, ReferencesSearch}
-import com.intellij.refactoring.changeSignature.{MethodCallUsageInfo => JavaCallUsageInfo, _}
+import com.intellij.refactoring.changeSignature.{MethodCallUsageInfo as JavaCallUsageInfo, *}
 import com.intellij.refactoring.rename.ResolveSnapshotProvider
 import com.intellij.refactoring.rename.ResolveSnapshotProvider.ResolveSnapshot
 import com.intellij.usageView.UsageInfo
 import com.intellij.util.containers.MultiMap
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScConstructorPattern, ScInfixPattern}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{AuxiliaryConstructor, ScConstructorInvocation, ScPrimaryConstructor, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.{ScImportExpr, ScImportSelector}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScClass
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.impl.search.ScalaOverridingMemberSearcher
-import org.jetbrains.plugins.scala.lang.psi.light._
+import org.jetbrains.plugins.scala.lang.psi.light.*
 import org.jetbrains.plugins.scala.lang.refactoring.changeSignature.changeInfo.ScalaChangeInfo
 
 import _root_.scala.annotation.tailrec
-import _root_.scala.jdk.CollectionConverters._
+import _root_.scala.jdk.CollectionConverters.*
 import _root_.scala.collection.mutable.ArrayBuffer
 
 /**
@@ -139,10 +139,10 @@ class ScalaChangeSignatureUsageProcessor extends ChangeSignatureUsageProcessor w
       def numberOfParamsToAdd(idx: Int) = cumulSize(cumulSize.indexWhere(_ > idx) - 1)
 
       for {
-        jc @ (_u: JavaCallUsageInfo) <- usages
-        call @ (_c: PsiMethodCallExpression) <- jc.getElement.toOption.map(_.getParent)
+        case jc@(_u: JavaCallUsageInfo) <- usages
+        case call@(_c: PsiMethodCallExpression) <- jc.getElement.toOption.map(_.getParent)
         exprs = call.getArgumentList.getExpressions
-        (defaultArg @ (_d: PsiMethodCallExpression), idx) <- exprs.zipWithIndex
+        case (defaultArg@(_d: PsiMethodCallExpression), idx) <- exprs.zipWithIndex
         if defaultArg.getText.contains("$default$")
       } {
         val exprsToAdd = exprs.take(numberOfParamsToAdd(idx))

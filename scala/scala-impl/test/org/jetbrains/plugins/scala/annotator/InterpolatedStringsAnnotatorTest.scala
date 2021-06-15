@@ -3,7 +3,7 @@ package annotator
 
 import org.intellij.lang.annotations.Language
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
  * User: Dmitry Naydanov
@@ -11,7 +11,7 @@ import org.junit.Assert._
  */
 class InterpolatedStringsAnnotatorTest extends base.ScalaLightCodeInsightFixtureTestAdapter {
 
-  import InterpolatedStringsAnnotatorTest._
+  import InterpolatedStringsAnnotatorTest.*
 
   private def collectAnnotatorMessages(text: String) = {
     val file = configureFromFileText(Header + text).asInstanceOf[ScalaFile]

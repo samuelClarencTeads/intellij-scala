@@ -13,7 +13,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.ScObject
 
 class ScalaTestCreator extends JavaTestCreator {
   override def createTest(project: Project, editor: Editor, file: PsiFile): Unit = {
-    import ScalaTestCreator._
+    import ScalaTestCreator.*
     try {
       val action = new CreateTestAction {
         override protected def createTestDialog(project: Project, srcModule: Module, srcClass: PsiClass,

@@ -37,7 +37,7 @@ object ScalaSdkComponent {
       fileName = file.getName
       if file.isFile && fileName.endsWith(".jar")
 
-      ArtifactPattern(artifact, kind, pattern) <- patterns
+      case ArtifactPattern(artifact, kind, pattern) <- patterns
       if pattern.test(fileName)
     } yield {
       val version = artifact.versionOf(file)

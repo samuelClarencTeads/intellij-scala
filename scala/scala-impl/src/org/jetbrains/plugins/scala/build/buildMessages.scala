@@ -8,7 +8,7 @@ import com.intellij.build.events.{MessageEvent, MessageEventResult, Warning}
 import com.intellij.build.{FilePosition, events}
 import com.intellij.openapi.project.Project
 import com.intellij.pom.Navigatable
-import com.intellij.task._
+import com.intellij.task.*
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.build.BuildMessages.{BuildStatus, Canceled, Error}
 
@@ -62,7 +62,7 @@ case object BuildMessages {
 
   def empty: BuildMessages = BuildMessages(Vector.empty, Vector.empty, Vector.empty, Vector.empty, BuildMessages.Indeterminate)
 
-  def message(parentId: Any, @Nls message: String, kind: MessageEvent.Kind, position: Option[FilePosition]): AbstractBuildEvent with MessageEvent = {
+  def message(parentId: Any, @Nls message: String, kind: MessageEvent.Kind, position: Option[FilePosition]): AbstractBuildEvent & MessageEvent = {
     val kindGroup = kind.toString
 
     position match {
@@ -96,7 +96,7 @@ case class TaskManagerResult(context: ProjectTaskContext,
 
   override def getContext: ProjectTaskContext = context
 
-  override def anyTaskMatches(predicate: BiPredicate[_ >: ProjectTask, _ >: ProjectTaskState]): Boolean =
+  override def anyTaskMatches(predicate: BiPredicate[? >: ProjectTask, ? >: ProjectTaskState]): Boolean =
     false // TODO figure out what this is supposed to do?
 }
 

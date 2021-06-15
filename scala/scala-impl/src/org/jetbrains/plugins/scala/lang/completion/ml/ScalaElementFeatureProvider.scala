@@ -14,7 +14,7 @@ import com.intellij.patterns.{ElementPattern, PlatformPatterns}
 import com.intellij.psi.PsiElement
 import com.intellij.util.ArrayUtil.EMPTY_STRING_ARRAY
 import org.jetbrains.plugins.scala.lang.completion.lookups.ScalaLookupItem
-import org.jetbrains.plugins.scala.lang.completion.ml.ScalaElementFeatureProvider._
+import org.jetbrains.plugins.scala.lang.completion.ml.ScalaElementFeatureProvider.*
 import org.jetbrains.plugins.scala.lang.completion.weighter.ScalaByExpectedTypeWeigher.computeType
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaPsiElement
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScCatchBlock, ScPostfixExpr, ScReferenceExpression}
@@ -124,7 +124,7 @@ object ScalaElementFeatureProvider {
 
     val contextFeatures = new util.HashMap[String, MLFeatureValue]
 
-    def put(kind: String, pattern: ElementPattern[_ <: PsiElement]): Unit =
+    def put(kind: String, pattern: ElementPattern[? <: PsiElement]): Unit =
       contextFeatures.put(
         kind,
         MLFeatureValue.binary(pattern.accepts(position, processingContext))

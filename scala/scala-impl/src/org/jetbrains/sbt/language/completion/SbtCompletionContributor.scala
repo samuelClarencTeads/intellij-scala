@@ -2,22 +2,22 @@ package org.jetbrains.sbt
 package language
 package completion
 
-import com.intellij.codeInsight.completion._
-import com.intellij.psi._
+import com.intellij.codeInsight.completion.*
+import com.intellij.psi.*
 import com.intellij.util.ProcessingContext
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.completion._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.completion.*
 import org.jetbrains.plugins.scala.lang.completion.lookups.{ScalaChainLookupElement, ScalaLookupItem}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil.{getCompanionModule, hasStablePath}
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScInfixExpr, ScReferenceExpression}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScTypeAlias, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScTypedDefinition
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.ParameterizedType
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScProjectionType}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.NonValueType
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ResolveUtils
 import org.jetbrains.plugins.scala.project.ProjectContext
 
@@ -81,7 +81,7 @@ final class SbtCompletionContributor extends ScalaCompletionContributor {
         getScopeType
       ).flatten
       val expectedType = expectedTypes match {
-        case Seq(t, rest @ _*) => t
+        case Seq(t, rest*) => t
         case _ => return
       }
 

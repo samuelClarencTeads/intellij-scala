@@ -9,8 +9,8 @@ package types
  */
 trait ScalaTypeVisitor {
 
-  import api._
-  import nonvalue._
+  import api.*
+  import nonvalue.*
 
   def visitStdType(`type`: StdType): Unit = {}
 

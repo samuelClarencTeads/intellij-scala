@@ -7,7 +7,7 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 
-import scala.math.Ordering.Implicits._
+import scala.math.Ordering.Implicits.*
 
 trait ErrorIndication extends ScalaAnnotationHolder {
   private[this] var _hadError = false

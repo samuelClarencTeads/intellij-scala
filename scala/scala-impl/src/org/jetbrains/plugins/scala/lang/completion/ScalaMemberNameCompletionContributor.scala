@@ -8,7 +8,7 @@ import com.intellij.psi.util.PsiTreeUtil.getChildrenOfTypeAsList
 import com.intellij.util.ProcessingContext
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScPackaging
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 
 /**
  * @author Alefas
@@ -38,7 +38,7 @@ final class ScalaMemberNameCompletionContributor extends ScalaCompletionContribu
       }
 
       private def objectsAndClassesIn(parent: PsiElement) = {
-        import scala.jdk.CollectionConverters._
+        import scala.jdk.CollectionConverters.*
         getChildrenOfTypeAsList(parent, classOf[ScTypeDefinition])
           .asScala
           .toSet

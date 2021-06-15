@@ -2,7 +2,7 @@ package org.jetbrains.plugins.scala.lang.lexer
 
 import com.intellij.psi.xml.XmlTokenType
 import junit.framework.TestCase
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class ScalaXmlTokenTypesTest extends TestCase {
 

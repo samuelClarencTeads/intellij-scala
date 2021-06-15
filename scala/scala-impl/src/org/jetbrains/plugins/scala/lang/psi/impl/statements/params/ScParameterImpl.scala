@@ -6,7 +6,7 @@ package statements
 package params
 
 import com.intellij.lang.ASTNode
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.plugins.scala.extensions.{ObjectExt, ifReadAllowed}
 import org.jetbrains.plugins.scala.lang.lexer.ScalaTokenTypes
 import org.jetbrains.plugins.scala.lang.parser.ScalaElementType
@@ -14,17 +14,17 @@ import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScMethodLike
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.{ScStringLiteral, ScSymbolLiteral}
 import org.jetbrains.plugins.scala.lang.psi.api.base.types.ScTypeElement
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createWildcardPattern
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.JavaIdentifier
-import org.jetbrains.plugins.scala.lang.psi.stubs._
+import org.jetbrains.plugins.scala.lang.psi.stubs.*
 import org.jetbrains.plugins.scala.lang.psi.stubs.elements.signatures.ScParamElementType
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.Nothing
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.resolve.ScalaResolveResult
-import org.jetbrains.plugins.scala.lang.psi.impl.statements.params.ParameterExpectedTypesUtil._
+import org.jetbrains.plugins.scala.lang.psi.impl.statements.params.ParameterExpectedTypesUtil.*
 
 import scala.annotation.tailrec
 
@@ -32,7 +32,7 @@ import scala.annotation.tailrec
  * @author Alexander Podkhalyuzin
  */
 
-class ScParameterImpl protected (stub: ScParameterStub, nodeType: ScParamElementType[_ <: ScParameter], node: ASTNode)
+class ScParameterImpl protected (stub: ScParameterStub, nodeType: ScParamElementType[? <: ScParameter], node: ASTNode)
   extends ScalaStubBasedElementImpl(stub, nodeType, node) with ScParameter {
 
   def this(node: ASTNode) = this(null, null, node)
@@ -101,7 +101,7 @@ class ScParameterImpl protected (stub: ScParameterStub, nodeType: ScParamElement
       case paramStub =>
         paramStub.typeText match {
           case None if paramStub.getParentStub != null && paramStub.getParentStub.getParentStub != null &&
-            paramStub.getParentStub.getParentStub.getParentStub.isInstanceOf[ScFunctionStub[_]] =>
+            paramStub.getParentStub.getParentStub.getParentStub.isInstanceOf[ScFunctionStub[?]] =>
             Failure(ScalaBundle.message("cannot.infer.type"))
           case None => Failure(ScalaBundle.message("wrong.stub.problem")) //shouldn't be
           case Some(_: String) => paramStub.typeElement match {
@@ -194,7 +194,7 @@ object ParameterExpectedTypesUtil {
     }
 
     for {
-      (inv, args)  <- maybeInvokedAndArgs
+      case (inv, args) <- maybeInvokedAndArgs
       targetMethod <- inv.bind().collect { case ScalaResolveResult(m: PsiMethod, _) => m }
       if !targetMethod.hasTypeParameters // if the function is polymorphic -- bail out
       targetArg <- findArg(args)

@@ -8,7 +8,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction.CommonName
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.{ScClassParameter, ScParameter}
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScTypeAlias}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject}
-import org.junit.Assert._
+import org.junit.Assert.*
 
 /**
   * Nikolay.Tropin
@@ -27,7 +27,7 @@ abstract class GotoDeclarationTestBase extends GoToTestBase {
     assertEquals("Wrong number of targets: ", expected.size, targets.size)
 
     val wrongTargets = for {
-      (actualElement, (predicate, expectedName)) <- targets.zip(expected)
+      case (actualElement, (predicate, expectedName)) <- targets.zip(expected)
 
       if !predicate(actualElement) || actualName(actualElement) != expectedName
     } yield actualElement
@@ -268,6 +268,6 @@ class GoToDeclarationTest extends GotoDeclarationTestBase {
     val conditionsWithSourceCheck = expected.map {
       case (condition, name) => ((element: PsiElement) => isFromScalaSource(element) && condition(element), name)
     }
-    doTest(fileText, conditionsWithSourceCheck: _*)
+    doTest(fileText, conditionsWithSourceCheck*)
   }
 }

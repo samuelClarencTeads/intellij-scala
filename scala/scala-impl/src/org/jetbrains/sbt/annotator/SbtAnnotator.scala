@@ -10,7 +10,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.expr.ScExpression
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunctionDefinition, ScPatternDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.ScImportStmt
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.project.{ModuleExt, Version}
 import org.jetbrains.sbt.language.SbtFileImpl
 
@@ -19,7 +19,7 @@ import org.jetbrains.sbt.language.SbtFileImpl
  */
 final class SbtAnnotator extends Annotator {
 
-  import SbtAnnotator._
+  import SbtAnnotator.*
 
   override def annotate(element: PsiElement, holder: AnnotationHolder): Unit =
     annotate(element)(new ScalaAnnotationHolderAdapter(holder))
@@ -54,7 +54,7 @@ final class SbtAnnotator extends Annotator {
               if (expressionType.isNothing || expressionType.isNull) {
                 if (less_13_6) SbtBundle.message("sbt.annotation.expectedExpressionType")
                 else SbtBundle.message("sbt.annotation.expectedExpressionTypeSbt0136")
-              } else if (isTypeAllowed(expression, expressionType, allowedTypes: _*)) {
+              } else if (isTypeAllowed(expression, expressionType, allowedTypes*)) {
                 null
               } else {
                 if (less_13_6) SbtBundle.message("sbt.annotation.expressionMustConform", expressionType)

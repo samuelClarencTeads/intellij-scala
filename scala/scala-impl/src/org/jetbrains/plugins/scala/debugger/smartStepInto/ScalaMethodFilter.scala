@@ -1,6 +1,6 @@
 package org.jetbrains.plugins.scala.debugger.smartStepInto
 
-import com.intellij.debugger.engine._
+import com.intellij.debugger.engine.*
 import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.Range

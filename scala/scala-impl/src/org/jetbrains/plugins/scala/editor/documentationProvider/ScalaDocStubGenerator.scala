@@ -31,7 +31,7 @@ object ScalaDocStubGenerator {
     val inheritedParams = mutable.HashMap.apply[String, PsiDocTag]()
     val inheritedTParams = mutable.HashMap.apply[String, PsiDocTag]()
 
-    import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing._
+    import org.jetbrains.plugins.scala.lang.scaladoc.parser.parsing.MyScaladocParsing.*
 
     def registerInheritedParam(allParams: mutable.HashMap[String, PsiDocTag], param: PsiDocTag): Unit =
       if (!allParams.contains(param.getValueElement.getText)) {

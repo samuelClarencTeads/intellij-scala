@@ -173,7 +173,7 @@ object ImportOrderings {
   // two qualifiers that don't share the first two package names are not related at all!
   private def minPackageDistance(qualifier: Seq[String], qualifiers: Seq[Array[String]]): (Int, Int, Int) =
     if (qualifiers.isEmpty) (Int.MaxValue, 0, -1)
-    else (for ((t, idx) <- qualifiers.iterator.zipWithIndex) yield {
+    else (for (case (t, idx) <- qualifiers.iterator.zipWithIndex) yield {
       val prefixLen = seqCommonPrefixSize(qualifier, t.toSeq)
       val dist =
         if (prefixLen >= 2) qualifier.length + t.length - 2 * prefixLen

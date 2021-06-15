@@ -24,7 +24,7 @@ class ScalaCharFilter extends CharFilter {
     else
       null
 
-  import Result._
+  import Result.*
 
   private def acceptChar(char: Char,
                          element: PsiElement) = char match {

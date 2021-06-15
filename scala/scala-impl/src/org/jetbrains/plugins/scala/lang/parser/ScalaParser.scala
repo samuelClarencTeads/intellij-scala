@@ -7,8 +7,8 @@ import com.intellij.psi.tree.IElementType
 
 final class ScalaParser(isScala3: Boolean) extends PsiParser {
 
-  import parsing._
-  import builder._
+  import parsing.*
+  import builder.*
 
   override def parse(rootElementType: IElementType, delegate: PsiBuilder): ASTNode = {
     implicit val builder: ScalaPsiBuilder = new ScalaPsiBuilderImpl(delegate, isScala3)

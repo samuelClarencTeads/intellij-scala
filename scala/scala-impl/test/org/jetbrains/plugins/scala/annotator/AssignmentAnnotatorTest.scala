@@ -3,7 +3,7 @@ package annotator
 
 import org.intellij.lang.annotations.Language
 import org.jetbrains.plugins.scala.annotator.element.ScAssignmentAnnotator
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScAssignment
 
 /**
@@ -97,10 +97,10 @@ class AssignmentAnnotatorTest extends AnnotatorSimpleTestCase {
 //  }
   
   def testForComprehensionGenerator(): Unit = {
-    assertMatches(messages("for(v: A <- null) { v = A }")) {
+    assertMatches(messages("for(case v: A <- null) { v = A }")) {
       case Error("v = A", ReassignmentToVal()) :: Nil =>
     }
-    assertMatches(messages("for(v: A <- null) { v = B }")) {
+    assertMatches(messages("for(case v: A <- null) { v = B }")) {
       case Error("v = B", ReassignmentToVal()) :: Nil =>
     }
   }

@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.base.{SharedTestProjectToken, SimpleTestCase}
 import org.jetbrains.plugins.scala.components.libextensions.api.psi.Inspection
 import org.jetbrains.plugins.scala.lang.psi.applicability.ApplicabilityTestBase
 import org.jetbrains.plugins.scala.util.TestUtils
-import org.junit.Assert._
+import org.junit.Assert.*
 
 class LibraryExtensionsManagerTest extends SimpleTestCase {
 

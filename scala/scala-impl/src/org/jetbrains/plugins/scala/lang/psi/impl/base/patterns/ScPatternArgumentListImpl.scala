@@ -6,8 +6,8 @@ package base
 package patterns
 
 import com.intellij.lang.ASTNode
-import org.jetbrains.plugins.scala.extensions._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
+import org.jetbrains.plugins.scala.extensions.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScBlockExpr
 
 import scala.collection.immutable.ArraySeq

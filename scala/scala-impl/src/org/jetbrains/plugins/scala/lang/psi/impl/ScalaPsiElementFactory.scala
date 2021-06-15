@@ -3,13 +3,13 @@ package lang
 package psi
 package impl
 
-import java.{util => ju}
+import java.{util as ju}
 import com.intellij.lang.{ASTNode, LanguageParserDefinitions, PsiBuilder, PsiBuilderFactory}
 import com.intellij.openapi.progress.ProcessCanceledException
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.StringUtil.convertLineSeparators
 import com.intellij.pom.java.LanguageLevel
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.compiled.ClsParameterImpl
 import com.intellij.psi.impl.source.DummyHolderFactory
 import com.intellij.psi.impl.source.tree.TreeElement
@@ -20,29 +20,29 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.IncorrectOperationException
 import org.apache.commons.lang.StringUtils
 import org.jetbrains.annotations.NonNls
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.parser.parsing.base.Import
 import org.jetbrains.plugins.scala.lang.parser.parsing.builder.{ScalaPsiBuilder, ScalaPsiBuilderImpl}
 import org.jetbrains.plugins.scala.lang.parser.parsing.top.TmplDef
 import org.jetbrains.plugins.scala.lang.parser.parsing.top.params.ClassParamClauses
-import org.jetbrains.plugins.scala.lang.psi.api.base._
-import org.jetbrains.plugins.scala.lang.psi.api.base.patterns._
-import org.jetbrains.plugins.scala.lang.psi.api.base.types._
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.base.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.*
+import org.jetbrains.plugins.scala.lang.psi.api.base.types.*
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.expr.xml.{ScXmlEndTag, ScXmlStartTag}
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports._
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.imports.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScTemplateBody, ScTemplateParents}
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.{ScModifierListOwner, ScTypedDefinition}
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScBlockImpl
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.ScDesignatorType
 import org.jetbrains.plugins.scala.lang.psi.types.api.presentation.TypeParamsRenderer
 import org.jetbrains.plugins.scala.lang.psi.types.recursiveUpdate.ScSubstitutor
-import org.jetbrains.plugins.scala.lang.psi.types.result._
+import org.jetbrains.plugins.scala.lang.psi.types.result.*
 import org.jetbrains.plugins.scala.lang.refactoring.ScalaNamesValidator.isIdentifier
 import org.jetbrains.plugins.scala.lang.scaladoc.psi.api.{ScDocComment, ScDocParagraph, ScDocResolvableCodeReference, ScDocSyntaxElement}
 import org.jetbrains.plugins.scala.project.{ProjectContext, ProjectExt}
@@ -138,10 +138,10 @@ final class ScalaPsiElementFactoryImpl(project: Project) extends JVMElementFacto
 
 object ScalaPsiElementFactory {
 
-  import ScalaPsiUtil._
-  import lang.parser.parsing.{base => parsingBase, statements => parsingStat, _}
-  import lexer.ScalaTokenTypes._
-  import refactoring.util.ScalaNamesUtil._
+  import ScalaPsiUtil.*
+  import lang.parser.parsing.{base as parsingBase, statements as parsingStat, *}
+  import lexer.ScalaTokenTypes.*
+  import refactoring.util.ScalaNamesUtil.*
 
   def safe[T](createBody: ScalaPsiElementFactory.type => T): Option[T] =
     try Some(createBody(ScalaPsiElementFactory)) catch {
@@ -591,7 +591,7 @@ object ScalaPsiElementFactory {
   private def addModifiersFromSignature(function: ScFunction, sign: PhysicalMethodSignature, addOverride: Boolean): ScFunction = {
     sign.method match {
       case fun: ScFunction =>
-        import lexer.ScalaModifier._
+        import lexer.ScalaModifier.*
         val res = function.getModifierList.replace(fun.getModifierList)
         if (res.getText.nonEmpty) res.getParent.addAfter(createWhitespace(fun.getManager), res)
         function.setModifierProperty(ABSTRACT, value = false)
@@ -759,7 +759,7 @@ object ScalaPsiElementFactory {
 
   def getStandardValue(`type`: ScType): String = {
     val stdTypes = `type`.projectContext.stdTypes
-    import stdTypes._
+    import stdTypes.*
 
     `type` match {
       case Unit => "()"

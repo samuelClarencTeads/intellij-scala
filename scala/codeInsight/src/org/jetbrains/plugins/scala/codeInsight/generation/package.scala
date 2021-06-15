@@ -11,7 +11,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParamet
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScValueOrVariable, ScVariable}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScNamedElement
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.ScExtendsBlock
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 
 import scala.collection.mutable
 
@@ -78,10 +78,10 @@ package object generation {
       case _ => Seq.empty
     }
 
-  def elementOfTypeAtCaret[T <: PsiElement](types: Class[_ <: T]*)
+  def elementOfTypeAtCaret[T <: PsiElement](types: Class[? <: T]*)
                                            (implicit editor: Editor, file: PsiFile): Option[T] = {
     val element = file.findElementAt(editor.getCaretModel.getOffset)
-    Option(PsiTreeUtil.getParentOfType(element, types: _*))
+    Option(PsiTreeUtil.getParentOfType(element, types*))
   }
 
   private def members(definition: ScTypeDefinition): Seq[ScMember] = {

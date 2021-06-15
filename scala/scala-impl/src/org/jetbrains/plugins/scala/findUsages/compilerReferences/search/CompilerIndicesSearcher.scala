@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiDocumentManager, PsiManager}
 import com.intellij.util.Processor
 import org.jetbrains.plugins.scala.ScalaBundle
-import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements._
+import org.jetbrains.plugins.scala.findUsages.compilerReferences.search.UsageToPsiElements.*
 import org.jetbrains.plugins.scala.findUsages.compilerReferences.{Timestamped, UsagesInFile}
 
 abstract class CompilerIndicesSearcher[Target, Result, Params](reqireReadAction: Boolean)
@@ -17,7 +17,7 @@ abstract class CompilerIndicesSearcher[Target, Result, Params](reqireReadAction:
     target:    Target,
     results:   Set[Timestamped[UsagesInFile]],
     project:   Project,
-    processor: Processor[_ >: Result]
+    processor: Processor[? >: Result]
   ): Unit = {
     val fileDocManager     = FileDocumentManager.getInstance()
     val outdated           = Set.newBuilder[String]
@@ -68,6 +68,6 @@ abstract class CompilerIndicesSearcher[Target, Result, Params](reqireReadAction:
     usage:              UsagesInFile,
     isPossiblyOutdated: Boolean,
     elements:           ElementsInContext,
-    processor:          Processor[_ >: Result]
+    processor:          Processor[? >: Result]
   ): Boolean
 }

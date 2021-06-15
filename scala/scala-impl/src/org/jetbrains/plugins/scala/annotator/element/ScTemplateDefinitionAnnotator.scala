@@ -6,8 +6,8 @@ import com.intellij.psi.{PsiMethod, PsiModifier}
 import org.jetbrains.annotations.Nls
 import org.jetbrains.plugins.scala.annotator.AnnotatorUtils.ErrorAnnotationMessage
 import org.jetbrains.plugins.scala.annotator.quickfix.{ImplementMethodsQuickFix, ModifierQuickFix}
-import org.jetbrains.plugins.scala.annotator.template._
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.annotator.template.*
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.ScalaModifier
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScAnnotationsHolder
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScBindingPattern
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScNewTemplateDefinition
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScDeclaration, ScEnumCase, ScFunctionDefinition, ScTypeAliasDeclaration}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
-import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef._
+import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.*
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.TypeDefinitionMembers
 import org.jetbrains.plugins.scala.lang.psi.types.{PhysicalMethodSignature, TypePresentationContext, ValueClassType}
 import org.jetbrains.plugins.scala.overrideImplement.{ScalaOIUtil, ScalaTypedMember}
@@ -129,7 +129,7 @@ object ScTemplateDefinitionAnnotator extends ElementAnnotator[ScTemplateDefiniti
               case scalaObject: ScObject => scalaObject.nameId.getTextRange
             }
 
-            val annotation = holder.createErrorAnnotation(range, objectCreationImpossibleMessage(undefined: _*))
+            val annotation = holder.createErrorAnnotation(range, objectCreationImpossibleMessage(undefined*))
             annotation.registerFix(new ImplementMethodsQuickFix(element))
           }
         case _ =>

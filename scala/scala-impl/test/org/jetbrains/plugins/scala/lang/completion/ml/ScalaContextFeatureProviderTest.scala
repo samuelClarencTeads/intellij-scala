@@ -11,10 +11,10 @@ import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
 
 class ScalaContextFeatureProviderTest extends ScalaLightCodeInsightFixtureTestAdapter {
   
-  import MLFeatureValue._
+  import MLFeatureValue.*
 
   def testLocation(): Unit = {
-    import Location._
+    import Location.*
 
     assertFeature("location", categorical(CLASS_BODY))(
       s"""object X {
@@ -242,7 +242,7 @@ class ScalaContextFeatureProviderTest extends ScalaLightCodeInsightFixtureTestAd
   }
 
   def testPreviousKeyword(): Unit = {
-    import Keyword._
+    import Keyword.*
 
     assertFeature("previous_keyword", categorical(PRIVATE))(
       s"""trait X {

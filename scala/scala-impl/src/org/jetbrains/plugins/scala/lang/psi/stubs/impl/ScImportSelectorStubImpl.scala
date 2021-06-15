@@ -15,8 +15,8 @@ import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory.createRe
   * User: Alexander Podkhalyuzin
   * Date: 20.06.2009
   */
-class ScImportSelectorStubImpl(parent: StubElement[_ <: PsiElement],
-                               elementType: IStubElementType[_ <: StubElement[_ <: PsiElement], _ <: PsiElement],
+class ScImportSelectorStubImpl(parent: StubElement[? <: PsiElement],
+                               elementType: IStubElementType[? <: StubElement[? <: PsiElement], ? <: PsiElement],
                                override val referenceText: Option[String],
                                override val importedName: Option[String],
                                override val isAliasedImport: Boolean,

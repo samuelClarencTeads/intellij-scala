@@ -4,7 +4,7 @@ package scalatest
 package scala2_11
 package scalatest3_0_1
 
-import org.jetbrains.plugins.scala.DependencyManagerBase._
+import org.jetbrains.plugins.scala.DependencyManagerBase.*
 import org.jetbrains.plugins.scala.base.libraryLoaders.{IvyManagedLoader, LibraryLoader}
 
 abstract class Scalatest2_11_3_0_1_Base extends ScalaTestTestCase {

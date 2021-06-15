@@ -8,9 +8,9 @@ import com.intellij.codeInsight.editorActions.TextBlockTransferableData
 import com.intellij.openapi.util.TextRange
 
 abstract class AssociationsData(val associations: Array[Association],
-                                private val companion: AssociationsData.Companion[_]) extends TextBlockTransferableData {
+                                private val companion: AssociationsData.Companion[?]) extends TextBlockTransferableData {
 
-  import AssociationsData._
+  import AssociationsData.*
 
   override final def getOffsetCount: Int = 2 * associations.length
 

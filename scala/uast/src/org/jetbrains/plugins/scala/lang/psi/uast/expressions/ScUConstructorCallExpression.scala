@@ -6,14 +6,14 @@ import com.intellij.psi.util.PsiTypesUtil
 import com.intellij.psi.{PsiClass, PsiElement, PsiMethod, PsiType}
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScConstructorInvocation, ScReference}
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.{ScUAnnotated, ScUElement, ScUMultiResolvable}
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
 import org.jetbrains.plugins.scala.uast.ReferenceExt
 import org.jetbrains.uast.{UCallExpression, UCallExpressionAdapter, UExpression, UIdentifier, UReferenceExpression, UastCallKind}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * [[ScConstructorInvocation]] adapter for the [[UCallExpression]]
@@ -80,7 +80,7 @@ final class ScUConstructorCallExpression(
   override def getValueArguments: util.List[UExpression] = {
     Seq.concat(
       scElement.arguments
-        .map(_.exprs.map(_.convertToUExpressionOrEmpty(this))).toSeq: _*
+              .map(_.exprs.map(_.convertToUExpressionOrEmpty(this))).toSeq*
     ).asJava
   }
 

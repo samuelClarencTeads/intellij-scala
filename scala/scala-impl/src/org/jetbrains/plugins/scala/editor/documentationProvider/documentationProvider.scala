@@ -38,7 +38,7 @@ package object documentationProvider {
 
     def withTag(tag: String, params: Seq[(String, String)])(inner: => Unit): Unit = {
       append(s"<$tag ")
-      for ((name, value) <- params) append(name + "=\"" + value + "\"")
+      for (case (name, value) <- params) append(name + "=\"" + value + "\"")
       append(">")
       inner
       append(s"</$tag>")

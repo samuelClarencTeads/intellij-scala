@@ -19,7 +19,7 @@ import scala.reflect.NameTransformer
 
 //This class is from scalap, refactored to work with new types
 class ScalaSigPrinter(builder: StringBuilder) {
-  import ScalaSigPrinter._
+  import ScalaSigPrinter.*
 
   def print(s: String): Unit = builder.append(s)
 

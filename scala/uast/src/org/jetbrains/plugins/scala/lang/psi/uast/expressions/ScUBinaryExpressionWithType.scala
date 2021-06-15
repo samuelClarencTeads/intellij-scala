@@ -3,13 +3,13 @@ package org.jetbrains.plugins.scala.lang.psi.uast.expressions
 import com.intellij.psi.PsiType
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.plugins.scala.lang.psi.api.expr.ScTypedExpression
-import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter._
+import org.jetbrains.plugins.scala.lang.psi.uast.converter.Scala2UastConverter.*
 import org.jetbrains.plugins.scala.lang.psi.uast.baseAdapters.{
   ScUAnnotated,
   ScUExpression
 }
 import org.jetbrains.plugins.scala.lang.psi.uast.internals.LazyUElement
-import org.jetbrains.uast._
+import org.jetbrains.uast.*
 
 /**
   * [[ScTypedExpression]] adapter for the [[UBinaryExpressionWithType]]

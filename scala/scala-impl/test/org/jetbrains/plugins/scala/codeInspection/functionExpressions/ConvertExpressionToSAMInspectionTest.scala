@@ -26,7 +26,7 @@ class ConvertExpressionToSAMInspectionTest extends ScalaQuickFixTestBase {
     defaultProfile.setSettings(newSettings)
   }
 
-  override protected val classOfInspection: Class[_ <: LocalInspectionTool] = classOf[ConvertExpressionToSAMInspection]
+  override protected val classOfInspection: Class[? <: LocalInspectionTool] = classOf[ConvertExpressionToSAMInspection]
 
   override protected val description: String = ScalaInspectionBundle.message("convert.expression.to.sam")
 

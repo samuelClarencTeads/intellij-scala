@@ -47,11 +47,11 @@ abstract class ScalaCompletionSortingTestCase extends LightFixtureCompletionTest
 
   def checkFirst(expected: String*): Unit = {
     invokeCompletion
-    assertPreferredItems(expected: _*)
+    assertPreferredItems(expected*)
   }
 
   def assertPreferredItems(expected: String*): Unit = {
-    myFixture.assertPreferredCompletionItems(0, expected: _*)
+    myFixture.assertPreferredCompletionItems(0, expected*)
   }
 
   def incUseCount(): Unit = {

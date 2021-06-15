@@ -7,7 +7,7 @@ import com.intellij.openapi.module.{Module, ModuleManager}
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.OrderEnumerationHandler.AddDependencyType
 import com.intellij.openapi.roots.impl.ModuleOrderEnumerator
-import com.intellij.openapi.roots._
+import com.intellij.openapi.roots.*
 import com.intellij.util.CommonProcessors
 import org.jetbrains.sbt.SbtUtil
 import org.jetbrains.sbt.project.SbtProjectSystem
@@ -30,7 +30,7 @@ class SbtOrderEnumeratorHandler extends OrderEnumerationHandler {
     // This method assumes that `processRootModules` in `ModuleOrderEnumerator` calls
     // given processor only on module extracted from its underlying `ModuleRootModel`.
     // If this behaviour is subject to change, it's better to roll back to reflection calls to inner fields.
-    import scala.jdk.CollectionConverters._
+    import scala.jdk.CollectionConverters.*
     val modules = new util.ArrayList[Module]()
     enumerator.processRootModules(new CommonProcessors.CollectProcessor[Module](modules))
     modules.asScala.headOption

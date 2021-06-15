@@ -6,7 +6,7 @@ package base
 
 import com.intellij.lang.ASTNode
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScBlockExpr, ScExpression, ScReferenceExpression}
-import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.QuotedLiteralImplBase._
+import org.jetbrains.plugins.scala.lang.psi.impl.base.literals.QuotedLiteralImplBase.*
 import org.jetbrains.plugins.scala.lang.psi.impl.expr.{ScInterpolatedExpressionPrefix, ScInterpolatedPatternPrefix}
 
 /**
@@ -15,7 +15,7 @@ import org.jetbrains.plugins.scala.lang.psi.impl.expr.{ScInterpolatedExpressionP
  */
 trait ScInterpolated extends ScalaPsiElement {
 
-  import lexer.ScalaTokenTypes._
+  import lexer.ScalaTokenTypes.*
 
   def isMultiLineString: Boolean
 

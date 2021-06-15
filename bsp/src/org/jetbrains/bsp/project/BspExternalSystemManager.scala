@@ -1,7 +1,7 @@
 package org.jetbrains.bsp.project
 
 import java.io.{File, FileReader}
-import java.util.{Collections, List => JList, Map => JMap}
+import java.util.{Collections, List as JList, Map as JMap}
 
 import com.google.gson.Gson
 import com.intellij.execution.configurations.SimpleJavaParameters
@@ -15,13 +15,13 @@ import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.UserDataHolder
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.util.Function
-import org.jetbrains.bsp._
+import org.jetbrains.bsp.*
 import org.jetbrains.bsp.project.importing.BspProjectResolver
-import org.jetbrains.bsp.settings._
+import org.jetbrains.bsp.settings.*
 import org.jetbrains.bsp.project.BspExternalSystemManager.DetectExternalProjectFiles
 import org.jetbrains.bsp.protocol.BspConnectionConfig
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 class BspExternalSystemManager extends ExternalSystemManager[BspProjectSettings, BspProjectSettingsListener, BspSettings, BspLocalSettings, BspExecutionSettings]
@@ -89,7 +89,7 @@ class BspExternalSystemManager extends ExternalSystemManager[BspProjectSettings,
 
   private def parseAsMap(file: File): Try[Map[String, Any]] = Try {
     new Gson()
-      .fromJson(new FileReader(file), classOf[JMap[String, _]])
+      .fromJson(new FileReader(file), classOf[JMap[String, ?]])
       .asScala
       .toMap
   }
@@ -110,6 +110,6 @@ object BspExternalSystemManager {
   def parseAsMap(file: File): Map[String, Any] = {
     val virtualFile = LocalFileSystem.getInstance.findFileByIoFile(file)
     val content = new String(virtualFile.contentsToByteArray())
-    new Gson().fromJson(content, classOf[JMap[String, _]]).asScala.toMap
+    new Gson().fromJson(content, classOf[JMap[String, ?]]).asScala.toMap
   }
 }

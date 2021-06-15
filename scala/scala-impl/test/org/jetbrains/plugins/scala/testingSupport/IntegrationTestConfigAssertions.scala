@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.testingSupport.test.testdata.{AllInPackageTes
 import org.jetbrains.plugins.scala.testingSupport.test.{AbstractTestRunConfiguration, SearchForTest}
 import org.jetbrains.plugins.scala.util.assertions.MatcherAssertions.assertIsA
 import org.junit.Assert
-import org.junit.Assert._
+import org.junit.Assert.*
 
 trait IntegrationTestConfigAssertions {
 
@@ -18,7 +18,7 @@ trait IntegrationTestConfigAssertions {
     testClass: String,
     testNames: String*
   ): Unit = {
-    AssertConfigAndSettings(testClass, testNames: _*)(configAndSettings)
+    AssertConfigAndSettings(testClass, testNames*)(configAndSettings)
   }
 
   protected def AssertConfigAndSettings(

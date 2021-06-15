@@ -13,13 +13,13 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.util.Ref
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi._
+import com.intellij.psi.*
 import org.jetbrains.annotations.{NotNull, Nullable}
-import org.jetbrains.plugins.scala.extensions.{PsiMethodExt, _}
+import org.jetbrains.plugins.scala.extensions.{PsiMethodExt, *}
 import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScCaseClause}
 import org.jetbrains.plugins.scala.lang.psi.api.base.{ScAnnotation, ScLiteral}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.params.ScClassParameter
 import org.jetbrains.plugins.scala.lang.psi.api.statements.{ScFunction, ScFunctionDefinition, ScValueOrVariable}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.Parameter
@@ -164,7 +164,7 @@ object ScalaI18nUtil {
   def isAnnotatedWithNls(element: PsiElement): Boolean = isAnnotated(element, PassedToNlsChecker)
 
   def isAnnotated(element: PsiElement, checker: AnnotationChecker): Boolean = {
-    import ScalaPsiUtil._
+    import ScalaPsiUtil.*
     def isDirectAnnotated(element: PsiElement): Boolean =
       checkAnnotationsOnElement(element, checker)
     def isSuperAnnotatedWith(element: PsiNamedElement): Boolean =

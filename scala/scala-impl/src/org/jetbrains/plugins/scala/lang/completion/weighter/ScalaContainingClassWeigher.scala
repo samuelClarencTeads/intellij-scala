@@ -11,8 +11,8 @@ import org.jetbrains.plugins.scala.lang.psi.api.toplevel.ScModifierListOwner
   */
 
 class ScalaContainingClassWeigher extends CompletionWeigher {
-  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[_] = {
-    import KindWeights._
+  override def weigh(element: LookupElement, location: CompletionLocation): Comparable[?] = {
+    import KindWeights.*
     element match {
       case ScalaLookupItem(item, namedElement) =>
         namedElement match {

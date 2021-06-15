@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.extensions.implementation.iterator
 
 import com.intellij.psi.PsiElement
-import org.jetbrains.plugins.scala.lang.psi.{PsiElementMock => Psi}
+import org.jetbrains.plugins.scala.lang.psi.{PsiElementMock as Psi}
 /**
  * Pavel.Fatin, 11.05.2010
  */

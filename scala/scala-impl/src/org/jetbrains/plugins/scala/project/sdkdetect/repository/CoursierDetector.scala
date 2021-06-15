@@ -1,12 +1,12 @@
 package org.jetbrains.plugins.scala.project.sdkdetect.repository
-import java.nio.file._
-import java.util.function.{Function => JFunction}
-import java.util.stream.{Stream => JStream}
+import java.nio.file.*
+import java.util.function.{Function as JFunction}
+import java.util.stream.{Stream as JStream}
 
 import com.intellij.openapi.progress.ProgressIndicator
 import org.jetbrains.plugins.scala.ScalaBundle
 import org.jetbrains.plugins.scala.extensions.ObjectExt
-import org.jetbrains.plugins.scala.project.template._
+import org.jetbrains.plugins.scala.project.template.*
 
 private[repository] object CoursierDetector extends ScalaSdkDetector {
   val COURSIER_CACHE_ENV = "COURSIER_CACHE"

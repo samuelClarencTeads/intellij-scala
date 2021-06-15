@@ -1,7 +1,7 @@
 package org.jetbrains.plugins.scala.lang.resolve
 
 import org.jetbrains.plugins.scala.base.ScalaLightCodeInsightFixtureTestAdapter
-import org.jetbrains.plugins.scala.lang.resolve.SimpleResolveTestBase._
+import org.jetbrains.plugins.scala.lang.resolve.SimpleResolveTestBase.*
 
 class PatternResolveTest extends ScalaLightCodeInsightFixtureTestAdapter with SimpleResolveTestBase {
   def testSCL13150(): Unit = {

@@ -12,7 +12,7 @@ import org.jetbrains.plugins.scala.lang.psi.ScalaPsiUtil
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScInfixExpr, ScReferenceExpression}
-import org.jetbrains.plugins.scala.project._
+import org.jetbrains.plugins.scala.project.*
 import org.jetbrains.sbt.annotator.quickfix.{SbtRefreshProjectQuickFix, SbtUpdateResolverIndexesQuickFix}
 import org.jetbrains.sbt.project.module.SbtModuleType
 import org.jetbrains.sbt.resolvers.{ResolverException, SbtResolverUtils}
@@ -83,7 +83,7 @@ class SbtDependencyAnnotator extends Annotator {
 
     for {
       literal <- if (element.isInstanceOf[ScLiteral]) Some(element) else None
-      parentExpr@ScInfixExpr(leftPart, operation, _) <- Option(literal.getParent)
+      case parentExpr@ScInfixExpr(leftPart, operation, _) <- Option(literal.getParent)
       if isOneOrTwoPercents(operation)
     } yield {
       val scalaVersion = findProjectModule(module).flatMap(_.scalaLanguageLevel).map(_.getVersion)
@@ -103,11 +103,11 @@ class SbtDependencyAnnotator extends Annotator {
 
   private def extractArtifactInfo(from: PsiElement, scalaVersion: Option[String]): Option[ArtifactInfo] = {
     for {
-      ScInfixExpr(leftPart, _, maybeVersion) <- Option(from)
-      ScInfixExpr(maybeGroup, maybePercents, maybeArtifact) <- Option(leftPart)
-      ScStringLiteral(version) <- Option(maybeVersion)
-      ScStringLiteral(group) <- Option(maybeGroup)
-      ScStringLiteral(artifact) <- Option(maybeArtifact)
+      case ScInfixExpr(leftPart, _, maybeVersion) <- Option(from)
+      case ScInfixExpr(maybeGroup, maybePercents, maybeArtifact) <- Option(leftPart)
+      case ScStringLiteral(version) <- Option(maybeVersion)
+      case ScStringLiteral(group) <- Option(maybeGroup)
+      case ScStringLiteral(artifact) <- Option(maybeArtifact)
       shouldAppendScalaVersion = maybePercents.textMatches("%%")
     } yield {
       if (shouldAppendScalaVersion && scalaVersion.isDefined)

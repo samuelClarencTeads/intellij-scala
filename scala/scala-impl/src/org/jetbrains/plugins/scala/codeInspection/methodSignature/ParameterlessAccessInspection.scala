@@ -2,20 +2,20 @@ package org.jetbrains.plugins.scala
 package codeInspection
 package methodSignature
 
-import com.intellij.codeInspection._
+import com.intellij.codeInspection.*
 import com.intellij.openapi.project.Project
 import com.intellij.psi.{PsiElement, PsiMethod}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
 import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
-import org.jetbrains.plugins.scala.lang.psi.types._
+import org.jetbrains.plugins.scala.lang.psi.types.*
 import org.jetbrains.plugins.scala.util.IntentionAvailabilityChecker
 
 import scala.annotation.tailrec
 
 sealed abstract class ParameterlessAccessInspection extends AbstractRegisteredInspection {
 
-  import ParameterlessAccessInspection._
+  import ParameterlessAccessInspection.*
 
   override protected def problemDescriptor(element: PsiElement,
                                            maybeQuickFix: Option[LocalQuickFix],

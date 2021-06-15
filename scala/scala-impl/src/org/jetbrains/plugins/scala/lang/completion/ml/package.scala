@@ -5,25 +5,25 @@ package completion
 import com.intellij.codeInsight.completion.ml.CompletionEnvironment
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.NotNullLazyKey
-import com.intellij.psi._
+import com.intellij.psi.*
 import com.intellij.psi.impl.compiled.ClsMethodImpl
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.{InheritanceUtil, PsiTreeUtil}
 import com.intellij.util.ArrayUtil.EMPTY_STRING_ARRAY
 import com.intellij.util.text.NameUtilCore
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.lexer.{ScalaTokenType, ScalaTokenTypes}
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScFieldId
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.{ScBindingPattern, ScReferencePattern}
-import org.jetbrains.plugins.scala.lang.psi.api.expr._
-import org.jetbrains.plugins.scala.lang.psi.api.statements._
-import org.jetbrains.plugins.scala.lang.psi.api.statements.params._
+import org.jetbrains.plugins.scala.lang.psi.api.expr.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.*
+import org.jetbrains.plugins.scala.lang.psi.api.statements.params.*
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.templates.{ScTemplateBody, ScTemplateParents}
 import org.jetbrains.plugins.scala.lang.psi.api.toplevel.typedef.{ScClass, ScObject, ScTrait}
 import org.jetbrains.plugins.scala.lang.psi.api.{ScFile, ScPackage}
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.synthetic.ScSyntheticFunction
-import org.jetbrains.plugins.scala.lang.psi.types._
-import org.jetbrains.plugins.scala.lang.psi.types.api._
+import org.jetbrains.plugins.scala.lang.psi.types.*
+import org.jetbrains.plugins.scala.lang.psi.types.api.*
 import org.jetbrains.plugins.scala.lang.psi.types.api.designator.{ScDesignatorType, ScProjectionType, ScThisType}
 import org.jetbrains.plugins.scala.lang.psi.types.nonvalue.{ScMethodType, ScTypePolymorphicType}
 import org.jetbrains.plugins.scala.lang.psi.types.result.Typeable
@@ -37,9 +37,9 @@ package object ml {
   private val MaxWords = 7
 
   private val KeywordsByElementType: Map[IElementType, Keyword] = {
-    import Keyword._
-    import ScalaTokenType._
-    import ScalaTokenTypes._
+    import Keyword.*
+    import ScalaTokenType.*
+    import ScalaTokenTypes.*
 
     Map(
       kABSTRACT -> ABSRACT,
@@ -173,7 +173,7 @@ package object ml {
   }
 
   private[ml] def elementKind(element: PsiElement): CompletionItem = {
-    import CompletionItem._
+    import CompletionItem.*
 
     element match {
       case c: PsiClass if InheritanceUtil.isInheritor(c, CommonClassNames.JAVA_LANG_THROWABLE) => EXCEPTION
@@ -199,7 +199,7 @@ package object ml {
   }
 
   private[ml] def location(element: PsiElement): Location = {
-    import Location._
+    import Location.*
 
     element.getParent match {
       case reference: ScReferenceExpression if reference.isQualified => REFERENCE

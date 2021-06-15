@@ -4,7 +4,7 @@ import com.intellij.lang.Language
 import org.jetbrains.plugins.scala.{Scala3Language, ScalaBundle, ScalaLanguage}
 import org.jetbrains.plugins.scala.annotator.element.ElementAnnotator
 import org.jetbrains.plugins.scala.base.SimpleTestCase
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.{ScalaFile, ScalaPsiElement}
 import org.junit.Assert
 

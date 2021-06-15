@@ -15,7 +15,7 @@ import org.jetbrains.android.facet.{AndroidFacet, AndroidFacetType, AndroidRootU
 import org.jetbrains.plugins.scala.project.external.{AbstractDataService, AbstractImporter, Importer}
 import org.jetbrains.sbt.project.data.AndroidFacetData
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * @author Nikolay Obedin

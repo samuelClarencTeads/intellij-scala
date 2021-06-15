@@ -4,12 +4,12 @@ import com.intellij.execution.CantRunException
 import com.intellij.execution.configurations.JavaParameters
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.Sdk
-import com.intellij.openapi.roots._
+import com.intellij.openapi.roots.*
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.jrt.JrtFileSystem
 import org.jetbrains.plugins.scala.project.{ModuleExt, ProjectExt}
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 /**
  * (Hacky) Helper class needed to skip "build modules" classpath during tests run.
@@ -19,7 +19,7 @@ import scala.jdk.CollectionConverters._
  */
 private[test] class JavaParametersModified extends JavaParameters {
 
-  import JavaParameters._
+  import JavaParameters.*
 
   /**
    * copied from [[com.intellij.execution.configurations.JavaParameters]]

@@ -5,7 +5,7 @@ package overrideImplement
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.text.StringUtil.convertLineSeparators
-import com.intellij.testFramework.EditorTestUtil._
+import com.intellij.testFramework.EditorTestUtil.*
 import org.jetbrains.plugins.scala.lang.formatting.settings.ScalaCodeStyleSettings
 import org.jetbrains.plugins.scala.overrideImplement.ScalaOIUtil.invokeOverrideImplement
 import org.jetbrains.plugins.scala.project.settings.ScalaCompilerConfiguration

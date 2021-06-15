@@ -7,14 +7,14 @@ import com.intellij.openapi.actionSystem.{CommonDataKeys, DataContext}
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.externalSystem.util.ExternalSystemApiUtil
 import com.intellij.openapi.project.{DumbService, Project}
-import com.intellij.openapi.{module => OpenapiModule}
+import com.intellij.openapi.{module as OpenapiModule}
 import com.intellij.psi.PsiManager
 import org.jetbrains.idea.maven.indices.MavenIndex
-import org.jetbrains.plugins.scala.extensions._
+import org.jetbrains.plugins.scala.extensions.*
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaFile
 import org.jetbrains.plugins.scala.lang.psi.api.base.literals.ScStringLiteral
 import org.jetbrains.plugins.scala.lang.psi.api.expr.{ScArgumentExprList, ScInfixExpr}
-import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode._
+import org.jetbrains.plugins.scala.lang.psi.impl.ScalaCode.*
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.packagesearch.ui.AddDependencyOrRepositoryPreviewWizard
 import org.jetbrains.plugins.scala.packagesearch.utils.SbtCommon.defaultLibScope
@@ -26,7 +26,7 @@ import org.jetbrains.sbt.SbtUtil
 import org.jetbrains.sbt.resolvers.{SbtMavenResolver, SbtResolverUtils}
 
 import java.util
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 class SbtDependencyModifier extends ExternalDependencyModificator{
 

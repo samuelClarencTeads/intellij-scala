@@ -6,7 +6,7 @@ import com.intellij.debugger.engine.evaluation.expression.{Evaluator, Modifier}
 import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.debugger.ui.impl.watch.{FieldDescriptorImpl, NodeDescriptorImpl}
 import com.intellij.openapi.project.Project
-import com.sun.jdi._
+import com.sun.jdi.*
 import org.jetbrains.plugins.scala.debugger.evaluation.EvaluationException
 import org.jetbrains.plugins.scala.debugger.evaluation.util.DebuggerUtil
 
