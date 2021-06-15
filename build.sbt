@@ -18,6 +18,7 @@ intellijPlatform in ThisBuild := intellijPlatform.in(Global).??(IntelliJPlatform
    Resolver.sonatypeRepo("releases"),
    Resolver.sonatypeRepo("staging"),
    Resolver.sonatypeRepo("snapshots"),
+   "scala-integration" at "https://scala-ci.typesafe.com/artifactory/scala-integration/"
  )
 
 javacOptions in Global := globalJavacOptions
